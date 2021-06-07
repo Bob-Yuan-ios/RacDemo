@@ -1,0 +1,55 @@
+PODS:
+  - AFNetworking (4.0.1):
+    - AFNetworking/NSURLSession (= 4.0.1)
+    - AFNetworking/Reachability (= 4.0.1)
+    - AFNetworking/Security (= 4.0.1)
+    - AFNetworking/Serialization (= 4.0.1)
+    - AFNetworking/UIKit (= 4.0.1)
+  - AFNetworking/NSURLSession (4.0.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (4.0.1)
+  - AFNetworking/Security (4.0.1)
+  - AFNetworking/Serialization (4.0.1)
+  - AFNetworking/UIKit (4.0.1):
+    - AFNetworking/NSURLSession
+  - IdensicMobileSDK (1.17.4):
+    - IdensicMobileSDK/Default (= 1.17.4)
+  - IdensicMobileSDK/Core (1.17.4)
+  - IdensicMobileSDK/Default (1.17.4):
+    - IdensicMobileSDK/Core
+  - IQKeyboardManager (6.5.6)
+  - Masonry (1.1.0)
+  - MJRefresh (3.5.0)
+  - ReactiveObjC (3.1.1)
+
+DEPENDENCIES:
+  - AFNetworking
+  - IdensicMobileSDK
+  - IQKeyboardManager
+  - Masonry
+  - MJRefresh
+  - ReactiveObjC (~> 3.1.1)
+
+SPEC REPOS:
+  https://github.com/SumSubstance/Specs.git:
+    - IdensicMobileSDK
+  trunk:
+    - AFNetworking
+    - IQKeyboardManager
+    - Masonry
+    - MJRefresh
+    - ReactiveObjC
+
+SPEC CHECKSUMS:
+  AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
+  IdensicMobileSDK: 05666acf9ed207783641693e029a7c692e4f4eb0
+  IQKeyboardManager: 2a6e97afdafc7becf0cb17a9a8d795e3a980717f
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
+  ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
+
+PODFILE CHECKSUM: 0b31de864953694ff8f153b0e5145cad445e5851
+
+COCOAPODS: 1.10.1
