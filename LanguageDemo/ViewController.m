@@ -15,6 +15,10 @@
 
 #import "GTRACLearnM.h"
 
+#import "GTTestAlloc.h"
+#import "QuartzView.h"
+
+#import "GTDarkConfigM.h"
 
 @interface ViewController ()
 
@@ -22,6 +26,8 @@
 
 @property (nonatomic, strong) RacRedView *racRedView;
 @property (nonatomic, strong) RacRedModel *racRedModel;
+
+@property (nonatomic, strong) UILabel *tit;
 
 @end
 
@@ -31,27 +37,74 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
-  
-//    [GTRACLearnM learningSignal];
-//    self.racRedModel = [[RacRedModel alloc] init];
+    [self.view addSubview:[[QuartzView alloc] initWithFrame:self.view.bounds]];
+ 
+//    _tit = [UILabel new];
+//    _tit.frame = CGRectMake(37, 100, 300, 40);
+//    _tit.font = [UIFont systemFontOfSize:25];
+//    _tit.textAlignment = NSTextAlignmentCenter;
+//    [self.view addSubview:_tit];
+//    _tit.text = @"Hello World";
+//
+//    [self fitDarkMode];
+}
+
+- (void)fitDarkMode{
+    _tit.textColor = [GTDarkConfigM txtColor];
+    _tit.backgroundColor = [GTDarkConfigM txtBackColor];
+    self.view.backgroundColor = [GTDarkConfigM themeColor];
+}
+
+
+/*
+ 在ViewController：
+ - (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection
+ - (void)updateViewConstraints
+ - (void)viewWillLayoutSubviews
+ - (void)viewDidLayoutSubviews
+
+ 在View里：
+ - (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection
+ - (void)drawRect:(CGRect)rect
+ - (void)layoutSubviews
+ - (void)updateConstraints
+ - (void)tintColorDidChange
+
+ 在UIPresentationController里：
+ - (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection
+ - (void)containerViewWillLayoutSubviews
+ - (void)containerViewDidLayoutSubviews
+ */
+- (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection{
+    [super traitCollectionDidChange:previousTraitCollection];
     
-    [self racRedClick];
-    [self racRedBind];
+    if (@available(iOS 13.0, *)) {
+        
+        UITraitCollection *tra = [UITraitCollection currentTraitCollection];
+        BOOL hasChange = [previousTraitCollection hasDifferentColorAppearanceComparedToTraitCollection:tra];
+        NSLog(@"viewController ... has change traitCollection is:(%@)", @(hasChange));
+ 
+        // 调用颜色重新改变的方案
+        if (hasChange) [self fitDarkMode];
+        
+    } else {
+        // Fallback on earlier versions
+    }
 }
  
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    NSLog(@"点击...");
-    [GTTKYCModel startKYCWithUserId:@""
-                           appToken:@""
-                          secretKey:@""
-                           flowName:@""
-                       supportEmail:@""
-                            mainNav:self.navigationController
-                  verificationBlock:^(BOOL isApproved) {
-        ;
-    }];
-    self.kvoView.frame = CGRectMake(100, 300, 100, 100);
+//    NSLog(@"点击...");
+//    [GTTKYCModel startKYCWithUserId:@""
+//                           appToken:@""
+//                          secretKey:@""
+//                           flowName:@""
+//                       supportEmail:@""
+//                            mainNav:self.navigationController
+//                  verificationBlock:^(BOOL isApproved) {
+//        ;
+//    }];
+//    self.kvoView.frame = CGRectMake(100, 300, 100, 100);
 }
 
 #pragma mark rac 单对象kvo

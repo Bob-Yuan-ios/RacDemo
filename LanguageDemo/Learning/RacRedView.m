@@ -8,6 +8,7 @@
 #import "RacRedView.h"
 #import <Masonry/Masonry.h>
 #import "GTTextField.h"
+#import "GTCommonInfo.h"
 
 
 @interface RacRedView ()

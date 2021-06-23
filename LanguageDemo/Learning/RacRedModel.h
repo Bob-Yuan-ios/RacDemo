@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RacRedModel : NSObject
+@interface RacRedModel : NSObject<NSMutableCopying>
 
 @property (nonatomic, copy) NSString *age;
 @property (nonatomic, copy) NSString *name;

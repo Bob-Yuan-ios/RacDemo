@@ -9,7 +9,7 @@
 
 @implementation RacRedVM
 
-- (void)addBtnAction:(UIButton *)_submitBtn{
+- (void)addBtnAction:(UIButton *)_submitBtn racRedModel:(nonnull RacRedModel *)model{
     [[_submitBtn rac_signalForControlEvents:UIControlEventTouchUpInside]
      subscribeNext:^(__kindof UIControl * _Nullable x) {
          NSLog(@"点击按钮");

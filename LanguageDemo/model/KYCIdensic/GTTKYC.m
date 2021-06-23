@@ -18,6 +18,7 @@
 @end
 
 @implementation GTTKYC
+#define DEBUG 1
 
 #pragma mark SDK初始化和SDK启动
 
@@ -260,7 +261,6 @@ static bool isKyc = NO;
 
 
 #pragma mark 缓存用于kyc使用的userID和accesssToken
-#warning -123 为 -统一账号ID
 + (NSString *)getKycUserId{
     NSString *kycUserId = [[NSUserDefaults standardUserDefaults] valueForKey:@"kycUserId-123"];
     return kycUserId ? kycUserId : @"";

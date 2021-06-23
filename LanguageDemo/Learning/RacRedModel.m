@@ -9,6 +9,13 @@
 
 @implementation RacRedModel
 
+- (id)mutableCopyWithZone:(NSZone *)zone {
+    RacRedModel *mutableCopy = [[RacRedModel allocWithZone:zone] init];
+    mutableCopy.name = _name;
+
+    return mutableCopy;
+}
+
 - (void)setAge:(NSString *)age{
     NSLog(@"update age is:%@", age);
     _age = age;
