@@ -8,7 +8,6 @@
 
 #import "YSChromaKeyFilter.h"
 
-#define DEBUG
 @interface YSChromaKeyFilter ()
 @end
 
