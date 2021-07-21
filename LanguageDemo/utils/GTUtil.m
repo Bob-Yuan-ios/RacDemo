@@ -53,9 +53,11 @@
     themeV.layer.masksToBounds = YES;
     themeV.layer.cornerRadius = 50;
     
-    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:themeV.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:themeV.bounds.size];
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:themeV.bounds
+                                                   byRoundingCorners:UIRectCornerAllCorners
+                                                         cornerRadii:themeV.bounds.size];
 
-    CAShapeLayer *maskLayer = [[CAShapeLayer alloc]init];
+    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
     //设置大小
     maskLayer.frame = themeV.bounds;
     //设置图形样子
