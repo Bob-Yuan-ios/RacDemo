@@ -7,6 +7,13 @@
 
 #import "QuartzView.h"
 #import <UIKit/UIKit.h>
+#import <CoreText/CoreText.h>
+ 
+@interface QuartzView ()
+
+@property (nonatomic, strong) CALayer     *imgLayer;
+@property (nonatomic, strong) UIImageView *defImg;
+@end
 
 @implementation QuartzView
 
@@ -18,87 +25,156 @@
 }
 */
 
-- (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection{
-    [super traitCollectionDidChange:previousTraitCollection];
-    
-    if (@available(iOS 13.0, *)) {
-        UITraitCollection *tra = [UITraitCollection currentTraitCollection];
-        BOOL hasChange = [previousTraitCollection hasDifferentColorAppearanceComparedToTraitCollection:tra];
-        NSLog(@"view ... has change traitCollection is:(%@)", @(hasChange));
-        // 调用颜色重新改变的方案
-    } else {
-        // Fallback on earlier versions
+- (CALayer *)imgLayer{
+    if (!_imgLayer) {
+        _imgLayer = [[CALayer alloc] init];
+        _imgLayer.contents = (__bridge id _Nullable)([UIImage imageNamed:@"deposit_fait"].CGImage);
+//        // 不转换成 CGImage类型，将无法显示 存储位图
+//        _imgLayer.contents = [UIImage imageNamed:@"deposit_fait"];
+        _imgLayer.backgroundColor = [UIColor yellowColor].CGColor;
+        _imgLayer.frame = CGRectMake(100, 200, 24, 24);
     }
+    return _imgLayer;
 }
- 
-- (id)initWithFrame:(CGRect)frame{
-    self = [super initWithFrame:frame];
-    if (self) {
-        NSLog(@"1111.frame:%@", NSStringFromCGRect(self.bounds));
+
+- (UIImageView *)defImg{
+    if (!_defImg) {
+        _defImg = [[UIImageView alloc] initWithFrame:CGRectMake(100, 200, 24, 24)];
+        _defImg.image = [UIImage imageNamed:@"deposit_fait"];
     }
-    return self;
+    return _defImg;
+}
+
+ 
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    
 }
 
 - (void)drawRect:(CGRect)rect{
     [super drawRect:rect];
-    NSLog(@"222222.frame:%@", NSStringFromCGRect(self.bounds));
-    [self drawToBitMap:390 height:844];
+    
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self addSubview:btn];
+    
+    CGRect frame = rect;
+    frame.size.width /= 2;
+    frame.size.height /= 2;
+    
+    btn.frame = frame;
+ 
+    btn.backgroundColor = [UIColor purpleColor];
+    [btn addTarget:self action:@selector(btnAction) forControlEvents:UIControlEventTouchUpInside];
 }
  
-- (void)drawToBitMap:(CGFloat)width height:(CGFloat)height{
+//- (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection{
+//    [super traitCollectionDidChange:previousTraitCollection];
+//
+//    if (@available(iOS 13.0, *)) {
+//        UITraitCollection *tra = [UITraitCollection currentTraitCollection];
+//        BOOL hasChange = [previousTraitCollection hasDifferentColorAppearanceComparedToTraitCollection:tra];
+//
+//        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//            NSLog(@"view ... has change traitCollection is:(%@)", @(hasChange));
+//        });
+//        NSLog(@"2222z$$$$$$$$$");
+//        // 调用颜色重新改变的方案
+//    } else {
+//        // Fallback on earlier versions
+//    }
+//}
  
-//  为什么自建的画布就画不出来呢
-//    CGContextRef myBitMapContext = [self createBitMapWidth:width height:height];
-    CGContextRef myBitMapContext = UIGraphicsGetCurrentContext();
-    if (NULL == myBitMapContext) {
-         NSLog(@"context null...");
-         return;
+- (id)initWithFrame:(CGRect)frame{
+    self = [super initWithFrame:frame];
+    if (self) {
+  
+        [self addSubview:self.defImg];
+        
+        self.backgroundColor = [UIColor lightGrayColor];
+       
     }
-
-    CGContextSetRGBFillColor(myBitMapContext, 1, 0, 0, 1);
-    CGContextFillRect(myBitMapContext, CGRectMake(0, 0, 200, 100));
-
-    CGContextSetRGBFillColor(myBitMapContext, 0, 0, 1, .5);
-    CGContextFillRect(myBitMapContext, CGRectMake(0, 0, 100, 200));
-
-    CGRect myBoundingBox = CGRectMake(0, 0, width, height);
-    CGImageRef myImage = CGBitmapContextCreateImage(myBitMapContext);
-    CGContextDrawImage(myBitMapContext, myBoundingBox, myImage);
-
-    CGContextRestoreGState(myBitMapContext);
-    CGImageRelease(myImage);
+    return self;
 }
 
-- (CGContextRef)createBitMapWidth:(int)pixW height:(int)pixH{
-    
-    CGContextRef    context = NULL;
-    CGColorSpaceRef colorSpace;
-    
-    colorSpace = CGColorSpaceCreateWithName(kCGColorSpaceGenericRGB);
-    
-    GLubyte *bitmapData = (GLubyte *)malloc(pixW * pixH * 4);
+- (void)btnAction{
+    NSLog(@"btn action time:(%@)", [NSDate date]);
+}
+ 
+//- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event{
+//    NSLog(@"click ...");
+//    if ([self pointInside:point withEvent:event] ) {
+//        return self;
+//    }
+//    
+//    return nil;
+//}
 
-    if(NULL == bitmapData){
-        NSLog(@"bitmapData null...");
-        return NULL;
-    }
+//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+//    NSLog(@"touches began...");
+//}
+
+- (void)drawConText:(CGRect)rect{
+ 
+    CGContextRef myContext = UIGraphicsGetCurrentContext();
+    CGContextSaveGState(myContext);
+
+    // 设置字形变换矩阵为CGAffineTransformIdentity，也就是说每一个字形都不做图形变换
+    CGContextSetTextMatrix(myContext, CGAffineTransformIdentity);
+    // 坐标转换，UIKit 坐标原点在左上角，CoreText 坐标原点在左下角
+    CGContextTranslateCTM(myContext, 0.0f, rect.size.height);
+    CGContextScaleCTM(myContext, 1.0f, -1.0f);
     
-    context = CGBitmapContextCreate(bitmapData,
-                                    pixW,
-                                    pixH,
-                                    8,
-                                    pixW * 4,
-                                    colorSpace,
-                                    kCGImageAlphaPremultipliedLast);
-    if(NULL == context){
-        NSLog(@"context null...");
-        free(bitmapData);
-        return  NULL;
-    }
+    NSString *content = @"hello world";
+    NSDictionary *txtDic = @{NSFontAttributeName: [UIColor yellowColor]};
+    NSMutableAttributedString *attStr = [[NSMutableAttributedString alloc] initWithString:content
+                                                                               attributes:txtDic];
+    //生成CTFramesetter
+    CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)attStr);
+    CFRelease(framesetter);
     
-    CGColorSpaceRelease(colorSpace);
     
-    return  context;
+    //生成CTFrame
+    CGMutablePathRef path = CGPathCreateMutable();
+    CGPathAddRect(path, NULL, CGRectMake(0, 0, 100, 100));
+    CTFrameRef frame = CTFramesetterCreateFrame(framesetter, CFRangeMake(0, [attStr length]), path, NULL);
+
+    //获取一共有多少行
+    CFArrayRef lines = CTFrameGetLines(frame);
+
+    CFRelease(frame);
+    CGPathRelease(path);
+    
+   int lineCount = (int)CFArrayGetCount(lines);
+    
+    
+   CGPoint points[lineCount];
+   CTFrameGetLineOrigins(frame, CFRangeMake(0, 0), points);
+    
+   CGFloat ascent  = 0;   //上行高度
+   CGFloat descent = 0;   //下行高度
+   CGFloat leading = 0;   //行距
+    
+   for (int i = 0; i < lineCount; i ++) {//外层for循环，为了取到所有的 CTLine
+       CTLineRef line = CFArrayGetValueAtIndex(lines, i);
+       
+       CFArrayRef glyphRuns = CTLineGetGlyphRuns(line);
+       int runCount = (int)CFArrayGetCount(glyphRuns);
+       for (int j = 0; j < runCount ; j ++) {//内层for循环，检查每个 CTRun
+           CTRunRef run = CFArrayGetValueAtIndex(glyphRuns, j);
+           CFDictionaryRef attributes = CTRunGetAttributes(run);
+           CTRunDelegateRef delegate = CFDictionaryGetValue(attributes, kCTRunDelegateAttributeName);;//获取代理属性
+           if (delegate == nil)  continue;
+
+           CGRect boundsRun;
+           
+           //获取宽、高
+           boundsRun.size.width  = CTRunGetTypographicBounds(run, CFRangeMake(0, 0), &ascent, &descent, &leading);
+           boundsRun.size.height = ascent + fabs(descent) + leading;
+       }
+   }
+    
+    
+    CGContextRestoreGState(myContext);
 }
  
 @end

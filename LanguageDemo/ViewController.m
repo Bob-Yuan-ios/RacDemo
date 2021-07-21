@@ -6,10 +6,7 @@
 //
 
 #import "ViewController.h"
-
-#import "GTTKYC.h"
-#import "GTTKYCModel.h"
-
+ 
 #import "RacRedView.h"
 #import "RacRedModel.h"
 
@@ -19,6 +16,12 @@
 #import "QuartzView.h"
 
 #import "GTDarkConfigM.h"
+#import "GTObject.h"
+
+#import <objc/runtime.h>
+#import <malloc/malloc.h>
+
+#import <AFNetworking/AFNetworking.h>
 
 @interface ViewController ()
 
@@ -29,6 +32,12 @@
 
 @property (nonatomic, strong) UILabel *tit;
 
+
+@property (nonatomic, strong) GTObject *obj1;
+@property (nonatomic, strong) GTObject *obj2;
+@property (nonatomic, weak)   GTObject *objWeak;
+
+
 @end
 
 @implementation ViewController
@@ -37,24 +46,47 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:[[QuartzView alloc] initWithFrame:self.view.bounds]];
  
-//    _tit = [UILabel new];
-//    _tit.frame = CGRectMake(37, 100, 300, 40);
-//    _tit.font = [UIFont systemFontOfSize:25];
-//    _tit.textAlignment = NSTextAlignmentCenter;
-//    [self.view addSubview:_tit];
-//    _tit.text = @"Hello World";
-//
-//    [self fitDarkMode];
+    NSLog(@"11111....");
+    dispatch_async(dispatch_queue_create(0, 0), ^{
+        [self performSelector:@selector(sayHelloWorld) withObject:nil afterDelay:1.f];
+        [[NSRunLoop currentRunLoop] run];
+    });
+    
+    [self racRedClick];
+}
+ 
+- (void)sayHelloWorld{
+    NSLog(@"say hello world...");
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        [self afnetHttps];
+//    });
 }
 
-- (void)fitDarkMode{
-    _tit.textColor = [GTDarkConfigM txtColor];
-    _tit.backgroundColor = [GTDarkConfigM txtBackColor];
-    self.view.backgroundColor = [GTDarkConfigM themeColor];
-}
 
+- (void)afnetHttps{
+    AFHTTPSessionManager *sM = [[AFHTTPSessionManager alloc] init];
+    [sM setResponseSerializer:[AFHTTPResponseSerializer serializer]];
+ 
+    [sM GET:@"https://www.baidu.com" parameters:nil headers:nil progress:^(NSProgress * _Nonnull uploadProgress) {
+
+        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            NSLog(@"success:(%@)", responseObject);
+
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            NSLog(@"failure:(%@)", error.userInfo);
+    }];
+
+    NSLog(@"++++++:%lu", (unsigned long)sM.dataTasks.count);
+    for (NSURLSessionTask *dataTask in sM.dataTasks) {
+        if([dataTask.currentRequest.URL.absoluteString containsString:@"www.baidu.com"]){
+            NSLog(@"===========######:(%ld)", (long)dataTask.state);
+            [dataTask cancel];
+        }
+    }
+
+    NSLog(@"++++++:%lu", (unsigned long)sM.dataTasks.count);
+}
 
 /*
  在ViewController：
@@ -85,7 +117,6 @@
         NSLog(@"viewController ... has change traitCollection is:(%@)", @(hasChange));
  
         // 调用颜色重新改变的方案
-        if (hasChange) [self fitDarkMode];
         
     } else {
         // Fallback on earlier versions
@@ -93,19 +124,19 @@
 }
  
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
 //    NSLog(@"点击...");
-//    [GTTKYCModel startKYCWithUserId:@""
-//                           appToken:@""
-//                          secretKey:@""
-//                           flowName:@""
-//                       supportEmail:@""
-//                            mainNav:self.navigationController
-//                  verificationBlock:^(BOOL isApproved) {
-//        ;
-//    }];
-//    self.kvoView.frame = CGRectMake(100, 300, 100, 100);
-}
+////    [GTTKYCModel startKYCWithUserId:@""
+////                           appToken:@""
+////                          secretKey:@""
+////                           flowName:@""
+////                       supportEmail:@""
+////                            mainNav:self.navigationController
+////                  verificationBlock:^(BOOL isApproved) {
+////        ;
+////    }];
+////    self.kvoView.frame = CGRectMake(100, 300, 100, 100);
+//}
 
 #pragma mark rac 单对象kvo
 - (void)racKVOTest{

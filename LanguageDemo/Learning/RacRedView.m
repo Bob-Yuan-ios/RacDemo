@@ -23,12 +23,38 @@
 
 @end
 
+#define IMAGETYPE 3
+
 @implementation RacRedView
  
 - (id)initWithFrame:(CGRect)frame{
 
     self = [super initWithFrame:frame];
     if (self) {
+//        UIImageView *img = [UIImageView new];
+//        [self addSubview:img];
+//
+//        img.frame = self.bounds;
+//        img.contentMode = UIViewContentModeScaleToFill;
+//
+//        if (1 == IMAGETYPE) {
+//            img.image = [UIImage imageNamed:@"1"];
+//        }else{
+//            // 减少内存使用
+//            NSBundle *bundle = [NSBundle mainBundle];
+//            NSString *resourcePath = [bundle resourcePath];
+//            NSString *filePath = [resourcePath stringByAppendingPathComponent:@"1.png"];
+//            
+//            if (2 == IMAGETYPE) {
+//                [img setImage:[UIImage imageWithContentsOfFile:filePath]];
+//            }else{
+//                [img setImage:[UIImage imageWithCIImage:
+//                               [CIImage imageWithContentsOfURL:[NSURL fileURLWithPath:filePath]]]];
+//            }
+//        }
+//        
+//        NSLog(@"=====:%@", NSStringFromCGSize(img.image.size));
+        
         NSAttributedString *attStr = [[NSAttributedString alloc] initWithString:@"" attributes:@{NSForegroundColorAttributeName:[UIColor lightGrayColor]}];
  
 
@@ -84,6 +110,11 @@
     }
     return self;
 }
+
+- (void)drawRect:(CGRect)rect{
+    [super drawRect:rect];
+}
+ 
 
 /*
  1、textfield 限制输入框输入
@@ -204,12 +235,7 @@
 
 - (void)layoutSubviews{
     [super layoutSubviews];
-    
-    DSLog(@":%@" ,NSStringFromCGRect(_ageLbl.frame));
-    if(!CGRectEqualToRect(CGRectZero, _ageLbl.frame)) return;
-    WSLog(@":%@" ,NSStringFromCGRect(_ageLbl.frame));
-    ESLog(@":%@" ,NSStringFromCGRect(_ageLbl.frame));
-
+ 
     [_ageLbl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_offset(@120);
         make.left.mas_offset(@15);
