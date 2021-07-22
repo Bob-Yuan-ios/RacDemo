@@ -10,6 +10,8 @@
 		17F619C5F454DDFF43EE2ADF /* libPods-LanguageDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F10C779D08314F3386389BC /* libPods-LanguageDemo.a */; };
 		C41BF19F2671E55D00AB3AA3 /* GTTestAlloc.m in Sources */ = {isa = PBXBuildFile; fileRef = C41BF19E2671E55D00AB3AA3 /* GTTestAlloc.m */; };
 		C41D88C22682C965001D4FBA /* GTDarkConfigM.m in Sources */ = {isa = PBXBuildFile; fileRef = C41D88C12682C965001D4FBA /* GTDarkConfigM.m */; };
+		C425F59726A94BBF0091918D /* RacRedSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = C425F59626A94BBF0091918D /* RacRedSubView.m */; };
+		C425F59A26A94F3B0091918D /* RacRedSubSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = C425F59926A94F3B0091918D /* RacRedSubSubView.m */; };
 		C42C9EEF26A58735003CC621 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = C42C9EEE26A58735003CC621 /* 1.png */; };
 		C4530FAF26A7F51D002560AD /* CoreImageUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4530FAE26A7F51D002560AD /* CoreImageUtil.swift */; };
 		C4530FB226A81947002560AD /* YSChromaKeyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = C4530FB126A81947002560AD /* YSChromaKeyFilter.m */; };
@@ -40,6 +42,10 @@
 		C41BF1A02671E5E700AB3AA3 /* GTCommonInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTCommonInfo.h; sourceTree = "<group>"; };
 		C41D88C02682C965001D4FBA /* GTDarkConfigM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTDarkConfigM.h; sourceTree = "<group>"; };
 		C41D88C12682C965001D4FBA /* GTDarkConfigM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTDarkConfigM.m; sourceTree = "<group>"; };
+		C425F59526A94BBF0091918D /* RacRedSubView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RacRedSubView.h; sourceTree = "<group>"; };
+		C425F59626A94BBF0091918D /* RacRedSubView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RacRedSubView.m; sourceTree = "<group>"; };
+		C425F59826A94F3B0091918D /* RacRedSubSubView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RacRedSubSubView.h; path = /Users/bob/Desktop/LanguageDemo/LanguageDemo/Learning/RacRedSubSubView.h; sourceTree = "<absolute>"; };
+		C425F59926A94F3B0091918D /* RacRedSubSubView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RacRedSubSubView.m; path = /Users/bob/Desktop/LanguageDemo/LanguageDemo/Learning/RacRedSubSubView.m; sourceTree = "<absolute>"; };
 		C42C9EEE26A58735003CC621 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		C4530FAD26A7F51C002560AD /* LanguageDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LanguageDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		C4530FAE26A7F51D002560AD /* CoreImageUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreImageUtil.swift; sourceTree = "<group>"; };
@@ -156,8 +162,6 @@
 				C4A59FD52679E93500C10B8F /* QuartzView.h */,
 				C4A59FD62679E93500C10B8F /* QuartzView.m */,
 				C4530FAE26A7F51D002560AD /* CoreImageUtil.swift */,
-				C4530FB326A81A4E002560AD /* YSMaskModel.h */,
-				C4530FB426A81A4E002560AD /* YSMaskModel.m */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -165,6 +169,8 @@
 		C4FDD6B82667236000E444F2 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				C4530FB326A81A4E002560AD /* YSMaskModel.h */,
+				C4530FB426A81A4E002560AD /* YSMaskModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -190,6 +196,10 @@
 				C46817A5266B33C30026F60C /* GTTextField.m */,
 				C4FDD6D42667236900E444F2 /* RacRedView.h */,
 				C4FDD6D22667236900E444F2 /* RacRedView.m */,
+				C425F59526A94BBF0091918D /* RacRedSubView.h */,
+				C425F59626A94BBF0091918D /* RacRedSubView.m */,
+				C425F59826A94F3B0091918D /* RacRedSubSubView.h */,
+				C425F59926A94F3B0091918D /* RacRedSubSubView.m */,
 				C4FDD6D12667236900E444F2 /* GTRACLearnM.h */,
 				C4FDD6D32667236900E444F2 /* GTRACLearnM.m */,
 				C4CACCE72669E53C00712ED2 /* RacRedVM.h */,
@@ -361,6 +371,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4FDD6F02667237400E444F2 /* GTWkWebViewVC.m in Sources */,
+				C425F59726A94BBF0091918D /* RacRedSubView.m in Sources */,
 				C4CACCE92669E53C00712ED2 /* RacRedVM.m in Sources */,
 				C4FDD6CF2667236000E444F2 /* GTUtil.m in Sources */,
 				C4FDD6F22667237400E444F2 /* GTWkBottomOperationView.m in Sources */,
@@ -369,6 +380,7 @@
 				C4FDD6F12667237400E444F2 /* ViewController.m in Sources */,
 				C4A59FD72679E93500C10B8F /* QuartzView.m in Sources */,
 				C4530FB226A81947002560AD /* YSChromaKeyFilter.m in Sources */,
+				C425F59A26A94F3B0091918D /* RacRedSubSubView.m in Sources */,
 				C4530FAF26A7F51D002560AD /* CoreImageUtil.swift in Sources */,
 				C4B0694E268C4CBD00AD5D28 /* GTObject.m in Sources */,
 				C4629D4A26244CBC00029564 /* AppDelegate.m in Sources */,
@@ -522,7 +534,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2SJH6JLMFB;
 				INFOPLIST_FILE = LanguageDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -546,7 +558,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2SJH6JLMFB;
 				INFOPLIST_FILE = LanguageDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

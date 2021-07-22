@@ -26,6 +26,8 @@
 @interface ViewController ()
 
 @property (nonatomic, strong) UIView *kvoView;
+@property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, strong) UIImage *selectedImage;
 
 @property (nonatomic, strong) RacRedView *racRedView;
 @property (nonatomic, strong) RacRedModel *racRedModel;
@@ -45,7 +47,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor whiteColor];
  
     NSLog(@"11111....");
     dispatch_async(dispatch_queue_create(0, 0), ^{
@@ -63,6 +64,61 @@
 //    });
 }
 
+
+- (UIImage *)layerToImage{
+    
+    if (@available(iOS 10.0, *)) {
+        UIGraphicsImageRendererFormat *format = [[UIGraphicsImageRendererFormat alloc] init];
+            format.prefersExtendedRange = YES;
+            UIGraphicsImageRenderer *renderer = [[UIGraphicsImageRenderer alloc] initWithSize:self.imageView.frame.size format:format];
+            __weak typeof(self) weakSelf = self;
+        return [renderer imageWithActions:^(UIGraphicsImageRendererContext * _Nonnull rendererContext) {
+                return [weakSelf.imageView.layer renderInContext:rendererContext.CGContext];
+            }];
+    }else{
+        // Fallback on earlier versions
+        UIGraphicsBeginImageContextWithOptions(self.selectedImage.size, NO, self.selectedImage.scale);
+        [self.selectedImage drawAtPoint:CGPointZero];
+        CGFloat scale = self.selectedImage.size.width / self.imageView.frame.size.width;
+        CGContextScaleCTM(UIGraphicsGetCurrentContext(), scale, scale);
+        [self.imageView.layer renderInContext:UIGraphicsGetCurrentContext()];
+        UIImage *tmpImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        return tmpImage;
+    }
+ }
+
+- (void)compareMallocForBackground{
+     
+    CGRect rect = [[UIScreen mainScreen] bounds];
+    UIColor *backColor = [UIColor purpleColor];
+  
+    if (@available(iOS 10.0, *)) {
+        UIGraphicsImageRenderer *re = [[UIGraphicsImageRenderer alloc] initWithBounds:rect];
+        UIImage *image = [re imageWithActions:^(UIGraphicsImageRendererContext * _Nonnull rendererContext) {
+            [backColor setFill];
+            UIBezierPath *path = [UIBezierPath bezierPathWithRect:rect];
+            [path addClip];
+            UIRectFill(rect);
+        }];
+   
+        self.view.backgroundColor = [UIColor colorWithPatternImage:
+                                     [image stretchableImageWithLeftCapWidth:0 topCapHeight:0]];
+
+    } else {
+        // Fallback on earlier versions
+        UIGraphicsBeginImageContextWithOptions(rect.size, NO, [UIScreen mainScreen].scale);
+        CGContextRef context = UIGraphicsGetCurrentContext();
+        CGContextSetFillColorWithColor(context, backColor.CGColor);
+        CGContextFillRect(context, rect);
+        UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+
+        self.view.backgroundColor = [UIColor colorWithPatternImage:
+                                     [image stretchableImageWithLeftCapWidth:0 topCapHeight:0]];
+    }
+}
 
 - (void)afnetHttps{
     AFHTTPSessionManager *sM = [[AFHTTPSessionManager alloc] init];
@@ -204,15 +260,17 @@
     self.racRedView = [[RacRedView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self.view addSubview:self.racRedView];
     
-    [self.racRedView.subject subscribeNext:^(id  _Nullable x) {
-       self->_racRedModel.age = @"hello world";
-       NSLog(@"接收到红色视图的信号:%@", x) ;
-       [self removeView];
-    } error:^(NSError * _Nullable error) {
-        NSLog(@"红色视图信号异常结束:%@", error.userInfo);
-    } completed:^{
-        NSLog(@"红色视图信号正常结束");
-    }];
+//    [self.racRedView.subject subscribeNext:^(id  _Nullable x) {
+//       self->_racRedModel.age = @"hello world";
+//       NSLog(@"接收到红色视图的信号:%@", x) ;
+//       [self removeView];
+//    } error:^(NSError * _Nullable error) {
+//        NSLog(@"红色视图信号异常结束:%@", error.userInfo);
+//    } completed:^{
+//        NSLog(@"红色视图信号正常结束");
+//    }];
+    
+    [self compareMallocForBackground];
 }
 
 - (void)removeView{
