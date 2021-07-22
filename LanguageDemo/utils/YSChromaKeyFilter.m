@@ -47,6 +47,7 @@
                 // 3
                 CGFloat hue = [self hueFromRed:red green:green blue:blue];
                 float alpha = (hue >= minHue && hue <= maxHue) ? 0 : 1;
+                
                 // 4
                 float premultipliedRed = red * alpha;
                 float premultipliedGreen = green * alpha;
