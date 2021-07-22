@@ -19,13 +19,9 @@
     if (self) {
         self.inputFilterImage = image;
         self.backgroundImage = bgImage;
-        
     }
-    
-
-    
+        
     return self;
-    
 }
 
 #pragma mark -- 第一种实现
@@ -79,14 +75,19 @@
 
 #ifdef DEBUG
 - (CIImage *)outputImage{
-    
-    CIFilter* chromaKeyFilter = [self chromaKeyFilterHuesFrom:85 to:155];
-    [chromaKeyFilter setValue:self.inputFilterImage forKey:kCIInputImageKey];
-    CIImage* sourceCIImageWithoutBackground = chromaKeyFilter.outputImage;
-    
+
+    CIFilter* chromaKeyFilter = [self chromaKeyFilterHuesFrom:0.3 to:0.4];
+    CIImage *myImage = [[CIImage alloc] initWithImage:self.inputFilterImage];
+    [chromaKeyFilter setValue:myImage forKey:kCIInputImageKey];
+
     CIFilter* compositor = [CIFilter filterWithName:@"CISourceOverCompositing"];
-    [compositor setValue:sourceCIImageWithoutBackground forKey:kCIInputImageKey];
-    [compositor setValue:self.backgroundImage forKey:kCIInputBackgroundImageKey];
+    
+    CIImage* souceCIImage = chromaKeyFilter.outputImage;
+    [compositor setValue:souceCIImage forKey:kCIInputImageKey];
+    
+    CIImage *backgroundCIImage = [[CIImage alloc] initWithImage:self.backgroundImage];
+    [compositor setValue:backgroundCIImage forKey:kCIInputBackgroundImageKey];
+    
     return compositor.outputImage;
 }
 

@@ -12,6 +12,9 @@
 		C41D88C22682C965001D4FBA /* GTDarkConfigM.m in Sources */ = {isa = PBXBuildFile; fileRef = C41D88C12682C965001D4FBA /* GTDarkConfigM.m */; };
 		C425F59726A94BBF0091918D /* RacRedSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = C425F59626A94BBF0091918D /* RacRedSubView.m */; };
 		C425F59A26A94F3B0091918D /* RacRedSubSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = C425F59926A94F3B0091918D /* RacRedSubSubView.m */; };
+		C425F5C526A969980091918D /* UIViewController+cOne.m in Sources */ = {isa = PBXBuildFile; fileRef = C425F5C426A969980091918D /* UIViewController+cOne.m */; };
+		C425F5C826A969A10091918D /* UIViewController+cTwo.m in Sources */ = {isa = PBXBuildFile; fileRef = C425F5C726A969A10091918D /* UIViewController+cTwo.m */; };
+		C425F5CB26A969AB0091918D /* UIViewController+cThree.m in Sources */ = {isa = PBXBuildFile; fileRef = C425F5CA26A969AB0091918D /* UIViewController+cThree.m */; };
 		C42C9EEF26A58735003CC621 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = C42C9EEE26A58735003CC621 /* 1.png */; };
 		C4530FAF26A7F51D002560AD /* CoreImageUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4530FAE26A7F51D002560AD /* CoreImageUtil.swift */; };
 		C4530FB226A81947002560AD /* YSChromaKeyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = C4530FB126A81947002560AD /* YSChromaKeyFilter.m */; };
@@ -46,6 +49,12 @@
 		C425F59626A94BBF0091918D /* RacRedSubView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RacRedSubView.m; sourceTree = "<group>"; };
 		C425F59826A94F3B0091918D /* RacRedSubSubView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RacRedSubSubView.h; path = /Users/bob/Desktop/LanguageDemo/LanguageDemo/Learning/RacRedSubSubView.h; sourceTree = "<absolute>"; };
 		C425F59926A94F3B0091918D /* RacRedSubSubView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RacRedSubSubView.m; path = /Users/bob/Desktop/LanguageDemo/LanguageDemo/Learning/RacRedSubSubView.m; sourceTree = "<absolute>"; };
+		C425F5C326A969980091918D /* UIViewController+cOne.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+cOne.h"; sourceTree = "<group>"; };
+		C425F5C426A969980091918D /* UIViewController+cOne.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+cOne.m"; sourceTree = "<group>"; };
+		C425F5C626A969A10091918D /* UIViewController+cTwo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+cTwo.h"; sourceTree = "<group>"; };
+		C425F5C726A969A10091918D /* UIViewController+cTwo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+cTwo.m"; sourceTree = "<group>"; };
+		C425F5C926A969AB0091918D /* UIViewController+cThree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+cThree.h"; sourceTree = "<group>"; };
+		C425F5CA26A969AB0091918D /* UIViewController+cThree.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+cThree.m"; sourceTree = "<group>"; };
 		C42C9EEE26A58735003CC621 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		C4530FAD26A7F51C002560AD /* LanguageDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LanguageDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		C4530FAE26A7F51D002560AD /* CoreImageUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreImageUtil.swift; sourceTree = "<group>"; };
@@ -146,6 +155,12 @@
 				C4629D4926244CBC00029564 /* AppDelegate.m */,
 				C4FDD6DE2667237400E444F2 /* ViewController.h */,
 				C4FDD6DB2667237400E444F2 /* ViewController.m */,
+				C425F5C326A969980091918D /* UIViewController+cOne.h */,
+				C425F5C426A969980091918D /* UIViewController+cOne.m */,
+				C425F5C626A969A10091918D /* UIViewController+cTwo.h */,
+				C425F5C726A969A10091918D /* UIViewController+cTwo.m */,
+				C425F5C926A969AB0091918D /* UIViewController+cThree.h */,
+				C425F5CA26A969AB0091918D /* UIViewController+cThree.m */,
 				C4629D5426244CBF00029564 /* Assets.xcassets */,
 				C4629D5626244CBF00029564 /* LaunchScreen.storyboard */,
 				C4629D5926244CBF00029564 /* Info.plist */,
@@ -374,6 +389,9 @@
 				C425F59726A94BBF0091918D /* RacRedSubView.m in Sources */,
 				C4CACCE92669E53C00712ED2 /* RacRedVM.m in Sources */,
 				C4FDD6CF2667236000E444F2 /* GTUtil.m in Sources */,
+				C425F5C526A969980091918D /* UIViewController+cOne.m in Sources */,
+				C425F5C826A969A10091918D /* UIViewController+cTwo.m in Sources */,
+				C425F5CB26A969AB0091918D /* UIViewController+cThree.m in Sources */,
 				C4FDD6F22667237400E444F2 /* GTWkBottomOperationView.m in Sources */,
 				C41D88C22682C965001D4FBA /* GTDarkConfigM.m in Sources */,
 				C4FDD6D62667236900E444F2 /* GTRACLearnM.m in Sources */,

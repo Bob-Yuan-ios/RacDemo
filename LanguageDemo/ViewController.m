@@ -23,6 +23,10 @@
 
 #import <AFNetworking/AFNetworking.h>
 
+#import "UIViewController+cOne.h"
+#import "UIViewController+cTwo.h"
+#import "UIViewController+cThree.h"
+
 @interface ViewController ()
 
 @property (nonatomic, strong) UIView *kvoView;
@@ -55,6 +59,15 @@
     });
     
     [self racRedClick];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    [self helloWorld];
+    [self helloWorld];
+    [self helloWorld];
 }
  
 - (void)sayHelloWorld{
