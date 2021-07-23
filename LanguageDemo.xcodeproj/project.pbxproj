@@ -16,9 +16,7 @@
 		C425F5C826A969A10091918D /* UIViewController+cTwo.m in Sources */ = {isa = PBXBuildFile; fileRef = C425F5C726A969A10091918D /* UIViewController+cTwo.m */; };
 		C425F5CB26A969AB0091918D /* UIViewController+cThree.m in Sources */ = {isa = PBXBuildFile; fileRef = C425F5CA26A969AB0091918D /* UIViewController+cThree.m */; };
 		C42C9EEF26A58735003CC621 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = C42C9EEE26A58735003CC621 /* 1.png */; };
-		C4530FAF26A7F51D002560AD /* CoreImageUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4530FAE26A7F51D002560AD /* CoreImageUtil.swift */; };
 		C4530FB226A81947002560AD /* YSChromaKeyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = C4530FB126A81947002560AD /* YSChromaKeyFilter.m */; };
-		C4530FB526A81A4E002560AD /* YSMaskModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C4530FB426A81A4E002560AD /* YSMaskModel.m */; };
 		C4629D4A26244CBC00029564 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4629D4926244CBC00029564 /* AppDelegate.m */; };
 		C4629D5526244CBF00029564 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4629D5426244CBF00029564 /* Assets.xcassets */; };
 		C4629D5826244CBF00029564 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4629D5626244CBF00029564 /* LaunchScreen.storyboard */; };
@@ -26,6 +24,8 @@
 		C46817A6266B33C30026F60C /* GTTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C46817A5266B33C30026F60C /* GTTextField.m */; };
 		C4A59FD72679E93500C10B8F /* QuartzView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A59FD62679E93500C10B8F /* QuartzView.m */; };
 		C4B0694E268C4CBD00AD5D28 /* GTObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B0694D268C4CBD00AD5D28 /* GTObject.m */; };
+		C4C8948626AAB05B005E39F5 /* UIImage+Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C8948526AAB05B005E39F5 /* UIImage+Filter.m */; };
+		C4C8948926AAB750005E39F5 /* UIImageView+Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C8948826AAB750005E39F5 /* UIImageView+Filter.m */; };
 		C4CACCE92669E53C00712ED2 /* RacRedVM.m in Sources */ = {isa = PBXBuildFile; fileRef = C4CACCE82669E53C00712ED2 /* RacRedVM.m */; };
 		C4CACCEC2669E54C00712ED2 /* RacRedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C4CACCEB2669E54C00712ED2 /* RacRedModel.m */; };
 		C4FDD6CF2667236000E444F2 /* GTUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FDD6C82667236000E444F2 /* GTUtil.m */; };
@@ -56,12 +56,8 @@
 		C425F5C926A969AB0091918D /* UIViewController+cThree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+cThree.h"; sourceTree = "<group>"; };
 		C425F5CA26A969AB0091918D /* UIViewController+cThree.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+cThree.m"; sourceTree = "<group>"; };
 		C42C9EEE26A58735003CC621 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
-		C4530FAD26A7F51C002560AD /* LanguageDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LanguageDemo-Bridging-Header.h"; sourceTree = "<group>"; };
-		C4530FAE26A7F51D002560AD /* CoreImageUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreImageUtil.swift; sourceTree = "<group>"; };
 		C4530FB026A81947002560AD /* YSChromaKeyFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSChromaKeyFilter.h; sourceTree = "<group>"; };
 		C4530FB126A81947002560AD /* YSChromaKeyFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSChromaKeyFilter.m; sourceTree = "<group>"; };
-		C4530FB326A81A4E002560AD /* YSMaskModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSMaskModel.h; sourceTree = "<group>"; };
-		C4530FB426A81A4E002560AD /* YSMaskModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSMaskModel.m; sourceTree = "<group>"; };
 		C4629D4526244CBC00029564 /* LanguageDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LanguageDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4629D4826244CBC00029564 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C4629D4926244CBC00029564 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -75,6 +71,10 @@
 		C4A59FD62679E93500C10B8F /* QuartzView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuartzView.m; sourceTree = "<group>"; };
 		C4B0694C268C4CBD00AD5D28 /* GTObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTObject.h; sourceTree = "<group>"; };
 		C4B0694D268C4CBD00AD5D28 /* GTObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTObject.m; sourceTree = "<group>"; };
+		C4C8948426AAB05B005E39F5 /* UIImage+Filter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Filter.h"; sourceTree = "<group>"; };
+		C4C8948526AAB05B005E39F5 /* UIImage+Filter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Filter.m"; sourceTree = "<group>"; };
+		C4C8948726AAB750005E39F5 /* UIImageView+Filter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Filter.h"; sourceTree = "<group>"; };
+		C4C8948826AAB750005E39F5 /* UIImageView+Filter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Filter.m"; sourceTree = "<group>"; };
 		C4CACCE72669E53C00712ED2 /* RacRedVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RacRedVM.h; sourceTree = "<group>"; };
 		C4CACCE82669E53C00712ED2 /* RacRedVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RacRedVM.m; sourceTree = "<group>"; };
 		C4CACCEA2669E54C00712ED2 /* RacRedModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RacRedModel.h; sourceTree = "<group>"; };
@@ -172,11 +172,9 @@
 		C4A59FD42679E91A00C10B8F /* views */ = {
 			isa = PBXGroup;
 			children = (
-				C4530FAD26A7F51C002560AD /* LanguageDemo-Bridging-Header.h */,
 				C42C9EEE26A58735003CC621 /* 1.png */,
 				C4A59FD52679E93500C10B8F /* QuartzView.h */,
 				C4A59FD62679E93500C10B8F /* QuartzView.m */,
-				C4530FAE26A7F51D002560AD /* CoreImageUtil.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -184,8 +182,10 @@
 		C4FDD6B82667236000E444F2 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				C4530FB326A81A4E002560AD /* YSMaskModel.h */,
-				C4530FB426A81A4E002560AD /* YSMaskModel.m */,
+				C4C8948426AAB05B005E39F5 /* UIImage+Filter.h */,
+				C4C8948526AAB05B005E39F5 /* UIImage+Filter.m */,
+				C4C8948726AAB750005E39F5 /* UIImageView+Filter.h */,
+				C4C8948826AAB750005E39F5 /* UIImageView+Filter.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -389,9 +389,11 @@
 				C425F59726A94BBF0091918D /* RacRedSubView.m in Sources */,
 				C4CACCE92669E53C00712ED2 /* RacRedVM.m in Sources */,
 				C4FDD6CF2667236000E444F2 /* GTUtil.m in Sources */,
+				C4C8948626AAB05B005E39F5 /* UIImage+Filter.m in Sources */,
 				C425F5C526A969980091918D /* UIViewController+cOne.m in Sources */,
 				C425F5C826A969A10091918D /* UIViewController+cTwo.m in Sources */,
 				C425F5CB26A969AB0091918D /* UIViewController+cThree.m in Sources */,
+				C4C8948926AAB750005E39F5 /* UIImageView+Filter.m in Sources */,
 				C4FDD6F22667237400E444F2 /* GTWkBottomOperationView.m in Sources */,
 				C41D88C22682C965001D4FBA /* GTDarkConfigM.m in Sources */,
 				C4FDD6D62667236900E444F2 /* GTRACLearnM.m in Sources */,
@@ -399,12 +401,10 @@
 				C4A59FD72679E93500C10B8F /* QuartzView.m in Sources */,
 				C4530FB226A81947002560AD /* YSChromaKeyFilter.m in Sources */,
 				C425F59A26A94F3B0091918D /* RacRedSubSubView.m in Sources */,
-				C4530FAF26A7F51D002560AD /* CoreImageUtil.swift in Sources */,
 				C4B0694E268C4CBD00AD5D28 /* GTObject.m in Sources */,
 				C4629D4A26244CBC00029564 /* AppDelegate.m in Sources */,
 				C4FDD6D52667236900E444F2 /* RacRedView.m in Sources */,
 				C41BF19F2671E55D00AB3AA3 /* GTTestAlloc.m in Sources */,
-				C4530FB526A81A4E002560AD /* YSMaskModel.m in Sources */,
 				C46817A6266B33C30026F60C /* GTTextField.m in Sources */,
 				C4629D5B26244CBF00029564 /* main.m in Sources */,
 				C4CACCEC2669E54C00712ED2 /* RacRedModel.m in Sources */,

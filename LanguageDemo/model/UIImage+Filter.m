@@ -1,33 +1,22 @@
 //
-//  YSMaskModel.m
+//  UIImage+Filter.m
 //  LanguageDemo
 //
-//  Created by Bob on 2021/7/21.
+//  Created by Bob on 2021/7/23.
 //
 
-#import "YSMaskModel.h"
+#import "UIImage+Filter.h"
 
-@implementation YSMaskModel
+@implementation UIImage (Filter)
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
-
-- (void)addMaskFaceV:(UIImageView *)imageV{
+- (UIImage *)muskFace{
     
     NSDictionary *opts = [NSDictionary dictionaryWithObject:CIDetectorAccuracyHigh
                                                      forKey:CIDetectorAccuracy];
-
     CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeFace context:nil options:opts];
     
-    
-    CIImage *image = [[CIImage alloc] initWithImage:imageV.image];
-    NSArray *faceArray = [detector featuresInImage:image
-                                           options:nil];
+    CIImage *image = [[CIImage alloc] initWithImage:self];
+    NSArray *faceArray = [detector featuresInImage:image options:nil];
     
     CIImage *maskImage = nil;
     for (CIFeature *f in faceArray) {
@@ -61,13 +50,13 @@
         }
     }
 
-    CIImage *backgroundCIImage = [[CIImage alloc] initWithImage:imageV.image];
+    CIImage *backgroundCIImage = [[CIImage alloc] initWithImage:self];
     CIImage *resulImage = [[CIFilter filterWithName:@"CISourceOverCompositing"
-                                      keysAndValues:kCIInputImageKey,maskImage,kCIInputBackgroundImageKey,backgroundCIImage,nil]
+                                      keysAndValues:kCIInputImageKey,maskImage,
+                            kCIInputBackgroundImageKey,backgroundCIImage,nil]
                            valueForKey:kCIOutputImageKey];
 
-    imageV.image = [UIImage imageWithCIImage:resulImage];
+    return [UIImage imageWithCIImage:resulImage];
 }
-
 
 @end
