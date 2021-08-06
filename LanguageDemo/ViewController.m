@@ -27,6 +27,8 @@
 #import "UIViewController+cTwo.h"
 #import "UIViewController+cThree.h"
 
+#import "TitleRepeatV.h"
+
 @interface ViewController ()
 
 @property (nonatomic, strong) UIView *kvoView;
@@ -52,14 +54,20 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
  
-    NSLog(@"11111....");
-    dispatch_async(dispatch_queue_create(0, 0), ^{
-        [self performSelector:@selector(sayHelloWorld) withObject:nil afterDelay:1.f];
-        [[NSRunLoop currentRunLoop] run];
-    });
+    self.view.backgroundColor = [UIColor brownColor];
     
-    [self racRedClick];
+//    [self racRedClick];
     
+//    dispatch_async(dispatch_queue_create(0, 0), ^{
+//        [self performSelector:@selector(sayHelloWorld) withObject:nil afterDelay:3.f];
+//        [[NSRunLoop currentRunLoop] run];
+//    });
+    
+//    [self performSelector:@selector(sayHelloWorld) withObject:nil afterDelay:1.f];
+
+    TitleRepeatV *repeatV = [[TitleRepeatV alloc] initWithFrame:CGRectMake(0, 400, 414, 40)];
+    repeatV.backgroundColor = [UIColor redColor];
+    [self.view addSubview:repeatV];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -75,6 +83,29 @@
 //    dispatch_async(dispatch_get_main_queue(), ^{
 //        [self afnetHttps];
 //    });
+    UIView *backV = [UIView new];
+    [[UIApplication sharedApplication].keyWindow addSubview:backV];
+    
+    backV.alpha = 0.5;
+    backV.backgroundColor = [UIColor blackColor];
+    backV.frame = [[UIScreen mainScreen] bounds];
+  
+    UIView *maskV = [UIView new];
+    [backV addSubview:maskV];
+    maskV.backgroundColor = [UIColor whiteColor];
+    
+    CGPoint origin =  [self.racRedView nameTopLeft];
+    origin.x -= 5;
+    origin.y -= 5;
+    
+    CGSize size = [self.racRedView nameSize];
+    size.width += 10;
+    size.height += 10;
+    
+    CGRect frame = CGRectZero;
+    frame.origin = origin;
+    frame.size = size;
+    maskV.frame = frame;
 }
 
 
@@ -283,7 +314,7 @@
 //        NSLog(@"红色视图信号正常结束");
 //    }];
     
-    [self compareMallocForBackground];
+//    [self compareMallocForBackground];
 }
 
 - (void)removeView{

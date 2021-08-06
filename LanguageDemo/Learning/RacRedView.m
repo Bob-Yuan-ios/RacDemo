@@ -109,6 +109,16 @@
     DSLog(@"...");
 }
 
+- (CGPoint)nameTopLeft{
+    UIView *desV = [UIApplication sharedApplication].keyWindow;
+    return [self convertPoint:_nameTF.frame.origin toView:desV];
+}
+
+- (CGSize)nameSize{
+    return _nameTF.frame.size;
+}
+
+
 - (void)compareMallocForImage:(CGRect)frame{
        UIImageView *img = [UIImageView new];
        [self addSubview:img];
