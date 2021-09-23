@@ -13,4 +13,8 @@ target 'LanguageDemo' do
     pod 'ReactiveObjC','~> 3.1.1'
 
     pod 'IdensicMobileSDK'
+    
+    pod 'FBSDKLoginKit'
+    pod 'GoogleSignIn'
+    
 end

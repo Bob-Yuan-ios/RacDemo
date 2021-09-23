@@ -9,12 +9,14 @@
 #import "ViewController.h"
 #import "GTWkWebViewVC.h"
 
+#import <GoogleSignIn/GoogleSignIn.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
-
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
@@ -27,6 +29,31 @@
 //    GTWkWebViewVC *vc = [[GTWkWebViewVC alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
     [_window setRootViewController:nav];
+    
+    {
+        [[FBSDKApplicationDelegate sharedInstance] application:application
+                                   didFinishLaunchingWithOptions:launchOptions];
+        
+        [GIDSignIn.sharedInstance restorePreviousSignInWithCallback:^(GIDGoogleUser * _Nullable user,
+                                                                      NSError * _Nullable error) {
+          if (error) {
+            // Show the app's signed-out state.
+          } else {
+            // Show the app's signed-in state.
+          }
+        }];
+    }
+
+    
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
+    
+    {
+        [GIDSignIn.sharedInstance handleURL:url];
+
+    }
     
     return YES;
 }

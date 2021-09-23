@@ -28,6 +28,7 @@
 #import "UIViewController+cThree.h"
 
 #import "TitleRepeatV.h"
+#import "ThreadModel.h"
 
 @interface ViewController ()
 
@@ -65,9 +66,16 @@
     
 //    [self performSelector:@selector(sayHelloWorld) withObject:nil afterDelay:1.f];
 
-    TitleRepeatV *repeatV = [[TitleRepeatV alloc] initWithFrame:CGRectMake(0, 400, 414, 40)];
-    repeatV.backgroundColor = [UIColor redColor];
-    [self.view addSubview:repeatV];
+    
+//    TitleRepeatV *repeatV = [[TitleRepeatV alloc] initWithFrame:CGRectMake(0, 400, 414, 40)];
+//    repeatV.backgroundColor = [UIColor redColor];
+//    [self.view addSubview:repeatV];
+//
+//    [ThreadModel testLock];
+   
+    
+    
+ 
 }
 
 - (void)viewWillAppear:(BOOL)animated{

@@ -16,6 +16,9 @@
 		C425F5C526A969980091918D /* UIViewController+cOne.m in Sources */ = {isa = PBXBuildFile; fileRef = C425F5C426A969980091918D /* UIViewController+cOne.m */; };
 		C425F5C826A969A10091918D /* UIViewController+cTwo.m in Sources */ = {isa = PBXBuildFile; fileRef = C425F5C726A969A10091918D /* UIViewController+cTwo.m */; };
 		C425F5CB26A969AB0091918D /* UIViewController+cThree.m in Sources */ = {isa = PBXBuildFile; fileRef = C425F5CA26A969AB0091918D /* UIViewController+cThree.m */; };
+		C441C63C26FC6A2500BDC5AE /* FacebookLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = C441C63B26FC6A2500BDC5AE /* FacebookLogin.m */; };
+		C441C63F26FC6ACB00BDC5AE /* GooglePlayLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = C441C63E26FC6ACB00BDC5AE /* GooglePlayLogin.m */; };
+		C441C64226FC6E7900BDC5AE /* AppleStoreLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = C441C64126FC6E7900BDC5AE /* AppleStoreLogin.m */; };
 		C4530FB226A81947002560AD /* YSChromaKeyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = C4530FB126A81947002560AD /* YSChromaKeyFilter.m */; };
 		C45957A726B3E80B00CD2390 /* TitleRepeatV.m in Sources */ = {isa = PBXBuildFile; fileRef = C45957A626B3E80B00CD2390 /* TitleRepeatV.m */; };
 		C4629D4A26244CBC00029564 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4629D4926244CBC00029564 /* AppDelegate.m */; };
@@ -23,6 +26,7 @@
 		C4629D5826244CBF00029564 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4629D5626244CBF00029564 /* LaunchScreen.storyboard */; };
 		C4629D5B26244CBF00029564 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4629D5A26244CBF00029564 /* main.m */; };
 		C46817A6266B33C30026F60C /* GTTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C46817A5266B33C30026F60C /* GTTextField.m */; };
+		C49EC46C26C10E7100F130F8 /* ThreadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C49EC46B26C10E7100F130F8 /* ThreadModel.m */; };
 		C4A59FD72679E93500C10B8F /* QuartzView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A59FD62679E93500C10B8F /* QuartzView.m */; };
 		C4B0694E268C4CBD00AD5D28 /* GTObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B0694D268C4CBD00AD5D28 /* GTObject.m */; };
 		C4C8948626AAB05B005E39F5 /* UIImage+Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C8948526AAB05B005E39F5 /* UIImage+Filter.m */; };
@@ -57,6 +61,12 @@
 		C425F5C726A969A10091918D /* UIViewController+cTwo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+cTwo.m"; sourceTree = "<group>"; };
 		C425F5C926A969AB0091918D /* UIViewController+cThree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+cThree.h"; sourceTree = "<group>"; };
 		C425F5CA26A969AB0091918D /* UIViewController+cThree.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+cThree.m"; sourceTree = "<group>"; };
+		C441C63A26FC6A2500BDC5AE /* FacebookLogin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FacebookLogin.h; sourceTree = "<group>"; };
+		C441C63B26FC6A2500BDC5AE /* FacebookLogin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FacebookLogin.m; sourceTree = "<group>"; };
+		C441C63D26FC6ACB00BDC5AE /* GooglePlayLogin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GooglePlayLogin.h; sourceTree = "<group>"; };
+		C441C63E26FC6ACB00BDC5AE /* GooglePlayLogin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GooglePlayLogin.m; sourceTree = "<group>"; };
+		C441C64026FC6E7900BDC5AE /* AppleStoreLogin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppleStoreLogin.h; sourceTree = "<group>"; };
+		C441C64126FC6E7900BDC5AE /* AppleStoreLogin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppleStoreLogin.m; sourceTree = "<group>"; };
 		C4530FB026A81947002560AD /* YSChromaKeyFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSChromaKeyFilter.h; sourceTree = "<group>"; };
 		C4530FB126A81947002560AD /* YSChromaKeyFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSChromaKeyFilter.m; sourceTree = "<group>"; };
 		C45957A526B3E80B00CD2390 /* TitleRepeatV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TitleRepeatV.h; sourceTree = "<group>"; };
@@ -70,6 +80,8 @@
 		C4629D5A26244CBF00029564 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C46817A4266B33C30026F60C /* GTTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTTextField.h; sourceTree = "<group>"; };
 		C46817A5266B33C30026F60C /* GTTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTTextField.m; sourceTree = "<group>"; };
+		C49EC46A26C10E7100F130F8 /* ThreadModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThreadModel.h; sourceTree = "<group>"; };
+		C49EC46B26C10E7100F130F8 /* ThreadModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThreadModel.m; sourceTree = "<group>"; };
 		C4A59FD52679E93500C10B8F /* QuartzView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuartzView.h; sourceTree = "<group>"; };
 		C4A59FD62679E93500C10B8F /* QuartzView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuartzView.m; sourceTree = "<group>"; };
 		C4B0694C268C4CBD00AD5D28 /* GTObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTObject.h; sourceTree = "<group>"; };
@@ -191,6 +203,14 @@
 				C4C8948526AAB05B005E39F5 /* UIImage+Filter.m */,
 				C4C8948726AAB750005E39F5 /* UIImageView+Filter.h */,
 				C4C8948826AAB750005E39F5 /* UIImageView+Filter.m */,
+				C49EC46A26C10E7100F130F8 /* ThreadModel.h */,
+				C49EC46B26C10E7100F130F8 /* ThreadModel.m */,
+				C441C63A26FC6A2500BDC5AE /* FacebookLogin.h */,
+				C441C63B26FC6A2500BDC5AE /* FacebookLogin.m */,
+				C441C63D26FC6ACB00BDC5AE /* GooglePlayLogin.h */,
+				C441C63E26FC6ACB00BDC5AE /* GooglePlayLogin.m */,
+				C441C64026FC6E7900BDC5AE /* AppleStoreLogin.h */,
+				C441C64126FC6E7900BDC5AE /* AppleStoreLogin.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -394,8 +414,11 @@
 				C425F59726A94BBF0091918D /* RacRedSubView.m in Sources */,
 				C4CACCE92669E53C00712ED2 /* RacRedVM.m in Sources */,
 				C4FDD6CF2667236000E444F2 /* GTUtil.m in Sources */,
+				C49EC46C26C10E7100F130F8 /* ThreadModel.m in Sources */,
 				C4C8948626AAB05B005E39F5 /* UIImage+Filter.m in Sources */,
 				C425F5C526A969980091918D /* UIViewController+cOne.m in Sources */,
+				C441C63F26FC6ACB00BDC5AE /* GooglePlayLogin.m in Sources */,
+				C441C64226FC6E7900BDC5AE /* AppleStoreLogin.m in Sources */,
 				C425F5C826A969A10091918D /* UIViewController+cTwo.m in Sources */,
 				C425F5CB26A969AB0091918D /* UIViewController+cThree.m in Sources */,
 				C4C8948926AAB750005E39F5 /* UIImageView+Filter.m in Sources */,
@@ -406,6 +429,7 @@
 				C4A59FD72679E93500C10B8F /* QuartzView.m in Sources */,
 				C4530FB226A81947002560AD /* YSChromaKeyFilter.m in Sources */,
 				C425F59A26A94F3B0091918D /* RacRedSubSubView.m in Sources */,
+				C441C63C26FC6A2500BDC5AE /* FacebookLogin.m in Sources */,
 				C4B0694E268C4CBD00AD5D28 /* GTObject.m in Sources */,
 				C4629D4A26244CBC00029564 /* AppDelegate.m in Sources */,
 				C45957A726B3E80B00CD2390 /* TitleRepeatV.m in Sources */,

@@ -46,6 +46,9 @@
                                         userInfo:nil
                                          repeats:YES];
         [timer fire];
+        
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(test) name:@"HELLO" object:nil];
     }
     return self;
 }
@@ -60,6 +63,10 @@
 }
 
  
+- (void)dealloc{
+    NSLog(@"dealloc titleRepeatV...");
+}
+
 - (void)refreshWithOpenPosition{
     NSMutableString *lastContent = [@"" mutableCopy];
 

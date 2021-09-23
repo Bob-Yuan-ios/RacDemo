@@ -1,0 +1,6 @@
+module Pods_LanguageDemo {
+  umbrella header "Pods-LanguageDemo-umbrella.h"
+
+  export *
+  module * { export * }
+}
