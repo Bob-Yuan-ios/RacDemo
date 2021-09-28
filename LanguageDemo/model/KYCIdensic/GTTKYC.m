@@ -56,6 +56,41 @@ static bool isKyc = NO;
     }
 }
 
++ (void)createApplicationId{
+    
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+
+    NSTimeInterval ts = [[NSDate date] timeIntervalSince1970];
+    NSString *tsStr = [NSString stringWithFormat:@"%0.f", ts];
+    
+    NSString *content = [NSString stringWithFormat:@"%@POST/resources/accessTokens?userId=%@&ttlInSecs=600", tsStr, userId];
+    
+    NSString *appToken = [NSString hmacSHA256WithSecret:@"dD2FMhsGWA7KwcWUdWh7VP6B7PjgYaYk" content:content];
+    
+    NSDictionary *headers = @{
+        @"X-App-Token":      localeBearToken,
+        @"X-App-Access-Sig": appToken,
+        @"X-App-Access-Ts":  tsStr
+    };
+    
+    NSString *path = [NSString stringWithFormat:@"https://test-api.sumsub.com/resources/accessTokens?userId=%@&ttlInSecs=600", userId];
+    path = [path stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    
+    [manager POST:path parameters:nil headers:headers progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"postToken responseWithObject...:%@", responseObject);
+        if ([responseObject isKindOfClass:[NSDictionary class]] && [responseObject objectForKey:@"token"]) {
+            success(responseObject);
+        }else{
+            NSError *err = [NSError errorWithDomain:@"" code:-1 userInfo:@{@"msg": @"数据错误"}];
+            failure(err);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"errorInformation...:%@", error.userInfo);
+        failure(error);
+    }];
+    
+}
 
 /// 通过userId bearerToken accessToken 启动SDK
 /// @param userId sdk平台注册的userId

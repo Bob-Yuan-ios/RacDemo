@@ -28,6 +28,7 @@
 		C46817A6266B33C30026F60C /* GTTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C46817A5266B33C30026F60C /* GTTextField.m */; };
 		C49EC46C26C10E7100F130F8 /* ThreadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C49EC46B26C10E7100F130F8 /* ThreadModel.m */; };
 		C4A59FD72679E93500C10B8F /* QuartzView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A59FD62679E93500C10B8F /* QuartzView.m */; };
+		C4AECA7D2702C66000F3BA1A /* Bridging_Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AECA7C2702C66000F3BA1A /* Bridging_Header.swift */; };
 		C4B0694E268C4CBD00AD5D28 /* GTObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B0694D268C4CBD00AD5D28 /* GTObject.m */; };
 		C4C8948626AAB05B005E39F5 /* UIImage+Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C8948526AAB05B005E39F5 /* UIImage+Filter.m */; };
 		C4C8948926AAB750005E39F5 /* UIImageView+Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C8948826AAB750005E39F5 /* UIImageView+Filter.m */; };
@@ -84,6 +85,8 @@
 		C49EC46B26C10E7100F130F8 /* ThreadModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThreadModel.m; sourceTree = "<group>"; };
 		C4A59FD52679E93500C10B8F /* QuartzView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuartzView.h; sourceTree = "<group>"; };
 		C4A59FD62679E93500C10B8F /* QuartzView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuartzView.m; sourceTree = "<group>"; };
+		C4AECA7B2702C66000F3BA1A /* LanguageDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LanguageDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		C4AECA7C2702C66000F3BA1A /* Bridging_Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bridging_Header.swift; sourceTree = "<group>"; };
 		C4B0694C268C4CBD00AD5D28 /* GTObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTObject.h; sourceTree = "<group>"; };
 		C4B0694D268C4CBD00AD5D28 /* GTObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTObject.m; sourceTree = "<group>"; };
 		C4C8948426AAB05B005E39F5 /* UIImage+Filter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Filter.h"; sourceTree = "<group>"; };
@@ -142,10 +145,12 @@
 		C4629D3C26244CBC00029564 = {
 			isa = PBXGroup;
 			children = (
+				C4AECA7C2702C66000F3BA1A /* Bridging_Header.swift */,
 				C4629D4726244CBC00029564 /* LanguageDemo */,
 				C4629D4626244CBC00029564 /* Products */,
 				D850E6E8332F8633473BB42A /* Pods */,
 				05127B1A74E6EFFA52B7441A /* Frameworks */,
+				C4AECA7B2702C66000F3BA1A /* LanguageDemo-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -424,6 +429,7 @@
 				C4C8948926AAB750005E39F5 /* UIImageView+Filter.m in Sources */,
 				C4FDD6F22667237400E444F2 /* GTWkBottomOperationView.m in Sources */,
 				C41D88C22682C965001D4FBA /* GTDarkConfigM.m in Sources */,
+				C4AECA7D2702C66000F3BA1A /* Bridging_Header.swift in Sources */,
 				C4FDD6D62667236900E444F2 /* GTRACLearnM.m in Sources */,
 				C4FDD6F12667237400E444F2 /* ViewController.m in Sources */,
 				C4A59FD72679E93500C10B8F /* QuartzView.m in Sources */,
@@ -580,16 +586,16 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2SJH6JLMFB;
+				DEVELOPMENT_TEAM = V5ALQR4SC7;
 				INFOPLIST_FILE = LanguageDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.weizong.Bob.LanguageDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.btcc.hy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "LanguageDemo/views/LanguageDemo-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "LanguageDemo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -604,16 +610,16 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2SJH6JLMFB;
+				DEVELOPMENT_TEAM = V5ALQR4SC7;
 				INFOPLIST_FILE = LanguageDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.weizong.Bob.LanguageDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.btcc.hy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "LanguageDemo/views/LanguageDemo-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "LanguageDemo-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

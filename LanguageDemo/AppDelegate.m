@@ -31,8 +31,7 @@
     [_window setRootViewController:nav];
     
     {
-        [[FBSDKApplicationDelegate sharedInstance] application:application
-                                   didFinishLaunchingWithOptions:launchOptions];
+        [[FBSDKApplicationDelegate sharedInstance] application:application  didFinishLaunchingWithOptions:launchOptions];
         
         [GIDSignIn.sharedInstance restorePreviousSignInWithCallback:^(GIDGoogleUser * _Nullable user,
                                                                       NSError * _Nullable error) {
@@ -50,9 +49,10 @@
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
     
+    NSLog(@"openUrl:%@", url.absoluteString);
     {
+        [[FBSDKApplicationDelegate sharedInstance] application:app openURL:url options:options];
         [GIDSignIn.sharedInstance handleURL:url];
-
     }
     
     return YES;

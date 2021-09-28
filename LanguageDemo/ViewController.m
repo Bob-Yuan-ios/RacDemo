@@ -6,7 +6,8 @@
 //
 
 #import "ViewController.h"
- 
+#import <Masonry/Masonry.h>
+
 #import "RacRedView.h"
 #import "RacRedModel.h"
 
@@ -29,6 +30,13 @@
 
 #import "TitleRepeatV.h"
 #import "ThreadModel.h"
+
+//
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+//
+
+#import <GoogleSignIn/GoogleSignIn.h>
 
 @interface ViewController ()
 
@@ -55,7 +63,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
  
-    self.view.backgroundColor = [UIColor brownColor];
+    self.title = @"测试第三方登录";
+    self.view.backgroundColor = [UIColor lightGrayColor];
     
 //    [self racRedClick];
     
@@ -72,11 +81,66 @@
 //    [self.view addSubview:repeatV];
 //
 //    [ThreadModel testLock];
-   
-    
     
  
+    {
+        FBSDKLoginButton *fbBtn = [[FBSDKLoginButton alloc] init];
+        [self.view addSubview:fbBtn];
+        fbBtn.permissions = @[@"public_profile", @"email"];
+        
+        [fbBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.bottom.mas_equalTo(self.view.mas_bottom).offset(-10);
+            make.centerX.mas_equalTo(self.view.mas_centerX);
+            make.width.mas_equalTo(@300);
+            make.height.mas_equalTo(@40);
+        }];
+        FBSDKAccessToken *accessToken = [FBSDKAccessToken currentAccessToken];
+        if (accessToken) {
+            NSLog(@"information is:%@", accessToken);
+        }
+        
+        UIButton *googleBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self.view addSubview:googleBtn];
+
+        [googleBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.bottom.mas_equalTo(fbBtn.mas_top).offset(-20);
+            make.centerX.mas_equalTo(self.view.mas_centerX);
+            make.width.mas_equalTo(@300);
+            make.height.mas_equalTo(@40);
+        }];
+
+        [googleBtn.titleLabel setFont:[UIFont systemFontOfSize:12]];
+        [googleBtn setTitle:@"使用谷歌邮箱登录" forState:UIControlStateNormal];
+        googleBtn.backgroundColor = [UIColor redColor];
+        
+        googleBtn.layer.cornerRadius = 5.f;
+        [googleBtn addTarget:self action:@selector(signIn:) forControlEvents:UIControlEventTouchUpInside];
+    }
+   
 }
+
+- (void)signIn:(UIButton *)sender {
+    
+ sender.userInteractionEnabled = NO;
+ GIDConfiguration *signInConfig = [[GIDConfiguration alloc] initWithClientID:@"659872786378-9v9l6limi0vk57frveu2mjroqrcnr7n4.apps.googleusercontent.com"];
+  [GIDSignIn.sharedInstance signInWithConfiguration:signInConfig
+                           presentingViewController:self
+                                           callback:^(GIDGoogleUser * _Nullable user,
+                                                      NSError * _Nullable error) {
+    if (error) {
+        sender.userInteractionEnabled = YES;
+        [sender setTitle:@"谷歌邮箱授权登录失败" forState:UIControlStateNormal];
+        NSLog(@"error information is:%@", error.userInfo);
+        return;
+    }
+
+      NSString *str = [NSString stringWithFormat:@"谷歌登录邮箱:%@", user.profile.email];
+      [sender setTitle:str forState:UIControlStateNormal];
+
+    // If sign in succeeded, display the app's main content View.
+  }];
+}
+
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
