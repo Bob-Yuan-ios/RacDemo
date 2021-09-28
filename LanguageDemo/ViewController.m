@@ -54,7 +54,7 @@
 @property (nonatomic, strong) GTObject *obj2;
 @property (nonatomic, weak)   GTObject *objWeak;
 
-
+@property (nonatomic, assign) BOOL loginGoogleSuccess;
 @end
 
 @implementation ViewController
@@ -114,33 +114,47 @@
         googleBtn.backgroundColor = [UIColor redColor];
         
         googleBtn.layer.cornerRadius = 5.f;
-        [googleBtn addTarget:self action:@selector(signIn:) forControlEvents:UIControlEventTouchUpInside];
+        [googleBtn addTarget:self action:@selector(googleLogin:) forControlEvents:UIControlEventTouchUpInside];
     }
    
 }
 
-- (void)signIn:(UIButton *)sender {
+- (void)googleLogin:(UIButton *)sender{
     
- sender.userInteractionEnabled = NO;
- GIDConfiguration *signInConfig = [[GIDConfiguration alloc] initWithClientID:@"659872786378-9v9l6limi0vk57frveu2mjroqrcnr7n4.apps.googleusercontent.com"];
-  [GIDSignIn.sharedInstance signInWithConfiguration:signInConfig
-                           presentingViewController:self
-                                           callback:^(GIDGoogleUser * _Nullable user,
-                                                      NSError * _Nullable error) {
-    if (error) {
-        sender.userInteractionEnabled = YES;
-        [sender setTitle:@"谷歌邮箱授权登录失败" forState:UIControlStateNormal];
-        NSLog(@"error information is:%@", error.userInfo);
-        return;
-    }
-
-      NSString *str = [NSString stringWithFormat:@"谷歌登录邮箱:%@", user.profile.email];
-      [sender setTitle:str forState:UIControlStateNormal];
-
-    // If sign in succeeded, display the app's main content View.
-  }];
+    !_loginGoogleSuccess ? [self signIn:sender] : [self signOut:sender];
 }
 
+- (void)signIn:(UIButton *)sender {
+    
+    sender.userInteractionEnabled = NO;
+    GIDConfiguration *signInConfig = [[GIDConfiguration alloc] initWithClientID:@"659872786378-9v9l6limi0vk57frveu2mjroqrcnr7n4.apps.googleusercontent.com"];
+     [GIDSignIn.sharedInstance signInWithConfiguration:signInConfig
+                              presentingViewController:self
+                                              callback:^(GIDGoogleUser * _Nullable user,
+                                                         NSError * _Nullable error) {
+       if (error) {
+           _loginGoogleSuccess = NO;
+           sender.userInteractionEnabled = YES;
+           [sender setTitle:@"谷歌邮箱登录授权失败" forState:UIControlStateNormal];
+           return;
+       }
+
+         _loginGoogleSuccess = YES;
+         sender.userInteractionEnabled = YES;
+         NSString *str = [NSString stringWithFormat:@"谷歌邮箱登录账号:%@", user.profile.email];
+         [sender setTitle:str forState:UIControlStateNormal];
+
+       // If sign in succeeded, display the app's main content View.
+     }];
+}
+
+- (void)signOut:(UIButton *)sender{
+    [GIDSignIn.sharedInstance signOut];
+    [sender setTitle:@"谷歌邮箱登录授权退出" forState:UIControlStateNormal];
+    
+    _loginGoogleSuccess = NO;
+    sender.userInteractionEnabled = YES;
+}
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
