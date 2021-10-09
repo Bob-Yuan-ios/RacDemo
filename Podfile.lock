@@ -53,6 +53,9 @@ PODS:
   - Masonry (1.1.0)
   - MJRefresh (3.5.0)
   - ReactiveObjC (3.1.1)
+  - YYKit (1.0.9):
+    - YYKit/no-arc (= 1.0.9)
+  - YYKit/no-arc (1.0.9)
 
 DEPENDENCIES:
   - AFNetworking
@@ -63,6 +66,7 @@ DEPENDENCIES:
   - Masonry
   - MJRefresh
   - ReactiveObjC (~> 3.1.1)
+  - YYKit
 
 SPEC REPOS:
   https://github.com/SumSubstance/Specs.git:
@@ -81,6 +85,7 @@ SPEC REPOS:
     - Masonry
     - MJRefresh
     - ReactiveObjC
+    - YYKit
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
@@ -97,7 +102,8 @@ SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
+  YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: fad2d20f6f5cfa57057125177955d774e7bd35db
+PODFILE CHECKSUM: 5b6e78fab8a5e3c9b7ebf1efd590549257d613c9
 
 COCOAPODS: 1.10.1

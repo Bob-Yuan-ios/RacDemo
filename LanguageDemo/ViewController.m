@@ -38,6 +38,9 @@
 
 #import <GoogleSignIn/GoogleSignIn.h>
 
+
+#import "TestUrlAppend.h"
+
 @interface ViewController ()
 
 @property (nonatomic, strong) UIView *kvoView;
@@ -55,6 +58,10 @@
 @property (nonatomic, weak)   GTObject *objWeak;
 
 @property (nonatomic, assign) BOOL loginGoogleSuccess;
+
+@property (nonatomic, strong) FBSDKLoginManager *fbLoginManager;
+@property (nonatomic, assign) BOOL loginFacebookSuccess;
+
 @end
 
 @implementation ViewController
@@ -64,8 +71,9 @@
     // Do any additional setup after loading the view.
  
     self.title = @"测试第三方登录";
-    self.view.backgroundColor = [UIColor lightGrayColor];
-    
+//    self.view.backgroundColor = [UIColor lightGrayColor];
+
+    [TestUrlAppend test1];
 //    [self racRedClick];
     
 //    dispatch_async(dispatch_queue_create(0, 0), ^{
@@ -84,20 +92,36 @@
     
  
     {
-        FBSDKLoginButton *fbBtn = [[FBSDKLoginButton alloc] init];
-        [self.view addSubview:fbBtn];
-        fbBtn.permissions = @[@"public_profile", @"email"];
+//        FBSDKLoginButton *fbBtn = [[FBSDKLoginButton alloc] init];
+//        [self.view addSubview:fbBtn];
+//        fbBtn.permissions = @[@"public_profile", @"email"];
+//
+//        [fbBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.bottom.mas_equalTo(self.view.mas_bottom).offset(-10);
+//            make.centerX.mas_equalTo(self.view.mas_centerX);
+//            make.width.mas_equalTo(@300);
+//            make.height.mas_equalTo(@40);
+//        }];
+//        FBSDKAccessToken *accessToken = [FBSDKAccessToken currentAccessToken];
+//        if (accessToken) {
+//            NSLog(@"information is:%@", accessToken);
+//        }
         
+        UIButton *fbBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self.view addSubview:fbBtn];
         [fbBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.mas_equalTo(self.view.mas_bottom).offset(-10);
+            make.bottom.mas_equalTo(self.view.mas_bottom).offset(-70);
             make.centerX.mas_equalTo(self.view.mas_centerX);
             make.width.mas_equalTo(@300);
             make.height.mas_equalTo(@40);
         }];
-        FBSDKAccessToken *accessToken = [FBSDKAccessToken currentAccessToken];
-        if (accessToken) {
-            NSLog(@"information is:%@", accessToken);
-        }
+        
+        [fbBtn.titleLabel setFont:[UIFont systemFontOfSize:12]];
+        [fbBtn setTitle:@"使用FaceBook登录" forState:UIControlStateNormal];
+        fbBtn.backgroundColor = [UIColor blueColor];
+        
+        fbBtn.layer.cornerRadius = 5.f;
+        [fbBtn addTarget:self action:@selector(facebookLogin:) forControlEvents:UIControlEventTouchUpInside];
         
         UIButton *googleBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.view addSubview:googleBtn];
@@ -119,12 +143,53 @@
    
 }
 
-- (void)googleLogin:(UIButton *)sender{
-    
-    !_loginGoogleSuccess ? [self signIn:sender] : [self signOut:sender];
+- (void)facebookLogin:(UIButton *)sender{
+    !_loginFacebookSuccess ? [self facebookSignIn:sender] : [self facebookSignOut:sender];
 }
 
-- (void)signIn:(UIButton *)sender {
+- (void)googleLogin:(UIButton *)sender{
+    !_loginGoogleSuccess ? [self googleSignIn:sender] : [self googleSignOut:sender];
+}
+
+- (FBSDKLoginManager *)fbLoginManager{
+    if (!_fbLoginManager) {
+        _fbLoginManager = [[FBSDKLoginManager alloc] init];
+    }
+    return _fbLoginManager;
+}
+
+- (void)facebookSignIn:(UIButton *)sender {
+ 
+    [self.fbLoginManager logInWithPermissions:@[@"public_profile", @"email"] fromViewController:self handler:^(FBSDKLoginManagerLoginResult * _Nullable result, NSError * _Nullable error) {
+        [self getUserProfile:result facebookBtn:sender];
+    }];
+}
+
+- (void)getUserProfile:(FBSDKLoginManagerLoginResult *)result facebookBtn:(UIButton *)sender{
+    NSDictionary *params = @{@"fields": @"id,name,email"};
+    
+    FBSDKGraphRequest *req = [[FBSDKGraphRequest alloc] initWithGraphPath:result.token.userID parameters:params HTTPMethod:@"GET"];
+    [req startWithCompletion:^(id<FBSDKGraphRequestConnecting>  _Nullable connection, id  _Nullable result, NSError * _Nullable error) {
+        
+        if(error){
+            _loginFacebookSuccess = NO;
+            [sender setTitle:@"登录Facebook失败" forState:UIControlStateNormal];
+        }else{
+            _loginFacebookSuccess = YES;
+            [sender setTitle:[NSString stringWithFormat:@"登录Facebook成功昵称:%@",
+                              [result objectForKey:@"name"]] forState:UIControlStateNormal];
+        }
+        NSLog(@"result:%@", result);
+    
+    }];
+}
+
+- (void)facebookSignOut:(UIButton *)sender {
+    [self.fbLoginManager logOut];
+    _loginFacebookSuccess = NO;
+}
+
+- (void)googleSignIn:(UIButton *)sender {
     
     sender.userInteractionEnabled = NO;
     GIDConfiguration *signInConfig = [[GIDConfiguration alloc] initWithClientID:@"659872786378-9v9l6limi0vk57frveu2mjroqrcnr7n4.apps.googleusercontent.com"];
@@ -148,7 +213,7 @@
      }];
 }
 
-- (void)signOut:(UIButton *)sender{
+- (void)googleSignOut:(UIButton *)sender{
     [GIDSignIn.sharedInstance signOut];
     [sender setTitle:@"谷歌邮箱登录授权退出" forState:UIControlStateNormal];
     

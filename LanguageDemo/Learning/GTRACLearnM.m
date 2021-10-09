@@ -6,68 +6,169 @@
 //
 
 //大纲：https://www.jianshu.com/p/2b12b6659413
-//RACMulticastConnection：https://www.dazhuanlan.com/2019/11/30/5de16ed131676/
-
+ 
 #import "GTRACLearnM.h"
 #import "ReactiveObjC.h"
 #import "RACReturnSignal.h"
  
 @implementation GTRACLearnM
  
-+ (void)learningSignal {
-    [GTRACLearnM schedulerTest];
++ (void)learningSignal{
+    [GTRACLearnM swiToLastest];
 }
  
-+ (void)schedulerTest{
-//    RACSignal *signal = [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
-//
-//        NSLog(@"sender thread is:%@", [NSThread currentThread]);
-//        [subscriber sendNext:@1];
-//        [subscriber sendCompleted];
-//
-//        return [RACDisposable disposableWithBlock:^{}];
-//    }];
-//
-//    [[signal deliverOn:[RACScheduler schedulerWithPriority:RACSchedulerPriorityBackground]] subscribeNext:^(id  _Nullable x) {
-//        NSLog(@"recived Thread is:%@ ====== value is:%@", [NSThread currentThread], x);
-//    } error:^(NSError * _Nullable error) {
-//        ;
-//    } completed:^{
-//        ;
-//    }];
-    
-    [[[RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
-        NSLog(@"sender thread is:%@", [NSThread currentThread]);
-        [subscriber sendNext:@"1"];
+#pragma mark 创建信号 -- 订阅和发送一对一
+/*
+ 输出日志
+ 2021-10-09 11:30:22.778498+0800 LanguageDemo[14744:216391] next infor:10
+ 2021-10-09 11:30:22.778817+0800 LanguageDemo[14744:216391] error code:-1
+ */
++ (void)signalTest{
+    RACSignal *signal = [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+       
+        NSLog(@"发送数据///");
+        [subscriber sendNext:@10];
+        [subscriber sendError:[NSError errorWithDomain:@"www.baidu.com" code:-1 userInfo:nil]];
         [subscriber sendCompleted];
-        return [RACDisposable disposableWithBlock:^{
-            ;
-        }];
-    }] subscribeOn:[RACScheduler schedulerWithPriority:RACSchedulerPriorityDefault name:@"helloScheduler"]]
-     subscribeNext:^(id  _Nullable x) {
-        NSLog(@"recive thread is:%@, information is:%@", [NSThread currentThread], x);
+        
+        return nil;
+    }];
+
+    [signal subscribeNext:^(id  _Nullable x) {
+        NSLog(@"next infor:%@", x);
+    } error:^(NSError * _Nullable error) {
+        NSLog(@"error code:%ld", (long)error.code);
+    } completed:^{
+        NSLog(@"test done!");
     }];
 }
 
-+ (void)bindTest{
-    
-    RACSubject *subject = [RACSubject subject];
-
-    // 绑定信号
-    RACSignal *bindSignal = [subject bind:^RACSignalBindBlock _Nullable{
-        return  ^RACSignal *(id _Nullable value, BOOL *stop){
-            NSString *newString = [NSString stringWithFormat:@"do bind: %@", value];
-            return [RACReturnSignal return:newString];
-        };
-    }];
+#pragma mark 创建信号 -- 返回对象
++ (void)disposableTest{
  
-    [bindSignal subscribeNext:^(id  _Nullable x) {
-        NSLog(@"订阅数据 ... (%@) ...", x);
+    RACSignal *signal = [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+       
+        [subscriber sendNext:@10];
+        [subscriber sendCompleted];
+        
+        RACDisposable *dis = [RACDisposable disposableWithBlock:^{
+            // 取消订阅时触发 如果对象被强引用 则不会触发释放 主动调用 则取消订阅 
+            NSLog(@"RACDisposable...");
+        }];
+        
+        return dis;
     }];
     
-    [subject sendNext:@"### Hello World ###"];
+    [signal subscribeNext:^(id  _Nullable x) {
+       NSLog(@"next...%@", x);
+    } completed:^{
+        NSLog(@"next done!");
+    }];
 }
 
+#pragma mark 热信号 -- 可以主动发送信号
++ (void)subjectTest{
+    // 只能先订阅后发送
+    RACSubject *subject = [RACSubject subject];
+    [subject subscribeNext:^(id  _Nullable x) {
+        NSLog(@"x = %@", x);
+    }];
+    [subject sendNext:@21];
+    
+    // 先发送后订阅 也能正常执行
+    RACReplaySubject *subject1 = [RACReplaySubject subject];
+    [subject1 sendNext:@"12"];
+    [subject1 subscribeNext:^(id  _Nullable x) {
+        NSLog(@"next x = %@", x);
+    }];
+}
+
+#pragma mark 网络请求
+/*
+ 2021-10-09 13:19:51.818736+0800 LanguageDemo[15309:287357] 第一个网络请求
+ 2021-10-09 13:19:51.819551+0800 LanguageDemo[15309:287357] 第二个网络请求
+ 2021-10-09 13:19:51.820169+0800 LanguageDemo[15309:287357]
+ 第一个网络请求数据:Hello First
+ 第二个网络请求数据:World Second
+ */
++ (void)liftTest{
+    RACSignal *first = [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+        NSLog(@"第一个网络请求");
+        [subscriber sendNext:@{@"returnCode": @(200), @"returnMsg":@"Hello First"}];
+        return nil;
+    }];
+    
+    RACSignal *second = [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+        NSLog(@"第二个网络请求");
+        [subscriber sendNext:@{@"returnCode": @(200), @"returnMsg":@"World Second"}];
+        return nil;
+    }];
+    
+    [GTRACLearnM rac_liftSelector:@selector(updateUIWithData1:data2:)
+      withSignalsFromArray:@[first, second]];
+}
+
++ (void)updateUIWithData1:(NSDictionary *)data1 data2:(NSDictionary *)data2{
+    NSLog(@"\n第一个网络请求数据:%@\n第二个网络请求数据:%@", [data1 objectForKey:@"returnMsg"], [data2 objectForKey:@"returnMsg"]);
+}
+
+
+#pragma mark 订阅信息避免重复执行 -- 确保信号Block代码只执行一次
+/*
+ 2021-10-09 13:22:32.220507+0800 LanguageDemo[15333:290442] 开始请求数据
+ 2021-10-09 13:22:32.220772+0800 LanguageDemo[15333:290442] 第一次订阅读取数据:数据已正常返回
+ 2021-10-09 13:22:32.220998+0800 LanguageDemo[15333:290442] 第二次订阅读取数据:数据已正常返回
+ */
++ (void)castConnectionTest{
+    RACSignal *signal = [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+        NSLog(@"开始请求数据");
+        [subscriber sendNext:@"数据已正常返回"];
+        return nil;;
+    }];
+
+    RACMulticastConnection *connection = [signal publish];
+
+    [connection.signal subscribeNext:^(id  _Nullable x) {
+        NSLog(@"第一次订阅读取数据:%@", x);
+    }];
+
+    [connection.signal subscribeNext:^(id  _Nullable x) {
+        NSLog(@"第二次订阅读取数据:%@", x);
+    }];
+
+    [connection connect];
+
+    // 此订阅不会执行
+    [connection.signal subscribeNext:^(id  _Nullable x) {
+        NSLog(@"第三次订阅读取数据:%@", x);
+    }];
+}
+
+#pragma mark 不同的指令 不同的响应
++ (void)commandTest{
+    RACCommand *command = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+        NSLog(@"input is:%@, %@", NSStringFromClass([input class]), input);
+        return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+            [subscriber sendNext:@{@"returnCode": @(200), @"returnMsg": @"asDf=="}];
+            return nil;
+        }];
+    }];
+    
+    RACSignal *signal = [command execute:@"触发需要token的操作，需要获取token"];
+    
+    [signal subscribeNext:^(id  _Nullable x) {
+        NSLog(@"接受信号:%@, %@", NSStringFromClass([x class]), x);
+    }];
+}
+
+/*
+ 2021-10-09 13:38:24.723308+0800 LanguageDemo[15475:307155] executing === className:(__NSCFBoolean), value:(0)
+ 2021-10-09 13:38:24.723945+0800 LanguageDemo[15475:307155] input is:(发送input命令)
+ 2021-10-09 13:38:24.733708+0800 LanguageDemo[15475:307155] executing === className:(__NSCFNumber), value:(1)
+ 2021-10-09 13:38:24.734595+0800 LanguageDemo[15475:307155] switchToLatest === className:(__NSCFConstantString), value:(接收到input指令)
+ 2021-10-09 13:38:24.736193+0800 LanguageDemo[15475:307155] executing === className:(__NSCFNumber), value:(0)
+
+ */
 + (void)swiToLastest{
     RACCommand *command = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
         NSLog(@"input is:(%@)", input);
@@ -89,22 +190,45 @@
     [command execute:@"发送input命令"];
 }
 
-+ (void)command{
-    RACCommand *command = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
-        NSLog(@"raccommand input value is:%@, %@", NSStringFromClass([input class]), input);
-        return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
-            [subscriber sendNext:@{@"returnCode": @(200), @"returnMsg": @"asDf=="}];
-            return nil;
-        }];
+
+#pragma mark 实时监听数据的刷新
+/*
+ 2021-10-09 13:34:48.883179+0800 LanguageDemo[15438:303270] 订阅数据 ... (do bind: ### Hello World ###) ...
+ */
++ (void)bindTest{
+    RACSubject *subject = [RACSubject subject];
+
+    // 绑定信号
+    RACSignal *bindSignal = [subject bind:^RACSignalBindBlock _Nullable{
+        return  ^RACSignal *(id _Nullable value, BOOL *stop){
+            NSString *newString = [NSString stringWithFormat:@"do bind: %@", value];
+            return [RACReturnSignal return:newString];
+        };
+    }];
+ 
+    [bindSignal subscribeNext:^(id  _Nullable x) {
+        NSLog(@"订阅数据 ... (%@) ...", x);
     }];
     
-    RACSignal *signal = [command execute:@"触发需要token的操作，需要获取token"];
-    
-    [signal subscribeNext:^(id  _Nullable x) {
-        NSLog(@"接受信号:%@, %@", NSStringFromClass([x class]), x);
+    [subject sendNext:@"### Hello World ###"];
+}
+
+#pragma mark 异步线程信号
++ (void)schedulerTest{
+    [[[RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+        NSLog(@"sender thread is:%@", [NSThread currentThread]);
+        [subscriber sendNext:@"1"];
+        [subscriber sendCompleted];
+        return [RACDisposable disposableWithBlock:^{
+            ;
+        }];
+    }] subscribeOn:[RACScheduler schedulerWithPriority:RACSchedulerPriorityDefault name:@"helloScheduler"]]
+     subscribeNext:^(id  _Nullable x) {
+        NSLog(@"recive thread is:%@, information is:%@", [NSThread currentThread], x);
     }];
 }
 
+ 
 + (void)signalReplay{
     // 使用replay方法 通知不会重复触发 订阅全部都能执行
     RACSignal *signal = [[RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
@@ -147,55 +271,9 @@
     }];
 }
 
-/// 订阅信号 避免多次重复执行
-+ (void)seventh{
-    RACSignal *signal = [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
-        NSLog(@"开始请求数据");
-        [subscriber sendNext:@"数据已正常返回"];
-        return nil;;
-    }];
 
-    RACMulticastConnection *connection = [signal publish];
 
-    [connection.signal subscribeNext:^(id  _Nullable x) {
-        NSLog(@"第一次订阅读取数据:%@", x);
-    }];
-
-    [connection.signal subscribeNext:^(id  _Nullable x) {
-        NSLog(@"第二次订阅读取数据:%@", x);
-    }];
-
-    [connection connect];
-
-    // 此订阅不会执行
-    [connection.signal subscribeNext:^(id  _Nullable x) {
-        NSLog(@"第三次订阅读取数据:%@", x);
-    }];
-}
-
-// 序列化请求
-+ (void)sixth{
-    RACSignal *first = [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
-        NSLog(@"第一个网络请求");
-        [subscriber sendNext:@{@"returnCode": @(200), @"returnMsg":@"Hello"}];
-        return nil;
-    }];
-    
-    RACSignal *second = [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
-        NSLog(@"第二个网络请求");
-        [subscriber sendNext:@{@"returnCode": @(200), @"returnMsg":@"World"}];
-        return nil;
-    }];
-    
-    [GTRACLearnM rac_liftSelector:@selector(updateUIWithData1:data2:)
-      withSignalsFromArray:@[first, second]];
-}
-
-+ (void)updateUIWithData1:(NSDictionary *)data1 data2:(NSDictionary *)data2{
-    NSLog(@"更新UI:%@ %@", [data1 objectForKey:@"returnMsg"], [data2 objectForKey:@"returnMsg"]);
-}
-
-//遍历数组 字典转模型
+#pragma mark 数组遍历
 + (void)fifth{
     NSDictionary *dic1 = @{ @"name": @"bob", @"userId": @"1" };
     NSDictionary *dic2 = @{ @"name": @"bob", @"userId": @"1" };
@@ -209,7 +287,7 @@
 //遍历数组 字典转模型
 + (void)forth{
     NSDictionary *dic1 = @{ @"name": @"bob", @"userId": @"1" };
-    NSDictionary *dic2 = @{ @"name": @"bob", @"userId": @"1" };
+    NSDictionary *dic2 = @{ @"name": @"bob1", @"userId": @"2" };
     NSArray *arr = @[dic1, dic2];
     NSMutableArray *arrM = [[NSMutableArray alloc] initWithCapacity:2];
     [arr.rac_sequence.signal subscribeNext:^(id  _Nullable x) {
@@ -247,7 +325,7 @@
     }];
 }
 
-//RAC 初印象
+#pragma mark 冷信号
 + (void)first{
     //创建信号
     RACSignal *signal = [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
@@ -281,6 +359,7 @@
         NSLog(@"信号正常结束");
     }];
 }
+
 @end
 
 @implementation UserModel

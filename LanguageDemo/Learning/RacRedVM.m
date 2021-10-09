@@ -7,9 +7,6 @@
 
 #import "RacRedVM.h"
  
-//@interface NSURLSession (NSURLSessionAsynchronousConvenience)
-
-
 @implementation RacRedVM
 
 - (void)addBtnAction:(UIButton *)_submitBtn racRedModel:(nonnull RacRedModel *)model{
@@ -18,7 +15,5 @@
          NSLog(@"点击按钮");        
     }];    
 }
-
-
 
 @end

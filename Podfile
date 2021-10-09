@@ -16,5 +16,5 @@ target 'LanguageDemo' do
     
     pod 'FBSDKLoginKit'
     pod 'GoogleSignIn'
-    
+    pod 'YYKit' 
 end
