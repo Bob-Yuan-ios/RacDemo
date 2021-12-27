@@ -7,7 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import <ReactiveObjC/ReactiveObjC.h>
-#import "RacRedModel.h"
+#import "RacRedVM.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

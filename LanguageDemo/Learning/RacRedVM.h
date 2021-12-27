@@ -9,13 +9,22 @@
 #import <Foundation/Foundation.h>
 #import <ReactiveObjC/ReactiveObjC.h>
 
-#import "RacRedModel.h"
+@class RacRedModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface RacRedVM : NSObject
 
 - (void)addBtnAction:(UIButton *)btn racRedModel:(RacRedModel *)model;
+
+@end
+
+
+@interface RacRedModel : NSObject<NSMutableCopying>
+
+@property (nonatomic, copy) NSString *age;
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *height;
 
 @end
 

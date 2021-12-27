@@ -25,7 +25,6 @@
  */
 + (void)signalTest{
     RACSignal *signal = [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
-       
         NSLog(@"发送数据///");
         [subscriber sendNext:@10];
         [subscriber sendError:[NSError errorWithDomain:@"www.baidu.com" code:-1 userInfo:nil]];

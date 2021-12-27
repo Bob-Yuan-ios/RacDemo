@@ -8,8 +8,8 @@
 #import "ViewController.h"
 #import <Masonry/Masonry.h>
 
+#import "RacRedVM.h"
 #import "RacRedView.h"
-#import "RacRedModel.h"
 
 #import "GTRACLearnM.h"
 
@@ -23,26 +23,16 @@
 #import <malloc/malloc.h>
 
 #import <AFNetworking/AFNetworking.h>
-
-#import "UIViewController+cOne.h"
-#import "UIViewController+cTwo.h"
-#import "UIViewController+cThree.h"
-
+ 
 #import "TitleRepeatV.h"
 #import "ThreadModel.h"
-
-//
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
-#import <FBSDKLoginKit/FBSDKLoginKit.h>
-//
-
-#import <GoogleSignIn/GoogleSignIn.h>
-
-
-#import "TestUrlAppend.h"
+ 
+#import "UIImage+ChangeColor.h"
 
 @interface ViewController ()
-
+<
+UIScrollViewDelegate
+>
 @property (nonatomic, strong) UIView *kvoView;
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) UIImage *selectedImage;
@@ -52,15 +42,11 @@
 
 @property (nonatomic, strong) UILabel *tit;
 
-
 @property (nonatomic, strong) GTObject *obj1;
 @property (nonatomic, strong) GTObject *obj2;
 @property (nonatomic, weak)   GTObject *objWeak;
-
-@property (nonatomic, assign) BOOL loginGoogleSuccess;
-
-@property (nonatomic, strong) FBSDKLoginManager *fbLoginManager;
-@property (nonatomic, assign) BOOL loginFacebookSuccess;
+ 
+@property (nonatomic, assign) CGFloat width;
 
 @end
 
@@ -69,164 +55,55 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
- 
-    self.title = @"测试第三方登录";
-//    self.view.backgroundColor = [UIColor lightGrayColor];
-
-    [TestUrlAppend test1];
-//    [self racRedClick];
     
-//    dispatch_async(dispatch_queue_create(0, 0), ^{
-//        [self performSelector:@selector(sayHelloWorld) withObject:nil afterDelay:3.f];
-//        [[NSRunLoop currentRunLoop] run];
-//    });
-    
-//    [self performSelector:@selector(sayHelloWorld) withObject:nil afterDelay:1.f];
-
-    
-//    TitleRepeatV *repeatV = [[TitleRepeatV alloc] initWithFrame:CGRectMake(0, 400, 414, 40)];
-//    repeatV.backgroundColor = [UIColor redColor];
-//    [self.view addSubview:repeatV];
-//
-//    [ThreadModel testLock];
-    
- 
-    {
-//        FBSDKLoginButton *fbBtn = [[FBSDKLoginButton alloc] init];
-//        [self.view addSubview:fbBtn];
-//        fbBtn.permissions = @[@"public_profile", @"email"];
-//
-//        [fbBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.bottom.mas_equalTo(self.view.mas_bottom).offset(-10);
-//            make.centerX.mas_equalTo(self.view.mas_centerX);
-//            make.width.mas_equalTo(@300);
-//            make.height.mas_equalTo(@40);
-//        }];
-//        FBSDKAccessToken *accessToken = [FBSDKAccessToken currentAccessToken];
-//        if (accessToken) {
-//            NSLog(@"information is:%@", accessToken);
-//        }
-        
-        UIButton *fbBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [self.view addSubview:fbBtn];
-        [fbBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.mas_equalTo(self.view.mas_bottom).offset(-70);
-            make.centerX.mas_equalTo(self.view.mas_centerX);
-            make.width.mas_equalTo(@300);
-            make.height.mas_equalTo(@40);
-        }];
-        
-        [fbBtn.titleLabel setFont:[UIFont systemFontOfSize:12]];
-        [fbBtn setTitle:@"使用FaceBook登录" forState:UIControlStateNormal];
-        fbBtn.backgroundColor = [UIColor blueColor];
-        
-        fbBtn.layer.cornerRadius = 5.f;
-        [fbBtn addTarget:self action:@selector(facebookLogin:) forControlEvents:UIControlEventTouchUpInside];
-        
-        UIButton *googleBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [self.view addSubview:googleBtn];
-
-        [googleBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.mas_equalTo(fbBtn.mas_top).offset(-20);
-            make.centerX.mas_equalTo(self.view.mas_centerX);
-            make.width.mas_equalTo(@300);
-            make.height.mas_equalTo(@40);
-        }];
-
-        [googleBtn.titleLabel setFont:[UIFont systemFontOfSize:12]];
-        [googleBtn setTitle:@"使用谷歌邮箱登录" forState:UIControlStateNormal];
-        googleBtn.backgroundColor = [UIColor redColor];
-        
-        googleBtn.layer.cornerRadius = 5.f;
-        [googleBtn addTarget:self action:@selector(googleLogin:) forControlEvents:UIControlEventTouchUpInside];
-    }
-   
+    [self testTintColor];
 }
 
-- (void)facebookLogin:(UIButton *)sender{
-    !_loginFacebookSuccess ? [self facebookSignIn:sender] : [self facebookSignOut:sender];
-}
-
-- (void)googleLogin:(UIButton *)sender{
-    !_loginGoogleSuccess ? [self googleSignIn:sender] : [self googleSignOut:sender];
-}
-
-- (FBSDKLoginManager *)fbLoginManager{
-    if (!_fbLoginManager) {
-        _fbLoginManager = [[FBSDKLoginManager alloc] init];
-    }
-    return _fbLoginManager;
-}
-
-- (void)facebookSignIn:(UIButton *)sender {
- 
-    [self.fbLoginManager logInWithPermissions:@[@"public_profile", @"email"] fromViewController:self handler:^(FBSDKLoginManagerLoginResult * _Nullable result, NSError * _Nullable error) {
-        [self getUserProfile:result facebookBtn:sender];
-    }];
-}
-
-- (void)getUserProfile:(FBSDKLoginManagerLoginResult *)result facebookBtn:(UIButton *)sender{
-    NSDictionary *params = @{@"fields": @"id,name,email"};
+- (void)testTintColor{
+    NSArray *imageArr = @[@"btc_cell_icon", @"eth_cell_icon", @"usdt_cell_icon", @"xrp_cell_icon"];
     
-    FBSDKGraphRequest *req = [[FBSDKGraphRequest alloc] initWithGraphPath:result.token.userID parameters:params HTTPMethod:@"GET"];
-    [req startWithCompletion:^(id<FBSDKGraphRequestConnecting>  _Nullable connection, id  _Nullable result, NSError * _Nullable error) {
+    NSInteger i = 0;
+    UIColor *tColor = [UIColor grayColor];
+    
+    for (NSString *imageStr in imageArr) {
         
-        if(error){
-            _loginFacebookSuccess = NO;
-            [sender setTitle:@"登录Facebook失败" forState:UIControlStateNormal];
+        UIImageView *imgV1 = [[UIImageView alloc] initWithFrame:CGRectMake(50, 50 + i * 50, 24, 24)];
+        [self.view addSubview:imgV1];
+        [imgV1 setImage:[UIImage imageNamed:imageStr]];
+        
+        
+        UIImageView *imgV2 = [[UIImageView alloc] initWithFrame:CGRectMake(150, 50 + i * 50, 24, 24)];
+        [self.view addSubview:imgV2];
+        if ([imageStr containsString:@"eth"] ||
+            [imageStr containsString:@"xrp"]) {
+            [imgV2 setImage:[UIImage imageNamed:imageStr]];
+            imgV2.alpha = 0.5;
         }else{
-            _loginFacebookSuccess = YES;
-            [sender setTitle:[NSString stringWithFormat:@"登录Facebook成功昵称:%@",
-                              [result objectForKey:@"name"]] forState:UIControlStateNormal];
+            [imgV2 setImage:[[UIImage imageNamed:imageStr] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
+            imgV2.tintColor = tColor;
         }
-        NSLog(@"result:%@", result);
-    
-    }];
+     
+        i++;
+    }
 }
 
-- (void)facebookSignOut:(UIButton *)sender {
-    [self.fbLoginManager logOut];
-    _loginFacebookSuccess = NO;
-}
-
-- (void)googleSignIn:(UIButton *)sender {
-    
-    sender.userInteractionEnabled = NO;
-    GIDConfiguration *signInConfig = [[GIDConfiguration alloc] initWithClientID:@"659872786378-9v9l6limi0vk57frveu2mjroqrcnr7n4.apps.googleusercontent.com"];
-     [GIDSignIn.sharedInstance signInWithConfiguration:signInConfig
-                              presentingViewController:self
-                                              callback:^(GIDGoogleUser * _Nullable user,
-                                                         NSError * _Nullable error) {
-       if (error) {
-           _loginGoogleSuccess = NO;
-           sender.userInteractionEnabled = YES;
-           [sender setTitle:@"谷歌邮箱登录授权失败" forState:UIControlStateNormal];
-           return;
-       }
-
-         _loginGoogleSuccess = YES;
-         sender.userInteractionEnabled = YES;
-         NSString *str = [NSString stringWithFormat:@"谷歌邮箱登录账号:%@", user.profile.email];
-         [sender setTitle:str forState:UIControlStateNormal];
-
-       // If sign in succeeded, display the app's main content View.
-     }];
-}
-
-- (void)googleSignOut:(UIButton *)sender{
-    [GIDSignIn.sharedInstance signOut];
-    [sender setTitle:@"谷歌邮箱登录授权退出" forState:UIControlStateNormal];
-    
-    _loginGoogleSuccess = NO;
-    sender.userInteractionEnabled = YES;
-}
-
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    
-    [self helloWorld];
-    [self helloWorld];
-    [self helloWorld];
++ (UIImage *)changeImage:(UIImage *)img withColor:(UIColor *)color {
+    // 获取画布
+    UIGraphicsBeginImageContextWithOptions(img.size, NO, img.scale);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    //移动图片
+    CGContextTranslateCTM(context, 0, img.size.height);
+    CGContextScaleCTM(context, 1.0, -1.0);
+    //模式配置
+    CGContextSetBlendMode(context, kCGBlendModeNormal);
+    CGRect rect = CGRectMake(0, 0, img.size.width, img.size.height);
+    CGContextClipToMask(context, rect, img.CGImage);
+    [color setFill];
+    CGContextFillRect(context, rect);
+    //创建获取图片
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
 }
  
 - (void)sayHelloWorld{
@@ -338,57 +215,7 @@
 
     NSLog(@"++++++:%lu", (unsigned long)sM.dataTasks.count);
 }
-
-/*
- 在ViewController：
- - (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection
- - (void)updateViewConstraints
- - (void)viewWillLayoutSubviews
- - (void)viewDidLayoutSubviews
-
- 在View里：
- - (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection
- - (void)drawRect:(CGRect)rect
- - (void)layoutSubviews
- - (void)updateConstraints
- - (void)tintColorDidChange
-
- 在UIPresentationController里：
- - (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection
- - (void)containerViewWillLayoutSubviews
- - (void)containerViewDidLayoutSubviews
- */
-- (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection{
-    [super traitCollectionDidChange:previousTraitCollection];
-    
-    if (@available(iOS 13.0, *)) {
-        
-        UITraitCollection *tra = [UITraitCollection currentTraitCollection];
-        BOOL hasChange = [previousTraitCollection hasDifferentColorAppearanceComparedToTraitCollection:tra];
-        NSLog(@"viewController ... has change traitCollection is:(%@)", @(hasChange));
  
-        // 调用颜色重新改变的方案
-        
-    } else {
-        // Fallback on earlier versions
-    }
-}
- 
-
-//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-//    NSLog(@"点击...");
-////    [GTTKYCModel startKYCWithUserId:@""
-////                           appToken:@""
-////                          secretKey:@""
-////                           flowName:@""
-////                       supportEmail:@""
-////                            mainNav:self.navigationController
-////                  verificationBlock:^(BOOL isApproved) {
-////        ;
-////    }];
-////    self.kvoView.frame = CGRectMake(100, 300, 100, 100);
-//}
-
 #pragma mark rac 单对象kvo
 - (void)racKVOTest{
     
@@ -406,6 +233,7 @@
             NSLog(@"初始值(%@) != 监听值(%@)", NSStringFromCGRect(priFrame), NSStringFromCGRect(kvoFrame));
         }
      } error:^(NSError * _Nullable error) {
+         
         NSLog(@"通知信号异常结束:%@", error.userInfo);
     } completed:^{
         NSLog(@"通知信号正常结束");
@@ -419,59 +247,7 @@
 
     }];
 }
-
-//// 模型的值 赋给 UI
-//- (void)modelRefreshUI{
-//    RAC(_racRedView.ageTF, text) = RACObserve(_racRedModel, age);
-//    RAC(_racRedView.nameTF, text) = RACObserve(_racRedModel, name);
-//    RAC(_racRedView.heightTF, text) = [RACObserve(_racRedModel, height)
-//                                       map:^id _Nullable(id  _Nullable value) {
-//        return [value description];
-//    }];
-//}
-//
-//// UI输入值 更新模型的值
-//- (void)uiRefrehsModel{
-//    NSArray *arr = @[
-//        _racRedView.ageTF.rac_textSignal,
-//        _racRedView.nameTF.rac_textSignal,
-//        _racRedView.heightTF.rac_textSignal
-//    ];
-//
-//    [[RACSignal combineLatest:arr] subscribeNext:^(RACTuple * _Nullable x) {
-//        if (![x.first isEqualToString:self.racRedModel.age])
-//            self->_racRedModel.age = x.first;
-//
-//        if (![x.second isEqualToString:self.racRedModel.name])
-//            self->_racRedModel.name = x.second;
-//
-//        if (![x.third isEqualToString:self.racRedModel.height])
-//            self->_racRedModel.height = x.third;
-//    }];
-//}
-//
-
-- (void)racRedClick{
-    self.racRedView = [[RacRedView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    [self.view addSubview:self.racRedView];
-    
-//    [self.racRedView.subject subscribeNext:^(id  _Nullable x) {
-//       self->_racRedModel.age = @"hello world";
-//       NSLog(@"接收到红色视图的信号:%@", x) ;
-//       [self removeView];
-//    } error:^(NSError * _Nullable error) {
-//        NSLog(@"红色视图信号异常结束:%@", error.userInfo);
-//    } completed:^{
-//        NSLog(@"红色视图信号正常结束");
-//    }];
-    
-//    [self compareMallocForBackground];
-}
-
-- (void)removeView{
-    [self.racRedView removeFromSuperview];
-    self.racRedView = nil;
-}
+ 
 
 - (void)dealloc{
     NSLog(@"dealloc...");

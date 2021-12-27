@@ -2,18 +2,19 @@
 //  AppDelegate.m
 //  LanguageDemo
 //
+/*
+  
+ */
 //  Created by Bob on 2021/4/12.
 //
 
 #import "AppDelegate.h"
 #import "ViewController.h"
-#import "GTWkWebViewVC.h"
-
-#import <GoogleSignIn/GoogleSignIn.h>
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
-
-@interface AppDelegate ()
-
+ 
+#import "CircleCollectionVC.h"
+#import "LDHomeVC.h"
+ 
+@interface AppDelegate () 
 @end
 
 @implementation AppDelegate
@@ -25,35 +26,12 @@
     _window.backgroundColor = [UIColor whiteColor];
     [_window makeKeyAndVisible];
     
-    ViewController *vc = [[ViewController alloc] init];
-//    GTWkWebViewVC *vc = [[GTWkWebViewVC alloc] init];
+//    ViewController *vc = [[ViewController alloc] init];
+//    CircleCollectionVC *vc = [[CircleCollectionVC alloc] init];
+    LDHomeVC *vc = [[LDHomeVC alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
     [_window setRootViewController:nav];
-    
-    {
-        [[FBSDKApplicationDelegate sharedInstance] application:application  didFinishLaunchingWithOptions:launchOptions];
-        
-        [GIDSignIn.sharedInstance restorePreviousSignInWithCallback:^(GIDGoogleUser * _Nullable user,
-                                                                      NSError * _Nullable error) {
-          if (error) {
-            // Show the app's signed-out state.
-          } else {
-            // Show the app's signed-in state.
-          }
-        }];
-    }
-
-    
-    return YES;
-}
-
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
-    
-    NSLog(@"openUrl:%@", url.absoluteString);
-    {
-        [[FBSDKApplicationDelegate sharedInstance] application:app openURL:url options:options];
-        [GIDSignIn.sharedInstance handleURL:url];
-    }
+ 
     
     return YES;
 }

@@ -7,7 +7,7 @@
 
 #import "GTTestAlloc.h"
 #import "GTCommonInfo.h"
-#import "RacRedModel.h"
+#import "RacRedVM.h"
 
 @implementation GTTestAlloc
 

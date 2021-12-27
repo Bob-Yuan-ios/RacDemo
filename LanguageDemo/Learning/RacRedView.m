@@ -21,8 +21,7 @@
 @property (nonatomic, strong) UITextField *ageTF;
 @property (nonatomic, strong) UITextField *nameTF;
 @property (nonatomic, strong) UITextField *heightTF;
-
-
+ 
 @property (nonatomic, strong) RacRedSubView *redSubV;
 
 @end
@@ -316,14 +315,5 @@
     return _subject;
 }
 
-
-//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-//    [self.subject sendNext:@"点击红色视图"];
-//}
-//
-//- (void)dealloc{
-//    NSLog(@"执行释放方法 并发送信号结束消息 ...");
-//    [_subject sendCompleted];
-//}
-
+ 
 @end

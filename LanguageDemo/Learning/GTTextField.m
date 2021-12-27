@@ -37,7 +37,7 @@
     return CGRectInset(bounds, 15, 0);
 }
 
-//完成输入后，文字显示时距离边框的位置 
+//完成输入后，文字距离边框的位置
 - (CGRect)textRectForBounds:(CGRect)bounds{
     return CGRectInset(bounds, 15, 0);
 }

@@ -1,1 +1,0 @@
-../../../FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/include/FBSDKApplicationObserving.h
