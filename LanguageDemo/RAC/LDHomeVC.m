@@ -22,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor lightGrayColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     
     [self.view addSubview:self.contentV];
     [self.contentV mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -44,7 +44,7 @@
 
 - (LDContentV *)contentV{
     if (!_contentV) {
-        _contentV = [LDContentV new];
+        _contentV = [[LDContentV alloc] init];
         
     }
     return _contentV;

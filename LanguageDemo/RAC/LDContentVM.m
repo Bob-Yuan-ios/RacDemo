@@ -40,12 +40,12 @@
                     if (data && [data isKindOfClass:[NSDictionary class]]) {
                         self_weak_.userModel = [LDUserM modelWithDictionary:data];
                         NSLog(@"返回数据:%@", self_weak_.userModel.description);
-                        [subscriber sendNext:@""];
+                        [subscriber sendNext:@"数据请求成功"];
                         return nil;
                     }
                 }
                 
-                [subscriber sendError:nil];
+                [subscriber sendNext:@"数据请求失败"];
                 return nil;
             }];
         }];

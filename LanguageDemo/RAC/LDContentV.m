@@ -97,30 +97,31 @@ UITextFieldDelegate
 - (void)addContentVM:(LDContentVM *)contentVM{
     
     //UI数据刷新模型
-    [RACObserve(self.userNameTF, text) subscribeNext:^(id  _Nullable x) {
+    [RACObserve(_userNameTF, text) subscribeNext:^(id  _Nullable x) {
         contentVM.contentModel.userName = x;
     }];
     
-    [RACObserve(self.passwdTF, text) subscribeNext:^(id  _Nullable x) {
+    [RACObserve(_passwdTF, text) subscribeNext:^(id  _Nullable x) {
         contentVM.contentModel.passwd = x;
     }];
     
-    [RACObserve(self.confirmPasswdTF, text) subscribeNext:^(id  _Nullable x) {
+    [RACObserve(_confirmPasswdTF, text) subscribeNext:^(id  _Nullable x) {
         contentVM.contentModel.confirmPasswd = x;
     }];
     
     //UI触发行为
-    RAC(self.submitBtn, enabled) = [RACSignal
-                                    combineLatest:@[
-        self.userNameTF.rac_textSignal,
-        self.passwdTF.rac_textSignal,
-        self.confirmPasswdTF.rac_textSignal,
-    ] reduce:^(NSString *userName, NSString *passwd, NSString *confPasswd){
+    NSArray *signalArr = @[_userNameTF.rac_textSignal, _passwdTF.rac_textSignal, _confirmPasswdTF.rac_textSignal];
+    RAC(_submitBtn, enabled) = [RACSignal combineLatest:signalArr
+                                                     reduce:^(NSString *userName, NSString *passwd, NSString *confPasswd){
         return @(userName.length > 0 & passwd.length > 0 && [passwd isEqualToString:confPasswd]);
     }];
     
-    [[self.submitBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
-        [contentVM.loginCommand execute:@"触发登录操作"];
+    [[_submitBtn rac_signalForControlEvents:UIControlEventTouchUpInside]
+                                  subscribeNext:^(__kindof UIControl * _Nullable x) {
+        RACSignal *loginSignal = [contentVM.loginCommand execute:@"触发登录操作"];
+        [loginSignal subscribeNext:^(id  _Nullable x) {
+            NSLog(@"登录操作返回数据:%@", x);
+        }];
     }];
     
     //模型改变回显UI
@@ -138,7 +139,7 @@ UITextFieldDelegate
     if (!_userNameTF) {
         _userNameTF = [UITextField new];
         _userNameTF.delegate = self;
-        _userNameTF.layer.borderColor = [UIColor redColor].CGColor;
+        _userNameTF.layer.borderColor = [UIColor lightGrayColor].CGColor;
         _userNameTF.layer.borderWidth = 1.f;
     }
     return _userNameTF;
@@ -148,7 +149,7 @@ UITextFieldDelegate
     if (!_passwdTF) {
         _passwdTF = [UITextField new];
         _passwdTF.delegate = self;
-        _passwdTF.layer.borderColor = [UIColor redColor].CGColor;
+        _passwdTF.layer.borderColor = [UIColor lightGrayColor].CGColor;
         _passwdTF.layer.borderWidth = 1.f;
         _passwdTF.secureTextEntry = YES;
     }
@@ -159,7 +160,7 @@ UITextFieldDelegate
     if (!_confirmPasswdTF) {
         _confirmPasswdTF = [UITextField new];
         _confirmPasswdTF.delegate = self;
-        _confirmPasswdTF.layer.borderColor = [UIColor redColor].CGColor;
+        _confirmPasswdTF.layer.borderColor = [UIColor lightGrayColor].CGColor;
         _confirmPasswdTF.layer.borderWidth = 1.f;
         _confirmPasswdTF.secureTextEntry = YES;
     }
@@ -168,9 +169,10 @@ UITextFieldDelegate
 
 - (UIButton *)submitBtn{
     if (!_submitBtn) {
-        _submitBtn = [UIButton new];
-        _submitBtn.backgroundColor = [UIColor yellowColor];
-        _submitBtn.enabled = NO;
+        _submitBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        _submitBtn.backgroundColor = [UIColor blueColor];
+        [_submitBtn setTitle:@"登录" forState:UIControlStateNormal];
+        _submitBtn.titleLabel.textColor = [UIColor whiteColor];
     }
     return _submitBtn;
 }
@@ -178,8 +180,7 @@ UITextFieldDelegate
 - (UILabel *)ageLbl{
     if (!_ageLbl) {
         _ageLbl = [UILabel new];
-        _ageLbl.backgroundColor = [UIColor brownColor];
-        _ageLbl.text = @"返回数据";
+        _ageLbl.backgroundColor = [UIColor lightGrayColor];
     }
     return _ageLbl;
 }
@@ -187,8 +188,7 @@ UITextFieldDelegate
 - (UILabel *)sexLbl{
     if (!_sexLbl) {
         _sexLbl = [UILabel new];
-        _sexLbl.backgroundColor = [UIColor brownColor];
-        _sexLbl.text = @"返回数据";
+        _sexLbl.backgroundColor = [UIColor lightGrayColor];
     }
     return _sexLbl;
 }
