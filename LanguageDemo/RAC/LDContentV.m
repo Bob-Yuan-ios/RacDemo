@@ -20,6 +20,10 @@ UITextFieldDelegate
 
 @property (nonatomic, strong) UIButton *submitBtn;
 
+
+@property (nonatomic, strong) UILabel *ageLbl;
+@property (nonatomic, strong) UILabel *sexLbl;
+
 @end
 
 @implementation LDContentV
@@ -73,11 +77,26 @@ UITextFieldDelegate
         make.right.mas_offset(-15);
         make.height.mas_offset(44);
     }];
+    
+    [self addSubview:self.ageLbl];
+    [self.ageLbl mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.submitBtn.mas_bottom).mas_offset(44);
+        make.left.mas_offset(15);
+        make.right.mas_offset(-15);
+    }];
+    
+    [self addSubview:self.sexLbl];
+    [self.sexLbl mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.ageLbl.mas_bottom).mas_offset(5);
+        make.left.mas_offset(15);
+        make.right.mas_offset(-15);
+    }];
 }
  
 
 - (void)addContentVM:(LDContentVM *)contentVM{
     
+    //UI数据刷新模型
     [RACObserve(self.userNameTF, text) subscribeNext:^(id  _Nullable x) {
         contentVM.contentModel.userName = x;
     }];
@@ -90,7 +109,7 @@ UITextFieldDelegate
         contentVM.contentModel.confirmPasswd = x;
     }];
     
-    
+    //UI触发行为
     RAC(self.submitBtn, enabled) = [RACSignal
                                     combineLatest:@[
         self.userNameTF.rac_textSignal,
@@ -101,16 +120,14 @@ UITextFieldDelegate
     }];
     
     [[self.submitBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
-        [[contentVM.loginCommand execute:@"触发登录操作"] subscribeNext:^(id  _Nullable x) {
-            if (200 == [[x objectForKey:@"code"] intValue]) {
-                NSDictionary *data = [x objectForKey:@"data"];
-                if (data && [data isKindOfClass:[NSDictionary class]]) {
-                    LDUserM *user = [LDUserM modelWithDictionary:data];
-                    NSLog(@"=======%@", user.description);
-                    //刷新UI
-                }
-            }
-        }];
+        [contentVM.loginCommand execute:@"触发登录操作"];
+    }];
+    
+    //模型改变回显UI
+    [RACObserve(contentVM, userModel) subscribeNext:^(id  _Nullable x) {
+        NSLog(@"监控数据模型变化:%@", x);
+        self.ageLbl.text = [NSString stringWithFormat:@"年龄:%@",[(LDUserM *)x age]];
+        self.sexLbl.text = [NSString stringWithFormat:@"性别:%@",[(LDUserM *)x sex]];
     }];
 }
 
@@ -156,5 +173,23 @@ UITextFieldDelegate
         _submitBtn.enabled = NO;
     }
     return _submitBtn;
+}
+
+- (UILabel *)ageLbl{
+    if (!_ageLbl) {
+        _ageLbl = [UILabel new];
+        _ageLbl.backgroundColor = [UIColor brownColor];
+        _ageLbl.text = @"返回数据";
+    }
+    return _ageLbl;
+}
+
+- (UILabel *)sexLbl{
+    if (!_sexLbl) {
+        _sexLbl = [UILabel new];
+        _sexLbl.backgroundColor = [UIColor brownColor];
+        _sexLbl.text = @"返回数据";
+    }
+    return _sexLbl;
 }
 @end

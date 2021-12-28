@@ -10,12 +10,14 @@
 
 #import "NSObject+YYModel.h"
 
+@class LDUserM;
 @class LDContentModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LDContentVM : NSObject
 
+@property (nonatomic, strong) LDUserM *userModel;
 @property (nonatomic, strong) LDContentModel *contentModel;
 
 @property (nonatomic, strong) RACCommand *loginCommand;
