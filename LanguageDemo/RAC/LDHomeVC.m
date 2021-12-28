@@ -14,7 +14,6 @@
 @property (nonatomic, strong) LDContentV *contentV;
 @property (nonatomic, strong) LDContentVM *contentVM;
 
-@property (nonatomic, strong) NSDictionary *loginResultDic;
 @end
 
 @implementation LDHomeVC
@@ -45,7 +44,6 @@
 - (LDContentV *)contentV{
     if (!_contentV) {
         _contentV = [[LDContentV alloc] init];
-        
     }
     return _contentV;
 }
@@ -54,7 +52,6 @@
 - (LDContentVM *)contentVM{
     if (!_contentVM) {
         _contentVM = [[LDContentVM alloc] init];
-        
     }
     return _contentVM;
 }

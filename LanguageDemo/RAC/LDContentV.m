@@ -44,6 +44,54 @@ UITextFieldDelegate
     return self;
 }
 
+#pragma mark UI Logic
+- (void)addContentVM:(LDContentVM *)contentVM{
+    
+    //UI => 数据模型
+    [RACObserve(self.userNameTF, text) subscribeNext:^(id  _Nullable x) {
+        contentVM.contentModel.userName = x;
+    }];
+    
+    [RACObserve(_passwdTF, text) subscribeNext:^(id  _Nullable x) {
+        contentVM.contentModel.passwd = x;
+    }];
+    
+    [RACObserve(_confirmPasswdTF, text) subscribeNext:^(id  _Nullable x) {
+        contentVM.contentModel.confirmPasswd = x;
+    }];
+    
+    //UI Action
+    NSArray *signalArr = @[_userNameTF.rac_textSignal, _passwdTF.rac_textSignal, _confirmPasswdTF.rac_textSignal];
+    RAC(_submitBtn, enabled) = [RACSignal combineLatest:signalArr
+                                                     reduce:^(NSString *userName, NSString *passwd, NSString *confPasswd){
+        return @(userName.length >= 6 & userName.length <= 12 &&
+                 passwd.length > 0 && [passwd isEqualToString:confPasswd]);
+    }];
+    
+    [[_submitBtn rac_signalForControlEvents:UIControlEventTouchUpInside]
+                              subscribeNext:^(__kindof UIControl * _Nullable x) {
+        
+        //释放才能把输入的值带给模型
+        [self endEditing:YES];
+        
+        RACSignal *loginSignal = [contentVM.loginCommand execute:@"触发登录操作"];
+        [loginSignal subscribeNext:^(id  _Nullable x) {
+            // 请求出错时 决策是否要弹框提示
+            NSLog(@"登录操作返回数据:%@", x);
+        }];
+    }];
+    
+    //数据模型 => UI
+    [RACObserve(contentVM, userModel) subscribeNext:^(id  _Nullable x) {
+        NSLog(@"监控数据模型变化:%@", x);
+        self.ageLbl.text = [NSString stringWithFormat:@"年龄:%@",[(LDUserM *)x age]];
+        self.sexLbl.text = [NSString stringWithFormat:@"性别:%@",[(LDUserM *)x sex]];
+    }];
+}
+
+ 
+
+#pragma mark UI Draw
 - (void)setChildConstrant{
     
     [self addSubview:self.userNameTF];
@@ -94,47 +142,8 @@ UITextFieldDelegate
 }
  
 
-- (void)addContentVM:(LDContentVM *)contentVM{
-    
-    //UI数据刷新模型
-    [RACObserve(_userNameTF, text) subscribeNext:^(id  _Nullable x) {
-        contentVM.contentModel.userName = x;
-    }];
-    
-    [RACObserve(_passwdTF, text) subscribeNext:^(id  _Nullable x) {
-        contentVM.contentModel.passwd = x;
-    }];
-    
-    [RACObserve(_confirmPasswdTF, text) subscribeNext:^(id  _Nullable x) {
-        contentVM.contentModel.confirmPasswd = x;
-    }];
-    
-    //UI触发行为
-    NSArray *signalArr = @[_userNameTF.rac_textSignal, _passwdTF.rac_textSignal, _confirmPasswdTF.rac_textSignal];
-    RAC(_submitBtn, enabled) = [RACSignal combineLatest:signalArr
-                                                     reduce:^(NSString *userName, NSString *passwd, NSString *confPasswd){
-        return @(userName.length > 0 & passwd.length > 0 && [passwd isEqualToString:confPasswd]);
-    }];
-    
-    [[_submitBtn rac_signalForControlEvents:UIControlEventTouchUpInside]
-                                  subscribeNext:^(__kindof UIControl * _Nullable x) {
-        RACSignal *loginSignal = [contentVM.loginCommand execute:@"触发登录操作"];
-        [loginSignal subscribeNext:^(id  _Nullable x) {
-            NSLog(@"登录操作返回数据:%@", x);
-        }];
-    }];
-    
-    //模型改变回显UI
-    [RACObserve(contentVM, userModel) subscribeNext:^(id  _Nullable x) {
-        NSLog(@"监控数据模型变化:%@", x);
-        self.ageLbl.text = [NSString stringWithFormat:@"年龄:%@",[(LDUserM *)x age]];
-        self.sexLbl.text = [NSString stringWithFormat:@"性别:%@",[(LDUserM *)x sex]];
-    }];
-}
 
- 
-
-#pragma mark --
+#pragma mark lazy load
 - (UITextField *)userNameTF{
     if (!_userNameTF) {
         _userNameTF = [UITextField new];

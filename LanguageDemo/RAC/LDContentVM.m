@@ -11,7 +11,7 @@
 
 - (LDContentModel *)contentModel{
     if (!_contentModel) {
-        _contentModel = [LDContentModel new];
+        _contentModel = [[LDContentModel alloc] init];
     }
     return _contentModel;
 }
@@ -57,8 +57,21 @@
 
 @implementation LDContentModel
 
+- (instancetype)init{
+    self = [super init];
+    if (self) {
+        _userName = @"";
+        _passwd = @"";
+    }
+    return self;
+}
+
 - (NSString *)description{
     return [NSString stringWithFormat:@"username=%@&password=%@", _userName, _passwd];
+}
+
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key{
+    NSLog(@"undefinedKey:%@ ===", key);
 }
 @end
 
@@ -75,5 +88,9 @@
 
 - (NSString *)description{
     return [NSString stringWithFormat:@"age=%@&six=%@", _age, _sex];
+}
+
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key{
+    NSLog(@"undefinedKey:%@ ===", key);
 }
 @end
