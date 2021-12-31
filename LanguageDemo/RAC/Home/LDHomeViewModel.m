@@ -25,9 +25,11 @@
                 [arr addObject:[LDHomeModel modelWithDictionary:@{@"currencyName": @(i + startIdx)}]];
             }
             
-            [[self mutableArrayValueForKey:@"dataSourceArr"] setArray:arr];
-            [subscriber sendNext:@"数据请求成功"];
+            self.dataSourceArr = [arr mutableCopy];
+//            [[self mutableArrayValueForKey:@"dataSourceArr"] setArray:arr];
+//            [subscriber sendNext:@"数据请求成功"];
 
+            [subscriber sendNext:arr];
             return nil;
 
         }];
@@ -47,7 +49,7 @@
 - (instancetype)init{
     self = [super init];
     if (self) {
-        _curPage = 1;
+        _curPage = 0;
         _pageSize = 20;
     }
     return self;

@@ -35,34 +35,29 @@ UITableViewDataSource
 - (void)configViewModel:(LDHomeViewModel *)model{
     _viewModel = model;
     
-    @weakify(self);
-    [RACObserve(_viewModel, dataSourceArr) subscribeNext:^(id  _Nullable x) {
-        NSLog(@"return information is:%@", x);
-        
-        @strongify(self);
-        if (0 == self.viewModel.curPage) {
-            [self.mj_header endRefreshing];
-        }else{
-            (10 == self.viewModel.curPage) ? [self.mj_footer endRefreshingWithNoMoreData] : [self.mj_footer endRefreshing];
-        }
-        
-        self.tableSourceArr = [x mutableCopy];
-        [self reloadData];
-    }];
+    [self.mj_header beginRefreshing];
 }
  
 - (void)loadMoreInfo{
     NSLog(@"load more...");
     _viewModel.curPage += 1;
     [self.mj_footer beginRefreshing];
-    [_viewModel.currencyCommand execute:nil];
+    [[_viewModel.currencyCommand execute:nil] subscribeNext:^(NSArray *dataArr) {
+        (10 == self.viewModel.curPage) ? [self.mj_footer endRefreshingWithNoMoreData] : [self.mj_footer endRefreshing];
+        self.tableSourceArr = [dataArr mutableCopy];
+        [self reloadData];
+    }];
 }
 
 - (void)refreshInfo{
     NSLog(@"refresh ...");
     _viewModel.curPage = 0;
     [self.mj_header beginRefreshing];
-    [_viewModel.currencyCommand execute:nil];
+    [[_viewModel.currencyCommand execute:nil] subscribeNext:^(NSArray *dataArr) {
+        [self.mj_header endRefreshing];
+        self.tableSourceArr = [dataArr mutableCopy];
+        [self reloadData];
+    }];
 }
 
  
@@ -75,6 +70,7 @@ UITableViewDataSource
         self.dataSource = self;
         [self registerClass:[LDHomeTableViewCell class] forCellReuseIdentifier:@"LDHomeTableViewCell"];
         
+        self.mj_header.automaticallyChangeAlpha = YES;
         self.mj_header = [MJRefreshHeader headerWithRefreshingBlock:^{
             [self refreshInfo];
         }];
@@ -82,7 +78,6 @@ UITableViewDataSource
         self.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
             [self loadMoreInfo];
         }];
-        
     }
     return self;
 }
@@ -111,7 +106,8 @@ UITableViewDataSource
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-     
+
+    NSLog(@"选择第%ld行", indexPath.row);
 }
  
 
