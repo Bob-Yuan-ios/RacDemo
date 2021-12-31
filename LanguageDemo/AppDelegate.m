@@ -12,7 +12,7 @@
 #import "ViewController.h"
  
 #import "CircleCollectionVC.h"
-#import "LDHomeVC.h"
+#import "LDLoginVC.h"
  
 @interface AppDelegate () 
 @end
@@ -28,7 +28,7 @@
     
 //    ViewController *vc = [[ViewController alloc] init];
 //    CircleCollectionVC *vc = [[CircleCollectionVC alloc] init];
-    LDHomeVC *vc = [[LDHomeVC alloc] init];
+    LDLoginVC *vc = [[LDLoginVC alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
     [_window setRootViewController:nav];
  

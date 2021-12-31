@@ -1,5 +1,5 @@
 //
-//  LDContentVM.h
+//  LDLoginViewModel.h
 //  LanguageDemo
 //
 //  Created by Bob on 2021/12/24.
@@ -15,7 +15,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LDContentVM : NSObject
+@interface LDLoginViewModel : NSObject
+
 
 @property (nonatomic, strong) LDUserM *userModel;
 @property (nonatomic, strong) LDContentModel *contentModel;
@@ -29,7 +30,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSString *userName;
 @property (nonatomic, copy) NSString *passwd;
-@property (nonatomic, copy) NSString *confirmPasswd;
 
 @end
 
@@ -37,7 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSString *age;
 @property (nonatomic, copy) NSString *sex;
-
+ 
 @end
 
 

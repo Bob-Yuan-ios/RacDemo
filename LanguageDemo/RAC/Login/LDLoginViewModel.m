@@ -1,13 +1,13 @@
 //
-//  LDContentVM.m
+//  LDLoginViewModel.m
 //  LanguageDemo
 //
 //  Created by Bob on 2021/12/24.
 //
 
-#import "LDContentVM.h"
+#import "LDLoginViewModel.h"
 
-@implementation LDContentVM
+@implementation LDLoginViewModel
 
 - (LDContentModel *)contentModel{
     if (!_contentModel) {
@@ -29,23 +29,25 @@
         @weakify(self);
         _loginCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
 
-            NSLog(@"请求参数:%@",  self_weak_.contentModel.description);
+            @strongify(self);
+            NSLog(@"接收信号:%@", input);
             return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
                 //https请求 获取数据返回
                 sleep(1.f);
-                NSDictionary *dic = @{@"code": @(200),@"msg": @"登录成功",
+                NSDictionary *dic = @{@"code": @(0),@"msg": @"登录成功",
                                       @"data": @{@"age": @"18",@"sex": @"male"}};
-                if (200 == [[dic objectForKey:@"code"] intValue]) {
+                if (0 == [[dic objectForKey:@"code"] intValue]) {
+
                     NSDictionary *data = [dic objectForKey:@"data"];
                     if (data && [data isKindOfClass:[NSDictionary class]]) {
-                        self_weak_.userModel = [LDUserM modelWithDictionary:data];
-                        NSLog(@"返回数据:%@", self_weak_.userModel.description);
-                        [subscriber sendNext:@"数据请求成功"];
+                        self.userModel = [LDUserM modelWithDictionary:data];
+                        NSLog(@"返回数据:%@", self.userModel.description);
+                        [subscriber sendNext:@{@"code": @(0)}];
                         return nil;
                     }
                 }
                 
-                [subscriber sendNext:@"数据请求失败"];
+                [subscriber sendNext:@{@"code": @(-100), @"msg": dic[@"msg"]}];
                 return nil;
             }];
         }];

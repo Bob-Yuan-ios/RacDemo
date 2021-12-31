@@ -16,6 +16,7 @@ PODS:
     - AFNetworking/NSURLSession
   - IQKeyboardManager (6.5.6)
   - Masonry (1.1.0)
+  - MJRefresh (3.7.5)
   - ReactiveObjC (3.1.1)
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
@@ -25,6 +26,7 @@ DEPENDENCIES:
   - AFNetworking
   - IQKeyboardManager
   - Masonry
+  - MJRefresh
   - ReactiveObjC
   - YYKit
 
@@ -33,6 +35,7 @@ SPEC REPOS:
     - AFNetworking
     - IQKeyboardManager
     - Masonry
+    - MJRefresh
     - ReactiveObjC
     - YYKit
 
@@ -40,9 +43,10 @@ SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   IQKeyboardManager: 2a6e97afdafc7becf0cb17a9a8d795e3a980717f
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 8665f722894e47ff77506208b20ae0a27e223cf0
+PODFILE CHECKSUM: 7a31189dcda516d2064301ecf78372e18d56f78f
 
 COCOAPODS: 1.11.2

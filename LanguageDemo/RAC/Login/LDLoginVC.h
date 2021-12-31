@@ -1,5 +1,5 @@
 //
-//  LDHomeVC.h
+//  LDLoginVC.h
 //  LanguageDemo
 //
 //  Created by Bob on 2021/12/24.
@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LDHomeVC : UIViewController
+@interface LDLoginVC : UIViewController
 
 @end
 
