@@ -107,9 +107,8 @@ UITableViewDataSource
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 
-    NSLog(@"选择第%ld行", indexPath.row);
+    if (self.selectedRowBlock)  self.selectedRowBlock(indexPath.row);
 }
- 
 
 @end
 

@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LDHomeTableView : UITableView
 
+@property (nonatomic, copy) void(^selectedRowBlock)(NSInteger row);
+
 - (void)configViewModel:(LDHomeViewModel *)model;
 
 @end
