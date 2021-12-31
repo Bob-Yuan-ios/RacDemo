@@ -100,31 +100,27 @@ UITextFieldDelegate
         make.height.mas_equalTo(1);
     }];
     sepLine.backgroundColor = [UIColor lightGrayColor];
-    
-    
-    [self addSubview:self.userNameTF];
-    [self.userNameTF mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(sepLine.mas_bottom).mas_offset(10);
-        make.right.mas_offset(-15);
-        make.height.mas_offset(44);
-    }];
-    
-    
+     
     [self addSubview:self.userNameLbl];
     [self.userNameLbl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(sepLine.mas_bottom).mas_offset(10);
         make.left.mas_offset(15);
-        make.right.equalTo(self.userNameTF.mas_left).mas_offset(-15);
         make.height.mas_offset(44);
     }];
     self.userNameLbl.text = @"用户名";
 
+    [self addSubview:self.userNameTF];
+    [self.userNameTF mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(sepLine.mas_bottom).mas_offset(10);
+        make.left.equalTo(self.userNameLbl.mas_right).mas_offset(15);
+        make.right.mas_offset(-15);
+        make.height.mas_offset(44);
+    }];
+    
     [self addSubview:self.passwordLbl];
     [self.passwordLbl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.userNameLbl.mas_bottom).mas_offset(10);
         make.left.mas_offset(15);
-        make.right.equalTo(self.userNameLbl.mas_right);
-
         make.height.mas_offset(44);
     }];
     self.passwordLbl.text = @"密    码";
@@ -189,15 +185,17 @@ UITextFieldDelegate
         _userNameLbl = [UILabel new];
         _userNameLbl.backgroundColor = [UIColor lightGrayColor];
         
+//        //设置换行
+//        _userNameLbl.numberOfLines = 0;
+//
 //        //给一个maxWidth
 //        _userNameLbl.preferredMaxLayoutWidth = 30;
 //
 //        //设置
-//        [_userNameLbl setContentHuggingPriority:UILayoutPriorityRequired
-//                                        forAxis:UILayoutConstraintAxisVertical];
-//        //设置换行
-//        _userNameLbl.numberOfLines = 0;
+//        [_userNameLbl setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
  
+        // 设置自适应优先级
+        [_userNameLbl setContentHuggingPriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisHorizontal];
     }
     return _userNameLbl;
 }
@@ -207,6 +205,9 @@ UITextFieldDelegate
         _passwordLbl = [UILabel new];
         _passwordLbl.backgroundColor = [UIColor lightGrayColor];
         [_passwordLbl setPreferredMaxLayoutWidth:80];
+        
+        // 设置自适应优先级
+        [_passwordLbl setContentHuggingPriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisHorizontal];
     }
     return _passwordLbl;
 }

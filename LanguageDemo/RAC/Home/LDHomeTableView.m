@@ -34,7 +34,6 @@ UITableViewDataSource
 
 - (void)configViewModel:(LDHomeViewModel *)model{
     _viewModel = model;
-    
     [self.mj_header beginRefreshing];
 }
  
