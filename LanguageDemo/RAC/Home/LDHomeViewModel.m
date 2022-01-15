@@ -21,7 +21,7 @@
             NSLog(@"arr count is:%ld", arr.count);
             
             NSInteger startIdx = arr.count;
-            for (int i = 0; i < self.pageSize; i++) {
+            for (int i = 1; i <= self.pageSize; i++) {
                 [arr addObject:[LDHomeModel modelWithDictionary:@{@"currencyName": @(i + startIdx)}]];
             }
             

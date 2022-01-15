@@ -17,7 +17,6 @@ UITableViewDataSource
 
 @property (nonatomic, strong) NSMutableArray *tableSourceArr;
 
-
 @property (nonatomic, strong) LDHomeViewModel *viewModel;
 
 @end

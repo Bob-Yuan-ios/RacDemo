@@ -91,11 +91,11 @@ UITextFieldDelegate
 
 #pragma mark UI Draw
 - (void)setChildConstrant{
-
+    
     UIView *sepLine = [UIView new];
     [self addSubview:sepLine];
     [sepLine mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_offset(100);
+        make.top.equalTo(self).mas_offset(20);
         make.left.right.equalTo(self);
         make.height.mas_equalTo(1);
     }];

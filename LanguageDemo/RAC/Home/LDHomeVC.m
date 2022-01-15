@@ -42,7 +42,8 @@
         
         @weakify(self);
         _tableV.selectedRowBlock = ^(NSInteger row) {
-            LDHomeModel *model = self_weak_.viewModel.dataSourceArr[row];
+            @strongify(self);
+            LDHomeModel *model = self.viewModel.dataSourceArr[row];
             NSLog(@"选中的内容:%@", model.currencyName);
         };
     }
