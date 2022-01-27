@@ -26,6 +26,17 @@
     _window.backgroundColor = [UIColor whiteColor];
     [_window makeKeyAndVisible];
     
+    NSString *code = @"Coin_in_USDT-ERC20";
+    if ([code containsString:@"Coin_in_"]) {
+        NSRange range = [code rangeOfString:@"Coin_in_"];
+        NSString *codeKey = [code substringFromIndex:range.length];
+        NSLog(@"codekey is111:%@", codeKey);
+        
+        codeKey = [codeKey componentsSeparatedByString:@"-"].firstObject;
+        NSLog(@"codekey is222:%@", codeKey);
+
+    }
+    
 //    ViewController *vc = [[ViewController alloc] init];
 //    CircleCollectionVC *vc = [[CircleCollectionVC alloc] init];
     LDLoginVC *vc = [[LDLoginVC alloc] init];

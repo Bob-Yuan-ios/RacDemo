@@ -187,16 +187,12 @@ UITextFieldDelegate
         
 //        //设置换行
 //        _userNameLbl.numberOfLines = 0;
-//
 //        //给一个maxWidth
 //        _userNameLbl.preferredMaxLayoutWidth = 30;
-//
-//        //设置
-//        [_userNameLbl setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
- 
-        // 设置自适应优先级
+        
+        //设置
         [_userNameLbl setContentHuggingPriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisHorizontal];
-    }
+     }
     return _userNameLbl;
 }
 

@@ -81,23 +81,23 @@
     self.contentV.loginBlock = ^{
         @strongify(self);
         
-        BOOL hiddenNavBar = self.navigationController.navigationBarHidden;
-        [self.navigationController setNavigationBarHidden:!hiddenNavBar animated:YES];
-        [self refreshConstraint];
+//        BOOL hiddenNavBar = self.navigationController.navigationBarHidden;
+//        [self.navigationController setNavigationBarHidden:!hiddenNavBar animated:YES];
+//        [self refreshConstraint];
 
-//        [[self.contentVM.loginCommand execute:@"触发登录操作"] subscribeNext:^(NSDictionary *dic) {
-//            if ([dic.allKeys containsObject:@"code"]) {
-//                if (0 == [[dic objectForKey:@"code"] integerValue]) {
-//                    NSLog(@"登录成功");
-//
-//                    LDHomeVC *homevc = [LDHomeVC new];
-//                    [self.navigationController pushViewController:homevc animated:YES];
-//
-//                    return;
-//                }
-//            }
-//            NSLog(@"登录失败");
-//        }];
+        [[self.contentVM.loginCommand execute:@"触发登录操作"] subscribeNext:^(NSDictionary *dic) {
+            if ([dic.allKeys containsObject:@"code"]) {
+                if (0 == [[dic objectForKey:@"code"] integerValue]) {
+                    NSLog(@"登录成功");
+
+                    LDHomeVC *homevc = [LDHomeVC new];
+                    [self.navigationController pushViewController:homevc animated:YES];
+
+                    return;
+                }
+            }
+            NSLog(@"登录失败");
+        }];
     };
 }
 /*

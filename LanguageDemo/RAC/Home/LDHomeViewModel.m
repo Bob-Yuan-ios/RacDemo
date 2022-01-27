@@ -26,6 +26,7 @@
             }
             
             self.dataSourceArr = [arr mutableCopy];
+//直接触发NSMutableArray更新
 //            [[self mutableArrayValueForKey:@"dataSourceArr"] setArray:arr];
 //            [subscriber sendNext:@"数据请求成功"];
 
