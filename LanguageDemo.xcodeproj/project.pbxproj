@@ -3,17 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		17F619C5F454DDFF43EE2ADF /* libPods-LanguageDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F10C779D08314F3386389BC /* libPods-LanguageDemo.a */; };
-		C419F88E26BBC25900B7FADE /* dealNotice.plist in Resources */ = {isa = PBXBuildFile; fileRef = C419F88D26BBC25900B7FADE /* dealNotice.plist */; };
-		C41BF19F2671E55D00AB3AA3 /* GTTestAlloc.m in Sources */ = {isa = PBXBuildFile; fileRef = C41BF19E2671E55D00AB3AA3 /* GTTestAlloc.m */; };
-		C41D88C22682C965001D4FBA /* GTDarkConfigM.m in Sources */ = {isa = PBXBuildFile; fileRef = C41D88C12682C965001D4FBA /* GTDarkConfigM.m */; };
 		C425F59726A94BBF0091918D /* RacRedSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = C425F59626A94BBF0091918D /* RacRedSubView.m */; };
-		C425F59A26A94F3B0091918D /* RacRedSubSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = C425F59926A94F3B0091918D /* RacRedSubSubView.m */; };
-		C45957A726B3E80B00CD2390 /* TitleRepeatV.m in Sources */ = {isa = PBXBuildFile; fileRef = C45957A626B3E80B00CD2390 /* TitleRepeatV.m */; };
 		C4629D4A26244CBC00029564 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4629D4926244CBC00029564 /* AppDelegate.m */; };
 		C4629D5526244CBF00029564 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4629D5426244CBF00029564 /* Assets.xcassets */; };
 		C4629D5826244CBF00029564 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4629D5626244CBF00029564 /* LaunchScreen.storyboard */; };
@@ -23,15 +18,12 @@
 		C473DFA0277EC1B500CF669A /* LDHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C473DF9F277EC1B500CF669A /* LDHomeVC.m */; };
 		C473DFA3277EC1D200CF669A /* LDHomeTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C473DFA2277EC1D200CF669A /* LDHomeTableView.m */; };
 		C473DFA6277EC1E100CF669A /* LDHomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C473DFA5277EC1E100CF669A /* LDHomeViewModel.m */; };
-		C4771593273F777E003C10CF /* CircleCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C4771592273F777E003C10CF /* CircleCollectionVC.m */; };
 		C48489B92775C66C0033194C /* LDLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C48489B82775C66C0033194C /* LDLoginVC.m */; };
 		C48489BC2775C67D0033194C /* LDLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = C48489BB2775C67D0033194C /* LDLoginView.m */; };
 		C48489BF2775C68C0033194C /* LDLoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C48489BE2775C68C0033194C /* LDLoginViewModel.m */; };
 		C48DEDD227511FF200A86E08 /* UIImage+ChangeColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C48DEDD127511FF200A86E08 /* UIImage+ChangeColor.m */; };
 		C49EC46C26C10E7100F130F8 /* ThreadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C49EC46B26C10E7100F130F8 /* ThreadModel.m */; };
-		C4A59FD72679E93500C10B8F /* QuartzView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A59FD62679E93500C10B8F /* QuartzView.m */; };
 		C4AECA7D2702C66000F3BA1A /* Bridging_Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AECA7C2702C66000F3BA1A /* Bridging_Header.swift */; };
-		C4B0694E268C4CBD00AD5D28 /* GTObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B0694D268C4CBD00AD5D28 /* GTObject.m */; };
 		C4C8948626AAB05B005E39F5 /* UIImage+Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C8948526AAB05B005E39F5 /* UIImage+Filter.m */; };
 		C4C8948926AAB750005E39F5 /* UIImageView+Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C8948826AAB750005E39F5 /* UIImageView+Filter.m */; };
 		C4CACCE92669E53C00712ED2 /* RacRedVM.m in Sources */ = {isa = PBXBuildFile; fileRef = C4CACCE82669E53C00712ED2 /* RacRedVM.m */; };
@@ -45,18 +37,10 @@
 		3F10C779D08314F3386389BC /* libPods-LanguageDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LanguageDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54B6CB46849CC54625B2204D /* Pods-LanguageDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LanguageDemo.debug.xcconfig"; path = "Target Support Files/Pods-LanguageDemo/Pods-LanguageDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		C41147BF27158D390085C364 /* LanguageDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LanguageDemo.entitlements; sourceTree = "<group>"; };
-		C419F88D26BBC25900B7FADE /* dealNotice.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = dealNotice.plist; sourceTree = "<group>"; };
-		C41BF19D2671E55D00AB3AA3 /* GTTestAlloc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTTestAlloc.h; sourceTree = "<group>"; };
-		C41BF19E2671E55D00AB3AA3 /* GTTestAlloc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTTestAlloc.m; sourceTree = "<group>"; };
 		C41BF1A02671E5E700AB3AA3 /* GTCommonInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTCommonInfo.h; sourceTree = "<group>"; };
-		C41D88C02682C965001D4FBA /* GTDarkConfigM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTDarkConfigM.h; sourceTree = "<group>"; };
-		C41D88C12682C965001D4FBA /* GTDarkConfigM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTDarkConfigM.m; sourceTree = "<group>"; };
 		C425F59526A94BBF0091918D /* RacRedSubView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RacRedSubView.h; sourceTree = "<group>"; };
 		C425F59626A94BBF0091918D /* RacRedSubView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RacRedSubView.m; sourceTree = "<group>"; };
-		C425F59826A94F3B0091918D /* RacRedSubSubView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RacRedSubSubView.h; path = /Users/bob/Desktop/LanguageDemo/LanguageDemo/Learning/RacRedSubSubView.h; sourceTree = "<absolute>"; };
-		C425F59926A94F3B0091918D /* RacRedSubSubView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RacRedSubSubView.m; path = /Users/bob/Desktop/LanguageDemo/LanguageDemo/Learning/RacRedSubSubView.m; sourceTree = "<absolute>"; };
-		C45957A526B3E80B00CD2390 /* TitleRepeatV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TitleRepeatV.h; sourceTree = "<group>"; };
-		C45957A626B3E80B00CD2390 /* TitleRepeatV.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TitleRepeatV.m; sourceTree = "<group>"; };
+		C44EEABD295E92DF0083CD03 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		C4629D4526244CBC00029564 /* LanguageDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LanguageDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4629D4826244CBC00029564 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C4629D4926244CBC00029564 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -73,8 +57,6 @@
 		C473DFA2277EC1D200CF669A /* LDHomeTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDHomeTableView.m; sourceTree = "<group>"; };
 		C473DFA4277EC1E100CF669A /* LDHomeViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDHomeViewModel.h; sourceTree = "<group>"; };
 		C473DFA5277EC1E100CF669A /* LDHomeViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDHomeViewModel.m; sourceTree = "<group>"; };
-		C4771591273F777E003C10CF /* CircleCollectionVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CircleCollectionVC.h; sourceTree = "<group>"; };
-		C4771592273F777E003C10CF /* CircleCollectionVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CircleCollectionVC.m; sourceTree = "<group>"; };
 		C48489B72775C66C0033194C /* LDLoginVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDLoginVC.h; sourceTree = "<group>"; };
 		C48489B82775C66C0033194C /* LDLoginVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDLoginVC.m; sourceTree = "<group>"; };
 		C48489BA2775C67D0033194C /* LDLoginView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDLoginView.h; sourceTree = "<group>"; };
@@ -85,12 +67,8 @@
 		C48DEDD127511FF200A86E08 /* UIImage+ChangeColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ChangeColor.m"; sourceTree = "<group>"; };
 		C49EC46A26C10E7100F130F8 /* ThreadModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThreadModel.h; sourceTree = "<group>"; };
 		C49EC46B26C10E7100F130F8 /* ThreadModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThreadModel.m; sourceTree = "<group>"; };
-		C4A59FD52679E93500C10B8F /* QuartzView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuartzView.h; sourceTree = "<group>"; };
-		C4A59FD62679E93500C10B8F /* QuartzView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuartzView.m; sourceTree = "<group>"; };
 		C4AECA7B2702C66000F3BA1A /* LanguageDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LanguageDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		C4AECA7C2702C66000F3BA1A /* Bridging_Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bridging_Header.swift; sourceTree = "<group>"; };
-		C4B0694C268C4CBD00AD5D28 /* GTObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTObject.h; sourceTree = "<group>"; };
-		C4B0694D268C4CBD00AD5D28 /* GTObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTObject.m; sourceTree = "<group>"; };
 		C4C8948426AAB05B005E39F5 /* UIImage+Filter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Filter.h"; sourceTree = "<group>"; };
 		C4C8948526AAB05B005E39F5 /* UIImage+Filter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Filter.m"; sourceTree = "<group>"; };
 		C4C8948726AAB750005E39F5 /* UIImageView+Filter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Filter.h"; sourceTree = "<group>"; };
@@ -127,20 +105,81 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C41BF19C2671E54000AB3AA3 /* Memory */ = {
+		C44EEAB5295E8BA70083CD03 /* present */ = {
 			isa = PBXGroup;
 			children = (
-				C41BF19D2671E55D00AB3AA3 /* GTTestAlloc.h */,
-				C41BF19E2671E55D00AB3AA3 /* GTTestAlloc.m */,
-				C4B0694C268C4CBD00AD5D28 /* GTObject.h */,
-				C4B0694D268C4CBD00AD5D28 /* GTObject.m */,
+				C473DF9D277EC18B00CF669A /* Home */,
+				C473DF9C277EC0DF00CF669A /* Login */,
 			);
-			path = Memory;
+			path = present;
+			sourceTree = "<group>";
+		};
+		C44EEAB6295E8BB90083CD03 /* business */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = business;
+			sourceTree = "<group>";
+		};
+		C44EEAB7295E8BD10083CD03 /* basicService */ = {
+			isa = PBXGroup;
+			children = (
+				C44EEABC295E8EB70083CD03 /* popview */,
+				C44EEABB295E8C970083CD03 /* declare */,
+				C44EEABA295E8C680083CD03 /* thread */,
+				C44EEAB9295E8C480083CD03 /* imageFilter */,
+			);
+			path = basicService;
+			sourceTree = "<group>";
+		};
+		C44EEAB8295E8BDC0083CD03 /* coreService */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = coreService;
+			sourceTree = "<group>";
+		};
+		C44EEAB9295E8C480083CD03 /* imageFilter */ = {
+			isa = PBXGroup;
+			children = (
+				C4C8948426AAB05B005E39F5 /* UIImage+Filter.h */,
+				C4C8948526AAB05B005E39F5 /* UIImage+Filter.m */,
+				C4C8948726AAB750005E39F5 /* UIImageView+Filter.h */,
+				C4C8948826AAB750005E39F5 /* UIImageView+Filter.m */,
+				C48DEDD027511FF200A86E08 /* UIImage+ChangeColor.h */,
+				C48DEDD127511FF200A86E08 /* UIImage+ChangeColor.m */,
+			);
+			path = imageFilter;
+			sourceTree = "<group>";
+		};
+		C44EEABA295E8C680083CD03 /* thread */ = {
+			isa = PBXGroup;
+			children = (
+				C49EC46A26C10E7100F130F8 /* ThreadModel.h */,
+				C49EC46B26C10E7100F130F8 /* ThreadModel.m */,
+			);
+			path = thread;
+			sourceTree = "<group>";
+		};
+		C44EEABB295E8C970083CD03 /* declare */ = {
+			isa = PBXGroup;
+			children = (
+				C41BF1A02671E5E700AB3AA3 /* GTCommonInfo.h */,
+			);
+			path = declare;
+			sourceTree = "<group>";
+		};
+		C44EEABC295E8EB70083CD03 /* popview */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = popview;
 			sourceTree = "<group>";
 		};
 		C4629D3C26244CBC00029564 = {
 			isa = PBXGroup;
 			children = (
+				C44EEABD295E92DF0083CD03 /* PrefixHeader.pch */,
 				C4AECA7C2702C66000F3BA1A /* Bridging_Header.swift */,
 				C4629D4726244CBC00029564 /* LanguageDemo */,
 				C4629D4626244CBC00029564 /* Products */,
@@ -161,13 +200,12 @@
 		C4629D4726244CBC00029564 /* LanguageDemo */ = {
 			isa = PBXGroup;
 			children = (
-				C48489B62775C6500033194C /* RAC */,
+				C44EEAB8295E8BDC0083CD03 /* coreService */,
+				C44EEAB7295E8BD10083CD03 /* basicService */,
+				C44EEAB6295E8BB90083CD03 /* business */,
+				C44EEAB5295E8BA70083CD03 /* present */,
 				C41147BF27158D390085C364 /* LanguageDemo.entitlements */,
-				C4A59FD42679E91A00C10B8F /* views */,
-				C41BF19C2671E54000AB3AA3 /* Memory */,
 				C4FDD6D02667236900E444F2 /* Learning */,
-				C4FDD6B82667236000E444F2 /* model */,
-				C4FDD6C62667236000E444F2 /* utils */,
 				C4629D4826244CBC00029564 /* AppDelegate.h */,
 				C4629D4926244CBC00029564 /* AppDelegate.m */,
 				C4FDD6DE2667237400E444F2 /* ViewController.h */,
@@ -176,8 +214,6 @@
 				C4629D5626244CBF00029564 /* LaunchScreen.storyboard */,
 				C4629D5926244CBF00029564 /* Info.plist */,
 				C4629D5A26244CBF00029564 /* main.m */,
-				C4771591273F777E003C10CF /* CircleCollectionVC.h */,
-				C4771592273F777E003C10CF /* CircleCollectionVC.m */,
 			);
 			path = LanguageDemo;
 			sourceTree = "<group>";
@@ -208,52 +244,6 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		C48489B62775C6500033194C /* RAC */ = {
-			isa = PBXGroup;
-			children = (
-				C473DF9D277EC18B00CF669A /* Home */,
-				C473DF9C277EC0DF00CF669A /* Login */,
-			);
-			path = RAC;
-			sourceTree = "<group>";
-		};
-		C4A59FD42679E91A00C10B8F /* views */ = {
-			isa = PBXGroup;
-			children = (
-				C4A59FD52679E93500C10B8F /* QuartzView.h */,
-				C4A59FD62679E93500C10B8F /* QuartzView.m */,
-				C45957A526B3E80B00CD2390 /* TitleRepeatV.h */,
-				C45957A626B3E80B00CD2390 /* TitleRepeatV.m */,
-				C419F88D26BBC25900B7FADE /* dealNotice.plist */,
-			);
-			path = views;
-			sourceTree = "<group>";
-		};
-		C4FDD6B82667236000E444F2 /* model */ = {
-			isa = PBXGroup;
-			children = (
-				C4C8948426AAB05B005E39F5 /* UIImage+Filter.h */,
-				C4C8948526AAB05B005E39F5 /* UIImage+Filter.m */,
-				C4C8948726AAB750005E39F5 /* UIImageView+Filter.h */,
-				C4C8948826AAB750005E39F5 /* UIImageView+Filter.m */,
-				C48DEDD027511FF200A86E08 /* UIImage+ChangeColor.h */,
-				C48DEDD127511FF200A86E08 /* UIImage+ChangeColor.m */,
-				C49EC46A26C10E7100F130F8 /* ThreadModel.h */,
-				C49EC46B26C10E7100F130F8 /* ThreadModel.m */,
-			);
-			path = model;
-			sourceTree = "<group>";
-		};
-		C4FDD6C62667236000E444F2 /* utils */ = {
-			isa = PBXGroup;
-			children = (
-				C41BF1A02671E5E700AB3AA3 /* GTCommonInfo.h */,
-				C41D88C02682C965001D4FBA /* GTDarkConfigM.h */,
-				C41D88C12682C965001D4FBA /* GTDarkConfigM.m */,
-			);
-			path = utils;
-			sourceTree = "<group>";
-		};
 		C4FDD6D02667236900E444F2 /* Learning */ = {
 			isa = PBXGroup;
 			children = (
@@ -263,8 +253,6 @@
 				C4FDD6D22667236900E444F2 /* RacRedView.m */,
 				C425F59526A94BBF0091918D /* RacRedSubView.h */,
 				C425F59626A94BBF0091918D /* RacRedSubView.m */,
-				C425F59826A94F3B0091918D /* RacRedSubSubView.h */,
-				C425F59926A94F3B0091918D /* RacRedSubSubView.m */,
 				C4FDD6D12667236900E444F2 /* GTRACLearnM.h */,
 				C4FDD6D32667236900E444F2 /* GTRACLearnM.m */,
 				C4CACCE72669E53C00712ED2 /* RacRedVM.h */,
@@ -343,7 +331,6 @@
 			files = (
 				C4629D5826244CBF00029564 /* LaunchScreen.storyboard in Resources */,
 				C4629D5526244CBF00029564 /* Assets.xcassets in Resources */,
-				C419F88E26BBC25900B7FADE /* dealNotice.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,24 +388,17 @@
 				C4CACCE92669E53C00712ED2 /* RacRedVM.m in Sources */,
 				C49EC46C26C10E7100F130F8 /* ThreadModel.m in Sources */,
 				C4C8948626AAB05B005E39F5 /* UIImage+Filter.m in Sources */,
-				C4771593273F777E003C10CF /* CircleCollectionVC.m in Sources */,
 				C48489BF2775C68C0033194C /* LDLoginViewModel.m in Sources */,
 				C4C8948926AAB750005E39F5 /* UIImageView+Filter.m in Sources */,
-				C41D88C22682C965001D4FBA /* GTDarkConfigM.m in Sources */,
 				C473DFA3277EC1D200CF669A /* LDHomeTableView.m in Sources */,
 				C4AECA7D2702C66000F3BA1A /* Bridging_Header.swift in Sources */,
 				C4FDD6D62667236900E444F2 /* GTRACLearnM.m in Sources */,
 				C4FDD6F12667237400E444F2 /* ViewController.m in Sources */,
-				C4A59FD72679E93500C10B8F /* QuartzView.m in Sources */,
-				C425F59A26A94F3B0091918D /* RacRedSubSubView.m in Sources */,
-				C4B0694E268C4CBD00AD5D28 /* GTObject.m in Sources */,
 				C48489B92775C66C0033194C /* LDLoginVC.m in Sources */,
 				C4629D4A26244CBC00029564 /* AppDelegate.m in Sources */,
 				C48489BC2775C67D0033194C /* LDLoginView.m in Sources */,
 				C473DFA6277EC1E100CF669A /* LDHomeViewModel.m in Sources */,
-				C45957A726B3E80B00CD2390 /* TitleRepeatV.m in Sources */,
 				C4FDD6D52667236900E444F2 /* RacRedView.m in Sources */,
-				C41BF19F2671E55D00AB3AA3 /* GTTestAlloc.m in Sources */,
 				C46817A6266B33C30026F60C /* GTTextField.m in Sources */,
 				C4629D5B26244CBF00029564 /* main.m in Sources */,
 				C473DFA0277EC1B500CF669A /* LDHomeVC.m in Sources */,
@@ -567,6 +547,9 @@
 				CODE_SIGN_ENTITLEMENTS = LanguageDemo/LanguageDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V5ALQR4SC7;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
 				INFOPLIST_FILE = LanguageDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -596,6 +579,9 @@
 				CODE_SIGN_ENTITLEMENTS = LanguageDemo/LanguageDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V5ALQR4SC7;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
 				INFOPLIST_FILE = LanguageDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (

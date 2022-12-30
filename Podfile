@@ -5,7 +5,7 @@ platform :ios, "9.0"
 
 # 主工程
 target 'LanguageDemo' do
-    pod 'YYKit'
+    pod 'YYModel'
     pod 'Masonry'
     pod 'AFNetworking'
     pod 'ReactiveObjC'

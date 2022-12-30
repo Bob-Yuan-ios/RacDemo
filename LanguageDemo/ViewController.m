@@ -13,18 +13,12 @@
 
 #import "GTRACLearnM.h"
 
-#import "GTTestAlloc.h"
-#import "QuartzView.h"
-
-#import "GTDarkConfigM.h"
-#import "GTObject.h"
 
 #import <objc/runtime.h>
 #import <malloc/malloc.h>
 
 #import <AFNetworking/AFNetworking.h>
  
-#import "TitleRepeatV.h"
 #import "ThreadModel.h"
  
 #import "UIImage+ChangeColor.h"
@@ -42,10 +36,7 @@ UIScrollViewDelegate
 
 @property (nonatomic, strong) UILabel *tit;
 
-@property (nonatomic, strong) GTObject *obj1;
-@property (nonatomic, strong) GTObject *obj2;
-@property (nonatomic, weak)   GTObject *objWeak;
- 
+
 @property (nonatomic, assign) CGFloat width;
 
 @end

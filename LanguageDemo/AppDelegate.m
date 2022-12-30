@@ -11,7 +11,6 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
  
-#import "CircleCollectionVC.h"
 #import "LDLoginVC.h"
  
 @interface AppDelegate () 

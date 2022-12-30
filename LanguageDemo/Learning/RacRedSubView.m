@@ -7,11 +7,9 @@
 
 #import "RacRedSubView.h"
 #import "GTCommonInfo.h"
-#import "RacRedSubSubView.h"
 
 @interface RacRedSubView ()
 
-@property (nonatomic, strong) RacRedSubSubView *redSubV;
 
 @end
 
@@ -34,10 +32,6 @@
         
         // 下一个周期 只是它自己这一层渲染
 //        [self performSelector:@selector(setNeedsLayout) withObject:nil afterDelay:5.f];
-        
-        _redSubV = [[RacRedSubSubView alloc] initWithFrame:CGRectMake(75, 50, 225, 40)];
-        [self addSubview:_redSubV];
-        _redSubV.backgroundColor = [UIColor brownColor];
 
     }
     return self;
