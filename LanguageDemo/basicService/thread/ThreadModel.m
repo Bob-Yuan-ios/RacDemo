@@ -18,10 +18,6 @@
 + (void)testLock{
 
     NSUInteger count = 1000 * 10000;
-
-    NSConditionLock *conLock = [[NSConditionLock alloc] init];
-
-
     
     TICK
     for (int i = 0; i < count; i++) {
@@ -51,7 +47,6 @@
 }
 
 + (void)sourceCon{
-    NSDate *startTime = [NSDate date];
     
 //    dispatch_queue_t queue = dispatch_queue_create(0, 0);
 //    dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
@@ -85,7 +80,7 @@
         
         NSLog(@"......(%ld)", estimated);
         if (buffer) {
-            ssize_t actual = read(fd, buffer, (estimated));
+//            ssize_t actual = read(fd, buffer, (estimated));
             __block BOOL done = YES;
 //            dispatch_async(globalQ, ^{
 //                sleep(1.f);
@@ -110,6 +105,7 @@
     dispatch_resume(readSource);
 }
 
+#pragma mark NSOperation
 + (void)invocationOperation{
     
     NSDictionary *dict = @{
@@ -121,6 +117,14 @@
     NSLog(@"start before");
     [op start];
     NSLog(@"start after");
+}
+
++ (void)operationSel:(NSDictionary *)dict{
+    
+    NSLog(@"dictValue = %@", [dict valueForKey:@"key1"]);
+    sleep(2);
+    NSLog(@"currentThread = %@", [NSThread currentThread]);
+    NSLog(@"mainThread = %@", [NSThread mainThread]);
 }
 
 + (void)blockOperation{
@@ -153,11 +157,4 @@
 
 }
 
-+ (void)operationSel:(NSDictionary *)dict{
-    
-    NSLog(@"dictValue = %@", [dict valueForKey:@"key1"]);
-    sleep(2);
-    NSLog(@"currentThread = %@", [NSThread currentThread]);
-    NSLog(@"mainThread = %@", [NSThread mainThread]);
-}
 @end
