@@ -16,8 +16,6 @@
 
 #import <objc/runtime.h>
 #import <malloc/malloc.h>
-
-#import <AFNetworking/AFNetworking.h>
  
 #import "ThreadModel.h"
  
@@ -98,10 +96,7 @@ UIScrollViewDelegate
 }
  
 - (void)sayHelloWorld{
-    NSLog(@"say hello world...");
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        [self afnetHttps];
-//    });
+
     UIView *backV = [UIView new];
     [[UIApplication sharedApplication].keyWindow addSubview:backV];
     
@@ -183,29 +178,7 @@ UIScrollViewDelegate
     }
 }
 
-- (void)afnetHttps{
-    AFHTTPSessionManager *sM = [[AFHTTPSessionManager alloc] init];
-    [sM setResponseSerializer:[AFHTTPResponseSerializer serializer]];
- 
-    [sM GET:@"https://www.baidu.com" parameters:nil headers:nil progress:^(NSProgress * _Nonnull uploadProgress) {
 
-        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-            NSLog(@"success:(%@)", responseObject);
-
-        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            NSLog(@"failure:(%@)", error.userInfo);
-    }];
-
-    NSLog(@"++++++:%lu", (unsigned long)sM.dataTasks.count);
-    for (NSURLSessionTask *dataTask in sM.dataTasks) {
-        if([dataTask.currentRequest.URL.absoluteString containsString:@"www.baidu.com"]){
-            NSLog(@"===========######:(%ld)", (long)dataTask.state);
-            [dataTask cancel];
-        }
-    }
-
-    NSLog(@"++++++:%lu", (unsigned long)sM.dataTasks.count);
-}
  
 #pragma mark rac 单对象kvo
 - (void)racKVOTest{
@@ -235,7 +208,7 @@ UIScrollViewDelegate
 #pragma mark rac 多对象kvo 内存管理
 - (void)racRedBind{
     [RACObserve(_racRedView, submitBtn) subscribeNext:^(id  _Nullable x) {
-
+        NSLog(@"rac red bind ... %@", x);
     }];
 }
  
