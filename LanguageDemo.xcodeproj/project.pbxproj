@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		17F619C5F454DDFF43EE2ADF /* libPods-LanguageDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F10C779D08314F3386389BC /* libPods-LanguageDemo.a */; };
 		C425F59726A94BBF0091918D /* RacRedSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = C425F59626A94BBF0091918D /* RacRedSubView.m */; };
+		C44EEABF295E95270083CD03 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C44EEABE295E95270083CD03 /* README.md */; };
 		C4629D4A26244CBC00029564 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4629D4926244CBC00029564 /* AppDelegate.m */; };
 		C4629D5526244CBF00029564 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4629D5426244CBF00029564 /* Assets.xcassets */; };
 		C4629D5826244CBF00029564 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4629D5626244CBF00029564 /* LaunchScreen.storyboard */; };
@@ -41,6 +42,7 @@
 		C425F59526A94BBF0091918D /* RacRedSubView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RacRedSubView.h; sourceTree = "<group>"; };
 		C425F59626A94BBF0091918D /* RacRedSubView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RacRedSubView.m; sourceTree = "<group>"; };
 		C44EEABD295E92DF0083CD03 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		C44EEABE295E95270083CD03 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C4629D4526244CBC00029564 /* LanguageDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LanguageDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4629D4826244CBC00029564 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C4629D4926244CBC00029564 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 		C4629D3C26244CBC00029564 = {
 			isa = PBXGroup;
 			children = (
+				C44EEABE295E95270083CD03 /* README.md */,
 				C44EEABD295E92DF0083CD03 /* PrefixHeader.pch */,
 				C4AECA7C2702C66000F3BA1A /* Bridging_Header.swift */,
 				C4629D4726244CBC00029564 /* LanguageDemo */,
@@ -329,6 +332,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C44EEABF295E95270083CD03 /* README.md in Resources */,
 				C4629D5826244CBF00029564 /* LaunchScreen.storyboard in Resources */,
 				C4629D5526244CBF00029564 /* Assets.xcassets in Resources */,
 			);
