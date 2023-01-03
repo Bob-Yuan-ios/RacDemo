@@ -25,12 +25,9 @@
 
 #define ESLog(fmt, ...)
 
-
 #endif
 
-
 #define GTWeakObj(o)   __weak typeof(o) Weak##o = o;
-#define GTStrongObj(o) autoreleasepool{} __strong typeof(o) o = Weak##o;
-
+#define GTStrongObj(o) autoreleasepool{ __strong typeof(o) o = Weak##o};
 
 #endif /* GTCommonInfo_h */

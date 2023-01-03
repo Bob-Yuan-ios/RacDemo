@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		17F619C5F454DDFF43EE2ADF /* libPods-LanguageDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F10C779D08314F3386389BC /* libPods-LanguageDemo.a */; };
+		C4046214296433D60022A927 /* YSWebSocketRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C4046213296433D60022A927 /* YSWebSocketRequest.m */; };
 		C425F59726A94BBF0091918D /* RacRedSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = C425F59626A94BBF0091918D /* RacRedSubView.m */; };
 		C44EEABF295E95270083CD03 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C44EEABE295E95270083CD03 /* README.md */; };
 		C44EEAC3295EB4A70083CD03 /* YSHttpsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C44EEAC2295EB4A70083CD03 /* YSHttpsRequest.m */; };
@@ -39,6 +40,8 @@
 		003C593BB5769782A908F4E4 /* Pods-LanguageDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LanguageDemo.release.xcconfig"; path = "Target Support Files/Pods-LanguageDemo/Pods-LanguageDemo.release.xcconfig"; sourceTree = "<group>"; };
 		3F10C779D08314F3386389BC /* libPods-LanguageDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LanguageDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54B6CB46849CC54625B2204D /* Pods-LanguageDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LanguageDemo.debug.xcconfig"; path = "Target Support Files/Pods-LanguageDemo/Pods-LanguageDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		C4046212296433D60022A927 /* YSWebSocketRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSWebSocketRequest.h; sourceTree = "<group>"; };
+		C4046213296433D60022A927 /* YSWebSocketRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSWebSocketRequest.m; sourceTree = "<group>"; };
 		C41147BF27158D390085C364 /* LanguageDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LanguageDemo.entitlements; sourceTree = "<group>"; };
 		C41BF1A02671E5E700AB3AA3 /* GTCommonInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTCommonInfo.h; sourceTree = "<group>"; };
 		C425F59526A94BBF0091918D /* RacRedSubView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RacRedSubView.h; sourceTree = "<group>"; };
@@ -144,7 +147,7 @@
 		C44EEAB8295E8BDC0083CD03 /* coreService */ = {
 			isa = PBXGroup;
 			children = (
-				C44EEAC0295EB3A40083CD03 /* https */,
+				C44EEAC0295EB3A40083CD03 /* dataRequest */,
 			);
 			path = coreService;
 			sourceTree = "<group>";
@@ -186,13 +189,15 @@
 			path = popview;
 			sourceTree = "<group>";
 		};
-		C44EEAC0295EB3A40083CD03 /* https */ = {
+		C44EEAC0295EB3A40083CD03 /* dataRequest */ = {
 			isa = PBXGroup;
 			children = (
 				C44EEAC1295EB4A70083CD03 /* YSHttpsRequest.h */,
 				C44EEAC2295EB4A70083CD03 /* YSHttpsRequest.m */,
+				C4046212296433D60022A927 /* YSWebSocketRequest.h */,
+				C4046213296433D60022A927 /* YSWebSocketRequest.m */,
 			);
-			path = https;
+			path = dataRequest;
 			sourceTree = "<group>";
 		};
 		C44EEAC4295ED95E0083CD03 /* dataRequest */ = {
@@ -434,6 +439,7 @@
 				C4629D5B26244CBF00029564 /* main.m in Sources */,
 				C473DFA0277EC1B500CF669A /* LDHomeVC.m in Sources */,
 				C44EEAC3295EB4A70083CD03 /* YSHttpsRequest.m in Sources */,
+				C4046214296433D60022A927 /* YSWebSocketRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

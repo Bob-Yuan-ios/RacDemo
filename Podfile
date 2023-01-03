@@ -5,10 +5,27 @@ platform :ios, "9.0"
 
 # 主工程
 target 'LanguageDemo' do
-    pod 'YYModel'
+    
+    # 布局
     pod 'Masonry'
-    pod 'AFNetworking'
-    pod 'ReactiveObjC'
+    
+    # 键盘自动收回
     pod 'IQKeyboardManager'
+    
+    # MVVM框架
+    pod 'ReactiveObjC'
+    
+    # 字典/模型
+    pod 'YYModel'
+    
+    # 上拉/下拉 刷新
     pod 'MJRefresh'
+    
+    # HTTPS请求
+    pod 'AFNetworking'
+    
+    # webSocket请求
+    pod 'SocketRocket'
+
+
 end
