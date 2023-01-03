@@ -28,7 +28,7 @@
     
     [self.httpRequest doGetRequestWithUrlStr:urlStr params:params headers:[self compactHeader]
                                      success:^(NSDictionary * _Nonnull responseObject) {
-    
+      
     } failure:^(NSError * _Nonnull error) {
         
     }];

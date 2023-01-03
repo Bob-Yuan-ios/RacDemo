@@ -18,9 +18,9 @@
 @property (nonatomic, strong) UILabel     *nameLbl;
 @property (nonatomic, strong) UILabel     *heightLbl;
 
-@property (nonatomic, strong) UITextField *ageTF;
-@property (nonatomic, strong) UITextField *nameTF;
-@property (nonatomic, strong) UITextField *heightTF;
+@property (nonatomic, strong) GTTextField *ageTF;
+@property (nonatomic, strong) GTTextField *nameTF;
+@property (nonatomic, strong) GTTextField *heightTF;
  
 @property (nonatomic, strong) RacRedSubView *redSubV;
 
