@@ -11,11 +11,11 @@
 
 #if DEBUG
 
-#define DSLog(fmt, ...) NSLog((@"%s," "[lineNum:%d]" fmt) , __FUNCTION__, __LINE__, ##__VA_ARGS__); //带函数名和行数
+#define DSLog(fmt, ...) NSLog((@"Info----%s," "[lineNum:%d]" fmt) , __FUNCTION__, __LINE__, ##__VA_ARGS__); //带函数名和行数
 
-#define WSLog(fmt, ...) NSLog((@"====%s" fmt), __FUNCTION__, ##__VA_ARGS__);
+#define WSLog(fmt, ...) NSLog((@"Warn====%s" fmt), __FUNCTION__, ##__VA_ARGS__);
 
-#define ESLog(fmt, ...) NSLog((@"!!!!%s" fmt), __FUNCTION__, ##__VA_ARGS__);
+#define ESLog(fmt, ...) NSLog((@"Error####%s" fmt), __FUNCTION__, ##__VA_ARGS__);
 
 #else
 
@@ -31,7 +31,6 @@
 
 #define GTWeakObj(o)   __weak typeof(o) Weak##o = o;
 #define GTStrongObj(o) autoreleasepool{} __strong typeof(o) o = Weak##o;
-
 
 
 #endif /* GTCommonInfo_h */
