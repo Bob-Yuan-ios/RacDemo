@@ -40,18 +40,22 @@ typedef NS_ENUM(NSUInteger, WebSocketConnectState){
 @property (nonatomic, strong) dispatch_source_t connectTimer;
 
 @property (nonatomic, copy) void(^connectFailureBlock)(void);
+@property (nonatomic, copy) void(^reciveDataBlock)(id data);
 
 @end
 
 @implementation YSWebSocketRequest
  
-- (id)initWithServer:(NSString *)server port:(NSString *)port connectFailure:(void(^)(void))failureBlock{
+- (id)initWithServer:(NSString *)server port:(NSString *)port
+          reviceData:(void(^)(id data))dataBlock
+      connectFailure:(void(^)(void))failureBlock{
     self = [super init];
     if (self) {
         _port = [port mutableCopy];
         _server = [server mutableCopy];
         _connectState = WebSocketConnectStateInit;
         
+        _reciveDataBlock = dataBlock;
         _connectFailureBlock = failureBlock;
         
         //从后台到前台直接触发一次心跳
@@ -186,6 +190,7 @@ typedef NS_ENUM(NSUInteger, WebSocketConnectState){
 
 - (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(nonnull id)message{
     DSLog(@"接收数据:%@", message);
+    if(_reciveDataBlock) _reciveDataBlock(message);
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code
