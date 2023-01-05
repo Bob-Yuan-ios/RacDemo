@@ -1,4 +1,4 @@
-module Pods_LanguageDemo {
+framework module Pods_LanguageDemo {
   umbrella header "Pods-LanguageDemo-umbrella.h"
 
   export *

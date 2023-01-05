@@ -1,3 +1,4 @@
+use_frameworks!
 platform :ios, "9.0"
 
 #source 'https://cdn.cocoapods.org/'
@@ -27,5 +28,7 @@ target 'LanguageDemo' do
     # webSocket请求
     pod 'SocketRocket'
 
+    # tcpSocket请求
+    pod 'CocoaAsyncSocket'
 
 end

@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (4.0.1)
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
+  - CocoaAsyncSocket (7.6.5)
   - IQKeyboardManager (6.5.6)
   - Masonry (1.1.0)
   - MJRefresh (3.7.5)
@@ -23,6 +24,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - CocoaAsyncSocket
   - IQKeyboardManager
   - Masonry
   - MJRefresh
@@ -33,6 +35,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - AFNetworking
+    - CocoaAsyncSocket
     - IQKeyboardManager
     - Masonry
     - MJRefresh
@@ -42,6 +45,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
+  CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   IQKeyboardManager: 2a6e97afdafc7becf0cb17a9a8d795e3a980717f
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
@@ -49,6 +53,6 @@ SPEC CHECKSUMS:
   SocketRocket: fccef3f9c5cedea1353a9ef6ada904fde10d6608
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 69af85788945308125e94bb7af6e4b14d1f6f60b
+PODFILE CHECKSUM: c2235aa3f42f238c0d4767044f743407aada1362
 
 COCOAPODS: 1.11.3
