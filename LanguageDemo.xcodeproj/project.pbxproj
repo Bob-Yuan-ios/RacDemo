@@ -26,6 +26,7 @@
 		C48489BC2775C67D0033194C /* LDLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = C48489BB2775C67D0033194C /* LDLoginView.m */; };
 		C48489BF2775C68C0033194C /* LDLoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C48489BE2775C68C0033194C /* LDLoginViewModel.m */; };
 		C48DEDD227511FF200A86E08 /* UIImage+ChangeColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C48DEDD127511FF200A86E08 /* UIImage+ChangeColor.m */; };
+		C494044529697A38000A1CF9 /* YSActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = C494044429697A38000A1CF9 /* YSActionSheet.m */; };
 		C49EC46C26C10E7100F130F8 /* ThreadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C49EC46B26C10E7100F130F8 /* ThreadModel.m */; };
 		C4AECA7D2702C66000F3BA1A /* Bridging_Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AECA7C2702C66000F3BA1A /* Bridging_Header.swift */; };
 		C4C8948626AAB05B005E39F5 /* UIImage+Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C8948526AAB05B005E39F5 /* UIImage+Filter.m */; };
@@ -76,6 +77,8 @@
 		C48489BE2775C68C0033194C /* LDLoginViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDLoginViewModel.m; sourceTree = "<group>"; };
 		C48DEDD027511FF200A86E08 /* UIImage+ChangeColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+ChangeColor.h"; sourceTree = "<group>"; };
 		C48DEDD127511FF200A86E08 /* UIImage+ChangeColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ChangeColor.m"; sourceTree = "<group>"; };
+		C494044329697A38000A1CF9 /* YSActionSheet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSActionSheet.h; sourceTree = "<group>"; };
+		C494044429697A38000A1CF9 /* YSActionSheet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSActionSheet.m; sourceTree = "<group>"; };
 		C49EC46A26C10E7100F130F8 /* ThreadModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThreadModel.h; sourceTree = "<group>"; };
 		C49EC46B26C10E7100F130F8 /* ThreadModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThreadModel.m; sourceTree = "<group>"; };
 		C4AECA7B2702C66000F3BA1A /* LanguageDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LanguageDemo-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -188,6 +191,8 @@
 		C44EEABC295E8EB70083CD03 /* popview */ = {
 			isa = PBXGroup;
 			children = (
+				C494044329697A38000A1CF9 /* YSActionSheet.h */,
+				C494044429697A38000A1CF9 /* YSActionSheet.m */,
 			);
 			path = popview;
 			sourceTree = "<group>";
@@ -439,6 +444,7 @@
 				C4629D4A26244CBC00029564 /* AppDelegate.m in Sources */,
 				C48489BC2775C67D0033194C /* LDLoginView.m in Sources */,
 				C473DFA6277EC1E100CF669A /* LDHomeViewModel.m in Sources */,
+				C494044529697A38000A1CF9 /* YSActionSheet.m in Sources */,
 				C4FDD6D52667236900E444F2 /* RacRedView.m in Sources */,
 				C46817A6266B33C30026F60C /* GTTextField.m in Sources */,
 				C4ECDDCD2966D67F00C1FA36 /* YSTcpSocketRequest.m in Sources */,

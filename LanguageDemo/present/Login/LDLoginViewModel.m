@@ -43,12 +43,17 @@
                     if (data && [data isKindOfClass:[NSDictionary class]]) {
                         self.userModel = [LDUserM yy_modelWithDictionary:data];
                         NSLog(@"返回数据:%@", self.userModel.description);
+                        
                         [subscriber sendNext:@{@"code": @(0)}];
+                        [subscriber sendCompleted];
+
                         return nil;
                     }
                 }
                 
                 [subscriber sendNext:@{@"code": @(-100), @"msg": dic[@"msg"]}];
+                [subscriber sendCompleted];
+
                 return nil;
             }];
         }];

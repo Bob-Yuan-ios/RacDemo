@@ -10,11 +10,16 @@
 #import "LDLoginViewModel.h"
 
 #import "LDHomeVC.h"
+#import "YSActionSheet.h"
+
+#import "ViewController.h"
 
 @interface LDLoginVC ()
 
 @property (nonatomic, strong) LDLoginView *contentV;
 @property (nonatomic, strong) LDLoginViewModel *contentVM;
+
+@property (nonatomic, strong) YSActionSheet *ac;
 
 @end
 
@@ -79,27 +84,30 @@
 - (void)setupSignal{
     @weakify(self);
     self.contentV.loginBlock = ^{
-        @strongify(self);
+        NSLog(@"登录按钮点击响应...");
         
-//        BOOL hiddenNavBar = self.navigationController.navigationBarHidden;
-//        [self.navigationController setNavigationBarHidden:!hiddenNavBar animated:YES];
-//        [self refreshConstraint];
-
+        @strongify(self);
         [[self.contentVM.loginCommand execute:@"触发登录操作"] subscribeNext:^(NSDictionary *dic) {
-            if ([dic.allKeys containsObject:@"code"]) {
-                if (0 == [[dic objectForKey:@"code"] integerValue]) {
-                    NSLog(@"登录成功");
-
-                    LDHomeVC *homevc = [LDHomeVC new];
-                    [self.navigationController pushViewController:homevc animated:YES];
-
-                    return;
-                }
-            }
-            NSLog(@"登录失败");
+            
+//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//
+//                if ([dic.allKeys containsObject:@"code"]) {
+//                    if (0 == [[dic objectForKey:@"code"] integerValue]) {
+//                        NSLog(@"登录成功");
+//                        [self.navigationController pushViewController:[ViewController new] animated:YES];
+//                        return;
+//                    }
+//                }
+//                NSLog(@"登录失败");
+//            });
+         
+            NSLog(@"登录结果:%@", dic);
+            self.ac = [[YSActionSheet alloc] init];
+            [self.ac ssss:self];
         }];
     };
 }
+
 /*
 #pragma mark - Navigation
 
