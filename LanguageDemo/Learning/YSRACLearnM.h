@@ -1,5 +1,5 @@
 //
-//  GTRACLearnM.h
+//  YSRACLearnM.h
 //  LanguageDemo
 //
 //  Created by Bob on 2021/5/25.
@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GTRACLearnM : NSObject
+@interface YSRACLearnM : NSObject
 
 + (void)learningSignal;
 

@@ -38,9 +38,7 @@
         NSArray *subV = [UIApplication sharedApplication].keyWindow.subviews;
         UIView *backV = (UIView *)[[subV.lastObject subviews] firstObject];
         backV.userInteractionEnabled = YES;
-        
-        backV.backgroundColor = [UIColor colorWithRed:.3 green:.7 blue:.8 alpha:.5];
-        
+                
         UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesture)];
         [backV addGestureRecognizer:tapGes];
     }];

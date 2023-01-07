@@ -1,5 +1,5 @@
 //
-//  GTRACLearnM.m
+//  YSRACLearnM.m
 //  LanguageDemo
 //
 //  Created by Bob on 2021/5/25.
@@ -7,14 +7,14 @@
 
 //大纲：https://www.jianshu.com/p/2b12b6659413
  
-#import "GTRACLearnM.h"
+#import "YSRACLearnM.h"
 #import "ReactiveObjC.h"
 #import "RACReturnSignal.h"
  
-@implementation GTRACLearnM
+@implementation YSRACLearnM
  
 + (void)learningSignal{
-    [GTRACLearnM swiToLastest];
+    [YSRACLearnM swiToLastest];
 }
  
 #pragma mark 创建信号 -- 订阅和发送一对一
@@ -103,7 +103,7 @@
         return nil;
     }];
     
-    [GTRACLearnM rac_liftSelector:@selector(updateUIWithData1:data2:)
+    [YSRACLearnM rac_liftSelector:@selector(updateUIWithData1:data2:)
       withSignalsFromArray:@[first, second]];
 }
 

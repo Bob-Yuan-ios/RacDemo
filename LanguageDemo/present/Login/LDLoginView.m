@@ -6,7 +6,7 @@
 //
 
 #import "LDLoginView.h"
-#import "GTTextField.h"
+#import "YSTextField.h"
 
 @interface LDLoginView ()
 <
@@ -16,11 +16,11 @@ UITextFieldDelegate
 
 @property (nonatomic, strong) UILabel *userNameLbl;
 
-@property (nonatomic, strong) GTTextField *userNameTF;
+@property (nonatomic, strong) YSTextField *userNameTF;
 
 @property (nonatomic, strong) UILabel *passwordLbl;
 
-@property (nonatomic, strong) GTTextField *passwdTF;
+@property (nonatomic, strong) YSTextField *passwdTF;
 
 @property (nonatomic, strong) UIButton *submitBtn;
 
@@ -148,9 +148,9 @@ UITextFieldDelegate
 
 
 #pragma mark lazy load
-- (GTTextField *)userNameTF{
+- (YSTextField *)userNameTF{
     if (!_userNameTF) {
-        _userNameTF = [GTTextField new];
+        _userNameTF = [YSTextField new];
         _userNameTF.delegate = self;
         _userNameTF.layer.borderColor = [UIColor lightGrayColor].CGColor;
         _userNameTF.layer.borderWidth = 1.f;
@@ -160,9 +160,9 @@ UITextFieldDelegate
     return _userNameTF;
 }
 
-- (GTTextField *)passwdTF{
+- (YSTextField *)passwdTF{
     if (!_passwdTF) {
-        _passwdTF = [GTTextField new];
+        _passwdTF = [YSTextField new];
         _passwdTF.delegate = self;
         _passwdTF.layer.borderColor = [UIColor lightGrayColor].CGColor;
         _passwdTF.layer.borderWidth = 1.f;

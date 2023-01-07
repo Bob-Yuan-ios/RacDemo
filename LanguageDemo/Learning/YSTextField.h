@@ -1,5 +1,5 @@
 //
-//  GTTextField.h
+//  YSTextField.h
 //  LanguageDemo
 //
 //  Created by Bob on 2021/6/5.
@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GTTextField : UITextField
+@interface YSTextField : UITextField
 
 @end
 

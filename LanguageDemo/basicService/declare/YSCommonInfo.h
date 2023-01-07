@@ -1,12 +1,12 @@
 //
-//  GTCommonInfo.h
+//  YSCommonInfo.h
 //  LanguageDemo
 //
 //  Created by Bob on 2021/6/10.
 //
 
-#ifndef GTCommonInfo_h
-#define GTCommonInfo_h
+#ifndef YSCommonInfo_h
+#define YSCommonInfo_h
 
 
 #if DEBUG
@@ -30,4 +30,4 @@
 #define GTWeakObj(o)   __weak typeof(o) Weak##o = o;
 #define GTStrongObj(o) autoreleasepool{ __strong typeof(o) o = Weak##o};
 
-#endif /* GTCommonInfo_h */
+#endif /* YSCommonInfo_h */

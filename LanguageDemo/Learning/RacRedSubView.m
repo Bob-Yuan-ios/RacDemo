@@ -6,7 +6,7 @@
 //
 
 #import "RacRedSubView.h"
-#import "GTCommonInfo.h"
+#import "YSCommonInfo.h"
 
 @interface RacRedSubView ()
 

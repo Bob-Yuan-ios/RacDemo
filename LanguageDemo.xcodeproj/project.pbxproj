@@ -17,7 +17,7 @@
 		C4629D5526244CBF00029564 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4629D5426244CBF00029564 /* Assets.xcassets */; };
 		C4629D5826244CBF00029564 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4629D5626244CBF00029564 /* LaunchScreen.storyboard */; };
 		C4629D5B26244CBF00029564 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4629D5A26244CBF00029564 /* main.m */; };
-		C46817A6266B33C30026F60C /* GTTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C46817A5266B33C30026F60C /* GTTextField.m */; };
+		C46817A6266B33C30026F60C /* YSTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C46817A5266B33C30026F60C /* YSTextField.m */; };
 		C46A7754271988C600FDECB7 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C46A7753271988C600FDECB7 /* StoreKit.framework */; };
 		C473DFA0277EC1B500CF669A /* LDHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C473DF9F277EC1B500CF669A /* LDHomeVC.m */; };
 		C473DFA3277EC1D200CF669A /* LDHomeTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C473DFA2277EC1D200CF669A /* LDHomeTableView.m */; };
@@ -34,7 +34,7 @@
 		C4CACCE92669E53C00712ED2 /* RacRedVM.m in Sources */ = {isa = PBXBuildFile; fileRef = C4CACCE82669E53C00712ED2 /* RacRedVM.m */; };
 		C4ECDDCD2966D67F00C1FA36 /* YSTcpSocketRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C4ECDDCC2966D67F00C1FA36 /* YSTcpSocketRequest.m */; };
 		C4FDD6D52667236900E444F2 /* RacRedView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FDD6D22667236900E444F2 /* RacRedView.m */; };
-		C4FDD6D62667236900E444F2 /* GTRACLearnM.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FDD6D32667236900E444F2 /* GTRACLearnM.m */; };
+		C4FDD6D62667236900E444F2 /* YSRACLearnM.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FDD6D32667236900E444F2 /* YSRACLearnM.m */; };
 		C4FDD6F12667237400E444F2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FDD6DB2667237400E444F2 /* ViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -44,7 +44,7 @@
 		C4046212296433D60022A927 /* YSWebSocketRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSWebSocketRequest.h; sourceTree = "<group>"; };
 		C4046213296433D60022A927 /* YSWebSocketRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSWebSocketRequest.m; sourceTree = "<group>"; };
 		C41147BF27158D390085C364 /* LanguageDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LanguageDemo.entitlements; sourceTree = "<group>"; };
-		C41BF1A02671E5E700AB3AA3 /* GTCommonInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTCommonInfo.h; sourceTree = "<group>"; };
+		C41BF1A02671E5E700AB3AA3 /* YSCommonInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSCommonInfo.h; sourceTree = "<group>"; };
 		C425F59526A94BBF0091918D /* RacRedSubView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RacRedSubView.h; sourceTree = "<group>"; };
 		C425F59626A94BBF0091918D /* RacRedSubView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RacRedSubView.m; sourceTree = "<group>"; };
 		C44EEABD295E92DF0083CD03 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -60,8 +60,8 @@
 		C4629D5726244CBF00029564 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C4629D5926244CBF00029564 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4629D5A26244CBF00029564 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C46817A4266B33C30026F60C /* GTTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTTextField.h; sourceTree = "<group>"; };
-		C46817A5266B33C30026F60C /* GTTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTTextField.m; sourceTree = "<group>"; };
+		C46817A4266B33C30026F60C /* YSTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSTextField.h; sourceTree = "<group>"; };
+		C46817A5266B33C30026F60C /* YSTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSTextField.m; sourceTree = "<group>"; };
 		C46A7753271988C600FDECB7 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		C473DF9E277EC1B500CF669A /* LDHomeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDHomeVC.h; sourceTree = "<group>"; };
 		C473DF9F277EC1B500CF669A /* LDHomeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDHomeVC.m; sourceTree = "<group>"; };
@@ -91,9 +91,9 @@
 		C4CACCE82669E53C00712ED2 /* RacRedVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RacRedVM.m; sourceTree = "<group>"; };
 		C4ECDDCB2966D67F00C1FA36 /* YSTcpSocketRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSTcpSocketRequest.h; sourceTree = "<group>"; };
 		C4ECDDCC2966D67F00C1FA36 /* YSTcpSocketRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSTcpSocketRequest.m; sourceTree = "<group>"; };
-		C4FDD6D12667236900E444F2 /* GTRACLearnM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTRACLearnM.h; sourceTree = "<group>"; };
+		C4FDD6D12667236900E444F2 /* YSRACLearnM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSRACLearnM.h; sourceTree = "<group>"; };
 		C4FDD6D22667236900E444F2 /* RacRedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RacRedView.m; sourceTree = "<group>"; };
-		C4FDD6D32667236900E444F2 /* GTRACLearnM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTRACLearnM.m; sourceTree = "<group>"; };
+		C4FDD6D32667236900E444F2 /* YSRACLearnM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSRACLearnM.m; sourceTree = "<group>"; };
 		C4FDD6D42667236900E444F2 /* RacRedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RacRedView.h; sourceTree = "<group>"; };
 		C4FDD6DB2667237400E444F2 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		C4FDD6DE2667237400E444F2 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -183,7 +183,7 @@
 		C44EEABB295E8C970083CD03 /* declare */ = {
 			isa = PBXGroup;
 			children = (
-				C41BF1A02671E5E700AB3AA3 /* GTCommonInfo.h */,
+				C41BF1A02671E5E700AB3AA3 /* YSCommonInfo.h */,
 			);
 			path = declare;
 			sourceTree = "<group>";
@@ -291,14 +291,14 @@
 		C4FDD6D02667236900E444F2 /* Learning */ = {
 			isa = PBXGroup;
 			children = (
-				C46817A4266B33C30026F60C /* GTTextField.h */,
-				C46817A5266B33C30026F60C /* GTTextField.m */,
+				C46817A4266B33C30026F60C /* YSTextField.h */,
+				C46817A5266B33C30026F60C /* YSTextField.m */,
 				C4FDD6D42667236900E444F2 /* RacRedView.h */,
 				C4FDD6D22667236900E444F2 /* RacRedView.m */,
 				C425F59526A94BBF0091918D /* RacRedSubView.h */,
 				C425F59626A94BBF0091918D /* RacRedSubView.m */,
-				C4FDD6D12667236900E444F2 /* GTRACLearnM.h */,
-				C4FDD6D32667236900E444F2 /* GTRACLearnM.m */,
+				C4FDD6D12667236900E444F2 /* YSRACLearnM.h */,
+				C4FDD6D32667236900E444F2 /* YSRACLearnM.m */,
 				C4CACCE72669E53C00712ED2 /* RacRedVM.h */,
 				C4CACCE82669E53C00712ED2 /* RacRedVM.m */,
 			);
@@ -438,7 +438,7 @@
 				C4C8948926AAB750005E39F5 /* UIImageView+Filter.m in Sources */,
 				C473DFA3277EC1D200CF669A /* LDHomeTableView.m in Sources */,
 				C4AECA7D2702C66000F3BA1A /* Bridging_Header.swift in Sources */,
-				C4FDD6D62667236900E444F2 /* GTRACLearnM.m in Sources */,
+				C4FDD6D62667236900E444F2 /* YSRACLearnM.m in Sources */,
 				C4FDD6F12667237400E444F2 /* ViewController.m in Sources */,
 				C48489B92775C66C0033194C /* LDLoginVC.m in Sources */,
 				C4629D4A26244CBC00029564 /* AppDelegate.m in Sources */,
@@ -446,7 +446,7 @@
 				C473DFA6277EC1E100CF669A /* LDHomeViewModel.m in Sources */,
 				C494044529697A38000A1CF9 /* YSActionSheet.m in Sources */,
 				C4FDD6D52667236900E444F2 /* RacRedView.m in Sources */,
-				C46817A6266B33C30026F60C /* GTTextField.m in Sources */,
+				C46817A6266B33C30026F60C /* YSTextField.m in Sources */,
 				C4ECDDCD2966D67F00C1FA36 /* YSTcpSocketRequest.m in Sources */,
 				C4629D5B26244CBF00029564 /* main.m in Sources */,
 				C473DFA0277EC1B500CF669A /* LDHomeVC.m in Sources */,

@@ -7,8 +7,8 @@
 
 #import "RacRedView.h"
 #import <Masonry/Masonry.h>
-#import "GTTextField.h"
-#import "GTCommonInfo.h"
+#import "YSTextField.h"
+#import "YSCommonInfo.h"
 
 #import "RacRedSubView.h"
 
@@ -18,9 +18,9 @@
 @property (nonatomic, strong) UILabel     *nameLbl;
 @property (nonatomic, strong) UILabel     *heightLbl;
 
-@property (nonatomic, strong) GTTextField *ageTF;
-@property (nonatomic, strong) GTTextField *nameTF;
-@property (nonatomic, strong) GTTextField *heightTF;
+@property (nonatomic, strong) YSTextField *ageTF;
+@property (nonatomic, strong) YSTextField *nameTF;
+@property (nonatomic, strong) YSTextField *heightTF;
  
 @property (nonatomic, strong) RacRedSubView *redSubV;
 
@@ -47,7 +47,7 @@
         [self addSubview:_ageLbl];
         _ageLbl.text = @"年龄";
  
-        _ageTF = [GTTextField new];
+        _ageTF = [YSTextField new];
         [self addSubview:_ageTF];
         _ageTF.attributedPlaceholder = attStr;
         _ageTF.placeholder = @"请输入年龄";
@@ -59,7 +59,7 @@
         [self addSubview:_nameLbl];
         _nameLbl.text = @"昵称";
 
-        _nameTF = [GTTextField new];
+        _nameTF = [YSTextField new];
         [self addSubview:_nameTF];
         _nameTF.attributedPlaceholder = attStr;
         _nameTF.placeholder = @"请输入昵称";
@@ -76,7 +76,7 @@
             make.height.mas_equalTo(@40);
         }];
         
-        _heightTF = [GTTextField new];
+        _heightTF = [YSTextField new];
         [self addSubview:_heightTF];
         _heightTF.attributedPlaceholder = attStr;
         _heightTF.placeholder = @"请输入身高";
