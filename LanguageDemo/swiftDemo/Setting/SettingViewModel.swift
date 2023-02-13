@@ -11,8 +11,19 @@ import SwiftyJSON
 import RxSwift
 import RxCocoa
 
+enum SRRefreshStatus {
+    case none
+    case beingHeaderRefresh
+    case endHeaderRefresh
+    case beingFooterRefresh
+    case endFooterRefresh
+    case noMoreData
+}
+
+
 class SettingViewModel: NSObject {
     var models : BehaviorRelay<[SettingModel]> = BehaviorRelay(value: [])
+    var refreshStatus : BehaviorRelay<SRRefreshStatus> = BehaviorRelay(value: SRRefreshStatus.none)
 }
  
 
@@ -26,9 +37,8 @@ extension SettingViewModel: ViewModelType {
     
     struct SettigOutput {
         let sections: Driver<[SettingSection]>
-        
         let requestCommand = PublishSubject<Bool>()
-     
+
         init(sections: Driver<[SettingSection]>){
             self.sections = sections
         }
@@ -46,41 +56,20 @@ extension SettingViewModel: ViewModelType {
             MyService.request(target: MyService.zen)
                 .asObservable()
                 .subscribe({(event) in
-                    
                     switch event {
-                    case let .next(modelArr):
-                        print("next...");
-                        self.models.accept([modelArr as! SettingModel])
-                    case .error(_):
-                        print("error")
-                    case .completed:
-                        print("complete")
+                        case let .next(modelArr):
+                            print("request next...");
+                            self.models.accept([modelArr as! SettingModel])
+                        case .error(_):
+                            print("request error...")
+                        case .completed:
+                            print("reqeust complete...")
+                            let value : SRRefreshStatus = isReload ? .endHeaderRefresh : .noMoreData
+                            self.refreshStatus.accept(value)
                     }
                 })
                 .disposed(by: MyService.disposeBag)
         }).disposed(by: MyService.disposeBag)
-        
-//        output.requestCommand.subscribe { Void in
-//
-//            MyService.request(target: MyService.zen).asObservable().subscribe({ [weak self] (event) in
-//                switch event {
-//                    case let .next(modelArr):
-//                        print("success")
-//                    self?.models.accept(modelArr as! [SettingModel])
-//                    case let .error(error):
-//                        print("error")
-//                    default:
-//                        print("other")
-//                }
-//            }).disposed(by: MyService.disposeBag)
-//
-//        } onError: { Error in
-//            print("transform error")
-//        } onCompleted: {
-//            print("transform completed")
-//        } onDisposed: {
-//            print("transform disposed")
-//        }.disposed(by: MyService.disposeBag)
 
         return output
     }

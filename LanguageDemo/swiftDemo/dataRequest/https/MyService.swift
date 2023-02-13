@@ -100,6 +100,8 @@ extension MyService: TargetType {
 extension MyService {
     static func request<T: TargetType>(target: T) -> Single<Any> {
         
+        sleep(2)
+        
         let netWorkStatus = MyService.checkNetworkStatus()
         if !netWorkStatus {
             return Single<Any>.create{ signal -> Disposable in

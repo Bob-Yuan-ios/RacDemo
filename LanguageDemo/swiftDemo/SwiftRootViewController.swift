@@ -20,7 +20,7 @@ import SnapKit
         self.view.addSubview(self.tableV)
         
         self.contentConstraints()
-        tableV.bindView(viewModel: SettingViewModel.init())
+        self.tableV.bindView(viewModel: SettingViewModel.init())
     }
 }
 
