@@ -10,6 +10,12 @@
 		084E3D91576833490F01698B /* Pods_LanguageDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC0AEC53FC2833FB78E2FA76 /* Pods_LanguageDemo.framework */; };
 		C4046214296433D60022A927 /* YSWebSocketRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C4046213296433D60022A927 /* YSWebSocketRequest.m */; };
 		C425F59726A94BBF0091918D /* RacRedSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = C425F59626A94BBF0091918D /* RacRedSubView.m */; };
+		C44E7CD2299A07D4007B1B1E /* MyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44E7CCC299A07D4007B1B1E /* MyService.swift */; };
+		C44E7CD3299A07D4007B1B1E /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44E7CCE299A07D4007B1B1E /* SettingViewModel.swift */; };
+		C44E7CD4299A07D4007B1B1E /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44E7CCF299A07D4007B1B1E /* ViewModelType.swift */; };
+		C44E7CD5299A07D4007B1B1E /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44E7CD0299A07D4007B1B1E /* SettingModel.swift */; };
+		C44E7CD6299A07D4007B1B1E /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44E7CD1299A07D4007B1B1E /* SettingView.swift */; };
+		C44E7CD8299A080E007B1B1E /* SwiftRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44E7CD7299A080E007B1B1E /* SwiftRootViewController.swift */; };
 		C44EEABF295E95270083CD03 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C44EEABE295E95270083CD03 /* README.md */; };
 		C44EEAC3295EB4A70083CD03 /* YSHttpsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C44EEAC2295EB4A70083CD03 /* YSHttpsRequest.m */; };
 		C44EEAC7295ED97D0083CD03 /* YSHttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C44EEAC6295ED97D0083CD03 /* YSHttpManager.m */; };
@@ -47,6 +53,12 @@
 		C41BF1A02671E5E700AB3AA3 /* YSCommonInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSCommonInfo.h; sourceTree = "<group>"; };
 		C425F59526A94BBF0091918D /* RacRedSubView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RacRedSubView.h; sourceTree = "<group>"; };
 		C425F59626A94BBF0091918D /* RacRedSubView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RacRedSubView.m; sourceTree = "<group>"; };
+		C44E7CCC299A07D4007B1B1E /* MyService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyService.swift; sourceTree = "<group>"; };
+		C44E7CCE299A07D4007B1B1E /* SettingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		C44E7CCF299A07D4007B1B1E /* ViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
+		C44E7CD0299A07D4007B1B1E /* SettingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
+		C44E7CD1299A07D4007B1B1E /* SettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		C44E7CD7299A080E007B1B1E /* SwiftRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftRootViewController.swift; sourceTree = "<group>"; };
 		C44EEABD295E92DF0083CD03 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		C44EEABE295E95270083CD03 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C44EEAC1295EB4A70083CD03 /* YSHttpsRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSHttpsRequest.h; sourceTree = "<group>"; };
@@ -120,6 +132,43 @@
 				CC0AEC53FC2833FB78E2FA76 /* Pods_LanguageDemo.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C44E7CC9299A075A007B1B1E /* swiftDemo */ = {
+			isa = PBXGroup;
+			children = (
+				C44E7CCA299A07D4007B1B1E /* dataRequest */,
+				C44E7CCD299A07D4007B1B1E /* Setting */,
+				C44E7CD7299A080E007B1B1E /* SwiftRootViewController.swift */,
+			);
+			path = swiftDemo;
+			sourceTree = "<group>";
+		};
+		C44E7CCA299A07D4007B1B1E /* dataRequest */ = {
+			isa = PBXGroup;
+			children = (
+				C44E7CCB299A07D4007B1B1E /* https */,
+			);
+			path = dataRequest;
+			sourceTree = "<group>";
+		};
+		C44E7CCB299A07D4007B1B1E /* https */ = {
+			isa = PBXGroup;
+			children = (
+				C44E7CCC299A07D4007B1B1E /* MyService.swift */,
+			);
+			path = https;
+			sourceTree = "<group>";
+		};
+		C44E7CCD299A07D4007B1B1E /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				C44E7CCE299A07D4007B1B1E /* SettingViewModel.swift */,
+				C44E7CCF299A07D4007B1B1E /* ViewModelType.swift */,
+				C44E7CD0299A07D4007B1B1E /* SettingModel.swift */,
+				C44E7CD1299A07D4007B1B1E /* SettingView.swift */,
+			);
+			path = Setting;
 			sourceTree = "<group>";
 		};
 		C44EEAB5295E8BA70083CD03 /* present */ = {
@@ -244,6 +293,7 @@
 		C4629D4726244CBC00029564 /* LanguageDemo */ = {
 			isa = PBXGroup;
 			children = (
+				C44E7CC9299A075A007B1B1E /* swiftDemo */,
 				C44EEAB8295E8BDC0083CD03 /* coreService */,
 				C44EEAB7295E8BD10083CD03 /* basicService */,
 				C44EEAB6295E8BB90083CD03 /* business */,
@@ -430,7 +480,9 @@
 			files = (
 				C48DEDD227511FF200A86E08 /* UIImage+ChangeColor.m in Sources */,
 				C425F59726A94BBF0091918D /* RacRedSubView.m in Sources */,
+				C44E7CD8299A080E007B1B1E /* SwiftRootViewController.swift in Sources */,
 				C44EEAC7295ED97D0083CD03 /* YSHttpManager.m in Sources */,
+				C44E7CD3299A07D4007B1B1E /* SettingViewModel.swift in Sources */,
 				C4CACCE92669E53C00712ED2 /* RacRedVM.m in Sources */,
 				C49EC46C26C10E7100F130F8 /* ThreadModel.m in Sources */,
 				C4C8948626AAB05B005E39F5 /* UIImage+Filter.m in Sources */,
@@ -439,6 +491,7 @@
 				C473DFA3277EC1D200CF669A /* LDHomeTableView.m in Sources */,
 				C4AECA7D2702C66000F3BA1A /* Bridging_Header.swift in Sources */,
 				C4FDD6D62667236900E444F2 /* YSRACLearnM.m in Sources */,
+				C44E7CD5299A07D4007B1B1E /* SettingModel.swift in Sources */,
 				C4FDD6F12667237400E444F2 /* ViewController.m in Sources */,
 				C48489B92775C66C0033194C /* LDLoginVC.m in Sources */,
 				C4629D4A26244CBC00029564 /* AppDelegate.m in Sources */,
@@ -449,9 +502,12 @@
 				C46817A6266B33C30026F60C /* YSTextField.m in Sources */,
 				C4ECDDCD2966D67F00C1FA36 /* YSTcpSocketRequest.m in Sources */,
 				C4629D5B26244CBF00029564 /* main.m in Sources */,
+				C44E7CD2299A07D4007B1B1E /* MyService.swift in Sources */,
 				C473DFA0277EC1B500CF669A /* LDHomeVC.m in Sources */,
 				C44EEAC3295EB4A70083CD03 /* YSHttpsRequest.m in Sources */,
 				C4046214296433D60022A927 /* YSWebSocketRequest.m in Sources */,
+				C44E7CD6299A07D4007B1B1E /* SettingView.swift in Sources */,
+				C44E7CD4299A07D4007B1B1E /* ViewModelType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -601,7 +657,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
 				INFOPLIST_FILE = LanguageDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -633,7 +689,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
 				INFOPLIST_FILE = LanguageDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
