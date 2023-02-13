@@ -35,7 +35,6 @@ class SettingView: UIView {
     public lazy var tableH : UITableView = {
         let tableView = UITableView.init()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        tableView.delegate = self
         tableView.backgroundColor = UIColor.yellow
 
         tableView.es.addPullToRefresh { [self] in
@@ -78,6 +77,19 @@ extension SettingView {
             
             return cell
         })
+
+        self.tableH.rx.modelSelected(SettingModel.self).subscribe { itemModel in
+            self.tableH.deselectRow(at: self.tableH.indexPathForSelectedRow ?? NSIndexPath.init(row: 0, section: 0) as IndexPath,
+                                    animated: false)
+            
+            print("selected...\(String(describing: itemModel.settingContent))")
+        } onError: { error in
+            print(error.localizedDescription)
+        } onCompleted: {
+            print("complete...")
+        } onDisposed: {
+            print("disposed...")
+        }.disposed(by: MyService.disposeBag)
 
     
         let vmInput = SettingViewModel.SettingInput()
@@ -128,13 +140,5 @@ extension SettingView {
         let vmInput = SettingViewModel.SettingInput()
         let vmOutput = viewModel.transform(input: vmInput)
         vmOutput.requestCommand.onNext(false)
-    }
-}
-
-extension SettingView : UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: false)
-        print("didSelectRow...\(indexPath.row)")
     }
 }
