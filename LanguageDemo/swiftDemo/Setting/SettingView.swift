@@ -54,6 +54,7 @@ class SettingView: UIView {
     
     private var viewModel: SettingViewModel!
     
+    var tableDelegate: SettingViewDelegate!
 }
 
 extension SettingView {
@@ -79,9 +80,7 @@ extension SettingView {
         })
 
         self.tableH.rx.modelSelected(SettingModel.self).subscribe { itemModel in
-            self.tableH.deselectRow(at: self.tableH.indexPathForSelectedRow ?? NSIndexPath.init(row: 0, section: 0) as IndexPath,
-                                    animated: false)
-            
+            self.tableDelegate?.didSelectedRow(indexPath: self.tableH.indexPathForSelectedRow ?? IndexPath.init(index: 0))
             print("selected...\(String(describing: itemModel.settingContent))")
         } onError: { error in
             print(error.localizedDescription)
@@ -141,4 +140,8 @@ extension SettingView {
         let vmOutput = viewModel.transform(input: vmInput)
         vmOutput.requestCommand.onNext(false)
     }
+}
+
+protocol SettingViewDelegate: NSObjectProtocol {
+    func didSelectedRow(indexPath: IndexPath)
 }

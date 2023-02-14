@@ -9,8 +9,13 @@ import Foundation
 import UIKit
 import SnapKit
 
-@objc class SwiftRootViewController : UIViewController {
+@objc class SwiftRootViewController : UIViewController, SettingViewDelegate {
     
+    func didSelectedRow(indexPath: IndexPath) {
+        self.tableV.tableH.deselectRow(at: indexPath, animated: false)
+        print("indexPath:\(indexPath.row)")
+    }
+        
     private lazy var tableV = SettingView.init(frame: CGRect.zero)
     
     override func viewDidLoad() {
@@ -20,7 +25,10 @@ import SnapKit
         self.view.addSubview(self.tableV)
         
         self.contentConstraints()
+        
+        self.tableV.tableDelegate = self
         self.tableV.bindView(viewModel: SettingViewModel.init())
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -54,16 +54,60 @@ class Programming {
 //        }
 //        print(allSquare)
        
-        // 链式语法
-        let marks = [1, 2, 3, 4, 5.1]
-        let totalPass = marks.filter { element in
-            return element >= 3
-        }.reduce(100, plusAction(a:b:))
-        print("totalPass is:\(totalPass)")
+//        // 链式语法
+//        let marks = [1, 2, 3, 4, 5.1]
+//        let totalPass = marks.filter { element in
+//            return element >= 3
+//        }.reduce(100, plusAction(a:b:))
+//        print("totalPass is:\(totalPass)")
+        
+//        let decrem = calcDecrement(forDecrement: 101)
+//        print(decrem())
+        
+//        closure(a: 101, b: 9)
+        
+        let aStudent = MarkStudent.init(mark: 101)
+        var bStudent = aStudent
+        bStudent.mark = -1
+        print(aStudent.mark)
+        print(bStudent.mark)
+        
+//        let aModel = SettingModel.init()
+//        let bModel = aModel
+//        bModel.settingContent = "ffff"
+//        print(aModel.settingContent ?? "")
+//        print(bModel.settingContent!)
     }
  
     func plusAction(a: Double, b: Double) -> Double {
         print("a:\(a)====b:\(b)")
         return a + b + 10
+    }
+   
+    // 函数嵌套
+    func calcDecrement(forDecrement total: Int) -> () -> Int {
+        var overallDecrement = 0
+        func decrementer() -> Int {
+            overallDecrement -= total
+            return overallDecrement
+        }
+        return decrementer
+    }
+    
+    // 闭包
+    func closure(a: Int, b: Int) {
+        let divide = {(a: Int, b: Int) -> Double in
+            guard b != 0 else{ return Double(NSNotFound)}
+            return Double(a)/Double(b)
+        }
+        print(divide(a, b))
+    }
+}
+
+struct MarkStudent {
+    var mark: Int
+    
+    init(mark: Int){
+        self.mark = mark
     }
 }
