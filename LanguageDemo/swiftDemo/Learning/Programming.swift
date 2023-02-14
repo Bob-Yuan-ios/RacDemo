@@ -66,17 +66,29 @@ class Programming {
         
 //        closure(a: 101, b: 9)
         
-        let aStudent = MarkStudent.init(mark: 101)
-        var bStudent = aStudent
-        bStudent.mark = -1
-        print(aStudent.mark)
-        print(bStudent.mark)
+//        let aStudent = MarkStudent.init(mark: 101)
+//        var bStudent = aStudent
+//        bStudent.mark = -1
+//        print(aStudent.mark)
+//        print(bStudent.mark)
         
 //        let aModel = SettingModel.init()
 //        let bModel = aModel
 //        bModel.settingContent = "ffff"
 //        print(aModel.settingContent ?? "")
 //        print(bModel.settingContent!)
+        
+        var num1 = 101
+        var num2 = 99
+        print("before: \(num1) \(num2)")
+        swapTwoValues(&num1, &num2)
+        print("after: \(num1) \(num2)")
+
+        var num3 = "ggg"
+        var num4 = "fff"
+        print("before: \(num3) \(num4)")
+        swapTwoValues(&num3, &num4)
+        print("after: \(num3) \(num4)")
     }
  
     func plusAction(a: Double, b: Double) -> Double {
@@ -102,8 +114,17 @@ class Programming {
         }
         print(divide(a, b))
     }
+    
+    // 范型
+    func swapTwoValues<T>(_ a: inout T, _ b: inout T){
+        let tempA = a
+        a = b
+        b = tempA
+    }
 }
 
+
+/// 结构体 赋值不继承/ 拷贝传值
 struct MarkStudent {
     var mark: Int
     

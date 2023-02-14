@@ -112,6 +112,7 @@ extension MyService {
             }
         }
         
+        // 测试使用
         let provider = MoyaProvider<T>()
         return Single<Any>.create { signal -> Disposable in
             
