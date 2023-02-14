@@ -24,7 +24,7 @@ class SettingModel : Mappable {
     }
     
     init(){
-        
+        settingContent = "Hi"
     }
     
 }

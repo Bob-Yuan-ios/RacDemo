@@ -102,7 +102,7 @@ extension MyService {
         
         sleep(2)
         
-        let netWorkStatus = MyService.checkNetworkStatus()
+        let netWorkStatus = false//MyService.checkNetworkStatus()
         if !netWorkStatus {
             return Single<Any>.create{ signal -> Disposable in
                 let model = SettingModel.init()
@@ -138,9 +138,9 @@ extension MyService {
         }catch{}
         
         if  netWorkStatus == .unavailable {
-            return true
+            return false
         }
         
-        return false
+        return true
     }
 }

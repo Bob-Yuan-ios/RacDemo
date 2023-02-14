@@ -22,6 +22,13 @@ import SnapKit
         self.contentConstraints()
         self.tableV.bindView(viewModel: SettingViewModel.init())
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let learning = Programming.init()
+        learning.mapTest()
+    }
 }
 
 extension SwiftRootViewController {
