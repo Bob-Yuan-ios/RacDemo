@@ -31,7 +31,10 @@ target 'LanguageDemo' do
 
     # tcpSocket请求
     pod 'CocoaAsyncSocket'
-    
+
+    # 三方登录 -- Line
+    pod 'LineSDK', '~> 5.0'
+
     ######### Swift
 
     # 布局

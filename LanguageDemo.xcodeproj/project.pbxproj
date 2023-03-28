@@ -25,7 +25,6 @@
 		C4629D5826244CBF00029564 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4629D5626244CBF00029564 /* LaunchScreen.storyboard */; };
 		C4629D5B26244CBF00029564 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4629D5A26244CBF00029564 /* main.m */; };
 		C46817A6266B33C30026F60C /* YSTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C46817A5266B33C30026F60C /* YSTextField.m */; };
-		C46A7754271988C600FDECB7 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C46A7753271988C600FDECB7 /* StoreKit.framework */; };
 		C473DFA0277EC1B500CF669A /* LDHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C473DF9F277EC1B500CF669A /* LDHomeVC.m */; };
 		C473DFA3277EC1D200CF669A /* LDHomeTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C473DFA2277EC1D200CF669A /* LDHomeTableView.m */; };
 		C473DFA6277EC1E100CF669A /* LDHomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C473DFA5277EC1E100CF669A /* LDHomeViewModel.m */; };
@@ -50,10 +49,10 @@
 		54B6CB46849CC54625B2204D /* Pods-LanguageDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LanguageDemo.debug.xcconfig"; path = "Target Support Files/Pods-LanguageDemo/Pods-LanguageDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		C4046212296433D60022A927 /* YSWebSocketRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSWebSocketRequest.h; sourceTree = "<group>"; };
 		C4046213296433D60022A927 /* YSWebSocketRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSWebSocketRequest.m; sourceTree = "<group>"; };
-		C41147BF27158D390085C364 /* LanguageDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LanguageDemo.entitlements; sourceTree = "<group>"; };
 		C41BF1A02671E5E700AB3AA3 /* YSCommonInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSCommonInfo.h; sourceTree = "<group>"; };
 		C425F59526A94BBF0091918D /* RacRedSubView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RacRedSubView.h; sourceTree = "<group>"; };
 		C425F59626A94BBF0091918D /* RacRedSubView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RacRedSubView.m; sourceTree = "<group>"; };
+		C446123929D2BB02007BAA8C /* LanguageDemo.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; name = LanguageDemo.entitlements; path = LanguageDemo/LanguageDemo.entitlements; sourceTree = "<group>"; };
 		C44E7CCC299A07D4007B1B1E /* MyService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyService.swift; sourceTree = "<group>"; };
 		C44E7CCE299A07D4007B1B1E /* SettingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		C44E7CCF299A07D4007B1B1E /* ViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
@@ -76,7 +75,6 @@
 		C4629D5A26244CBF00029564 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C46817A4266B33C30026F60C /* YSTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSTextField.h; sourceTree = "<group>"; };
 		C46817A5266B33C30026F60C /* YSTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSTextField.m; sourceTree = "<group>"; };
-		C46A7753271988C600FDECB7 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		C473DF9E277EC1B500CF669A /* LDHomeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDHomeVC.h; sourceTree = "<group>"; };
 		C473DF9F277EC1B500CF669A /* LDHomeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDHomeVC.m; sourceTree = "<group>"; };
 		C473DFA1277EC1D200CF669A /* LDHomeTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDHomeTableView.h; sourceTree = "<group>"; };
@@ -119,7 +117,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C46A7754271988C600FDECB7 /* StoreKit.framework in Frameworks */,
 				084E3D91576833490F01698B /* Pods_LanguageDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -130,7 +127,6 @@
 		05127B1A74E6EFFA52B7441A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C46A7753271988C600FDECB7 /* StoreKit.framework */,
 				CC0AEC53FC2833FB78E2FA76 /* Pods_LanguageDemo.framework */,
 			);
 			name = Frameworks;
@@ -282,6 +278,7 @@
 		C4629D3C26244CBC00029564 = {
 			isa = PBXGroup;
 			children = (
+				C446123929D2BB02007BAA8C /* LanguageDemo.entitlements */,
 				C44EEABE295E95270083CD03 /* README.md */,
 				C44EEABD295E92DF0083CD03 /* PrefixHeader.pch */,
 				C4AECA7C2702C66000F3BA1A /* Bridging_Header.swift */,
@@ -309,7 +306,6 @@
 				C44EEAB7295E8BD10083CD03 /* basicService */,
 				C44EEAB6295E8BB90083CD03 /* business */,
 				C44EEAB5295E8BA70083CD03 /* present */,
-				C41147BF27158D390085C364 /* LanguageDemo.entitlements */,
 				C4FDD6D02667236900E444F2 /* Learning */,
 				C4629D4826244CBC00029564 /* AppDelegate.h */,
 				C4629D4926244CBC00029564 /* AppDelegate.m */,
@@ -387,6 +383,7 @@
 				C4629D4226244CBC00029564 /* Frameworks */,
 				C4629D4326244CBC00029564 /* Resources */,
 				6B4115D786DC696F175FEBE1 /* [CP] Embed Pods Frameworks */,
+				F98F37B8D1EFB854B728053F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -403,7 +400,7 @@
 		C4629D3D26244CBC00029564 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1250;
+				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					C4629D4426244CBC00029564 = {
 						CreatedOnToolsVersion = 12.4;
@@ -480,6 +477,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LanguageDemo/Pods-LanguageDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F98F37B8D1EFB854B728053F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LanguageDemo/Pods-LanguageDemo-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LanguageDemo/Pods-LanguageDemo-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LanguageDemo/Pods-LanguageDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -663,8 +677,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = LanguageDemo/LanguageDemo.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V5ALQR4SC7;
+				DEVELOPMENT_TEAM = 78UD3HWVN8;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
@@ -678,8 +693,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/LanguageDemo/lib/ssl/framework",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.world.hello131;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gsdemo.123;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "LanguageDemo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -695,8 +712,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = LanguageDemo/LanguageDemo.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V5ALQR4SC7;
+				DEVELOPMENT_TEAM = 78UD3HWVN8;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
@@ -710,8 +728,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/LanguageDemo/lib/ssl/framework",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.world.hello131;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gsdemo.123;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "LanguageDemo-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

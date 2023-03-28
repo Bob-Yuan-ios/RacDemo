@@ -19,6 +19,7 @@ PODS:
   - Differentiator (3.1.0)
   - ESPullToRefresh (2.9.3)
   - IQKeyboardManager (6.5.6)
+  - LineSDK (5.0.0)
   - Masonry (1.1.0)
   - MJRefresh (3.7.5)
   - Moya/Core (13.0.1):
@@ -48,6 +49,7 @@ DEPENDENCIES:
   - CocoaAsyncSocket
   - ESPullToRefresh
   - IQKeyboardManager
+  - LineSDK (~> 5.0)
   - Masonry
   - MJRefresh
   - Moya/RxSwift
@@ -69,6 +71,7 @@ SPEC REPOS:
     - Differentiator
     - ESPullToRefresh
     - IQKeyboardManager
+    - LineSDK
     - Masonry
     - MJRefresh
     - Moya
@@ -91,6 +94,7 @@ SPEC CHECKSUMS:
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   ESPullToRefresh: 0d68daa602b343c81753a1b95e09fd0bfcddfd40
   IQKeyboardManager: 2a6e97afdafc7becf0cb17a9a8d795e3a980717f
+  LineSDK: b086f6943d5bb2c05f9bc829323ad574dbedf284
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
@@ -106,6 +110,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 2d39642160666e7014d2c13513f54c913dd7b47c
+PODFILE CHECKSUM: 1f691909d88c4091d6526778a3be7e0becf92450
 
 COCOAPODS: 1.11.3

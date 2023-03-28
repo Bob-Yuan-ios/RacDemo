@@ -1,2 +1,2 @@
 ${PODS_ROOT}/Target Support Files/Pods-LanguageDemo/Pods-LanguageDemo-resources.sh
-${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle
+${PODS_CONFIGURATION_BUILD_DIR}/LineSDK/LineSDKResource.bundle

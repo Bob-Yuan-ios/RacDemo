@@ -13,8 +13,11 @@
 #import "YSActionSheet.h"
 
 #import "ViewController.h"
+#import <LineSDK/LineSDK.h>
 
-@interface LDLoginVC ()
+#import <objc/runtime.h>
+
+@interface LDLoginVC ()<LineSDKLoginDelegate>
 
 @property (nonatomic, strong) LDLoginView *contentV;
 @property (nonatomic, strong) LDLoginViewModel *contentVM;
@@ -61,13 +64,125 @@
  
     
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    [self setupLineLogin];
+}
+
+- (void)setupLineLogin{
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
+    btn.backgroundColor = [UIColor yellowColor];
+    [btn setTitle:@"Line登录" forState:UIControlStateNormal];
+    [self.view addSubview:btn];
+    [btn addTarget:self action:@selector(startLogin) forControlEvents:UIControlEventTouchUpInside];
+    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+       make.top.mas_offset(100);
+        make.height.mas_equalTo(44);
+        make.centerX.mas_equalTo(self.view);
+        make.width.mas_equalTo(100);
+    }];
+}
+
+#pragma mark line login
+- (void)startLogin{
+    [LineSDKLogin sharedInstance].delegate = self;
+    //    NSArray *permission1 = @[@"profile", @"friends", @"groups"];
+    NSArray *permissions = @[@"profile", @"openid", @"email"];
+    [[LineSDKLogin sharedInstance] startLoginWithPermissions:permissions];
+}
+
+#pragma mark line login delegate method
+- (void)didLogin:(LineSDKLogin *)login
+    credential:(LineSDKCredential *)credential
+        profile:(LineSDKProfile *)profile
+        error:(NSError *)error
+{
+    if (error) {
+        // Login failed with an error. Use the error parameter to identify the problem.
+        NSLog(@"Error: %@", error.localizedDescription);
+    }
+    else {
+
+        // Login success. Extracts the access token, user profile ID, display name, status message, and profile picture.
+        NSString * accessToken = credential.accessToken.accessToken;
+        NSString * userID = profile.userID;
+        
+        NSString * displayName = profile.displayName;
+        NSString * statusMessage = profile.statusMessage;
+        NSURL * pictureURL = profile.pictureURL;
+        
+        NSString * pictureUrlString;
+        // If the user doesn't have a profile picture set, pictureURL will be nil
+        if (pictureURL) {
+            pictureUrlString = profile.pictureURL.absoluteString;
+        }
+        
+        LineSDKJSONWebToken *jwtToken = credential.IDToken;
+        NSArray *propertyNames = [self getProperties:jwtToken];
+        NSDictionary *dic = [self propertiesAndValuesDictionary:jwtToken properties:propertyNames];
+        NSLog(@"dic#######(%@)", dic);
+    }
+}
+
+- (NSArray *)getProperties:(id)obj{
+    NSMutableArray  *propertyNames = [[NSMutableArray alloc] init];
+     unsigned int     propertyCount = 0;
+     objc_property_t *properties    = class_copyPropertyList([obj class], &propertyCount);
+     
+     for (unsigned int i = 0; i < propertyCount; ++i)
+     {
+         objc_property_t  property = properties[i];
+         const char      *name     = property_getName(property);
+         
+         [propertyNames addObject:[NSString stringWithUTF8String:name]];
+     }
+     
+    free(properties);
+
+    NSLog(@"#######:(%@)", propertyNames);
+    return propertyNames;
+}
+
+- (NSDictionary*)propertiesAndValuesDictionary:(id)obj properties:(NSArray *)properties
+{
+    NSMutableDictionary *propertiesValuesDic = [NSMutableDictionary dictionary];
+    
+    for (NSString *property in properties)
+    {
+        SEL getSel = NSSelectorFromString(property);
+        
+        if ([obj respondsToSelector:getSel])
+        {
+            NSMethodSignature  *signature  = nil;
+            signature                      = [obj methodSignatureForSelector:getSel];
+            NSInvocation       *invocation = [NSInvocation invocationWithMethodSignature:signature];
+            [invocation setTarget:obj];
+            [invocation setSelector:getSel];
+            NSObject * __unsafe_unretained valueObj = nil;
+            [invocation invoke];
+            [invocation getReturnValue:&valueObj];
+            
+            //assign to @"" string
+            if (valueObj == nil)
+            {
+                valueObj = @"";
+            }
+            
+            propertiesValuesDic[property] = valueObj;
+        }
+    }
+    
+    return propertiesValuesDic;
+}
+
+#pragma mark normal login
+- (void)setupNormalLogin{
     [self.view addSubview:self.contentV];
     [self refreshConstraint];
-    
+
     [self.contentV addContentVM:self.contentVM];
     [self setupSignal];
 }
- 
+
 - (void)refreshConstraint{
     
     BOOL navHidden = self.navigationController.navigationBarHidden;
@@ -132,4 +247,5 @@
     }
     return _contentVM;
 }
+
 @end

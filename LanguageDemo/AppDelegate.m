@@ -14,6 +14,8 @@
 // 导入后可以调用Swift
 #import "LanguageDemo-Swift.h"
 
+#import <LineSDK/LineSDK.h>
+
 @interface AppDelegate () 
 @end
 
@@ -26,10 +28,9 @@
     _window.backgroundColor = [UIColor whiteColor];
     [_window makeKeyAndVisible];
     
-    DSLog(@"hello world");
 
-//    LDLoginVC *vc = [[LDLoginVC alloc] init];
-    SwiftRootViewController *vc = [[SwiftRootViewController alloc] init];
+    LDLoginVC *vc = [[LDLoginVC alloc] init];
+//    SwiftRootViewController *vc = [[SwiftRootViewController alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
     [_window setRootViewController:nav];
  
@@ -37,4 +38,9 @@
     return YES;
 }
  
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary *)options
+{
+    NSLog(@"=====#####(%@)", url.absoluteString);
+    return [[LineSDKLogin sharedInstance] handleOpenURL:url];
+}
 @end
