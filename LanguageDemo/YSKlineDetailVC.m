@@ -1,11 +1,11 @@
 //
-//  ViewController.m
+//  YSKlineDetailVC.m
 //  LanguageDemo
 //
 //  Created by Bob on 2021/4/12.
 //
 
-#import "ViewController.h"
+#import "YSKlineDetailVC.h"
 #import <Masonry/Masonry.h>
 
 #import "RacRedVM.h"
@@ -24,19 +24,10 @@
 #import "NSObject+MJKeyValue.h"
 #import "YSKlineDetailModel.h"
 
-@interface ViewController ()
+@interface YSKlineDetailVC ()
 <
 UIScrollViewDelegate
 >
-@property (nonatomic, strong) UIView *kvoView;
-@property (nonatomic, strong) UIImageView *imageView;
-@property (nonatomic, strong) UIImage *selectedImage;
-
-@property (nonatomic, strong) RacRedView *racRedView;
-@property (nonatomic, strong) RacRedModel *racRedModel;
-
-
-
 
 @property (nonatomic, strong) UIView *macdInfoView;
 @property (nonatomic, strong) UIView *rightPriceView;
@@ -49,7 +40,7 @@ UIScrollViewDelegate
 
 @end
 
-@implementation ViewController
+@implementation YSKlineDetailVC
 
 - (UIView *)macdInfoView{
     if(!_macdInfoView){
@@ -153,11 +144,6 @@ UIScrollViewDelegate
         make.height.mas_equalTo(100);
     }];
     
-//    [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.width.height.equalTo(self.cadicatorScrollView);
-//        self.painterViewXConstraint = make.left.equalTo(self.cadicatorScrollView);
-//    }];
-    
     [self.rightPriceView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.right.bottom.mas_equalTo(self.cadicatorScrollView);
     }];
@@ -219,7 +205,6 @@ UIScrollViewDelegate
     
     CGFloat width = self.detailModel.lineWidth * maxCount;
     self.cadicatorScrollView.contentSize = CGSizeMake(width, 100);
-    self.cadicatorScrollView.contentOffset = CGPointMake([self.detailModel getScrollToPointX], 0);
 
     [self setPriceRange:minValue maxValue:maxValue];
     [self selectedMacd:resultArr idx:resultArr.count];
@@ -292,7 +277,9 @@ UIScrollViewDelegate
             [self.cadicatorScrollView.layer addSublayer:shapeLayer];
         }
     }
-    
+     
+    CGPoint offsetX = CGPointMake([self.detailModel getScrollToPointX], 0);
+    [self.cadicatorScrollView setContentOffset:offsetX];
     NSLog(@"###### refreshKLineView for more data... after(%@)", NSStringFromCGPoint(self.cadicatorScrollView.contentOffset));
 }
 

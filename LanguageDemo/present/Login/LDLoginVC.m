@@ -12,7 +12,7 @@
 #import "LDHomeVC.h"
 #import "YSActionSheet.h"
 
-#import "ViewController.h"
+#import "YSKlineDetailVC.h"
 
 #import <objc/runtime.h>
 #import "AppDelegate.h"

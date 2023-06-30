@@ -48,7 +48,7 @@
 		C4ECDDCD2966D67F00C1FA36 /* YSTcpSocketRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C4ECDDCC2966D67F00C1FA36 /* YSTcpSocketRequest.m */; };
 		C4FDD6D52667236900E444F2 /* RacRedView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FDD6D22667236900E444F2 /* RacRedView.m */; };
 		C4FDD6D62667236900E444F2 /* YSRACLearnM.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FDD6D32667236900E444F2 /* YSRACLearnM.m */; };
-		C4FDD6F12667237400E444F2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FDD6DB2667237400E444F2 /* ViewController.m */; };
+		C4FDD6F12667237400E444F2 /* YSKlineDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FDD6DB2667237400E444F2 /* YSKlineDetailVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -130,8 +130,8 @@
 		C4FDD6D22667236900E444F2 /* RacRedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RacRedView.m; sourceTree = "<group>"; };
 		C4FDD6D32667236900E444F2 /* YSRACLearnM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSRACLearnM.m; sourceTree = "<group>"; };
 		C4FDD6D42667236900E444F2 /* RacRedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RacRedView.h; sourceTree = "<group>"; };
-		C4FDD6DB2667237400E444F2 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		C4FDD6DE2667237400E444F2 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		C4FDD6DB2667237400E444F2 /* YSKlineDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSKlineDetailVC.m; sourceTree = "<group>"; };
+		C4FDD6DE2667237400E444F2 /* YSKlineDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSKlineDetailVC.h; sourceTree = "<group>"; };
 		CC0AEC53FC2833FB78E2FA76 /* Pods_LanguageDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LanguageDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -332,8 +332,8 @@
 				C4FDD6D02667236900E444F2 /* Learning */,
 				C4629D4826244CBC00029564 /* AppDelegate.h */,
 				C4629D4926244CBC00029564 /* AppDelegate.m */,
-				C4FDD6DE2667237400E444F2 /* ViewController.h */,
-				C4FDD6DB2667237400E444F2 /* ViewController.m */,
+				C4FDD6DE2667237400E444F2 /* YSKlineDetailVC.h */,
+				C4FDD6DB2667237400E444F2 /* YSKlineDetailVC.m */,
 				C4D866152A4EAC1000AA7A2D /* YSKlineDetailModel.h */,
 				C4D866162A4EAC1000AA7A2D /* YSKlineDetailModel.m */,
 				C4629D5426244CBF00029564 /* Assets.xcassets */,
@@ -549,7 +549,7 @@
 				C4D8660B2A4D4A9900AA7A2D /* YSMACalculator.m in Sources */,
 				C4FDD6D62667236900E444F2 /* YSRACLearnM.m in Sources */,
 				C44E7CD5299A07D4007B1B1E /* SettingModel.swift in Sources */,
-				C4FDD6F12667237400E444F2 /* ViewController.m in Sources */,
+				C4FDD6F12667237400E444F2 /* YSKlineDetailVC.m in Sources */,
 				C4D865FF2A4D2B0900AA7A2D /* YSKLineDataModel.m in Sources */,
 				C4D866052A4D42EF00AA7A2D /* YSKDJCalculator.m in Sources */,
 				C45108C229D53F40008CFCFE /* LDEncypt.m in Sources */,

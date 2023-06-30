@@ -11,7 +11,7 @@
 #import "AppDelegate.h"
  
 #import "LDLoginVC.h"
-#import "ViewController.h"
+#import "YSKlineDetailVC.h"
 
 // 导入后可以调用Swift
 #import "LanguageDemo-Swift.h"
@@ -37,28 +37,12 @@ typedef NS_ENUM(NSUInteger, AUTH_TYPE) {
     _window.backgroundColor = [UIColor whiteColor];
     [_window makeKeyAndVisible];
     
-    
-//    LDLoginVC *vc = [[LDLoginVC alloc] init];
-//    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-//    [_window setRootViewController:nav];
-
-    
-//    _swiftRootVC = [[SwiftRootViewController alloc] init];
-//    [_swiftRootVC setupKakao];
-//    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:_swiftRootVC];
-//    [_window setRootViewController:nav];
-
-    
-//    TruliooRootViewController *vc = [[TruliooRootViewController alloc] init];
-//    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-//    [_window setRootViewController:nav];
-    
     [self resetRootViewController];
     return YES;
 }
  
 - (void)resetRootViewController{
-    ViewController *vc = [[ViewController alloc] init];
+    YSKlineDetailVC *vc = [[YSKlineDetailVC alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
     [_window setRootViewController:nav];
 }
