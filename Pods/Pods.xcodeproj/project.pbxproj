@@ -16,6 +16,7 @@
 			dependencies = (
 			);
 			name = TruliooDocV;
+			productName = TruliooDocV;
 		};
 /* End PBXAggregateTarget section */
 
@@ -867,7 +868,7 @@
 		E6FB269534400D40C1CE67D18EDD8A9A /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 01884D0F2007CEAE20D903D5961EB86E /* MASViewConstraint.m */; };
 		E7B8F619207ECD93FD5582FE8EFDEF94 /* CombineLatest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82473091EB639D32E24BE80C7E16EE5 /* CombineLatest.swift */; };
 		E7B986E4266A539B5CCD01FF378D3DED /* ReactiveObjC-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7BABC7C98962AD7E15010C6E8CCD8FDA /* ReactiveObjC-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E8137D5998AD2C7469F9AF4A01E9CE1A /* ESPullToRefresh-ESPullToRefresh in Resources */ = {isa = PBXBuildFile; fileRef = BADAA893FFBF2C0B3B1CC6468C1C685F /* ESPullToRefresh-ESPullToRefresh */; };
+		E8137D5998AD2C7469F9AF4A01E9CE1A /* ESPullToRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BADAA893FFBF2C0B3B1CC6468C1C685F /* ESPullToRefresh.bundle */; };
 		E8372DA8FDA0830EF5FF160493C0B37A /* AFImageDownloader.h in Headers */ = {isa = PBXBuildFile; fileRef = 13715604B2862BC1EEB00ACFF84D96BF /* AFImageDownloader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E93E7AF87FC9BB84ED3343258E84A5FD /* PrimitiveSequence+Concurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A994ED543E5E0AEB77F1C60C4788F7 /* PrimitiveSequence+Concurrency.swift */; };
 		E98DC8FB2578E76A812E0C94BA10E1B1 /* ConstraintDirectionalInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFEE320D86C28EA4C016F2D4F61C0B8 /* ConstraintDirectionalInsets.swift */; };
@@ -1366,7 +1367,7 @@
 		29CE0BD473D89629F88A265E2974326F /* UIScrollView+MJRefresh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+MJRefresh.h"; path = "MJRefresh/UIScrollView+MJRefresh.h"; sourceTree = "<group>"; };
 		29DA1139FF4CA4422F3ED5EBE4C348A5 /* AFNetworking-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AFNetworking-prefix.pch"; sourceTree = "<group>"; };
 		2A240E2A10733EF72DEECC6CB053F19D /* RecursiveLock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RecursiveLock.swift; path = Platform/RecursiveLock.swift; sourceTree = "<group>"; };
-		2A87A07047D2AADE6C37EBA0D94A7E64 /* Lottie.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = Lottie.xcframework; sourceTree = "<group>"; };
+		2A87A07047D2AADE6C37EBA0D94A7E64 /* Lottie.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; path = Lottie.xcframework; sourceTree = "<group>"; };
 		2AE826AD7F87F4150175AE33E8E37828 /* ConstraintLayoutGuide+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ConstraintLayoutGuide+Extensions.swift"; path = "Sources/ConstraintLayoutGuide+Extensions.swift"; sourceTree = "<group>"; };
 		2B0FC5AE6735A9EB0588B9E34F824541 /* ObjectMapper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ObjectMapper.release.xcconfig; sourceTree = "<group>"; };
 		2B276B0A79173A1D6E83C9B4FB9A4A57 /* MJExtension */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MJExtension; path = MJExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1454,7 +1455,7 @@
 		3E534B63E47E2953AE976F89824E3B24 /* UISlider+RACSignalSupport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UISlider+RACSignalSupport.h"; path = "ReactiveObjC/UISlider+RACSignalSupport.h"; sourceTree = "<group>"; };
 		3E86399BA72434D102C57B213FDF2C9D /* TakeWithPredicate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TakeWithPredicate.swift; path = RxSwift/Observables/TakeWithPredicate.swift; sourceTree = "<group>"; };
 		3E9CF5036F40E8CF646B93A5D9D38DC1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
-		3F41A0BC7D85BCD05348E52320CB0C8D /* TruliooSDK.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = TruliooSDK.xcframework; sourceTree = "<group>"; };
+		3F41A0BC7D85BCD05348E52320CB0C8D /* TruliooSDK.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; path = TruliooSDK.xcframework; sourceTree = "<group>"; };
 		3F4586608744B853164FF00EFFD3CAFD /* Throttle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Throttle.swift; path = RxSwift/Observables/Throttle.swift; sourceTree = "<group>"; };
 		40A13F8F9A0F7AD70AE634FFF021E373 /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Source/Notifications.swift; sourceTree = "<group>"; };
 		4130D2C6F51EDE6018346EC8AEA330D3 /* ESPullToRefresh.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ESPullToRefresh.release.xcconfig; sourceTree = "<group>"; };
@@ -1696,7 +1697,7 @@
 		7A4446B3A001F8CA5D65E7A4DB84FE51 /* YYClassInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYClassInfo.m; path = YYModel/YYClassInfo.m; sourceTree = "<group>"; };
 		7A464ED8E9B468FD1A0D32F0A8C4E848 /* RxTabBarControllerDelegateProxy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RxTabBarControllerDelegateProxy.swift; path = RxCocoa/iOS/Proxies/RxTabBarControllerDelegateProxy.swift; sourceTree = "<group>"; };
 		7A86F793D0EF66696D01D905C5A61F1E /* RACKVOTrampoline.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RACKVOTrampoline.m; path = ReactiveObjC/RACKVOTrampoline.m; sourceTree = "<group>"; };
-		7A9326CC3955330BAE6FA79987659B4C /* RACCompoundDisposableProvider.d */ = {isa = PBXFileReference; includeInIndex = 1; name = RACCompoundDisposableProvider.d; path = ReactiveObjC/RACCompoundDisposableProvider.d; sourceTree = "<group>"; };
+		7A9326CC3955330BAE6FA79987659B4C /* RACCompoundDisposableProvider.d */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.dtrace; name = RACCompoundDisposableProvider.d; path = ReactiveObjC/RACCompoundDisposableProvider.d; sourceTree = "<group>"; };
 		7ADDBDAE00C3E1D6BEB741673B8A6E23 /* RACImmediateScheduler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RACImmediateScheduler.m; path = ReactiveObjC/RACImmediateScheduler.m; sourceTree = "<group>"; };
 		7B02609F1EBA9CFD9CAA6DAB2C33BF39 /* Reactive.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Reactive.swift; path = RxSwift/Reactive.swift; sourceTree = "<group>"; };
 		7B45DC54F0CDAA54147D91502E13F17F /* RxCollectionViewDataSourceType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RxCollectionViewDataSourceType.swift; path = RxCocoa/iOS/Protocols/RxCollectionViewDataSourceType.swift; sourceTree = "<group>"; };
@@ -1844,7 +1845,7 @@
 		9CDA6BA4EB8C360F54E6EB83D3C02E8A /* MJExtension.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MJExtension.modulemap; sourceTree = "<group>"; };
 		9D45BD0497C8585477DA5F656E4ECF13 /* ConcurrentMainScheduler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConcurrentMainScheduler.swift; path = RxSwift/Schedulers/ConcurrentMainScheduler.swift; sourceTree = "<group>"; };
 		9D78C2D19B337F6A5A54EC752EB17449 /* MJRefreshNormalHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshNormalHeader.h; path = MJRefresh/Custom/Header/MJRefreshNormalHeader.h; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9D96207A218717455334516699A93173 /* ObservableType+PrimitiveSequence.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ObservableType+PrimitiveSequence.swift"; path = "RxSwift/Traits/PrimitiveSequence/ObservableType+PrimitiveSequence.swift"; sourceTree = "<group>"; };
 		9DEE1647318B40FF935C002F5E6238D2 /* BinaryDisposable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BinaryDisposable.swift; path = RxSwift/Disposables/BinaryDisposable.swift; sourceTree = "<group>"; };
 		9E06912541108F28E3C1B7CD9B63C379 /* AddRef.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AddRef.swift; path = RxSwift/Observables/AddRef.swift; sourceTree = "<group>"; };
@@ -1933,7 +1934,7 @@
 		B127922A318F725366F5D8BD902289B3 /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLRequestSerialization.h; path = AFNetworking/AFURLRequestSerialization.h; sourceTree = "<group>"; };
 		B15590903BA80D802F815276AD824FC6 /* RxTabBarDelegateProxy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RxTabBarDelegateProxy.swift; path = RxCocoa/iOS/Proxies/RxTabBarDelegateProxy.swift; sourceTree = "<group>"; };
 		B15DC05AE3AC4EF9A7F15BDB8EBD069E /* KakaoSDKCommon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KakaoSDKCommon.debug.xcconfig; sourceTree = "<group>"; };
-		B15F57091386D8402E4201F3FF95E464 /* RACSignalProvider.d */ = {isa = PBXFileReference; includeInIndex = 1; name = RACSignalProvider.d; path = ReactiveObjC/RACSignalProvider.d; sourceTree = "<group>"; };
+		B15F57091386D8402E4201F3FF95E464 /* RACSignalProvider.d */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.dtrace; name = RACSignalProvider.d; path = ReactiveObjC/RACSignalProvider.d; sourceTree = "<group>"; };
 		B1E1020BAF866799C0F72768ACBCD344 /* ObservableConvertibleType+SharedSequence.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ObservableConvertibleType+SharedSequence.swift"; path = "RxCocoa/Traits/SharedSequence/ObservableConvertibleType+SharedSequence.swift"; sourceTree = "<group>"; };
 		B1EE7D7DD5BB2F3CB64304A9E00212B0 /* RxNavigationControllerDelegateProxy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RxNavigationControllerDelegateProxy.swift; path = RxCocoa/iOS/Proxies/RxNavigationControllerDelegateProxy.swift; sourceTree = "<group>"; };
 		B1F20FC305C6FD6A77AE46DDC72CF277 /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/ParameterEncoding.swift; sourceTree = "<group>"; };
@@ -1968,7 +1969,7 @@
 		BA0B1299D2BA645A224F0A546BA6E0A4 /* MJRefreshComponent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshComponent.h; path = MJRefresh/Base/MJRefreshComponent.h; sourceTree = "<group>"; };
 		BA75B4A2DD786FA53479CA99FB80A9C1 /* MJPropertyType.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJPropertyType.m; path = MJExtension/MJPropertyType.m; sourceTree = "<group>"; };
 		BAC4E39736D83B398218E00AF9E10045 /* Switch.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Switch.swift; path = RxSwift/Observables/Switch.swift; sourceTree = "<group>"; };
-		BADAA893FFBF2C0B3B1CC6468C1C685F /* ESPullToRefresh-ESPullToRefresh */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "ESPullToRefresh-ESPullToRefresh"; path = ESPullToRefresh.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		BADAA893FFBF2C0B3B1CC6468C1C685F /* ESPullToRefresh.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ESPullToRefresh.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAF33FD071101F29EA972670D9F109D5 /* Debounce.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Debounce.swift; path = RxSwift/Observables/Debounce.swift; sourceTree = "<group>"; };
 		BB1599CC704A93491B54E0D64988CFB9 /* CompositeDisposable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CompositeDisposable.swift; path = RxSwift/Disposables/CompositeDisposable.swift; sourceTree = "<group>"; };
 		BBE58333A730EF5AF62C21159B908A8B /* DateFormatterTransform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateFormatterTransform.swift; path = Sources/DateFormatterTransform.swift; sourceTree = "<group>"; };
@@ -2131,7 +2132,7 @@
 		E2149AAEA38F31D75B5862D21CB9A3E2 /* YYModel.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = YYModel.modulemap; sourceTree = "<group>"; };
 		E21F3FE44F9ECBFD6D65855EF0A7DA96 /* Debugging.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Debugging.swift; path = Sources/Debugging.swift; sourceTree = "<group>"; };
 		E23C076BA70925415F490FEDB215DA92 /* SwiftyJSON */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftyJSON; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E2D475ECEAC97455A7B679DCEACE657E /* TruliooCore.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = TruliooCore.xcframework; sourceTree = "<group>"; };
+		E2D475ECEAC97455A7B679DCEACE657E /* TruliooCore.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; path = TruliooCore.xcframework; sourceTree = "<group>"; };
 		E347487F44A1CDCDB3D2F84C1CEE2E3A /* YYModel-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YYModel-umbrella.h"; sourceTree = "<group>"; };
 		E40A371E17858E33480DD195AC0DB124 /* IQPreviousNextView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQPreviousNextView.m; path = IQKeyboardManager/IQToolbar/IQPreviousNextView.m; sourceTree = "<group>"; };
 		E448EC34CD412997E9FD272B58555AC4 /* ReactiveObjC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ReactiveObjC.release.xcconfig; sourceTree = "<group>"; };
@@ -2510,7 +2511,6 @@
 				10F7B17401B9CA9AFAEAF00CFF8F4998 /* UILayoutSupport+Extensions.swift */,
 				AAE92EA484B573D9D967418D6B17372D /* Support Files */,
 			);
-			name = SnapKit;
 			path = SnapKit;
 			sourceTree = "<group>";
 		};
@@ -2536,7 +2536,6 @@
 				D545F001983552200EAED3FA3C553A1A /* Resources */,
 				1358372FB3200454E7A3D97DAE587F78 /* Support Files */,
 			);
-			name = ESPullToRefresh;
 			path = ESPullToRefresh;
 			sourceTree = "<group>";
 		};
@@ -2580,7 +2579,6 @@
 				9091D91E1CFCDA8D9754C52262F934C5 /* GCDAsyncUdpSocket.m */,
 				411AE0E23697F5DC972AD31E9B5B885E /* Support Files */,
 			);
-			name = CocoaAsyncSocket;
 			path = CocoaAsyncSocket;
 			sourceTree = "<group>";
 		};
@@ -2609,7 +2607,6 @@
 				B52FA01965230787C95695D93CBB939D /* YYModel.h */,
 				8D58FECB93523CA50912065E3E1C480B /* Support Files */,
 			);
-			name = YYModel;
 			path = YYModel;
 			sourceTree = "<group>";
 		};
@@ -2638,7 +2635,6 @@
 				B34EE729485E1AFCEE08BDF6E6BDF701 /* Utils.swift */,
 				DD45FADEBE124B542595D604469AA030 /* Support Files */,
 			);
-			name = RxRelay;
 			path = RxRelay;
 			sourceTree = "<group>";
 		};
@@ -2866,7 +2862,6 @@
 				EC52AF407C34C7FDADB6479B3D64AF77 /* UITextView+RACSignalSupport.m */,
 				4F15569A9B9F70B07ADD63D56E197232 /* Support Files */,
 			);
-			name = ReactiveObjC;
 			path = ReactiveObjC;
 			sourceTree = "<group>";
 		};
@@ -2986,7 +2981,6 @@
 				24B500617E7553BDD385C207685B854D /* TokenManager.swift */,
 				268CCDAE5446ADEDC6DBA82DDC6A8BF0 /* Support Files */,
 			);
-			name = KakaoSDKAuth;
 			path = KakaoSDKAuth;
 			sourceTree = "<group>";
 		};
@@ -3022,7 +3016,6 @@
 				FEA612C756F09A578E5417513E80463A /* Utilities.swift */,
 				2F4D023444EC41460CEFAFEF74E1C65E /* Support Files */,
 			);
-			name = Differentiator;
 			path = Differentiator;
 			sourceTree = "<group>";
 		};
@@ -3050,7 +3043,7 @@
 				6CBEFE4F9E22AFDC6347A739BB35FF8C /* CocoaAsyncSocket */,
 				D51C3D0C53D23B97B032E3BDD4F82C82 /* Differentiator */,
 				876C4141D6ADC72BFBD0854AD5DD3DC5 /* ESPullToRefresh */,
-				BADAA893FFBF2C0B3B1CC6468C1C685F /* ESPullToRefresh-ESPullToRefresh */,
+				BADAA893FFBF2C0B3B1CC6468C1C685F /* ESPullToRefresh.bundle */,
 				98527D7196957AAB07B79E2E2AFDE23E /* IQKeyboardManager */,
 				9F453801F27585052F413F613C847DB2 /* KakaoSDKAuth */,
 				25BDA6E824AD6CBD857358A023C694AD /* KakaoSDKCommon */,
@@ -3112,7 +3105,6 @@
 				87911E5BCD3B194A983A32B81A860F76 /* Network */,
 				BC04F1FB53124882BB6227EB03209D01 /* Support Files */,
 			);
-			name = KakaoSDKCommon;
 			path = KakaoSDKCommon;
 			sourceTree = "<group>";
 		};
@@ -3162,7 +3154,6 @@
 				32F892580451678EB5E20C34F799E6FE /* SRWebSocket.m */,
 				B2CEF0F3D2A911DD19A71912E280C043 /* Support Files */,
 			);
-			name = SocketRocket;
 			path = SocketRocket;
 			sourceTree = "<group>";
 		};
@@ -3187,7 +3178,6 @@
 				4B79BF3DE211AFB4A80C3EEC9A769FCA /* ViewTransition.swift */,
 				8B16E89F6813A648CACC24005E2DF3C9 /* Support Files */,
 			);
-			name = RxDataSources;
 			path = RxDataSources;
 			sourceTree = "<group>";
 		};
@@ -3220,7 +3210,6 @@
 				057D2E77E2DCA3432691D77041FD6225 /* URLTransform.swift */,
 				35AD3DD01E7D1415CC82ACA3C5EB25AE /* Support Files */,
 			);
-			name = ObjectMapper;
 			path = ObjectMapper;
 			sourceTree = "<group>";
 		};
@@ -3230,7 +3219,6 @@
 				DA4B9D988695B024C3BDC8D70D769414 /* Frameworks */,
 				A373C8B429937073FA095A0CC63AD9D5 /* Support Files */,
 			);
-			name = TruliooDocV;
 			path = TruliooDocV;
 			sourceTree = "<group>";
 		};
@@ -3408,7 +3396,6 @@
 				946DB7F15DEEE4514466489D620240DD /* Zip+Collection.swift */,
 				8175D87683ABA502741D5C981C37F933 /* Support Files */,
 			);
-			name = RxSwift;
 			path = RxSwift;
 			sourceTree = "<group>";
 		};
@@ -3542,7 +3529,6 @@
 				0448E8E54B4CD64788EAD7AC8503145B /* WKWebView+Rx.swift */,
 				3E08EFFAC3081009B11CEB3E7EAE61FD /* Support Files */,
 			);
-			name = RxCocoa;
 			path = RxCocoa;
 			sourceTree = "<group>";
 		};
@@ -3611,7 +3597,6 @@
 				49D5571380E9AF662E12F6501572BAF3 /* Support Files */,
 				91382CD5DCE68B6EB532D5C22380723C /* UIKit */,
 			);
-			name = AFNetworking;
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
@@ -3627,7 +3612,6 @@
 				13DE0D93B987D394088147F2C921BFB6 /* UserShippingAddresses.swift */,
 				BF98958BDD1678EC766956A8D519F870 /* Support Files */,
 			);
-			name = KakaoSDKUser;
 			path = KakaoSDKUser;
 			sourceTree = "<group>";
 		};
@@ -3748,7 +3732,6 @@
 				354E79D812881A5C25B635299E72B0AE /* IQUIViewController+Additions.m */,
 				43A03E0F0EF5C41424BD838A89C7B72A /* Support Files */,
 			);
-			name = IQKeyboardManager;
 			path = IQKeyboardManager;
 			sourceTree = "<group>";
 		};
@@ -3789,7 +3772,6 @@
 				5C8A707825A797D42E2569003F1CC89D /* Reachability.swift */,
 				3FC6754465625CA39AEFE04505729C4B /* Support Files */,
 			);
-			name = ReachabilitySwift;
 			path = ReachabilitySwift;
 			sourceTree = "<group>";
 		};
@@ -3799,7 +3781,6 @@
 				2F50EEE5D693A84FCE4FB3241CE2CFFF /* SwiftyJSON.swift */,
 				D4A66559B80C3F53D22A111BFC636479 /* Support Files */,
 			);
-			name = SwiftyJSON;
 			path = SwiftyJSON;
 			sourceTree = "<group>";
 		};
@@ -3874,7 +3855,6 @@
 				D50309030157FA7FED9CA15838CC134E /* Validation.swift */,
 				19F2D112F328BED1759A33B3F3D81AD6 /* Support Files */,
 			);
-			name = Alamofire;
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
@@ -3986,7 +3966,6 @@
 				649232CF8FAFF8C8D44234798BFEED41 /* NSString+MJExtension.m */,
 				AD9E0A8C7318108A2687A61B2CC4442D /* Support Files */,
 			);
-			name = MJExtension;
 			path = MJExtension;
 			sourceTree = "<group>";
 		};
@@ -4045,7 +4024,6 @@
 				576D2FA4B79CD9A80B5266C1F7D15AAC /* Resources */,
 				780D40C60A9E94281BA157101F3E00B3 /* Support Files */,
 			);
-			name = MJRefresh;
 			path = MJRefresh;
 			sourceTree = "<group>";
 		};
@@ -4088,7 +4066,6 @@
 				36C32CF327536EB89F66822D1B1F602D /* ViewController+MASAdditions.m */,
 				080DF523EE25D96BC22585019F9EE18D /* Support Files */,
 			);
-			name = Masonry;
 			path = Masonry;
 			sourceTree = "<group>";
 		};
@@ -4726,7 +4703,7 @@
 			);
 			name = "ESPullToRefresh-ESPullToRefresh";
 			productName = ESPullToRefresh;
-			productReference = BADAA893FFBF2C0B3B1CC6468C1C685F /* ESPullToRefresh-ESPullToRefresh */;
+			productReference = BADAA893FFBF2C0B3B1CC6468C1C685F /* ESPullToRefresh.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 		4D3BA58D0583DF37575CACAB3DDADC85 /* MJExtension */ = {
@@ -5190,7 +5167,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8137D5998AD2C7469F9AF4A01E9CE1A /* ESPullToRefresh-ESPullToRefresh in Resources */,
+				E8137D5998AD2C7469F9AF4A01E9CE1A /* ESPullToRefresh.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7082,6 +7059,7 @@
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/ESPullToRefresh";
+				DEVELOPMENT_TEAM = 78UD3HWVN8;
 				IBSC_MODULE = ESPullToRefresh;
 				INFOPLIST_FILE = "Target Support Files/ESPullToRefresh/ResourceBundle-ESPullToRefresh-ESPullToRefresh-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -7377,6 +7355,7 @@
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/ESPullToRefresh";
+				DEVELOPMENT_TEAM = 78UD3HWVN8;
 				IBSC_MODULE = ESPullToRefresh;
 				INFOPLIST_FILE = "Target Support Files/ESPullToRefresh/ResourceBundle-ESPullToRefresh-ESPullToRefresh-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

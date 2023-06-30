@@ -45,6 +45,9 @@ UIScrollViewDelegate
 @property (nonatomic, strong) UIView *macdInfoView;
 @property (nonatomic, strong) UIView *rightPriceView;
 
+//@property (nonatomic, strong) UIView *contentView;
+//@property (nonatomic, weak) MASConstraint *painterViewXConstraint;
+
 @property (nonatomic, strong) UIScrollView *cadicatorScrollView;
 
 @property (nonatomic, strong) YSMACDConfig *config;
@@ -56,6 +59,7 @@ UIScrollViewDelegate
 
 @property (nonatomic, assign) BOOL loadKlineData;
 @property (nonatomic, assign) BOOL endLoading;
+
 
 @end
 
@@ -156,6 +160,7 @@ UIScrollViewDelegate
     _config = [[YSMACDConfig alloc] init];
     [self.view addSubview:self.macdInfoView];
     [self.view addSubview:self.cadicatorScrollView];
+    
     [self.view addSubview:self.rightPriceView];
     
     [self.macdInfoView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -169,6 +174,11 @@ UIScrollViewDelegate
         make.top.mas_equalTo(self.macdInfoView.mas_bottom);
         make.height.mas_equalTo(100);
     }];
+    
+//    [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.width.height.equalTo(self.cadicatorScrollView);
+//        self.painterViewXConstraint = make.left.equalTo(self.cadicatorScrollView);
+//    }];
     
     [self.rightPriceView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.right.bottom.mas_equalTo(self.cadicatorScrollView);
@@ -231,6 +241,7 @@ UIScrollViewDelegate
     
     CGFloat width = self.lineWidth * maxCount;
     self.cadicatorScrollView.contentSize = CGSizeMake(width, 100);
+    self.cadicatorScrollView.contentOffset = CGPointMake(self.screenWidth * (self.currentPage - 1), 0);
 
     [self setPriceRange:minValue maxValue:maxValue];
     [self selectedMacd:resultArr idx:resultArr.count];
@@ -304,7 +315,6 @@ UIScrollViewDelegate
         }
     }
     
-    self.cadicatorScrollView.contentOffset = CGPointMake(self.screenWidth * (self.currentPage - 1), 0);
     NSLog(@"###### refreshKLineView for more data... after(%@)", NSStringFromCGPoint(self.cadicatorScrollView.contentOffset));
 }
 
@@ -333,11 +343,42 @@ UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
 
-    if(!self.endLoading && !self.loadKlineData && scrollView.contentOffset.x < self.screenWidth * 2){
+//    if (self.cadicatorScrollView.contentOffset.x < 0) {
+//        self.painterViewXConstraint.offset = 0;
+//    } else {
+//        self.painterViewXConstraint.offset = scrollView.contentOffset.x;
+//    }
+    
+    if(!self.endLoading &&
+       !self.loadKlineData &&
+       scrollView.contentOffset.x < self.screenWidth * 2){
         [self loadContent];
     }
 }
 
+- (void)responseToPinGesture:(UIPinchGestureRecognizer *)recognizer{
+    /*获取状态*/
+      UIGestureRecognizerState state = [recognizer state];
+      if (state == UIGestureRecognizerStateBegan || state == UIGestureRecognizerStateChanged){
+         /*获取捏合大小比例*/
+         CGFloat scale = [recognizer scale];
+          
+         /*获取捏合的速度*/
+         CGFloat velocity = [recognizer velocity];
+         NSLog(@"velocity %f ==== scale %f",velocity, scale);
+          
+         [recognizer.view setTransform:CGAffineTransformScale(recognizer.view.transform, scale, scale)];
+         [recognizer setScale:1.0];
+      }
+}
+
+//- (UIView *)contentView{
+//    if(!_contentView){
+//        _contentView = [UIView new];
+//        _contentView.backgroundColor = [UIColor lightGrayColor];
+//    }
+//    return _contentView;
+//}
 
 - (UIScrollView *)cadicatorScrollView{
     if(!_cadicatorScrollView){
@@ -345,6 +386,13 @@ UIScrollViewDelegate
         _cadicatorScrollView.delegate = self;
         _cadicatorScrollView.backgroundColor = [UIColor grayColor];
         _cadicatorScrollView.showsHorizontalScrollIndicator = NO;
+        
+//        [_cadicatorScrollView addSubview:self.contentView];
+
+        UIPinchGestureRecognizer *ges = [[UIPinchGestureRecognizer alloc] initWithTarget:self
+                                                                                  action:@selector(responseToPinGesture:)];
+        [_cadicatorScrollView addGestureRecognizer:ges];
+        
     }
     return _cadicatorScrollView;
 }
