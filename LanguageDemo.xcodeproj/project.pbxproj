@@ -35,7 +35,6 @@
 		C48DEDD227511FF200A86E08 /* UIImage+ChangeColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C48DEDD127511FF200A86E08 /* UIImage+ChangeColor.m */; };
 		C494044529697A38000A1CF9 /* YSActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = C494044429697A38000A1CF9 /* YSActionSheet.m */; };
 		C49EC46C26C10E7100F130F8 /* ThreadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C49EC46B26C10E7100F130F8 /* ThreadModel.m */; };
-		C4C10F3C2A122E7E00DD4D8E /* TruliooRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C10F3B2A122E7E00DD4D8E /* TruliooRootViewController.swift */; };
 		C4C8948626AAB05B005E39F5 /* UIImage+Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C8948526AAB05B005E39F5 /* UIImage+Filter.m */; };
 		C4C8948926AAB750005E39F5 /* UIImageView+Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C8948826AAB750005E39F5 /* UIImageView+Filter.m */; };
 		C4CACCE92669E53C00712ED2 /* RacRedVM.m in Sources */ = {isa = PBXBuildFile; fileRef = C4CACCE82669E53C00712ED2 /* RacRedVM.m */; };
@@ -104,7 +103,6 @@
 		C49EC46A26C10E7100F130F8 /* ThreadModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThreadModel.h; sourceTree = "<group>"; };
 		C49EC46B26C10E7100F130F8 /* ThreadModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThreadModel.m; sourceTree = "<group>"; };
 		C4AECA7B2702C66000F3BA1A /* LanguageDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LanguageDemo-Bridging-Header.h"; sourceTree = "<group>"; };
-		C4C10F3B2A122E7E00DD4D8E /* TruliooRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruliooRootViewController.swift; sourceTree = "<group>"; };
 		C4C8948426AAB05B005E39F5 /* UIImage+Filter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Filter.h"; sourceTree = "<group>"; };
 		C4C8948526AAB05B005E39F5 /* UIImage+Filter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Filter.m"; sourceTree = "<group>"; };
 		C4C8948726AAB750005E39F5 /* UIImageView+Filter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Filter.h"; sourceTree = "<group>"; };
@@ -164,7 +162,6 @@
 				C44E7CCA299A07D4007B1B1E /* dataRequest */,
 				C44E7CCD299A07D4007B1B1E /* Setting */,
 				C44E7CD7299A080E007B1B1E /* SwiftRootViewController.swift */,
-				C4C10F3B2A122E7E00DD4D8E /* TruliooRootViewController.swift */,
 			);
 			path = swiftDemo;
 			sourceTree = "<group>";
@@ -548,7 +545,6 @@
 				C48489BF2775C68C0033194C /* LDLoginViewModel.m in Sources */,
 				C4C8948926AAB750005E39F5 /* UIImageView+Filter.m in Sources */,
 				C456A3DD299B2B1500477149 /* Programming.swift in Sources */,
-				C4C10F3C2A122E7E00DD4D8E /* TruliooRootViewController.swift in Sources */,
 				C473DFA3277EC1D200CF669A /* LDHomeTableView.m in Sources */,
 				C4D8660B2A4D4A9900AA7A2D /* YSMACalculator.m in Sources */,
 				C4FDD6D62667236900E444F2 /* YSRACLearnM.m in Sources */,

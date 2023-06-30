@@ -14,22 +14,10 @@ PODS:
   - AFNetworking/Serialization (4.0.1)
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
-  - Alamofire (5.6.4)
   - CocoaAsyncSocket (7.6.5)
   - Differentiator (5.0.0)
   - ESPullToRefresh (2.9.3)
   - IQKeyboardManager (6.5.11)
-  - KakaoSDKAuth (2.13.1):
-    - KakaoSDKCommon (= 2.13.1)
-  - KakaoSDKCommon (2.13.1):
-    - KakaoSDKCommon/Common (= 2.13.1)
-    - KakaoSDKCommon/Network (= 2.13.1)
-  - KakaoSDKCommon/Common (2.13.1)
-  - KakaoSDKCommon/Network (2.13.1):
-    - Alamofire (~> 5.1)
-    - KakaoSDKCommon/Common (= 2.13.1)
-  - KakaoSDKUser (2.13.1):
-    - KakaoSDKAuth (= 2.13.1)
   - Masonry (1.1.0)
   - MJExtension (3.4.1)
   - MJRefresh (3.7.5)
@@ -49,7 +37,6 @@ PODS:
   - SnapKit (5.6.0)
   - SocketRocket (0.6.0)
   - SwiftyJSON (5.0.1)
-  - TruliooDocV (2.3.0)
   - YYModel (1.0.4)
 
 DEPENDENCIES:
@@ -57,8 +44,6 @@ DEPENDENCIES:
   - CocoaAsyncSocket
   - ESPullToRefresh
   - IQKeyboardManager
-  - KakaoSDKAuth
-  - KakaoSDKUser
   - Masonry
   - MJExtension
   - MJRefresh
@@ -70,20 +55,15 @@ DEPENDENCIES:
   - SnapKit
   - SocketRocket
   - SwiftyJSON
-  - TruliooDocV
   - YYModel
 
 SPEC REPOS:
   trunk:
     - AFNetworking
-    - Alamofire
     - CocoaAsyncSocket
     - Differentiator
     - ESPullToRefresh
     - IQKeyboardManager
-    - KakaoSDKAuth
-    - KakaoSDKCommon
-    - KakaoSDKUser
     - Masonry
     - MJExtension
     - MJRefresh
@@ -97,19 +77,14 @@ SPEC REPOS:
     - SnapKit
     - SocketRocket
     - SwiftyJSON
-    - TruliooDocV
     - YYModel
 
 SPEC CHECKSUMS:
   AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
-  Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
   ESPullToRefresh: 0d68daa602b343c81753a1b95e09fd0bfcddfd40
   IQKeyboardManager: ef43ce1ba1e5aaf4adf222c0a46f39761f246879
-  KakaoSDKAuth: d9de0cb0c723441ced3616d481952bde34438dcb
-  KakaoSDKCommon: a16807e19984a0a208c3117c7ef117f101a9a128
-  KakaoSDKUser: 92d34cf6af7b123c22a7ee44424332123e356901
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 21c5f6f8c4d5d8844b7ae8fbae08fed0b501f961
   MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
@@ -123,9 +98,8 @@ SPEC CHECKSUMS:
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SocketRocket: fccef3f9c5cedea1353a9ef6ada904fde10d6608
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
-  TruliooDocV: c27907b001d5fe2dd3443a13ff2888d9f0cccc4f
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 58e06bd145dbac920a4c1d4a6c4ff12d7f83459e
+PODFILE CHECKSUM: a4186c3437096fd43fa4b839b02622ece5b17a31
 
 COCOAPODS: 1.11.3

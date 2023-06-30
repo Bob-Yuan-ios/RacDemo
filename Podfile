@@ -33,18 +33,6 @@ target 'LanguageDemo' do
     # tcpSocket请求
     pod 'CocoaAsyncSocket'
 
-    ######### Swift
-    # 三方登录 -- kakao
-    # Add all modules
-#    pod 'KakaoSDK'
-    
-    # 身份认证
-    pod 'TruliooDocV'
-    
-    # Add the desired modules
-    pod 'KakaoSDKAuth'  # Authentication
-    pod 'KakaoSDKUser'  # Kakao Login, User
-    
     # 布局
     pod 'SnapKit'
     

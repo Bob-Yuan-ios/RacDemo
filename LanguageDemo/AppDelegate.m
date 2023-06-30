@@ -66,9 +66,6 @@ typedef NS_ENUM(NSUInteger, AUTH_TYPE) {
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary *)options
 {
     NSLog(@"=====#####(%@)", url.absoluteString);
-
-
-    return [_swiftRootVC handOpenUrlWithOpenUrl:url];
     return YES;
 }
 

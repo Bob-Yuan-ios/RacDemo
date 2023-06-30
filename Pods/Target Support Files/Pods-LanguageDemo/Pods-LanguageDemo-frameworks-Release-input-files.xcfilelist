@@ -1,13 +1,9 @@
 ${PODS_ROOT}/Target Support Files/Pods-LanguageDemo/Pods-LanguageDemo-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework
-${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
 ${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework
 ${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework
 ${BUILT_PRODUCTS_DIR}/ESPullToRefresh/ESPullToRefresh.framework
 ${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework
-${BUILT_PRODUCTS_DIR}/KakaoSDKAuth/KakaoSDKAuth.framework
-${BUILT_PRODUCTS_DIR}/KakaoSDKCommon/KakaoSDKCommon.framework
-${BUILT_PRODUCTS_DIR}/KakaoSDKUser/KakaoSDKUser.framework
 ${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework
 ${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework
 ${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework
@@ -22,6 +18,3 @@ ${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework
 ${BUILT_PRODUCTS_DIR}/SocketRocket/SocketRocket.framework
 ${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework
 ${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework
-${PODS_XCFRAMEWORKS_BUILD_DIR}/TruliooDocV/TruliooSDK.framework/TruliooSDK
-${PODS_XCFRAMEWORKS_BUILD_DIR}/TruliooDocV/TruliooCore.framework/TruliooCore
-${PODS_XCFRAMEWORKS_BUILD_DIR}/TruliooDocV/Lottie.framework/Lottie
