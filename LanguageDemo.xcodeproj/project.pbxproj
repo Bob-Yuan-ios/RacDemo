@@ -45,6 +45,7 @@
 		C4D866052A4D42EF00AA7A2D /* YSKDJCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D866042A4D42EF00AA7A2D /* YSKDJCalculator.m */; };
 		C4D866082A4D496700AA7A2D /* YSWRCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D866072A4D496700AA7A2D /* YSWRCalculator.m */; };
 		C4D8660B2A4D4A9900AA7A2D /* YSMACalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D8660A2A4D4A9900AA7A2D /* YSMACalculator.m */; };
+		C4D866172A4EAC1000AA7A2D /* YSKlineDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D866162A4EAC1000AA7A2D /* YSKlineDetailModel.m */; };
 		C4ECDDCD2966D67F00C1FA36 /* YSTcpSocketRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C4ECDDCC2966D67F00C1FA36 /* YSTcpSocketRequest.m */; };
 		C4FDD6D52667236900E444F2 /* RacRedView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FDD6D22667236900E444F2 /* RacRedView.m */; };
 		C4FDD6D62667236900E444F2 /* YSRACLearnM.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FDD6D32667236900E444F2 /* YSRACLearnM.m */; };
@@ -123,6 +124,8 @@
 		C4D866092A4D4A9900AA7A2D /* YSMACalculator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSMACalculator.h; sourceTree = "<group>"; };
 		C4D8660A2A4D4A9900AA7A2D /* YSMACalculator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSMACalculator.m; sourceTree = "<group>"; };
 		C4D8660D2A4D51A800AA7A2D /* YSKLineHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSKLineHeader.h; sourceTree = "<group>"; };
+		C4D866152A4EAC1000AA7A2D /* YSKlineDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSKlineDetailModel.h; sourceTree = "<group>"; };
+		C4D866162A4EAC1000AA7A2D /* YSKlineDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSKlineDetailModel.m; sourceTree = "<group>"; };
 		C4ECDDCB2966D67F00C1FA36 /* YSTcpSocketRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSTcpSocketRequest.h; sourceTree = "<group>"; };
 		C4ECDDCC2966D67F00C1FA36 /* YSTcpSocketRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSTcpSocketRequest.m; sourceTree = "<group>"; };
 		C4FDD6D12667236900E444F2 /* YSRACLearnM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSRACLearnM.h; sourceTree = "<group>"; };
@@ -334,6 +337,8 @@
 				C4629D4926244CBC00029564 /* AppDelegate.m */,
 				C4FDD6DE2667237400E444F2 /* ViewController.h */,
 				C4FDD6DB2667237400E444F2 /* ViewController.m */,
+				C4D866152A4EAC1000AA7A2D /* YSKlineDetailModel.h */,
+				C4D866162A4EAC1000AA7A2D /* YSKlineDetailModel.m */,
 				C4629D5426244CBF00029564 /* Assets.xcassets */,
 				C4629D5626244CBF00029564 /* LaunchScreen.storyboard */,
 				C4629D5926244CBF00029564 /* Info.plist */,
@@ -568,6 +573,7 @@
 				C4046214296433D60022A927 /* YSWebSocketRequest.m in Sources */,
 				C44E7CD6299A07D4007B1B1E /* SettingView.swift in Sources */,
 				C44E7CD4299A07D4007B1B1E /* ViewModelType.swift in Sources */,
+				C4D866172A4EAC1000AA7A2D /* YSKlineDetailModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

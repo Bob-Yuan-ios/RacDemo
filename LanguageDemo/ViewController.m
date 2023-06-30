@@ -22,6 +22,7 @@
 #import "YSHttpsRequest.h"
 #import "YSKLineHeader.h"
 #import "NSObject+MJKeyValue.h"
+#import "YSKlineDetailModel.h"
 
 @interface ViewController ()
 <
@@ -34,31 +35,16 @@ UIScrollViewDelegate
 @property (nonatomic, strong) RacRedView *racRedView;
 @property (nonatomic, strong) RacRedModel *racRedModel;
 
-@property (nonatomic, strong) UILabel *tit;
 
 
-@property (nonatomic, assign) CGFloat width;
-
-@property (nonatomic, assign) NSUInteger currentPage;
-@property (nonatomic, assign) NSUInteger maxPage;
 
 @property (nonatomic, strong) UIView *macdInfoView;
 @property (nonatomic, strong) UIView *rightPriceView;
 
-//@property (nonatomic, strong) UIView *contentView;
-//@property (nonatomic, weak) MASConstraint *painterViewXConstraint;
-
 @property (nonatomic, strong) UIScrollView *cadicatorScrollView;
 
 @property (nonatomic, strong) YSMACDConfig *config;
-
-@property (nonatomic, assign) CGFloat lineWidth;
-@property (nonatomic, assign) CGFloat lineSpace;
-@property (nonatomic, assign) CGFloat screenWidth;
-@property (nonatomic, assign) NSUInteger elementCount;
-
-@property (nonatomic, assign) BOOL loadKlineData;
-@property (nonatomic, assign) BOOL endLoading;
+@property (nonatomic, strong) YSKlineDetailModel *detailModel;
 
 
 @end
@@ -122,11 +108,13 @@ UIScrollViewDelegate
         UILabel *maxPriceLabel = [UILabel new];
         [_rightPriceView addSubview:maxPriceLabel];
         maxPriceLabel.tag = 1;
+        maxPriceLabel.font = [UIFont systemFontOfSize:12];
         
         UILabel *minPriceLabel = [UILabel new];
         [_rightPriceView addSubview:minPriceLabel];
         minPriceLabel.tag = 2;
-     
+        minPriceLabel.font = [UIFont systemFontOfSize:12];
+
         [maxPriceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.mas_equalTo(_rightPriceView).offset(-16);
             make.bottom.mas_equalTo(_rightPriceView.mas_top);
@@ -145,19 +133,9 @@ UIScrollViewDelegate
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     
-    self.endLoading = NO;
-    self.loadKlineData = NO;
-
-    self.lineSpace = 0;
-    self.lineWidth = 10;
-
-    self.screenWidth = [[UIScreen mainScreen] bounds].size.width;
-    self.elementCount = self.screenWidth/self.lineWidth;
-
-    self.currentPage = 3;
-    self.maxPage = 1023/self.elementCount;
-    
     _config = [[YSMACDConfig alloc] init];
+    _detailModel = [[YSKlineDetailModel alloc] init];
+    
     [self.view addSubview:self.macdInfoView];
     [self.view addSubview:self.cadicatorScrollView];
     
@@ -189,13 +167,13 @@ UIScrollViewDelegate
 
 - (void)loadContent{
     
-    if(self.loadKlineData || self.endLoading){
+    if(self.detailModel.loadKlineData || self.detailModel.endLoading){
         NSLog(@"数据请求中/或者数据已加载完成");
         return;
     }
     
-    self.loadKlineData = YES;
-    NSUInteger count = self.elementCount * self.currentPage;
+    self.detailModel.loadKlineData = YES;
+    NSInteger count =  [self.detailModel getCurrentTotalCount];
   
     NSString *urlStr = [NSString stringWithFormat:@"http://money.finance.sina.com.cn/quotes_service/api/json_v2.php/CN_MarketData.getKLineData?symbol=sz002096&scale=60&ma=no&datalen=%lu", count];
     [[YSHttpsRequest alloc] doGetRequestWithUrlStr:urlStr params:@{} headers:@{}
@@ -204,17 +182,17 @@ UIScrollViewDelegate
         NSArray *klineValue = [YSKLineDataModel mj_objectArrayWithKeyValuesArray:responseObject];
         if(klineValue.count < count){
             NSLog(@"no more data...(%@)", @(klineValue.count));
-            self.endLoading = YES;
+            self.detailModel.endLoading = YES;
         }else{
-            self.endLoading = NO;
+            self.detailModel.endLoading = NO;
             NSLog(@"load data...(%@)", @(klineValue.count));
         }
         
         [YSMACDCalculator getMACD:self.config klineData:klineValue result:^(NSMutableArray * _Nonnull resultArr, CGFloat minValue, CGFloat maxValue) {
             [self setupKlineView:resultArr min:minValue max:maxValue];
             
-            self.currentPage = self.currentPage + 2;
-            self.loadKlineData = NO;
+            self.detailModel.currentPage = self.detailModel.currentPage + 2;
+            self.detailModel.loadKlineData = NO;
         }];
         
     } failure:^(NSError * _Nonnull error) {
@@ -239,9 +217,9 @@ UIScrollViewDelegate
         maxCount = MAX([(NSArray *)obj count], maxCount);
     }];
     
-    CGFloat width = self.lineWidth * maxCount;
+    CGFloat width = self.detailModel.lineWidth * maxCount;
     self.cadicatorScrollView.contentSize = CGSizeMake(width, 100);
-    self.cadicatorScrollView.contentOffset = CGPointMake(self.screenWidth * (self.currentPage - 1), 0);
+    self.cadicatorScrollView.contentOffset = CGPointMake([self.detailModel getScrollToPointX], 0);
 
     [self setPriceRange:minValue maxValue:maxValue];
     [self selectedMacd:resultArr idx:resultArr.count];
@@ -264,13 +242,13 @@ UIScrollViewDelegate
                     pointY = 50 - element/maxValue * 50;
                 }
                 
-                CGFloat pointX = width - self.lineWidth * j;
+                CGFloat pointX = width - self.detailModel.lineWidth * j;
                 
                 UIBezierPath *linePath = [UIBezierPath bezierPath];
                 [linePath moveToPoint:CGPointMake(pointX, pointY)];
                 [linePath addLineToPoint:CGPointMake(pointX, 50)];
-                [linePath addLineToPoint:CGPointMake(pointX - self.lineWidth + 1, 50)];
-                [linePath addLineToPoint:CGPointMake(pointX - self.lineWidth + 1, pointY)];
+                [linePath addLineToPoint:CGPointMake(pointX - self.detailModel.lineWidth + 1, 50)];
+                [linePath addLineToPoint:CGPointMake(pointX - self.detailModel.lineWidth + 1, pointY)];
                 [linePath closePath];
 
                 CAShapeLayer *shapeLayer = [CAShapeLayer layer];
@@ -295,7 +273,7 @@ UIScrollViewDelegate
                     pointY = 50 + element/maxValue * 50;
                 }
                 
-                CGFloat pointX = width - self.lineWidth * j;
+                CGFloat pointX = width - self.detailModel.lineWidth * j;
                 CGPoint point = CGPointMake(pointX, pointY);
                 
                 if(j == 0){
@@ -326,8 +304,8 @@ UIScrollViewDelegate
     UILabel *maxLabel = [_rightPriceView viewWithTag:1];
     UILabel *minLabel = [_rightPriceView viewWithTag:2];
 
-    maxLabel.text = [NSString stringWithFormat:@"%.3lf", maxValue];
-    minLabel.text = [NSString stringWithFormat:@"%.3lf", minValue];
+    maxLabel.text = [NSString stringWithFormat:@"max:(%.3lf)", maxValue];
+    minLabel.text = [NSString stringWithFormat:@"min:(%.3lf)", minValue];
 }
 
 - (void)selectedMacd:(NSArray *)resultArr idx:(NSUInteger)idx{
@@ -341,44 +319,13 @@ UIScrollViewDelegate
     macdLabel.text = [NSString stringWithFormat:@"MACD:%@", [(NSArray *)resultArr[2] objectAtIndex:idx]];
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-
-//    if (self.cadicatorScrollView.contentOffset.x < 0) {
-//        self.painterViewXConstraint.offset = 0;
-//    } else {
-//        self.painterViewXConstraint.offset = scrollView.contentOffset.x;
-//    }
-    
-    if(!self.endLoading &&
-       !self.loadKlineData &&
-       scrollView.contentOffset.x < self.screenWidth * 2){
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{    
+    if(!self.detailModel.endLoading &&
+       !self.detailModel.loadKlineData &&
+       scrollView.contentOffset.x < self.detailModel.screenWidth * 2){
         [self loadContent];
     }
 }
-
-- (void)responseToPinGesture:(UIPinchGestureRecognizer *)recognizer{
-    /*获取状态*/
-      UIGestureRecognizerState state = [recognizer state];
-      if (state == UIGestureRecognizerStateBegan || state == UIGestureRecognizerStateChanged){
-         /*获取捏合大小比例*/
-         CGFloat scale = [recognizer scale];
-          
-         /*获取捏合的速度*/
-         CGFloat velocity = [recognizer velocity];
-         NSLog(@"velocity %f ==== scale %f",velocity, scale);
-          
-         [recognizer.view setTransform:CGAffineTransformScale(recognizer.view.transform, scale, scale)];
-         [recognizer setScale:1.0];
-      }
-}
-
-//- (UIView *)contentView{
-//    if(!_contentView){
-//        _contentView = [UIView new];
-//        _contentView.backgroundColor = [UIColor lightGrayColor];
-//    }
-//    return _contentView;
-//}
 
 - (UIScrollView *)cadicatorScrollView{
     if(!_cadicatorScrollView){
@@ -386,13 +333,6 @@ UIScrollViewDelegate
         _cadicatorScrollView.delegate = self;
         _cadicatorScrollView.backgroundColor = [UIColor grayColor];
         _cadicatorScrollView.showsHorizontalScrollIndicator = NO;
-        
-//        [_cadicatorScrollView addSubview:self.contentView];
-
-        UIPinchGestureRecognizer *ges = [[UIPinchGestureRecognizer alloc] initWithTarget:self
-                                                                                  action:@selector(responseToPinGesture:)];
-        [_cadicatorScrollView addGestureRecognizer:ges];
-        
     }
     return _cadicatorScrollView;
 }
