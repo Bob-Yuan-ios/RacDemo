@@ -19,6 +19,7 @@
 		C44EEABF295E95270083CD03 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C44EEABE295E95270083CD03 /* README.md */; };
 		C44EEAC3295EB4A70083CD03 /* YSHttpsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C44EEAC2295EB4A70083CD03 /* YSHttpsRequest.m */; };
 		C44EEAC7295ED97D0083CD03 /* YSHttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C44EEAC6295ED97D0083CD03 /* YSHttpManager.m */; };
+		C45108C229D53F40008CFCFE /* LDEncypt.m in Sources */ = {isa = PBXBuildFile; fileRef = C45108C129D53F40008CFCFE /* LDEncypt.m */; };
 		C456A3DD299B2B1500477149 /* Programming.swift in Sources */ = {isa = PBXBuildFile; fileRef = C456A3DC299B2B1500477149 /* Programming.swift */; };
 		C4629D4A26244CBC00029564 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4629D4926244CBC00029564 /* AppDelegate.m */; };
 		C4629D5526244CBF00029564 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4629D5426244CBF00029564 /* Assets.xcassets */; };
@@ -34,10 +35,16 @@
 		C48DEDD227511FF200A86E08 /* UIImage+ChangeColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C48DEDD127511FF200A86E08 /* UIImage+ChangeColor.m */; };
 		C494044529697A38000A1CF9 /* YSActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = C494044429697A38000A1CF9 /* YSActionSheet.m */; };
 		C49EC46C26C10E7100F130F8 /* ThreadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C49EC46B26C10E7100F130F8 /* ThreadModel.m */; };
-		C4AECA7D2702C66000F3BA1A /* Bridging_Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AECA7C2702C66000F3BA1A /* Bridging_Header.swift */; };
+		C4C10F3C2A122E7E00DD4D8E /* TruliooRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C10F3B2A122E7E00DD4D8E /* TruliooRootViewController.swift */; };
 		C4C8948626AAB05B005E39F5 /* UIImage+Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C8948526AAB05B005E39F5 /* UIImage+Filter.m */; };
 		C4C8948926AAB750005E39F5 /* UIImageView+Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C8948826AAB750005E39F5 /* UIImageView+Filter.m */; };
 		C4CACCE92669E53C00712ED2 /* RacRedVM.m in Sources */ = {isa = PBXBuildFile; fileRef = C4CACCE82669E53C00712ED2 /* RacRedVM.m */; };
+		C4D865FC2A4D295600AA7A2D /* YSRSICalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D865FB2A4D295600AA7A2D /* YSRSICalculator.m */; };
+		C4D865FF2A4D2B0900AA7A2D /* YSKLineDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D865FE2A4D2B0900AA7A2D /* YSKLineDataModel.m */; };
+		C4D866022A4D2CD400AA7A2D /* YSMACDCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D866012A4D2CD400AA7A2D /* YSMACDCalculator.m */; };
+		C4D866052A4D42EF00AA7A2D /* YSKDJCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D866042A4D42EF00AA7A2D /* YSKDJCalculator.m */; };
+		C4D866082A4D496700AA7A2D /* YSWRCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D866072A4D496700AA7A2D /* YSWRCalculator.m */; };
+		C4D8660B2A4D4A9900AA7A2D /* YSMACalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D8660A2A4D4A9900AA7A2D /* YSMACalculator.m */; };
 		C4ECDDCD2966D67F00C1FA36 /* YSTcpSocketRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C4ECDDCC2966D67F00C1FA36 /* YSTcpSocketRequest.m */; };
 		C4FDD6D52667236900E444F2 /* RacRedView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FDD6D22667236900E444F2 /* RacRedView.m */; };
 		C4FDD6D62667236900E444F2 /* YSRACLearnM.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FDD6D32667236900E444F2 /* YSRACLearnM.m */; };
@@ -65,6 +72,8 @@
 		C44EEAC2295EB4A70083CD03 /* YSHttpsRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSHttpsRequest.m; sourceTree = "<group>"; };
 		C44EEAC5295ED97D0083CD03 /* YSHttpManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSHttpManager.h; sourceTree = "<group>"; };
 		C44EEAC6295ED97D0083CD03 /* YSHttpManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSHttpManager.m; sourceTree = "<group>"; };
+		C45108C029D53F40008CFCFE /* LDEncypt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDEncypt.h; sourceTree = "<group>"; };
+		C45108C129D53F40008CFCFE /* LDEncypt.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDEncypt.m; sourceTree = "<group>"; };
 		C456A3DC299B2B1500477149 /* Programming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Programming.swift; sourceTree = "<group>"; };
 		C4629D4526244CBC00029564 /* LanguageDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LanguageDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4629D4826244CBC00029564 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -94,13 +103,26 @@
 		C49EC46A26C10E7100F130F8 /* ThreadModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThreadModel.h; sourceTree = "<group>"; };
 		C49EC46B26C10E7100F130F8 /* ThreadModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThreadModel.m; sourceTree = "<group>"; };
 		C4AECA7B2702C66000F3BA1A /* LanguageDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LanguageDemo-Bridging-Header.h"; sourceTree = "<group>"; };
-		C4AECA7C2702C66000F3BA1A /* Bridging_Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bridging_Header.swift; sourceTree = "<group>"; };
+		C4C10F3B2A122E7E00DD4D8E /* TruliooRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruliooRootViewController.swift; sourceTree = "<group>"; };
 		C4C8948426AAB05B005E39F5 /* UIImage+Filter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Filter.h"; sourceTree = "<group>"; };
 		C4C8948526AAB05B005E39F5 /* UIImage+Filter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Filter.m"; sourceTree = "<group>"; };
 		C4C8948726AAB750005E39F5 /* UIImageView+Filter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Filter.h"; sourceTree = "<group>"; };
 		C4C8948826AAB750005E39F5 /* UIImageView+Filter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Filter.m"; sourceTree = "<group>"; };
 		C4CACCE72669E53C00712ED2 /* RacRedVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RacRedVM.h; sourceTree = "<group>"; };
 		C4CACCE82669E53C00712ED2 /* RacRedVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RacRedVM.m; sourceTree = "<group>"; };
+		C4D865FA2A4D295600AA7A2D /* YSRSICalculator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSRSICalculator.h; sourceTree = "<group>"; };
+		C4D865FB2A4D295600AA7A2D /* YSRSICalculator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSRSICalculator.m; sourceTree = "<group>"; };
+		C4D865FD2A4D2B0900AA7A2D /* YSKLineDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSKLineDataModel.h; sourceTree = "<group>"; };
+		C4D865FE2A4D2B0900AA7A2D /* YSKLineDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSKLineDataModel.m; sourceTree = "<group>"; };
+		C4D866002A4D2CD400AA7A2D /* YSMACDCalculator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSMACDCalculator.h; sourceTree = "<group>"; };
+		C4D866012A4D2CD400AA7A2D /* YSMACDCalculator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSMACDCalculator.m; sourceTree = "<group>"; };
+		C4D866032A4D42EF00AA7A2D /* YSKDJCalculator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSKDJCalculator.h; sourceTree = "<group>"; };
+		C4D866042A4D42EF00AA7A2D /* YSKDJCalculator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSKDJCalculator.m; sourceTree = "<group>"; };
+		C4D866062A4D496700AA7A2D /* YSWRCalculator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSWRCalculator.h; sourceTree = "<group>"; };
+		C4D866072A4D496700AA7A2D /* YSWRCalculator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSWRCalculator.m; sourceTree = "<group>"; };
+		C4D866092A4D4A9900AA7A2D /* YSMACalculator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSMACalculator.h; sourceTree = "<group>"; };
+		C4D8660A2A4D4A9900AA7A2D /* YSMACalculator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSMACalculator.m; sourceTree = "<group>"; };
+		C4D8660D2A4D51A800AA7A2D /* YSKLineHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSKLineHeader.h; sourceTree = "<group>"; };
 		C4ECDDCB2966D67F00C1FA36 /* YSTcpSocketRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSTcpSocketRequest.h; sourceTree = "<group>"; };
 		C4ECDDCC2966D67F00C1FA36 /* YSTcpSocketRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSTcpSocketRequest.m; sourceTree = "<group>"; };
 		C4FDD6D12667236900E444F2 /* YSRACLearnM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSRACLearnM.h; sourceTree = "<group>"; };
@@ -139,6 +161,7 @@
 				C44E7CCA299A07D4007B1B1E /* dataRequest */,
 				C44E7CCD299A07D4007B1B1E /* Setting */,
 				C44E7CD7299A080E007B1B1E /* SwiftRootViewController.swift */,
+				C4C10F3B2A122E7E00DD4D8E /* TruliooRootViewController.swift */,
 			);
 			path = swiftDemo;
 			sourceTree = "<group>";
@@ -182,6 +205,7 @@
 		C44EEAB6295E8BB90083CD03 /* business */ = {
 			isa = PBXGroup;
 			children = (
+				C4D865F92A4D291800AA7A2D /* kline */,
 				C44EEAC4295ED95E0083CD03 /* dataRequest */,
 			);
 			name = business;
@@ -281,12 +305,11 @@
 				C446123929D2BB02007BAA8C /* LanguageDemo.entitlements */,
 				C44EEABE295E95270083CD03 /* README.md */,
 				C44EEABD295E92DF0083CD03 /* PrefixHeader.pch */,
-				C4AECA7C2702C66000F3BA1A /* Bridging_Header.swift */,
+				C4AECA7B2702C66000F3BA1A /* LanguageDemo-Bridging-Header.h */,
 				C4629D4726244CBC00029564 /* LanguageDemo */,
 				C4629D4626244CBC00029564 /* Products */,
 				D850E6E8332F8633473BB42A /* Pods */,
 				05127B1A74E6EFFA52B7441A /* Frameworks */,
-				C4AECA7B2702C66000F3BA1A /* LanguageDemo-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -328,6 +351,8 @@
 				C48489BB2775C67D0033194C /* LDLoginView.m */,
 				C48489BD2775C68C0033194C /* LDLoginViewModel.h */,
 				C48489BE2775C68C0033194C /* LDLoginViewModel.m */,
+				C45108C029D53F40008CFCFE /* LDEncypt.h */,
+				C45108C129D53F40008CFCFE /* LDEncypt.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -343,6 +368,26 @@
 				C473DFA5277EC1E100CF669A /* LDHomeViewModel.m */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		C4D865F92A4D291800AA7A2D /* kline */ = {
+			isa = PBXGroup;
+			children = (
+				C4D8660D2A4D51A800AA7A2D /* YSKLineHeader.h */,
+				C4D865FD2A4D2B0900AA7A2D /* YSKLineDataModel.h */,
+				C4D865FE2A4D2B0900AA7A2D /* YSKLineDataModel.m */,
+				C4D866002A4D2CD400AA7A2D /* YSMACDCalculator.h */,
+				C4D866012A4D2CD400AA7A2D /* YSMACDCalculator.m */,
+				C4D866032A4D42EF00AA7A2D /* YSKDJCalculator.h */,
+				C4D866042A4D42EF00AA7A2D /* YSKDJCalculator.m */,
+				C4D865FA2A4D295600AA7A2D /* YSRSICalculator.h */,
+				C4D865FB2A4D295600AA7A2D /* YSRSICalculator.m */,
+				C4D866062A4D496700AA7A2D /* YSWRCalculator.h */,
+				C4D866072A4D496700AA7A2D /* YSWRCalculator.m */,
+				C4D866092A4D4A9900AA7A2D /* YSMACalculator.h */,
+				C4D8660A2A4D4A9900AA7A2D /* YSMACalculator.m */,
+			);
+			name = kline;
 			sourceTree = "<group>";
 		};
 		C4FDD6D02667236900E444F2 /* Learning */ = {
@@ -383,7 +428,6 @@
 				C4629D4226244CBC00029564 /* Frameworks */,
 				C4629D4326244CBC00029564 /* Resources */,
 				6B4115D786DC696F175FEBE1 /* [CP] Embed Pods Frameworks */,
-				F98F37B8D1EFB854B728053F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -479,23 +523,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LanguageDemo/Pods-LanguageDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F98F37B8D1EFB854B728053F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LanguageDemo/Pods-LanguageDemo-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LanguageDemo/Pods-LanguageDemo-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LanguageDemo/Pods-LanguageDemo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -504,6 +531,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C48DEDD227511FF200A86E08 /* UIImage+ChangeColor.m in Sources */,
+				C4D865FC2A4D295600AA7A2D /* YSRSICalculator.m in Sources */,
+				C4D866022A4D2CD400AA7A2D /* YSMACDCalculator.m in Sources */,
 				C425F59726A94BBF0091918D /* RacRedSubView.m in Sources */,
 				C44E7CD8299A080E007B1B1E /* SwiftRootViewController.swift in Sources */,
 				C44EEAC7295ED97D0083CD03 /* YSHttpManager.m in Sources */,
@@ -514,12 +543,17 @@
 				C48489BF2775C68C0033194C /* LDLoginViewModel.m in Sources */,
 				C4C8948926AAB750005E39F5 /* UIImageView+Filter.m in Sources */,
 				C456A3DD299B2B1500477149 /* Programming.swift in Sources */,
+				C4C10F3C2A122E7E00DD4D8E /* TruliooRootViewController.swift in Sources */,
 				C473DFA3277EC1D200CF669A /* LDHomeTableView.m in Sources */,
-				C4AECA7D2702C66000F3BA1A /* Bridging_Header.swift in Sources */,
+				C4D8660B2A4D4A9900AA7A2D /* YSMACalculator.m in Sources */,
 				C4FDD6D62667236900E444F2 /* YSRACLearnM.m in Sources */,
 				C44E7CD5299A07D4007B1B1E /* SettingModel.swift in Sources */,
 				C4FDD6F12667237400E444F2 /* ViewController.m in Sources */,
+				C4D865FF2A4D2B0900AA7A2D /* YSKLineDataModel.m in Sources */,
+				C4D866052A4D42EF00AA7A2D /* YSKDJCalculator.m in Sources */,
+				C45108C229D53F40008CFCFE /* LDEncypt.m in Sources */,
 				C48489B92775C66C0033194C /* LDLoginVC.m in Sources */,
+				C4D866082A4D496700AA7A2D /* YSWRCalculator.m in Sources */,
 				C4629D4A26244CBC00029564 /* AppDelegate.m in Sources */,
 				C48489BC2775C67D0033194C /* LDLoginView.m in Sources */,
 				C473DFA6277EC1E100CF669A /* LDHomeViewModel.m in Sources */,
@@ -602,7 +636,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -657,7 +691,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -679,12 +713,41 @@
 				CODE_SIGN_ENTITLEMENTS = LanguageDemo/LanguageDemo.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 78UD3HWVN8;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = V5ALQR4SC7;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/CocoaAsyncSocket\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Differentiator\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ESPullToRefresh\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardManager\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/KakaoSDKAuth\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/KakaoSDKCommon\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/KakaoSDKNavi\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/KakaoSDKShare\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/KakaoSDKStory\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/KakaoSDKTalk\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/KakaoSDKTemplate\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/KakaoSDKUser\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MJRefresh\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Masonry\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ObjectMapper\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ReachabilitySwift\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ReactiveObjC\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RxCocoa\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RxDataSources\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RxSwift\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SnapKit\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SocketRocket\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SwiftyJSON\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/YYModel\"",
+				);
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
 				INFOPLIST_FILE = LanguageDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -694,7 +757,8 @@
 					"$(PROJECT_DIR)/LanguageDemo/lib/ssl/framework",
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gsdemo.123;
+				PRODUCT_BUNDLE_IDENTIFIER = com.btcc.hy;
+				PRODUCT_MODULE_NAME = LanguageDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "LanguageDemo-Bridging-Header.h";
@@ -714,12 +778,41 @@
 				CODE_SIGN_ENTITLEMENTS = LanguageDemo/LanguageDemo.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 78UD3HWVN8;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = V5ALQR4SC7;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/CocoaAsyncSocket\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Differentiator\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ESPullToRefresh\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardManager\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/KakaoSDKAuth\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/KakaoSDKCommon\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/KakaoSDKNavi\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/KakaoSDKShare\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/KakaoSDKStory\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/KakaoSDKTalk\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/KakaoSDKTemplate\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/KakaoSDKUser\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MJRefresh\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Masonry\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ObjectMapper\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ReachabilitySwift\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ReactiveObjC\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RxCocoa\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RxDataSources\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RxSwift\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SnapKit\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SocketRocket\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SwiftyJSON\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/YYModel\"",
+				);
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
 				INFOPLIST_FILE = LanguageDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -729,7 +822,8 @@
 					"$(PROJECT_DIR)/LanguageDemo/lib/ssl/framework",
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gsdemo.123;
+				PRODUCT_BUNDLE_IDENTIFIER = com.btcc.hy;
+				PRODUCT_MODULE_NAME = LanguageDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "LanguageDemo-Bridging-Header.h";

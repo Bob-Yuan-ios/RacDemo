@@ -11,12 +11,21 @@
 #import "AppDelegate.h"
  
 #import "LDLoginVC.h"
+#import "ViewController.h"
+
 // 导入后可以调用Swift
 #import "LanguageDemo-Swift.h"
 
-#import <LineSDK/LineSDK.h>
+typedef NS_ENUM(NSUInteger, AUTH_TYPE) {
+    AUTH_TYPE_LINE,
+    AUTH_TYPE_KAKAO
+};
 
-@interface AppDelegate () 
+@interface AppDelegate ()
+
+@property (nonatomic, assign) AUTH_TYPE thirdAuthType;
+@property (nonatomic, strong) SwiftRootViewController *swiftRootVC;
+
 @end
 
 @implementation AppDelegate
@@ -28,19 +37,40 @@
     _window.backgroundColor = [UIColor whiteColor];
     [_window makeKeyAndVisible];
     
-
-    LDLoginVC *vc = [[LDLoginVC alloc] init];
-//    SwiftRootViewController *vc = [[SwiftRootViewController alloc] init];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-    [_window setRootViewController:nav];
- 
     
+//    LDLoginVC *vc = [[LDLoginVC alloc] init];
+//    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+//    [_window setRootViewController:nav];
+
+    
+//    _swiftRootVC = [[SwiftRootViewController alloc] init];
+//    [_swiftRootVC setupKakao];
+//    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:_swiftRootVC];
+//    [_window setRootViewController:nav];
+
+    
+//    TruliooRootViewController *vc = [[TruliooRootViewController alloc] init];
+//    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+//    [_window setRootViewController:nav];
+    
+    [self resetRootViewController];
     return YES;
 }
  
+- (void)resetRootViewController{
+    ViewController *vc = [[ViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    [_window setRootViewController:nav];
+}
+
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary *)options
 {
     NSLog(@"=====#####(%@)", url.absoluteString);
-    return [[LineSDKLogin sharedInstance] handleOpenURL:url];
+
+
+    return [_swiftRootVC handOpenUrlWithOpenUrl:url];
+    return YES;
 }
+
+
 @end

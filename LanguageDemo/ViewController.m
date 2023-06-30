@@ -19,6 +19,9 @@
 #import "ThreadModel.h"
  
 #import "UIImage+ChangeColor.h"
+#import "YSHttpsRequest.h"
+#import "YSKLineHeader.h"
+#import "NSObject+MJKeyValue.h"
 
 @interface ViewController ()
 <
@@ -36,183 +39,315 @@ UIScrollViewDelegate
 
 @property (nonatomic, assign) CGFloat width;
 
+@property (nonatomic, assign) NSUInteger currentPage;
+@property (nonatomic, assign) NSUInteger maxPage;
+
+@property (nonatomic, strong) UIView *macdInfoView;
+@property (nonatomic, strong) UIView *rightPriceView;
+
+@property (nonatomic, strong) UIScrollView *cadicatorScrollView;
+
+@property (nonatomic, strong) YSMACDConfig *config;
+
+@property (nonatomic, assign) CGFloat lineWidth;
+@property (nonatomic, assign) CGFloat lineSpace;
+@property (nonatomic, assign) CGFloat screenWidth;
+@property (nonatomic, assign) NSUInteger elementCount;
+
+@property (nonatomic, assign) BOOL loadKlineData;
+@property (nonatomic, assign) BOOL endLoading;
+
 @end
 
 @implementation ViewController
 
+- (UIView *)macdInfoView{
+    if(!_macdInfoView){
+        
+        _macdInfoView = [UIView new];
+        _macdInfoView.backgroundColor = [UIColor brownColor];
+        
+        UILabel *periodLabel = [UILabel new];
+        periodLabel.font = [UIFont systemFontOfSize:12];
+        [_macdInfoView addSubview:periodLabel];
+        periodLabel.tag = 1;
+        
+        UILabel *difLabel = [UILabel new];
+        difLabel.font = [UIFont systemFontOfSize:12];
+        [_macdInfoView addSubview:difLabel];
+        difLabel.tag = 2;
+
+        UILabel *deaLabel = [UILabel new];
+        deaLabel.font = [UIFont systemFontOfSize:12];
+        [_macdInfoView addSubview:deaLabel];
+        deaLabel.tag = 3;
+        
+        UILabel *macdLabel = [UILabel new];
+        macdLabel.font = [UIFont systemFontOfSize:12];
+        [_macdInfoView addSubview:macdLabel];
+        macdLabel.tag = 4;
+
+        [periodLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(_macdInfoView).offset(16);
+            make.centerY.mas_equalTo(_macdInfoView.mas_centerY);
+        }];
+        
+        [difLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(periodLabel.mas_right).offset(16);
+            make.centerY.mas_equalTo(_macdInfoView.mas_centerY);
+        }];
+        
+        [deaLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(difLabel.mas_right).offset(16);
+            make.centerY.mas_equalTo(_macdInfoView.mas_centerY);
+        }];
+        
+        [macdLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(deaLabel.mas_right).offset(16);
+            make.centerY.mas_equalTo(_macdInfoView.mas_centerY);
+        }];
+    }
+    return _macdInfoView;
+}
+
+- (UIView *)rightPriceView{
+    if(!_rightPriceView){
+        _rightPriceView = [UIView new];
+        _rightPriceView.backgroundColor = [UIColor brownColor];
+
+        UILabel *maxPriceLabel = [UILabel new];
+        [_rightPriceView addSubview:maxPriceLabel];
+        maxPriceLabel.tag = 1;
+        
+        UILabel *minPriceLabel = [UILabel new];
+        [_rightPriceView addSubview:minPriceLabel];
+        minPriceLabel.tag = 2;
+     
+        [maxPriceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.mas_equalTo(_rightPriceView).offset(-16);
+            make.bottom.mas_equalTo(_rightPriceView.mas_top);
+        }];
+        
+        [minPriceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.mas_equalTo(_rightPriceView).offset(-16);
+            make.top.mas_equalTo(_rightPriceView.mas_bottom);
+        }];
+    }
+    return _rightPriceView;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor yellowColor];
-    [self testTintColor];
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    self.endLoading = NO;
+    self.loadKlineData = NO;
+
+    self.lineSpace = 0;
+    self.lineWidth = 10;
+
+    self.screenWidth = [[UIScreen mainScreen] bounds].size.width;
+    self.elementCount = self.screenWidth/self.lineWidth;
+
+    self.currentPage = 3;
+    self.maxPage = 1023/self.elementCount;
+    
+    _config = [[YSMACDConfig alloc] init];
+    [self.view addSubview:self.macdInfoView];
+    [self.view addSubview:self.cadicatorScrollView];
+    [self.view addSubview:self.rightPriceView];
+    
+    [self.macdInfoView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_offset(100);
+        make.left.mas_equalTo(self.view);
+        make.height.mas_equalTo(44);
+    }];
+    
+    [self.cadicatorScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.mas_equalTo(self.view);
+        make.top.mas_equalTo(self.macdInfoView.mas_bottom);
+        make.height.mas_equalTo(100);
+    }];
+    
+    [self.rightPriceView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.right.bottom.mas_equalTo(self.cadicatorScrollView);
+    }];
+    
+    [self loadContent];
 }
 
-- (void)testTintColor{
-    NSArray *imageArr = @[@"btc_cell_icon", @"eth_cell_icon", @"usdt_cell_icon", @"xrp_cell_icon"];
+- (void)loadContent{
     
-    NSInteger i = 0;
-    UIColor *tColor = [UIColor grayColor];
+    if(self.loadKlineData || self.endLoading){
+        NSLog(@"数据请求中/或者数据已加载完成");
+        return;
+    }
     
-    for (NSString *imageStr in imageArr) {
-        
-        UIImageView *imgV1 = [[UIImageView alloc] initWithFrame:CGRectMake(50, 50 + i * 50, 24, 24)];
-        [self.view addSubview:imgV1];
-        [imgV1 setImage:[UIImage imageNamed:imageStr]];
-        
-        
-        UIImageView *imgV2 = [[UIImageView alloc] initWithFrame:CGRectMake(150, 50 + i * 50, 24, 24)];
-        [self.view addSubview:imgV2];
-        if ([imageStr containsString:@"eth"] ||
-            [imageStr containsString:@"xrp"]) {
-            [imgV2 setImage:[UIImage imageNamed:imageStr]];
-            imgV2.alpha = 0.5;
+    self.loadKlineData = YES;
+    NSUInteger count = self.elementCount * self.currentPage;
+  
+    NSString *urlStr = [NSString stringWithFormat:@"http://money.finance.sina.com.cn/quotes_service/api/json_v2.php/CN_MarketData.getKLineData?symbol=sz002096&scale=60&ma=no&datalen=%lu", count];
+    [[YSHttpsRequest alloc] doGetRequestWithUrlStr:urlStr params:@{} headers:@{}
+                                           success:^(NSDictionary * _Nonnull responseObject) {
+
+        NSArray *klineValue = [YSKLineDataModel mj_objectArrayWithKeyValuesArray:responseObject];
+        if(klineValue.count < count){
+            NSLog(@"no more data...(%@)", @(klineValue.count));
+            self.endLoading = YES;
         }else{
-            [imgV2 setImage:[[UIImage imageNamed:imageStr] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
-            imgV2.tintColor = tColor;
+            self.endLoading = NO;
+            NSLog(@"load data...(%@)", @(klineValue.count));
         }
-     
-        i++;
-    }
-}
-
-+ (UIImage *)changeImage:(UIImage *)img withColor:(UIColor *)color {
-    // 获取画布
-    UIGraphicsBeginImageContextWithOptions(img.size, NO, img.scale);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    //移动图片
-    CGContextTranslateCTM(context, 0, img.size.height);
-    CGContextScaleCTM(context, 1.0, -1.0);
-    //模式配置
-    CGContextSetBlendMode(context, kCGBlendModeNormal);
-    CGRect rect = CGRectMake(0, 0, img.size.width, img.size.height);
-    CGContextClipToMask(context, rect, img.CGImage);
-    [color setFill];
-    CGContextFillRect(context, rect);
-    //创建获取图片
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return newImage;
-}
- 
-- (void)sayHelloWorld{
-
-    UIView *backV = [UIView new];
-    [[UIApplication sharedApplication].keyWindow addSubview:backV];
-    
-    backV.alpha = 0.5;
-    backV.backgroundColor = [UIColor blackColor];
-    backV.frame = [[UIScreen mainScreen] bounds];
-  
-    UIView *maskV = [UIView new];
-    [backV addSubview:maskV];
-    maskV.backgroundColor = [UIColor whiteColor];
-    
-    CGPoint origin =  [self.racRedView nameTopLeft];
-    origin.x -= 5;
-    origin.y -= 5;
-    
-    CGSize size = [self.racRedView nameSize];
-    size.width += 10;
-    size.height += 10;
-    
-    CGRect frame = CGRectZero;
-    frame.origin = origin;
-    frame.size = size;
-    maskV.frame = frame;
-}
-
-
-- (UIImage *)layerToImage{
-    
-    if (@available(iOS 10.0, *)) {
-        UIGraphicsImageRendererFormat *format = [[UIGraphicsImageRendererFormat alloc] init];
-            format.prefersExtendedRange = YES;
-            UIGraphicsImageRenderer *renderer = [[UIGraphicsImageRenderer alloc] initWithSize:self.imageView.frame.size format:format];
-            __weak typeof(self) weakSelf = self;
-        return [renderer imageWithActions:^(UIGraphicsImageRendererContext * _Nonnull rendererContext) {
-                return [weakSelf.imageView.layer renderInContext:rendererContext.CGContext];
-            }];
-    }else{
-        // Fallback on earlier versions
-        UIGraphicsBeginImageContextWithOptions(self.selectedImage.size, NO, self.selectedImage.scale);
-        [self.selectedImage drawAtPoint:CGPointZero];
-        CGFloat scale = self.selectedImage.size.width / self.imageView.frame.size.width;
-        CGContextScaleCTM(UIGraphicsGetCurrentContext(), scale, scale);
-        [self.imageView.layer renderInContext:UIGraphicsGetCurrentContext()];
-        UIImage *tmpImage = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
         
-        return tmpImage;
-    }
- }
-
-- (void)compareMallocForBackground{
-     
-    CGRect rect = [[UIScreen mainScreen] bounds];
-    UIColor *backColor = [UIColor purpleColor];
-  
-    if (@available(iOS 10.0, *)) {
-        UIGraphicsImageRenderer *re = [[UIGraphicsImageRenderer alloc] initWithBounds:rect];
-        UIImage *image = [re imageWithActions:^(UIGraphicsImageRendererContext * _Nonnull rendererContext) {
-            [backColor setFill];
-            UIBezierPath *path = [UIBezierPath bezierPathWithRect:rect];
-            [path addClip];
-            UIRectFill(rect);
+        [YSMACDCalculator getMACD:self.config klineData:klineValue result:^(NSMutableArray * _Nonnull resultArr, CGFloat minValue, CGFloat maxValue) {
+            [self setupKlineView:resultArr min:minValue max:maxValue];
+            
+            self.currentPage = self.currentPage + 2;
+            self.loadKlineData = NO;
         }];
-   
-        self.view.backgroundColor = [UIColor colorWithPatternImage:
-                                     [image stretchableImageWithLeftCapWidth:0 topCapHeight:0]];
+        
+    } failure:^(NSError * _Nonnull error) {
+        
+        NSLog(@"error information is:%@", error.userInfo);
+    }];
+}
 
-    } else {
-        // Fallback on earlier versions
-        UIGraphicsBeginImageContextWithOptions(rect.size, NO, [UIScreen mainScreen].scale);
-        CGContextRef context = UIGraphicsGetCurrentContext();
-        CGContextSetFillColorWithColor(context, backColor.CGColor);
-        CGContextFillRect(context, rect);
-        UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
+- (void)setupKlineView:(NSArray *)resultArr min:(CGFloat)minValue max:(CGFloat)maxValue{
+    
+    NSLog(@"###### refreshKLineView for more data...before (%@)", NSStringFromCGPoint(self.cadicatorScrollView.contentOffset));
+    NSArray<CALayer *> *subLayers = self.cadicatorScrollView.layer.sublayers;
+    NSArray<CALayer *> *removedLayers = [subLayers filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id  _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
+        return [evaluatedObject isKindOfClass:[CAShapeLayer class]];
+    }]];
+    [removedLayers enumerateObjectsUsingBlock:^(CALayer * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj removeFromSuperlayer];
+    }];
+    
+    __block NSUInteger maxCount = 0;
+    [resultArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        maxCount = MAX([(NSArray *)obj count], maxCount);
+    }];
+    
+    CGFloat width = self.lineWidth * maxCount;
+    self.cadicatorScrollView.contentSize = CGSizeMake(width, 100);
 
-        self.view.backgroundColor = [UIColor colorWithPatternImage:
-                                     [image stretchableImageWithLeftCapWidth:0 topCapHeight:0]];
+    [self setPriceRange:minValue maxValue:maxValue];
+    [self selectedMacd:resultArr idx:resultArr.count];
+    
+    NSArray *colorArr = @[[UIColor greenColor], [UIColor purpleColor], [UIColor brownColor]];
+    for (NSInteger i = (resultArr.count - 1); i >= 0; i--) {
+
+        if(2 == i){
+            for (NSUInteger j = 0; j < [resultArr[i] count]; j++) {
+                CGFloat pointY = 0;
+                CGFloat element = [resultArr[i][j] doubleValue];
+                
+                UIColor *rectColor = [UIColor redColor];
+                if(0 == element){
+                    pointY = 50;
+                }else if(element < 0){
+                    rectColor = [UIColor greenColor];
+                    pointY = 50 + element/minValue * 50;
+                }else if(element > 0){
+                    pointY = 50 - element/maxValue * 50;
+                }
+                
+                CGFloat pointX = width - self.lineWidth * j;
+                
+                UIBezierPath *linePath = [UIBezierPath bezierPath];
+                [linePath moveToPoint:CGPointMake(pointX, pointY)];
+                [linePath addLineToPoint:CGPointMake(pointX, 50)];
+                [linePath addLineToPoint:CGPointMake(pointX - self.lineWidth + 1, 50)];
+                [linePath addLineToPoint:CGPointMake(pointX - self.lineWidth + 1, pointY)];
+                [linePath closePath];
+
+                CAShapeLayer *shapeLayer = [CAShapeLayer layer];
+                shapeLayer.lineWidth = 1.f;
+                shapeLayer.fillColor = [rectColor CGColor];
+                shapeLayer.strokeColor = [[UIColor clearColor] CGColor];
+                shapeLayer.path = linePath.CGPath;
+                [self.cadicatorScrollView.layer addSublayer:shapeLayer];
+            }
+            
+        }else{
+            UIBezierPath *linePath = [UIBezierPath bezierPath];
+            for (NSUInteger j = 0; j < [resultArr[i] count]; j++) {
+                CGFloat pointY = 0;
+                CGFloat element = [resultArr[i][j] doubleValue];
+                
+                if(0 == element){
+                    pointY = 50;
+                }else if(element < 0){
+                    pointY = 50 - element/minValue * 50;
+                }else if(element > 0){
+                    pointY = 50 + element/maxValue * 50;
+                }
+                
+                CGFloat pointX = width - self.lineWidth * j;
+                CGPoint point = CGPointMake(pointX, pointY);
+                
+                if(j == 0){
+                    [linePath moveToPoint:point];
+                }else{
+                    [linePath addLineToPoint:point];
+                }
+            }
+            
+            CAShapeLayer *shapeLayer = [CAShapeLayer layer];
+            shapeLayer.lineWidth = 1.f;
+            shapeLayer.strokeColor = [(UIColor *)[colorArr objectAtIndex:i] CGColor];
+            shapeLayer.fillColor = [[UIColor clearColor] CGColor];
+            shapeLayer.path = linePath.CGPath;
+            
+            [self.cadicatorScrollView.layer addSublayer:shapeLayer];
+        }
+    }
+    
+    self.cadicatorScrollView.contentOffset = CGPointMake(self.screenWidth * (self.currentPage - 1), 0);
+    NSLog(@"###### refreshKLineView for more data... after(%@)", NSStringFromCGPoint(self.cadicatorScrollView.contentOffset));
+}
+
+- (void)setPriceRange:(CGFloat)minValue maxValue:(CGFloat)maxValue{
+    UILabel *periodLabel = [_macdInfoView viewWithTag:1];
+    
+    periodLabel.text = [NSString stringWithFormat:@"MACD(%@, %@, %@)", _config.shortPeriod, _config.longPeriod, _config.avgPeriod];
+  
+    UILabel *maxLabel = [_rightPriceView viewWithTag:1];
+    UILabel *minLabel = [_rightPriceView viewWithTag:2];
+
+    maxLabel.text = [NSString stringWithFormat:@"%.3lf", maxValue];
+    minLabel.text = [NSString stringWithFormat:@"%.3lf", minValue];
+}
+
+- (void)selectedMacd:(NSArray *)resultArr idx:(NSUInteger)idx{
+    
+    UILabel *difLabel = [_macdInfoView viewWithTag:2];
+    UILabel *deaLabel = [_macdInfoView viewWithTag:3];
+    UILabel *macdLabel = [_macdInfoView viewWithTag:4];
+
+    difLabel.text = [NSString stringWithFormat:@"DIF:%@", [(NSArray *)resultArr[0] objectAtIndex:idx]];
+    deaLabel.text = [NSString stringWithFormat:@"DEA:%@", [(NSArray *)resultArr[1] objectAtIndex:idx]];
+    macdLabel.text = [NSString stringWithFormat:@"MACD:%@", [(NSArray *)resultArr[2] objectAtIndex:idx]];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+
+    if(!self.endLoading && !self.loadKlineData && scrollView.contentOffset.x < self.screenWidth * 2){
+        [self loadContent];
     }
 }
 
 
- 
-#pragma mark rac 单对象kvo
-- (void)racKVOTest{
-    
-    CGRect priFrame = CGRectMake(100, 100, 100, 100);
-    self.kvoView = [[UIView alloc] initWithFrame:priFrame];
-    self.kvoView.backgroundColor = [UIColor yellowColor];
-    [self.view addSubview:self.kvoView];
+- (UIScrollView *)cadicatorScrollView{
+    if(!_cadicatorScrollView){
+        _cadicatorScrollView = [[UIScrollView alloc] init];
+        _cadicatorScrollView.delegate = self;
+        _cadicatorScrollView.backgroundColor = [UIColor grayColor];
+        _cadicatorScrollView.showsHorizontalScrollIndicator = NO;
+    }
+    return _cadicatorScrollView;
+}
 
-    [RACObserve(self.kvoView, frame) subscribeNext:^(id  _Nullable x) {
-        //NSConcreteValue 转CGRect
-        CGRect kvoFrame =  [(NSValue *)x CGRectValue];
-        if (CGRectEqualToRect(priFrame, kvoFrame)) {
-            NSLog(@"####### 改变的值和初始值一致:%@", NSStringFromCGRect(kvoFrame));
-        }else{
-            NSLog(@"初始值(%@) != 监听值(%@)", NSStringFromCGRect(priFrame), NSStringFromCGRect(kvoFrame));
-        }
-     } error:^(NSError * _Nullable error) {
-         
-        NSLog(@"通知信号异常结束:%@", error.userInfo);
-    } completed:^{
-        NSLog(@"通知信号正常结束");
-    }];
-}
- 
- 
-#pragma mark rac 多对象kvo 内存管理
-- (void)racRedBind{
-    [RACObserve(_racRedView, submitBtn) subscribeNext:^(id  _Nullable x) {
-        NSLog(@"rac red bind ... %@", x);
-    }];
-}
- 
 
-- (void)dealloc{
-    NSLog(@"dealloc...");
-}
 @end

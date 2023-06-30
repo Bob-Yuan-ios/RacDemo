@@ -70,48 +70,48 @@ extension SettingView {
     func bindView(viewModel: SettingViewModel){
         self.viewModel = viewModel
 
-        let dataSource = RxTableViewSectionedReloadDataSource<SettingSection>(configureCell: {(dataSource, tableV, indexPath, itemModel) in
-
-            let cell = tableV.dequeueReusableCell(withIdentifier: "cell",  for: indexPath)
-            cell.textLabel?.text = itemModel.settingContent
-            cell.setNeedsDisplay()
-            
-            return cell
-        })
-
-        self.tableH.rx.modelSelected(SettingModel.self).subscribe { itemModel in
-            self.tableDelegate?.didSelectedRow(indexPath: self.tableH.indexPathForSelectedRow ?? IndexPath.init(index: 0))
-            print("selected...\(String(describing: itemModel.settingContent))")
-        } onError: { error in
-            print(error.localizedDescription)
-        } onCompleted: {
-            print("complete...")
-        } onDisposed: {
-            print("disposed...")
-        }.disposed(by: MyService.disposeBag)
-
-    
-        let vmInput = SettingViewModel.SettingInput()
-        let vmOutput = viewModel.transform(input: vmInput)
-        vmOutput.sections.asDriver()
-            .drive(tableH.rx.items(dataSource: dataSource))
-            .disposed(by: MyService.disposeBag)
-        viewModel.refreshStatus.asObservable().subscribe { status in
-            switch status{
-                case .noMoreData:
-                    print("refresh status no more data####")
-                    self.tableH.es.noticeNoMoreData()
-                default:
-                    print("refresh status default#####")
-                    self.tableH.es.stopPullToRefresh()
-            }
-        } onError: { error in
-            print("refresh status error:\(error.localizedDescription)")
-        } onCompleted: {
-            print("refresh status complete#####")
-        } onDisposed: {
-           print("refresh status disposed####")
-        }.disposed(by: MyService.disposeBag)
+//        let dataSource = RxTableViewSectionedReloadDataSource<SettingSection>(configureCell: {(dataSource, tableV, indexPath, itemModel) in
+//
+//            let cell = tableV.dequeueReusableCell(withIdentifier: "cell",  for: indexPath)
+//            cell.textLabel?.text = itemModel.settingContent
+//            cell.setNeedsDisplay()
+//            
+//            return cell
+//        })
+//
+//        self.tableH.rx.modelSelected(SettingModel.self).subscribe { itemModel in
+//            self.tableDelegate?.didSelectedRow(indexPath: self.tableH.indexPathForSelectedRow ?? IndexPath.init(index: 0))
+//            print("selected...\(String(describing: itemModel.settingContent))")
+//        } onError: { error in
+//            print(error.localizedDescription)
+//        } onCompleted: {
+//            print("complete...")
+//        } onDisposed: {
+//            print("disposed...")
+//        }.disposed(by: MyService.disposeBag)
+//
+//    
+//        let vmInput = SettingViewModel.SettingInput()
+//        let vmOutput = viewModel.transform(input: vmInput)
+//        vmOutput.sections.asDriver()
+//            .drive(tableH.rx.items(dataSource: dataSource))
+//            .disposed(by: MyService.disposeBag)
+//        viewModel.refreshStatus.asObservable().subscribe { status in
+//            switch status{
+//                case .noMoreData:
+//                    print("refresh status no more data####")
+//                    self.tableH.es.noticeNoMoreData()
+//                default:
+//                    print("refresh status default#####")
+//                    self.tableH.es.stopPullToRefresh()
+//            }
+//        } onError: { error in
+//            print("refresh status error:\(error.localizedDescription)")
+//        } onCompleted: {
+//            print("refresh status complete#####")
+//        } onDisposed: {
+//           print("refresh status disposed####")
+//        }.disposed(by: MyService.disposeBag)
     }
     
     @objc func refreshData() {

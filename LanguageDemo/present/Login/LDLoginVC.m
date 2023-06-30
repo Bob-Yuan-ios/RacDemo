@@ -13,11 +13,11 @@
 #import "YSActionSheet.h"
 
 #import "ViewController.h"
-#import <LineSDK/LineSDK.h>
 
 #import <objc/runtime.h>
+#import "AppDelegate.h"
 
-@interface LDLoginVC ()<LineSDKLoginDelegate>
+@interface LDLoginVC ()
 
 @property (nonatomic, strong) LDLoginView *contentV;
 @property (nonatomic, strong) LDLoginViewModel *contentVM;
@@ -64,64 +64,31 @@
  
     
     self.view.backgroundColor = [UIColor whiteColor];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     
-    [self setupLineLogin];
+    NSString *first = @"0";
+    NSString *second = @"123";
+    NSString *third = @"456";
+
+    NSDecimalNumber *firstDec = [NSDecimalNumber decimalNumberWithString:first];
+    NSDecimalNumber *secondDec = [NSDecimalNumber decimalNumberWithString:second];
+    NSDecimalNumber *thirdDec = [NSDecimalNumber decimalNumberWithString:third];
+
+    NSString *s1 = [firstDec decimalNumberByMultiplyingBy:secondDec].stringValue;
+    NSString *s2 = [firstDec decimalNumberBySubtracting:secondDec].stringValue;
+    NSString *s3 = [secondDec decimalNumberByMultiplyingBy:firstDec].stringValue;
+    NSString *s4 = [secondDec decimalNumberBySubtracting:firstDec].stringValue;
+    NSLog(@"gggg=(%@)==(%@)==(%@)==(%@)", s1, s2, s3, s4);
+    
 }
 
-- (void)setupLineLogin{
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
-    btn.backgroundColor = [UIColor yellowColor];
-    [btn setTitle:@"Line登录" forState:UIControlStateNormal];
-    [self.view addSubview:btn];
-    [btn addTarget:self action:@selector(startLogin) forControlEvents:UIControlEventTouchUpInside];
-    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
-       make.top.mas_offset(100);
-        make.height.mas_equalTo(44);
-        make.centerX.mas_equalTo(self.view);
-        make.width.mas_equalTo(100);
-    }];
+- (void)dealloc{
+    NSLog(@"##########(dealloc...)");
 }
 
-#pragma mark line login
-- (void)startLogin{
-    [LineSDKLogin sharedInstance].delegate = self;
-    //    NSArray *permission1 = @[@"profile", @"friends", @"groups"];
-    NSArray *permissions = @[@"profile", @"openid", @"email"];
-    [[LineSDKLogin sharedInstance] startLoginWithPermissions:permissions];
-}
-
-#pragma mark line login delegate method
-- (void)didLogin:(LineSDKLogin *)login
-    credential:(LineSDKCredential *)credential
-        profile:(LineSDKProfile *)profile
-        error:(NSError *)error
-{
-    if (error) {
-        // Login failed with an error. Use the error parameter to identify the problem.
-        NSLog(@"Error: %@", error.localizedDescription);
-    }
-    else {
-
-        // Login success. Extracts the access token, user profile ID, display name, status message, and profile picture.
-        NSString * accessToken = credential.accessToken.accessToken;
-        NSString * userID = profile.userID;
-        
-        NSString * displayName = profile.displayName;
-        NSString * statusMessage = profile.statusMessage;
-        NSURL * pictureURL = profile.pictureURL;
-        
-        NSString * pictureUrlString;
-        // If the user doesn't have a profile picture set, pictureURL will be nil
-        if (pictureURL) {
-            pictureUrlString = profile.pictureURL.absoluteString;
-        }
-        
-        LineSDKJSONWebToken *jwtToken = credential.IDToken;
-        NSArray *propertyNames = [self getProperties:jwtToken];
-        NSDictionary *dic = [self propertiesAndValuesDictionary:jwtToken properties:propertyNames];
-        NSLog(@"dic#######(%@)", dic);
-    }
-}
 
 - (NSArray *)getProperties:(id)obj{
     NSMutableArray  *propertyNames = [[NSMutableArray alloc] init];

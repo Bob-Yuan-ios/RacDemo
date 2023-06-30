@@ -51,25 +51,25 @@ extension SettingViewModel: ViewModelType {
         }.asDriver(onErrorJustReturn: [])
         
         let output = SettigOutput(sections: sections)
-        output.requestCommand.subscribe(onNext: { isReload in
-            print("hahaha:\(isReload)")
-            MyService.request(target: MyService.zen)
-                .asObservable()
-                .subscribe({(event) in
-                    switch event {
-                        case let .next(modelArr):
-                            print("request next...");
-                            self.models.accept([modelArr as! SettingModel])
-                        case .error(_):
-                            print("request error...")
-                        case .completed:
-                            print("reqeust complete...")
-                            let value : SRRefreshStatus = isReload ? .endHeaderRefresh : .noMoreData
-                            self.refreshStatus.accept(value)
-                    }
-                })
-                .disposed(by: MyService.disposeBag)
-        }).disposed(by: MyService.disposeBag)
+//        output.requestCommand.subscribe(onNext: { isReload in
+//            print("hahaha:\(isReload)")
+//            MyService.request(target: MyService.zen)
+//                .asObservable()
+//                .subscribe({(event) in
+//                    switch event {
+//                        case let .next(modelArr):
+//                            print("request next...");
+//                            self.models.accept([modelArr as! SettingModel])
+//                        case .error(_):
+//                            print("request error...")
+//                        case .completed:
+//                            print("reqeust complete...")
+//                            let value : SRRefreshStatus = isReload ? .endHeaderRefresh : .noMoreData
+//                            self.refreshStatus.accept(value)
+//                    }
+//                })
+//                .disposed(by: MyService.disposeBag)
+//        }).disposed(by: MyService.disposeBag)
 
         return output
     }

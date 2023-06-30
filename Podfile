@@ -1,12 +1,12 @@
 use_frameworks!
-platform :ios, "9.0"
+platform :ios, "14.0"
 
 #source 'https://cdn.cocoapods.org/'
 #source 'https://github.com/SumSubstance/Specs.git'
 
 # 主工程
 target 'LanguageDemo' do
-    
+
     ######### Objective-C
     # 布局
     pod 'Masonry'
@@ -22,6 +22,7 @@ target 'LanguageDemo' do
     
     # 上拉/下拉 刷新
     pod 'MJRefresh'
+    pod 'MJExtension'
     
     # HTTPS请求
     pod 'AFNetworking'
@@ -32,11 +33,18 @@ target 'LanguageDemo' do
     # tcpSocket请求
     pod 'CocoaAsyncSocket'
 
-    # 三方登录 -- Line
-    pod 'LineSDK', '~> 5.0'
-
     ######### Swift
-
+    # 三方登录 -- kakao
+    # Add all modules
+#    pod 'KakaoSDK'
+    
+    # 身份认证
+    pod 'TruliooDocV'
+    
+    # Add the desired modules
+    pod 'KakaoSDKAuth'  # Authentication
+    pod 'KakaoSDKUser'  # Kakao Login, User
+    
     # 布局
     pod 'SnapKit'
     
@@ -49,7 +57,7 @@ target 'LanguageDemo' do
 
     # Rx
     pod 'RxSwift'
-    pod 'Moya/RxSwift'
+#    pod 'Moya/RxSwift'
     pod 'RxDataSources'
     
     # 网络可用
@@ -62,7 +70,9 @@ target 'LanguageDemo' do
             # 设置swift库版本
             config.build_settings['SWIFT_VERSION'] = '5.0'
             # 设置 支持版本
-            config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
+            config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '14.0'
+            # kakao
+            config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
         end
       end
     end
