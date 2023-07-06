@@ -185,6 +185,7 @@ UIScrollViewDelegate
                 if(0 == element){
                     pointY = 50;
                 }else if(element < 0){
+                    rectColor = [UIColor greenColor];
                     pointY = 50 + fabs(element/minValue) * 50;
                 }else if(element > 0){
                     pointY = 50 - fabs(element/maxValue) * 50;
@@ -372,12 +373,13 @@ UIScrollViewDelegate
     self.detailModel.needReload = YES;
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{    
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    NSLog(@"scrollViewDidScroll === (%@)", NSStringFromCGPoint(scrollView.contentOffset));
     if(!self.detailModel.endLoading &&
        !self.detailModel.loadKlineData &&
        scrollView.contentOffset.x < self.detailModel.screenWidth * 2){
         [self loadContent];
-    }else if(self.detailModel.needReload){
+    }else{
         [self setupLineRange];
     }
 }
