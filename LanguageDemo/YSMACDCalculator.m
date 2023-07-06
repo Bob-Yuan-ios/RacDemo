@@ -21,7 +21,7 @@
     return (double)2.f/(period + 1) * dif + (double)(period - 1)/(double)(period + 1) * preDea;
 }
 
-+ (void)getMACD:(YSMACDConfig *)config klineData:(NSArray <YSKLineDataModel *> *)dataList result:(void(^)(NSMutableArray *resultArr, CGFloat minValue, CGFloat maxValue))a{
++ (void)getMACD:(YSMACDConfig *)config klineData:(NSArray <YSKLineDataModel *> *)dataList   startIndex:(NSInteger)startIndex result:(void(^)(NSMutableArray *resultArr, CGFloat minValue, CGFloat maxValue))a{
     
     NSMutableArray *resultArr = [@[[@[] mutableCopy], [@[] mutableCopy], [@[] mutableCopy]] mutableCopy];
     
@@ -47,10 +47,10 @@
         
         CGFloat close = dataList[i].close.doubleValue;
         if(0 == i){
-            emaLong = close;
+            emaLong  = close;
             emaShort = close;
         }else{
-            emaLong = [self calEma:close period:periodLong preEma:emaLong];
+            emaLong  = [self calEma:close period:periodLong preEma:emaLong];
             emaShort = [self calEma:close period:periodShort preEma:emaShort];
             
             dif = [self calDif:emaShort emaLong:emaLong];
@@ -68,4 +68,43 @@
         
     a(resultArr, min, max);
 }
+
+
++ (void)getKlineRangeData:(NSArray *)dataList
+               startIndex:(NSInteger)startIndex
+             elementCount:(NSInteger)elementCount
+                   result:(void(^)( CGFloat minValue, CGFloat maxValue))a{
+    
+    if(![dataList isKindOfClass:[NSArray class]] || 3 != dataList.count){
+        NSLog(@"### 子数组个数不满足要求...");
+        return;
+    }
+    
+    NSArray *difArr = dataList[0];
+    NSArray *deaArr = dataList[1];
+    NSArray *macdArr = dataList[2];
+    
+    if(difArr.count < (startIndex + elementCount) ||
+       deaArr.count < (startIndex + elementCount) ||
+       macdArr.count < (startIndex + elementCount)) {
+        NSLog(@"### 数组元素个数长度不够...");
+        return;
+    }
+    
+    CGFloat min = 0;
+    CGFloat max = 0;
+    for(NSInteger i = startIndex; i < (startIndex + elementCount); i++){
+        
+        CGFloat dif = [difArr[i] doubleValue];
+        CGFloat dea = [deaArr[i] doubleValue];
+        CGFloat macd = [macdArr[i] doubleValue];
+
+        min = MIN( dif, MIN(dea, MIN(min, macd)));
+        max = MAX( dif, MAX(dea, MAX(max, macd)));
+    }
+    
+    NSLog(@"min === (%@) --- max === (%@)", @(min), @(max));
+    a(min, max);
+}
+
 @end

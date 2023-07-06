@@ -18,13 +18,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) CGFloat screenWidth;
 
-@property (nonatomic, assign) NSUInteger elementCount;
+// 每屏元素个数
+@property (nonatomic, assign) NSInteger elementCount;
+@property (nonatomic, assign) NSInteger startIndex;
+@property (nonatomic, assign) NSInteger endIndex;
 
 @property (nonatomic, assign) BOOL endLoading;
 @property (nonatomic, assign) BOOL loadKlineData;
 
 @property (nonatomic, assign) NSUInteger maxPage;
 @property (nonatomic, assign) NSUInteger currentPage;
+
+@property (nonatomic, strong) NSMutableArray *klineArr;
+
+@property (nonatomic, assign) BOOL needReload;
 
 - (NSInteger)getCurrentTotalCount;
 - (NSInteger)getScrollToPointX;

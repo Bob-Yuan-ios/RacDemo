@@ -10,6 +10,7 @@
 		084E3D91576833490F01698B /* Pods_LanguageDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC0AEC53FC2833FB78E2FA76 /* Pods_LanguageDemo.framework */; };
 		C4046214296433D60022A927 /* YSWebSocketRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C4046213296433D60022A927 /* YSWebSocketRequest.m */; };
 		C425F59726A94BBF0091918D /* RacRedSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = C425F59626A94BBF0091918D /* RacRedSubView.m */; };
+		C43009F72A4EDE320001DE85 /* YSKlineViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C43009F62A4EDE320001DE85 /* YSKlineViewModel.m */; };
 		C44E7CD2299A07D4007B1B1E /* MyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44E7CCC299A07D4007B1B1E /* MyService.swift */; };
 		C44E7CD3299A07D4007B1B1E /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44E7CCE299A07D4007B1B1E /* SettingViewModel.swift */; };
 		C44E7CD4299A07D4007B1B1E /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44E7CCF299A07D4007B1B1E /* ViewModelType.swift */; };
@@ -59,6 +60,8 @@
 		C41BF1A02671E5E700AB3AA3 /* YSCommonInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSCommonInfo.h; sourceTree = "<group>"; };
 		C425F59526A94BBF0091918D /* RacRedSubView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RacRedSubView.h; sourceTree = "<group>"; };
 		C425F59626A94BBF0091918D /* RacRedSubView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RacRedSubView.m; sourceTree = "<group>"; };
+		C43009F52A4EDE320001DE85 /* YSKlineViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSKlineViewModel.h; sourceTree = "<group>"; };
+		C43009F62A4EDE320001DE85 /* YSKlineViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSKlineViewModel.m; sourceTree = "<group>"; };
 		C446123929D2BB02007BAA8C /* LanguageDemo.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; name = LanguageDemo.entitlements; path = LanguageDemo/LanguageDemo.entitlements; sourceTree = "<group>"; };
 		C44E7CCC299A07D4007B1B1E /* MyService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyService.swift; sourceTree = "<group>"; };
 		C44E7CCE299A07D4007B1B1E /* SettingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
@@ -334,6 +337,8 @@
 				C4629D4926244CBC00029564 /* AppDelegate.m */,
 				C4FDD6DE2667237400E444F2 /* YSKlineDetailVC.h */,
 				C4FDD6DB2667237400E444F2 /* YSKlineDetailVC.m */,
+				C43009F52A4EDE320001DE85 /* YSKlineViewModel.h */,
+				C43009F62A4EDE320001DE85 /* YSKlineViewModel.m */,
 				C4D866152A4EAC1000AA7A2D /* YSKlineDetailModel.h */,
 				C4D866162A4EAC1000AA7A2D /* YSKlineDetailModel.m */,
 				C4629D5426244CBF00029564 /* Assets.xcassets */,
@@ -552,6 +557,7 @@
 				C4FDD6F12667237400E444F2 /* YSKlineDetailVC.m in Sources */,
 				C4D865FF2A4D2B0900AA7A2D /* YSKLineDataModel.m in Sources */,
 				C4D866052A4D42EF00AA7A2D /* YSKDJCalculator.m in Sources */,
+				C43009F72A4EDE320001DE85 /* YSKlineViewModel.m in Sources */,
 				C45108C229D53F40008CFCFE /* LDEncypt.m in Sources */,
 				C48489B92775C66C0033194C /* LDLoginVC.m in Sources */,
 				C4D866082A4D496700AA7A2D /* YSWRCalculator.m in Sources */,

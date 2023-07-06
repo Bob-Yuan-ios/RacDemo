@@ -9,10 +9,6 @@ import Foundation
 import UIKit
 import SnapKit
 
-import KakaoSDKAuth
-import KakaoSDKCommon
-import KakaoSDKUser
-
 @objc class SwiftRootViewController : UIViewController, SettingViewDelegate {
     
     func didSelectedRow(indexPath: IndexPath) {

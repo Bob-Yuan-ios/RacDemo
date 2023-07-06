@@ -33,6 +33,6 @@
 }
 
 - (NSInteger)getScrollToPointX{
-    return  self.screenWidth * (self.currentPage - 1);
+    return self.screenWidth * (self.currentPage - 1);
 }
 @end
