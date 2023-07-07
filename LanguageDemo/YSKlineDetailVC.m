@@ -135,7 +135,7 @@ UIScrollViewDelegate
 }
 
 - (void)setupLineRange{
-    
+        
     self.detailModel.startIndex = (self.cadicatorScrollView.contentOffset.x)/self.detailModel.lineWidth;
     self.detailModel.endIndex = self.detailModel.startIndex + self.detailModel.elementCount;
 
@@ -153,7 +153,7 @@ UIScrollViewDelegate
 
 - (void)reloadKlineView:(NSArray *)resultArr min:(CGFloat)minValue max:(CGFloat)maxValue{
     
-    NSLog(@"###### reloadKlineView for more data...before (%@)", NSStringFromCGPoint(self.cadicatorScrollView.contentOffset));
+    NSLog(@"###### reloadKlineView for more data...before (%@)===%@", NSStringFromCGPoint(self.cadicatorScrollView.contentOffset), [NSThread currentThread]);
     NSArray<CALayer *> *subLayers = self.painterView.layer.sublayers;
     NSArray<CALayer *> *removedLayers = [subLayers filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id  _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
         return [evaluatedObject isKindOfClass:[CAShapeLayer class]];
@@ -191,7 +191,7 @@ UIScrollViewDelegate
                     pointY = 50 - fabs(element/maxValue) * 50;
                 }
                 
-                CGFloat pointX = self.detailModel.screenWidth - self.detailModel.lineWidth * (j - self.detailModel.startIndex);
+                CGFloat pointX = self.detailModel.lineWidth * (j - self.detailModel.startIndex);
                 
                 UIBezierPath *linePath = [UIBezierPath bezierPath];
                 [linePath moveToPoint:CGPointMake(pointX, pointY)];
@@ -222,7 +222,7 @@ UIScrollViewDelegate
                     pointY = 50 - fabs(element/maxValue) * 50;
                 }
                 
-                CGFloat pointX = self.detailModel.screenWidth - self.detailModel.lineWidth * (j - self.detailModel.startIndex);
+                CGFloat pointX = self.detailModel.lineWidth * (j - self.detailModel.startIndex);
                 CGPoint point = CGPointMake(pointX, pointY);
                 
                 if(j == self.detailModel.startIndex){
@@ -246,7 +246,7 @@ UIScrollViewDelegate
 
 - (void)setupKlineView:(NSArray *)resultArr min:(CGFloat)minValue max:(CGFloat)maxValue{
        
-    NSLog(@"###### refreshKLineView for more data...before (%@)", NSStringFromCGPoint(self.cadicatorScrollView.contentOffset));
+    NSLog(@"###### refreshKLineView for more data...before (%@) %@", NSStringFromCGPoint(self.cadicatorScrollView.contentOffset), [NSThread currentThread]);
     NSArray<CALayer *> *subLayers = self.painterView.layer.sublayers;
     NSArray<CALayer *> *removedLayers = [subLayers filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id  _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
         return [evaluatedObject isKindOfClass:[CAShapeLayer class]];
@@ -293,7 +293,7 @@ UIScrollViewDelegate
                     pointY = 50 - fabs(element/maxValue) * 50;
                 }
                 
-                CGFloat pointX = self.detailModel.screenWidth - self.detailModel.lineWidth * (j - self.detailModel.startIndex);
+                CGFloat pointX = self.detailModel.lineWidth * (j - self.detailModel.startIndex);
 
                 UIBezierPath *linePath = [UIBezierPath bezierPath];
                 [linePath moveToPoint:CGPointMake(pointX, pointY)];
@@ -324,7 +324,7 @@ UIScrollViewDelegate
                     pointY = 50 - fabs(element/maxValue) * 50;
                 }
                 
-                CGFloat pointX = self.detailModel.screenWidth - self.detailModel.lineWidth * (j - self.detailModel.startIndex);
+                CGFloat pointX = self.detailModel.lineWidth * (j - self.detailModel.startIndex);
                 CGPoint point = CGPointMake(pointX, pointY);
                 
                 if(j == self.detailModel.startIndex){
@@ -343,7 +343,6 @@ UIScrollViewDelegate
             [self.painterView.layer addSublayer:shapeLayer];
         }
     }
-  
 }
 
 - (void)setPriceRange:(CGFloat)minValue maxValue:(CGFloat)maxValue{
@@ -370,7 +369,7 @@ UIScrollViewDelegate
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-    self.detailModel.needReload = YES;
+//    self.detailModel.needReload = YES;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
@@ -384,8 +383,9 @@ UIScrollViewDelegate
     }
 }
 
+
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
-    self.detailModel.needReload = NO;
+//    self.detailModel.needReload = NO;
 }
 
 // 高度是不变的。 只变宽度
@@ -516,6 +516,7 @@ UIScrollViewDelegate
         [_viewModel.lineDataCommond.errors.deliverOnMainThread
             subscribeNext:^(NSError * _Nullable x) {
             NSLog(@"error information is:(%@)", x.userInfo);
+            self.detailModel.loadKlineData = NO;
         }];
     }
     return _viewModel;
