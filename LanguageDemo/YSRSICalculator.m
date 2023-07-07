@@ -22,9 +22,9 @@
     CGFloat preLoss = 0;
     for (int i = 1; i < dataList.count; i++) {
 
-        CGFloat dif = dataList[i].close.doubleValue - dataList[i - 1].close.doubleValue;
-        preGain = [YSRSICalculator calculatorSMA:MAX(dif, 0) period:period preSMA:preGain];
-        preLoss = [YSRSICalculator calculatorSMA:ABS(dif) period:period preSMA:preLoss];
+        CGFloat dif     = dataList[i].close.doubleValue - dataList[i - 1].close.doubleValue;
+                preGain = [YSRSICalculator calculatorSMA:MAX(dif, 0) period:period preSMA:preGain];
+                preLoss = [YSRSICalculator calculatorSMA:ABS(dif) period:period preSMA:preLoss];
 
         if(i >= period){
             [result addObject:@(preGain/preLoss * 100)];

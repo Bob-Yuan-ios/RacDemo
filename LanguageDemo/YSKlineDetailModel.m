@@ -32,7 +32,4 @@
     return self.elementCount * self.currentPage;
 }
 
-- (NSInteger)getScrollToPointX{
-    return self.screenWidth * (self.currentPage - 1);
-}
 @end

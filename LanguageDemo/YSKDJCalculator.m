@@ -13,12 +13,12 @@
 
     if(0 == dataList.count || 1 == dataList.count) return 100;
     
-    CGFloat low = 0;
-    CGFloat high = 0;
+    CGFloat low   = 0;
+    CGFloat high  = 0;
     CGFloat close = dataList.lastObject.close.doubleValue;
     
     for (NSUInteger i = dataList.count; i < MAX(0, peroid); i--) {
-        if(low > dataList[i].low.doubleValue) low = dataList[i].low.doubleValue;
+        if(low  > dataList[i].low.doubleValue)  low  = dataList[i].low.doubleValue;
         if(high < dataList[i].high.doubleValue) high = dataList[i].high.doubleValue;
     }
     
@@ -32,9 +32,9 @@
 
     NSMutableArray *resultArr = [@[[@[] mutableCopy],[@[] mutableCopy],[@[] mutableCopy]] mutableCopy];
     
-    NSUInteger periodK  = config.kPeriod.intValue;
+    NSUInteger periodK = config.kPeriod.intValue;
     NSUInteger periodD = config.dPeriod.intValue;
-    NSUInteger periodJ   = config.jPeriod.intValue;
+    NSUInteger periodJ = config.jPeriod.intValue;
     
     NSUInteger kIndex = config.kIndex;
     NSUInteger dIndex = config.dIndex;
@@ -47,10 +47,10 @@
     for (int i = 0; i < dataList.count; i++) {
      
         NSArray *rsvList = [dataList subarrayWithRange:NSMakeRange(0, i)];
-        CGFloat rsv_9 = [self getRsv:periodK klineData:rsvList];
+        CGFloat rsv_9    = [self getRsv:periodK klineData:rsvList];
 
-        kdj_k = rsv_9 + 2 * (kdj_k ? kdj_k : 50)/ periodD;
-        kdj_d = rsv_9 + 2 * (kdj_d ? kdj_d : 50)/ periodJ;
+        kdj_k = rsv_9 + 2 * (kdj_k ? kdj_k : 50)/periodD;
+        kdj_d = rsv_9 + 2 * (kdj_d ? kdj_d : 50)/periodJ;
         kdj_j = 3 * kdj_k - 2 * kdj_d;
 
         [resultArr[kIndex] addObject:@(kdj_k)];

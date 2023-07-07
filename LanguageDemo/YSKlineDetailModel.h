@@ -29,12 +29,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSUInteger maxPage;
 @property (nonatomic, assign) NSUInteger currentPage;
 
-@property (nonatomic, strong) NSMutableArray *klineArr;
+@property (nonatomic, strong) NSMutableArray *macdLineArr;
+@property (nonatomic, strong) NSMutableArray *sourceLineArr;
 
 @property (nonatomic, assign) BOOL needReload;
 
 - (NSInteger)getCurrentTotalCount;
-- (NSInteger)getScrollToPointX;
 
 @end
 

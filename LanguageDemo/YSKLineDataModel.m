@@ -19,12 +19,12 @@
     self = [super init];
     if(self){
         
-        _avgPeriod = @"9";
-        _longPeriod = @"26";
+        _avgPeriod   = @"9";
+        _longPeriod  = @"26";
         _shortPeriod = @"12";
 
-        _difIndex = 0;
-        _deaIndex = 1;
+        _difIndex  = 0;
+        _deaIndex  = 1;
         _macdIndex = 2;
         
         _kPeriod = @"9";

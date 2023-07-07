@@ -119,41 +119,46 @@ UIScrollViewDelegate
     self.detailModel.startIndex = self.cadicatorScrollView.contentOffset.x/self.detailModel.lineWidth;
     self.detailModel.endIndex = self.detailModel.startIndex + self.detailModel.elementCount;
     if(self.detailModel.startIndex < 0) {
+        self.detailModel.loadKlineData = NO;
         NSLog(@"startIndex error...");
         return;
     }
-    NSLog(@"startIndex is (%@)=== (%@)", @(self.detailModel.startIndex), @(self.detailModel.endIndex));
-
+    
+    NSLog(@"startIndex with handMacd: (%@)=== (%@)", @(self.detailModel.startIndex), @(self.detailModel.endIndex));
+    self.detailModel.needReload = YES;
     [YSMACDCalculator getMACD:self.config klineData:klineValue startIndex:self.detailModel.startIndex result:^(NSMutableArray * _Nonnull resultArr, CGFloat minValue, CGFloat maxValue) {
         
-        self.detailModel.klineArr = [resultArr mutableCopy];
+        self.detailModel.macdLineArr = [resultArr mutableCopy];
         [self setupKlineView:resultArr min:minValue max:maxValue];
 
         self.detailModel.currentPage = self.detailModel.currentPage + 2;
         self.detailModel.loadKlineData = NO;
+        self.detailModel.needReload = NO;
     }];
 }
 
 - (void)setupLineRange{
-        
+     
+    if(self.detailModel.needReload) return;
+    
     self.detailModel.startIndex = (self.cadicatorScrollView.contentOffset.x)/self.detailModel.lineWidth;
     self.detailModel.endIndex = self.detailModel.startIndex + self.detailModel.elementCount;
 
     if(self.detailModel.startIndex < 0) {
         NSLog(@"startIndex error...");
+        self.detailModel.loadKlineData = NO;
         return;
     }
-    NSLog(@"startIndex is (%@)=== (%@)", @(self.detailModel.startIndex), @(self.detailModel.endIndex));
+    NSLog(@"startIndex with line range (%@)=== (%@)", @(self.detailModel.startIndex), @(self.detailModel.endIndex));
     
-    [YSMACDCalculator getKlineRangeData:self.detailModel.klineArr startIndex:self.detailModel.startIndex elementCount:self.detailModel.elementCount result:^(CGFloat minValue, CGFloat maxValue) {
+    [YSMACDCalculator getKlineRangeData:self.detailModel.macdLineArr startIndex:self.detailModel.startIndex elementCount:self.detailModel.elementCount result:^(CGFloat minValue, CGFloat maxValue) {
         
-        [self reloadKlineView:self.detailModel.klineArr min:minValue max:maxValue];
+        [self reloadKlineView:self.detailModel.macdLineArr min:minValue max:maxValue];
     }];
 }
 
 - (void)reloadKlineView:(NSArray *)resultArr min:(CGFloat)minValue max:(CGFloat)maxValue{
-    
-    NSLog(@"###### reloadKlineView for more data...before (%@)===%@", NSStringFromCGPoint(self.cadicatorScrollView.contentOffset), [NSThread currentThread]);
+    NSLog(@"###### reloadKlineView before (%@)", NSStringFromCGPoint(self.cadicatorScrollView.contentOffset));
     NSArray<CALayer *> *subLayers = self.painterView.layer.sublayers;
     NSArray<CALayer *> *removedLayers = [subLayers filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id  _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
         return [evaluatedObject isKindOfClass:[CAShapeLayer class]];
@@ -168,7 +173,7 @@ UIScrollViewDelegate
         make.width.mas_equalTo(self.detailModel.screenWidth);
         make.height.mas_equalTo(100);
     }];
-    NSLog(@"###### reloadKlineView for more data... after(%@) === (%@)", NSStringFromCGPoint(self.cadicatorScrollView.contentOffset), NSStringFromCGSize(self.cadicatorScrollView.contentSize));
+    NSLog(@"###### reloadKlineView after(%@) === (%@)", NSStringFromCGPoint(self.cadicatorScrollView.contentOffset), NSStringFromCGSize(self.cadicatorScrollView.contentSize));
     
     [self setPriceRange:minValue maxValue:maxValue];
     [self selectedMacd:resultArr idx:resultArr.count];
@@ -246,7 +251,7 @@ UIScrollViewDelegate
 
 - (void)setupKlineView:(NSArray *)resultArr min:(CGFloat)minValue max:(CGFloat)maxValue{
        
-    NSLog(@"###### refreshKLineView for more data...before (%@) %@", NSStringFromCGPoint(self.cadicatorScrollView.contentOffset), [NSThread currentThread]);
+    NSLog(@"###### refreshKLineView before (%@)", NSStringFromCGPoint(self.cadicatorScrollView.contentOffset));
     NSArray<CALayer *> *subLayers = self.painterView.layer.sublayers;
     NSArray<CALayer *> *removedLayers = [subLayers filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id  _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
         return [evaluatedObject isKindOfClass:[CAShapeLayer class]];
@@ -262,16 +267,16 @@ UIScrollViewDelegate
     
     CGFloat width = self.detailModel.lineWidth * maxCount;
     self.cadicatorScrollView.contentSize = CGSizeMake(width, 100);
-    CGPoint offsetPoint = CGPointMake([self.detailModel getScrollToPointX], 0);
+    CGPoint offsetPoint = CGPointMake(self.detailModel.elementCount * 2 * self.detailModel.lineWidth + self.cadicatorScrollView.contentOffset.x, 0);
     [self.cadicatorScrollView setContentOffset:offsetPoint animated:NO];
     [self.painterView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_greaterThanOrEqualTo(offsetPoint.x);
         make.width.mas_equalTo(self.detailModel.screenWidth);
         make.height.mas_equalTo(100);
     }];
-    NSLog(@"###### refreshKLineView for more data... after(%@) === (%@)", NSStringFromCGPoint(self.cadicatorScrollView.contentOffset), NSStringFromCGSize(self.cadicatorScrollView.contentSize));
     
-    
+    NSLog(@"###### refreshKLineView  %@ ==== %@", @(width), @(offsetPoint.x));
+    NSLog(@"###### refreshKLineView  after(%@) === (%@)", NSStringFromCGPoint(self.cadicatorScrollView.contentOffset), NSStringFromCGSize(self.cadicatorScrollView.contentSize));
     [self setPriceRange:minValue maxValue:maxValue];
     [self selectedMacd:resultArr idx:resultArr.count];
        
@@ -373,10 +378,10 @@ UIScrollViewDelegate
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    NSLog(@"scrollViewDidScroll === (%@)", NSStringFromCGPoint(scrollView.contentOffset));
+    NSLog(@"scrollViewDidScroll === (%@) === (%@) (%@)", NSStringFromCGPoint(scrollView.contentOffset), @(self.detailModel.endLoading), @(self.detailModel.loadKlineData));
     if(!self.detailModel.endLoading &&
        !self.detailModel.loadKlineData &&
-       scrollView.contentOffset.x < self.detailModel.screenWidth * 2){
+       scrollView.contentOffset.x < self.detailModel.screenWidth * 1.2){
         [self loadContent];
     }else{
         [self setupLineRange];
@@ -401,10 +406,21 @@ UIScrollViewDelegate
     return _cadicatorScrollView;
 }
 
+- (void)tapKlinePoint:(UITapGestureRecognizer *)ges{
+    CGPoint point = [ges locationInView:self.painterView];
+    NSInteger pointIndex = (point.x + self.cadicatorScrollView.contentOffset.x)/self.detailModel.lineWidth;
+    NSLog(@"===== startIndex is:(%@)", @(self.detailModel.startIndex));
+    NSLog(@"point...(%@)====(%@)", NSStringFromCGPoint(point), @(pointIndex));
+}
+    
 - (UIView *)painterView{
     if(!_painterView){
         _painterView = [[UIView alloc] init];
         _painterView.backgroundColor = [UIColor lightGrayColor];
+        
+        UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                 action:@selector(tapKlinePoint:)];
+        [_painterView addGestureRecognizer:tapGes];
     }
     return _painterView;
 }
@@ -510,6 +526,7 @@ UIScrollViewDelegate
             subscribeNext:^(id  _Nullable x) {
             RACTupleUnpack(NSArray *klineValue) = x;
             
+            self.detailModel.sourceLineArr = [klineValue mutableCopy];
             [Weakself handMacd:klineValue];
         }];
         

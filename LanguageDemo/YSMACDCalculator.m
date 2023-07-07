@@ -29,15 +29,15 @@
     NSUInteger periodShort = config.shortPeriod.intValue;
     NSUInteger periodAvg   = config.avgPeriod.intValue;
     
-    NSUInteger difIndex = config.difIndex;
-    NSUInteger deaIndex = config.deaIndex;
+    NSUInteger difIndex  = config.difIndex;
+    NSUInteger deaIndex  = config.deaIndex;
     NSUInteger macdIndex = config.macdIndex;
     
-    CGFloat emaLong = 0;
+    CGFloat emaLong  = 0;
     CGFloat emaShort = 0;
     
-    CGFloat dif = 0;
-    CGFloat dea = 0;
+    CGFloat dif  = 0;
+    CGFloat dea  = 0;
     CGFloat macd = 0;
     
     CGFloat min = 0;
@@ -53,8 +53,8 @@
             emaLong  = [self calEma:close period:periodLong preEma:emaLong];
             emaShort = [self calEma:close period:periodShort preEma:emaShort];
             
-            dif = [self calDif:emaShort emaLong:emaLong];
-            dea = [self calDea:dif period:periodAvg preDea:dea];
+            dif  = [self calDif:emaShort emaLong:emaLong];
+            dea  = [self calDea:dif period:periodAvg preDea:dea];
             macd = 2 * (dif - dea);
         }
         
@@ -80,8 +80,8 @@
         return;
     }
     
-    NSArray *difArr = dataList[0];
-    NSArray *deaArr = dataList[1];
+    NSArray *difArr  = dataList[0];
+    NSArray *deaArr  = dataList[1];
     NSArray *macdArr = dataList[2];
     
     if(difArr.count < (startIndex + elementCount) ||
@@ -95,8 +95,8 @@
     CGFloat max = 0;
     for(NSInteger i = startIndex; i < (startIndex + elementCount); i++){
         
-        CGFloat dif = [difArr[i] doubleValue];
-        CGFloat dea = [deaArr[i] doubleValue];
+        CGFloat dif  = [difArr[i] doubleValue];
+        CGFloat dea  = [deaArr[i] doubleValue];
         CGFloat macd = [macdArr[i] doubleValue];
 
         min = MIN( dif, MIN(dea, MIN(min, macd)));
