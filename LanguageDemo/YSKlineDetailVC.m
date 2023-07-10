@@ -125,22 +125,18 @@ UIScrollViewDelegate
     }
     
     NSLog(@"startIndex with handMacd: (%@)=== (%@)", @(self.detailModel.startIndex), @(self.detailModel.endIndex));
-    self.detailModel.needReload = YES;
     [YSMACDCalculator getMACD:self.config klineData:klineValue startIndex:self.detailModel.startIndex result:^(NSMutableArray * _Nonnull resultArr, CGFloat minValue, CGFloat maxValue) {
         
         self.detailModel.macdLineArr = [resultArr mutableCopy];
         [self setupKlineView:resultArr min:minValue max:maxValue];
-
         self.detailModel.currentPage = self.detailModel.currentPage + 2;
+        
         self.detailModel.loadKlineData = NO;
-        self.detailModel.needReload = NO;
     }];
 }
 
 - (void)setupLineRange{
-     
-    if(self.detailModel.needReload) return;
-    
+         
     self.detailModel.startIndex = (self.cadicatorScrollView.contentOffset.x)/self.detailModel.lineWidth;
     self.detailModel.endIndex = self.detailModel.startIndex + self.detailModel.elementCount;
 
@@ -252,6 +248,25 @@ UIScrollViewDelegate
 - (void)setupKlineView:(NSArray *)resultArr min:(CGFloat)minValue max:(CGFloat)maxValue{
        
     NSLog(@"###### refreshKLineView before (%@)", NSStringFromCGPoint(self.cadicatorScrollView.contentOffset));
+
+    __block NSUInteger maxCount = 0;
+    [resultArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        maxCount = MAX([(NSArray *)obj count], maxCount);
+    }];
+    
+    CGFloat width = self.detailModel.lineWidth * maxCount;
+    self.cadicatorScrollView.contentSize = CGSizeMake(width, 100);
+    
+    CGPoint offsetPoint = CGPointMake(self.detailModel.elementCount * 2 * self.detailModel.lineWidth + self.cadicatorScrollView.contentOffset.x, 0);
+    [self.cadicatorScrollView setContentOffset:offsetPoint animated:NO];
+    [self.painterView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_greaterThanOrEqualTo(offsetPoint.x);
+        make.width.mas_equalTo(self.detailModel.screenWidth);
+        make.height.mas_equalTo(100);
+    }];
+    
+    return;
+    
     NSArray<CALayer *> *subLayers = self.painterView.layer.sublayers;
     NSArray<CALayer *> *removedLayers = [subLayers filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id  _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
         return [evaluatedObject isKindOfClass:[CAShapeLayer class]];
@@ -260,20 +275,7 @@ UIScrollViewDelegate
         [obj removeFromSuperlayer];
     }];
     
-    __block NSUInteger maxCount = 0;
-    [resultArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        maxCount = MAX([(NSArray *)obj count], maxCount);
-    }];
-    
-    CGFloat width = self.detailModel.lineWidth * maxCount;
-    self.cadicatorScrollView.contentSize = CGSizeMake(width, 100);
-    CGPoint offsetPoint = CGPointMake(self.detailModel.elementCount * 2 * self.detailModel.lineWidth + self.cadicatorScrollView.contentOffset.x, 0);
-    [self.cadicatorScrollView setContentOffset:offsetPoint animated:NO];
-    [self.painterView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_greaterThanOrEqualTo(offsetPoint.x);
-        make.width.mas_equalTo(self.detailModel.screenWidth);
-        make.height.mas_equalTo(100);
-    }];
+ 
     
     NSLog(@"###### refreshKLineView  %@ ==== %@", @(width), @(offsetPoint.x));
     NSLog(@"###### refreshKLineView  after(%@) === (%@)", NSStringFromCGPoint(self.cadicatorScrollView.contentOffset), NSStringFromCGSize(self.cadicatorScrollView.contentSize));
@@ -374,7 +376,7 @@ UIScrollViewDelegate
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-//    self.detailModel.needReload = YES;
+    
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
@@ -390,7 +392,7 @@ UIScrollViewDelegate
 
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
-//    self.detailModel.needReload = NO;
+    
 }
 
 // 高度是不变的。 只变宽度
