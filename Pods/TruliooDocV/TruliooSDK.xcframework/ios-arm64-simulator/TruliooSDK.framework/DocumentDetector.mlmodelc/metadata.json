@@ -1,0 +1,81 @@
+[
+  {
+    "shortDescription" : "--",
+    "metadataOutputVersion" : "3.0",
+    "outputSchema" : [
+      {
+        "hasShapeFlexibility" : "0",
+        "isOptional" : "0",
+        "dataType" : "Float32",
+        "formattedType" : "MultiArray (Float32)",
+        "shortDescription" : "--",
+        "shape" : "[]",
+        "name" : "Identity_1",
+        "type" : "MultiArray"
+      },
+      {
+        "hasShapeFlexibility" : "0",
+        "isOptional" : "0",
+        "dataType" : "Float32",
+        "formattedType" : "MultiArray (Float32)",
+        "shortDescription" : "--",
+        "shape" : "[]",
+        "name" : "Identity",
+        "type" : "MultiArray"
+      }
+    ],
+    "version" : "--",
+    "modelParameters" : [
+
+    ],
+    "author" : "--",
+    "specificationVersion" : 6,
+    "storagePrecision" : "Float16",
+    "license" : "--",
+    "mlProgramOperationTypeHistogram" : {
+      "Concat" : 2,
+      "Transpose" : 29,
+      "Relu6" : 40,
+      "ReduceMean" : 8,
+      "Mul" : 56,
+      "Cast" : 3,
+      "Relu" : 31,
+      "Add" : 30,
+      "Reshape" : 20,
+      "Softmax" : 6,
+      "Conv" : 98,
+      "Pad" : 9
+    },
+    "computePrecision" : "Mixed (Float16, Float32, Int32)",
+    "isUpdatable" : "0",
+    "availability" : {
+      "macOS" : "12.0",
+      "tvOS" : "15.0",
+      "watchOS" : "8.0",
+      "iOS" : "15.0",
+      "macCatalyst" : "15.0"
+    },
+    "modelType" : {
+      "name" : "MLModelType_mlProgram"
+    },
+    "inputSchema" : [
+      {
+        "dataType" : "Float32",
+        "hasShapeFlexibility" : "1",
+        "isOptional" : "0",
+        "shapeFlexibility" : "1... × 320 × 320 × 3",
+        "shapeRange" : "[[1, -1], [320, 320], [320, 320], [3, 3]]",
+        "formattedType" : "MultiArray (Float32 1 × 320 × 320 × 3)",
+        "type" : "MultiArray",
+        "shape" : "[1, 320, 320, 3]",
+        "name" : "image",
+        "shortDescription" : "--"
+      }
+    ],
+    "userDefinedMetadata" : {
+
+    },
+    "generatedClassName" : "DocumentDetector",
+    "method" : "predict"
+  }
+]

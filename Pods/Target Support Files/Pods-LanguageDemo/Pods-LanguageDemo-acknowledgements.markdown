@@ -109,6 +109,11 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 
+## MBBlinkCard
+
+© 2013-2023 Microblink Ltd. All rights reserved.
+
+
 ## MJExtension
 
 Copyright (c) 2013-2019 MJExtension (https://github.com/CoderMJLee/MJExtension)
@@ -379,6 +384,10 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
+
+## TruliooDocV
+
+Please see LICENSE.md file.
 
 ## YYModel
 

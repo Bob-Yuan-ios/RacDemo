@@ -152,6 +152,17 @@ SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
+			<string>© 2013-2023 Microblink Ltd. All rights reserved.
+</string>
+			<key>License</key>
+			<string>commercial</string>
+			<key>Title</key>
+			<string>MBBlinkCard</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
 			<string>Copyright (c) 2013-2019 MJExtension (https://github.com/CoderMJLee/MJExtension)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -496,6 +507,16 @@ THE SOFTWARE.
 			<string>MIT</string>
 			<key>Title</key>
 			<string>SwiftyJSON</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>Please see LICENSE.md file.</string>
+			<key>License</key>
+			<string>Custom</string>
+			<key>Title</key>
+			<string>TruliooDocV</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 		</dict>

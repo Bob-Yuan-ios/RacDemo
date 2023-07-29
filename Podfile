@@ -7,6 +7,12 @@ platform :ios, "14.0"
 # 主工程
 target 'LanguageDemo' do
 
+    pod 'TruliooDocV'
+
+
+    # blinkCard
+    pod 'MBBlinkCard' 
+
     ######### Objective-C
     # 布局
     pod 'Masonry'
@@ -54,6 +60,14 @@ target 'LanguageDemo' do
     ######### Pod 通用设置
     post_install do |installer|
       installer.pods_project.targets.each do |target|
+        
+      if target.name == 'lottie-ios'
+              target.build_configurations.each do |config|
+                 config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
+                 config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'x86_64'
+              end
+       end
+        
         target.build_configurations.each do |config|
             # 设置swift库版本
             config.build_settings['SWIFT_VERSION'] = '5.0'
@@ -62,7 +76,9 @@ target 'LanguageDemo' do
             # kakao
             config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
         end
+        
       end
+      
     end
     
 end

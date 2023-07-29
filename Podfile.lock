@@ -19,6 +19,7 @@ PODS:
   - ESPullToRefresh (2.9.3)
   - IQKeyboardManager (6.5.11)
   - Masonry (1.1.0)
+  - MBBlinkCard (2.7.0)
   - MJExtension (3.4.1)
   - MJRefresh (3.7.5)
   - ObjectMapper (4.2.0)
@@ -37,6 +38,7 @@ PODS:
   - SnapKit (5.6.0)
   - SocketRocket (0.6.0)
   - SwiftyJSON (5.0.1)
+  - TruliooDocV (2.3.0)
   - YYModel (1.0.4)
 
 DEPENDENCIES:
@@ -45,6 +47,7 @@ DEPENDENCIES:
   - ESPullToRefresh
   - IQKeyboardManager
   - Masonry
+  - MBBlinkCard
   - MJExtension
   - MJRefresh
   - ObjectMapper
@@ -55,6 +58,7 @@ DEPENDENCIES:
   - SnapKit
   - SocketRocket
   - SwiftyJSON
+  - TruliooDocV
   - YYModel
 
 SPEC REPOS:
@@ -65,6 +69,7 @@ SPEC REPOS:
     - ESPullToRefresh
     - IQKeyboardManager
     - Masonry
+    - MBBlinkCard
     - MJExtension
     - MJRefresh
     - ObjectMapper
@@ -77,6 +82,7 @@ SPEC REPOS:
     - SnapKit
     - SocketRocket
     - SwiftyJSON
+    - TruliooDocV
     - YYModel
 
 SPEC CHECKSUMS:
@@ -86,6 +92,7 @@ SPEC CHECKSUMS:
   ESPullToRefresh: 0d68daa602b343c81753a1b95e09fd0bfcddfd40
   IQKeyboardManager: ef43ce1ba1e5aaf4adf222c0a46f39761f246879
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MBBlinkCard: 3bcbdc50dc5b1cc359c63b169eefadef5dd05b01
   MJExtension: 21c5f6f8c4d5d8844b7ae8fbae08fed0b501f961
   MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
   ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
@@ -98,8 +105,9 @@ SPEC CHECKSUMS:
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SocketRocket: fccef3f9c5cedea1353a9ef6ada904fde10d6608
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
+  TruliooDocV: c27907b001d5fe2dd3443a13ff2888d9f0cccc4f
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: a4186c3437096fd43fa4b839b02622ece5b17a31
+PODFILE CHECKSUM: 0a69f0ba5034ac04772b1181ceaecacf852f0749
 
 COCOAPODS: 1.11.3

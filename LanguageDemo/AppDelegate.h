@@ -36,7 +36,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:alp]
 
 @property (strong, nonatomic) UIWindow * window;
 
-- (void)resetRootViewController;
+- (void)launchObjCRootViewController;
 
 @end
 

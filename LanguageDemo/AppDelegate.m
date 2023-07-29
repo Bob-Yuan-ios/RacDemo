@@ -12,6 +12,7 @@
  
 #import "LDLoginVC.h"
 #import "YSKlineDetailVC.h"
+#import "YSRootViewController.h"
 
 // 导入后可以调用Swift
 #import "LanguageDemo-Swift.h"
@@ -37,18 +38,23 @@ typedef NS_ENUM(NSUInteger, AUTH_TYPE) {
     _window.backgroundColor = [UIColor whiteColor];
     [_window makeKeyAndVisible];
     
-    [self resetRootViewController];
+    [self launchSwiftRootViewController];
     return YES;
 }
  
-- (void)resetRootViewController{
-    YSKlineDetailVC *vc = [[YSKlineDetailVC alloc] init];
+- (void)launchObjCRootViewController{
+    YSRootViewController *vc = [[YSRootViewController alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
     [_window setRootViewController:nav];
 }
 
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary *)options
-{
+- (void)launchSwiftRootViewController{
+    SwiftRootViewController *vc = [[SwiftRootViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    [_window setRootViewController:nav];
+}
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary *)options{
     NSLog(@"=====#####(%@)", url.absoluteString);
     return YES;
 }

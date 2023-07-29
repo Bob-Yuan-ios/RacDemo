@@ -20,8 +20,6 @@
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
-	<key>KAKAO_APP_KEY</key>
-	<string>9010f33a3e8c231dd563809e8774a874</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -45,6 +43,8 @@
 	<string>1</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>KAKAO_APP_KEY</key>
+	<string>9010f33a3e8c231dd563809e8774a874</string>
 	<key>LSApplicationCategoryType</key>
 	<dict>
 		<key>CFBundleTypeRole</key>

@@ -36,6 +36,7 @@
 		C48DEDD227511FF200A86E08 /* UIImage+ChangeColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C48DEDD127511FF200A86E08 /* UIImage+ChangeColor.m */; };
 		C494044529697A38000A1CF9 /* YSActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = C494044429697A38000A1CF9 /* YSActionSheet.m */; };
 		C49EC46C26C10E7100F130F8 /* ThreadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C49EC46B26C10E7100F130F8 /* ThreadModel.m */; };
+		C4C6A9692A72147A00EBCA8E /* YSRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C6A9682A72147A00EBCA8E /* YSRootViewController.m */; };
 		C4C8948626AAB05B005E39F5 /* UIImage+Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C8948526AAB05B005E39F5 /* UIImage+Filter.m */; };
 		C4C8948926AAB750005E39F5 /* UIImageView+Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C8948826AAB750005E39F5 /* UIImageView+Filter.m */; };
 		C4CACCE92669E53C00712ED2 /* RacRedVM.m in Sources */ = {isa = PBXBuildFile; fileRef = C4CACCE82669E53C00712ED2 /* RacRedVM.m */; };
@@ -106,6 +107,8 @@
 		C49EC46A26C10E7100F130F8 /* ThreadModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThreadModel.h; sourceTree = "<group>"; };
 		C49EC46B26C10E7100F130F8 /* ThreadModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThreadModel.m; sourceTree = "<group>"; };
 		C4AECA7B2702C66000F3BA1A /* LanguageDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LanguageDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		C4C6A9672A72147A00EBCA8E /* YSRootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSRootViewController.h; sourceTree = "<group>"; };
+		C4C6A9682A72147A00EBCA8E /* YSRootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSRootViewController.m; sourceTree = "<group>"; };
 		C4C8948426AAB05B005E39F5 /* UIImage+Filter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Filter.h"; sourceTree = "<group>"; };
 		C4C8948526AAB05B005E39F5 /* UIImage+Filter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Filter.m"; sourceTree = "<group>"; };
 		C4C8948726AAB750005E39F5 /* UIImageView+Filter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Filter.h"; sourceTree = "<group>"; };
@@ -335,6 +338,8 @@
 				C4FDD6D02667236900E444F2 /* Learning */,
 				C4629D4826244CBC00029564 /* AppDelegate.h */,
 				C4629D4926244CBC00029564 /* AppDelegate.m */,
+				C4C6A9672A72147A00EBCA8E /* YSRootViewController.h */,
+				C4C6A9682A72147A00EBCA8E /* YSRootViewController.m */,
 				C4FDD6DE2667237400E444F2 /* YSKlineDetailVC.h */,
 				C4FDD6DB2667237400E444F2 /* YSKlineDetailVC.m */,
 				C43009F52A4EDE320001DE85 /* YSKlineViewModel.h */,
@@ -561,6 +566,7 @@
 				C45108C229D53F40008CFCFE /* LDEncypt.m in Sources */,
 				C48489B92775C66C0033194C /* LDLoginVC.m in Sources */,
 				C4D866082A4D496700AA7A2D /* YSWRCalculator.m in Sources */,
+				C4C6A9692A72147A00EBCA8E /* YSRootViewController.m in Sources */,
 				C4629D4A26244CBC00029564 /* AppDelegate.m in Sources */,
 				C48489BC2775C67D0033194C /* LDLoginView.m in Sources */,
 				C473DFA6277EC1E100CF669A /* LDHomeViewModel.m in Sources */,
@@ -722,7 +728,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = V5ALQR4SC7;
+				DEVELOPMENT_TEAM = 78UD3HWVN8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking\"",
@@ -765,7 +771,7 @@
 					"$(PROJECT_DIR)/LanguageDemo/lib/ssl/framework",
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.btcc.hy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hello.languageDemo;
 				PRODUCT_MODULE_NAME = LanguageDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -787,7 +793,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = V5ALQR4SC7;
+				DEVELOPMENT_TEAM = 78UD3HWVN8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking\"",
@@ -830,7 +836,7 @@
 					"$(PROJECT_DIR)/LanguageDemo/lib/ssl/framework",
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.btcc.hy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hello.languageDemo;
 				PRODUCT_MODULE_NAME = LanguageDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

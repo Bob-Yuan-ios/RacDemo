@@ -195,6 +195,10 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/SocketRocket/SocketRocket.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MBBlinkCard/BlinkCard.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/TruliooDocV/TruliooSDK.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/TruliooDocV/TruliooCore.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/TruliooDocV/Lottie.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework"
@@ -216,6 +220,10 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/SocketRocket/SocketRocket.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MBBlinkCard/BlinkCard.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/TruliooDocV/TruliooSDK.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/TruliooDocV/TruliooCore.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/TruliooDocV/Lottie.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

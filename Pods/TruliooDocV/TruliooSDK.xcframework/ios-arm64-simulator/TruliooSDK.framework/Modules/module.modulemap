@@ -1,0 +1,4 @@
+framework module TruliooSDK {
+  header "TruliooSDK-Swift.h"
+  requires objc
+}

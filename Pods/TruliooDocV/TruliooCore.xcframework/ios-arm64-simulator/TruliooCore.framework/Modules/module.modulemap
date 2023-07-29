@@ -1,0 +1,8 @@
+framework module TruliooCore {
+    umbrella header "TruliooCore.h"
+
+    export *
+    module * { export * }
+
+    use Foundation
+}
