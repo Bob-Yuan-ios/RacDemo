@@ -18,6 +18,9 @@ MBCBlinkCardOverlayViewControllerDelegate
  
 @property (nonatomic, strong) UILabel *resultLabel;
 
+
+@property (nonatomic, assign)  MBCLicenseError licenseError;
+
 @end
 
 @implementation YSRootViewController
@@ -29,8 +32,19 @@ MBCBlinkCardOverlayViewControllerDelegate
     
 //    sRwAAAELY29tLmJ0Y2MuaHkTtqprNKdAhMAPlpqIJyeH0Mo2Ad/f0hPI7kYmr/RsWB3sijCadDiiR78GUQRi3FDVY5ggCuY2wfG59k+J6HzwwHpgotDP4MlpZwSOXzsszJAnPId2tG0LwLqS/OKHCmcv8GyHhGWbubWGKKZqX7KOxgarsJ9P1WBvnzlmRpLhRsR29b1ECjMh6Bucg7ROtof8kJERZIZN5NfMkdI0KBRkAZEFF2aMujzSMXEglb/b
     
-    [[MBCMicroblinkSDK sharedInstance] setLicenseKey:@"sRwAAAEWY29tLmhlbGxvLmxhbmd1YWdlRGVtbxzBkVxEoMc1vGbQVzIJY5pqVJy/tzRCThZ8nJht5i1JamCmIO4QIT5JGIxpCGMcH4aWqVi7boa7d0imkd0K0lHWUt+bZV84wy5k4WI9S9YmYB37YifyjIYBhdwDY0ksI199VWg6xr7+RsIF6chLRLfpgnwB2eI/fcKjNs3k7FvjNp9VvUoOBBTMUmnW9E9AV6BT6Kq/LKqRomB9kZN91mqzTlqlJXPmGrXEoO7T018=" errorCallback:^(MBCLicenseError licenseError) {
-        
+//    sRwCAAtjb20uYnRjYy5oeQFsZXlKRGNtVmhkR1ZrVDI0aU9qRTJPVEE1TmpZNE1UQTJNVFlzSWtOeVpXRjBaV1JHYjNJaU9pSTROamd5TlRKaVpDMDVZelUxTFdZMk5qRXRNVGxpTUMwM1pqZ3dPVE15Tm1RNE1XRWlmUT09kh5w6UJ22lIFewAz0RVi7HNYLN1C8QBfLWZhSDW6zJN69VXucAuDf1wNIkh3ZOufZXUhJg3fqwfQ2aidskF2xXaorwPTt3c36ivk8epm4PS9HTtmTBQUGUlVJEBSI3hp
+    
+//    base64 string
+    
+    /*
+     - (NSString *)base64EncodedString;
+     {
+         NSData *data = [self dataUsingEncoding: NSUTF8StringEncoding];
+         return [data base64EncodedStringWithOptions:0];
+     }
+     */
+    [[MBCMicroblinkSDK sharedInstance] setLicenseKey:@"sRwCAAtjb20uYnRjYy5oeQFsZXlKRGNtVmhkR1ZrVDI0aU9qRTJPVEE1TmpZNE1UQTJNVFlzSWtOeVpXRjBaV1JHYjNJaU9pSTROamd5TlRKaVpDMDVZelUxTFdZMk5qRXRNVGxpTUMwM1pqZ3dPVE15Tm1RNE1XRWlmUT09kh5w6UJ22lIFewAz0RVi7HNYLN1C8QBfLWZhSDW6zJN69VXucAuDf1wNIkh3ZOufZXUhJg3fqwfQ2aidskF2xXaorwPTt3c36ivk8epm4PS9HTtmTBQUGUlVJEBSI3hp" errorCallback:^(MBCLicenseError licenseError) {
+        self.licenseError = licenseError;
         NSLog(@"#### error information is:(%@)", @(licenseError));
     }];
 
@@ -66,6 +80,9 @@ MBCBlinkCardOverlayViewControllerDelegate
 }
 
 - (void)startBlinkCard{
+    
+    if(self.licenseError) return;
+    
     /** Create BlinkCard recognizer */
        self.blinkCardRecognizer = [[MBCBlinkCardRecognizer alloc] init];
  

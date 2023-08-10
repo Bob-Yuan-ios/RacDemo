@@ -71,12 +71,10 @@
     
     NSString *first = @"0";
     NSString *second = @"123";
-    NSString *third = @"456";
-
+ 
     NSDecimalNumber *firstDec = [NSDecimalNumber decimalNumberWithString:first];
     NSDecimalNumber *secondDec = [NSDecimalNumber decimalNumberWithString:second];
-    NSDecimalNumber *thirdDec = [NSDecimalNumber decimalNumberWithString:third];
-
+ 
     NSString *s1 = [firstDec decimalNumberByMultiplyingBy:secondDec].stringValue;
     NSString *s2 = [firstDec decimalNumberBySubtracting:secondDec].stringValue;
     NSString *s3 = [secondDec decimalNumberByMultiplyingBy:firstDec].stringValue;
@@ -152,8 +150,16 @@
 
 - (void)refreshConstraint{
     
+     
     BOOL navHidden = self.navigationController.navigationBarHidden;
-    CGFloat statusHeight = CGRectGetHeight([UIApplication sharedApplication].statusBarFrame);
+    CGFloat statusHeight = 0;
+    if(@available(iOS 13.0, *)){
+        UIStatusBarManager *statusBarManager = [UIApplication sharedApplication].windows.firstObject.windowScene.statusBarManager;
+        statusHeight = CGRectGetHeight(statusBarManager.statusBarFrame);
+    }else{
+        statusHeight = CGRectGetHeight([UIApplication sharedApplication].statusBarFrame);
+    }
+    
     CGFloat offsetY = navHidden ? statusHeight : 0;
     NSLog(@"offsetY is:(%lf)", offsetY);
     

@@ -18,6 +18,7 @@ import TruliooSDK
         
         let workflow = TruliooWorkflow("shortCode")
         Trulioo().initialize(delegate: self, workflow: workflow)
+        
     }
 
     private lazy var tableV = SettingView.init(frame: CGRect.zero)
@@ -51,6 +52,7 @@ import TruliooSDK
     func onException(exception: TruliooException) {
         print("Verification exception")
     }
+    
 }
 
 extension SwiftRootViewController {

@@ -7,11 +7,11 @@ platform :ios, "14.0"
 # 主工程
 target 'LanguageDemo' do
 
+    # kyc
     pod 'TruliooDocV'
 
-
     # blinkCard
-    pod 'MBBlinkCard' 
+    pod 'MBBlinkCard'
 
     ######### Objective-C
     # 布局
@@ -51,7 +51,6 @@ target 'LanguageDemo' do
 
     # Rx
     pod 'RxSwift'
-#    pod 'Moya/RxSwift'
     pod 'RxDataSources'
     
     # 网络可用

@@ -19,7 +19,7 @@ PODS:
   - ESPullToRefresh (2.9.3)
   - IQKeyboardManager (6.5.11)
   - Masonry (1.1.0)
-  - MBBlinkCard (2.7.0)
+  - MBBlinkCard (2.8.1)
   - MJExtension (3.4.1)
   - MJRefresh (3.7.5)
   - ObjectMapper (4.2.0)
@@ -92,7 +92,7 @@ SPEC CHECKSUMS:
   ESPullToRefresh: 0d68daa602b343c81753a1b95e09fd0bfcddfd40
   IQKeyboardManager: ef43ce1ba1e5aaf4adf222c0a46f39761f246879
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  MBBlinkCard: 3bcbdc50dc5b1cc359c63b169eefadef5dd05b01
+  MBBlinkCard: 353f2ed9480005c6099e5d2363e6e9255b03b775
   MJExtension: 21c5f6f8c4d5d8844b7ae8fbae08fed0b501f961
   MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
   ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
@@ -108,6 +108,6 @@ SPEC CHECKSUMS:
   TruliooDocV: c27907b001d5fe2dd3443a13ff2888d9f0cccc4f
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 0a69f0ba5034ac04772b1181ceaecacf852f0749
+PODFILE CHECKSUM: 2023d0dae468d5d1e1de5344a6434f926534b80a
 
 COCOAPODS: 1.11.3

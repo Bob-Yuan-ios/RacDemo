@@ -87,7 +87,7 @@ pod init
 ```ruby
 platform :ios, '13.0'
 target 'Your-App-Name' do
-    pod 'MBBlinkCard', '~> 2.7.0'
+    pod 'MBBlinkCard', '~> 2.8.1'
 end
 ```
 
@@ -139,22 +139,6 @@ https://github.com/blinkcard/blinkcard-swift-package
 ![Swift Package Repo](https://user-images.githubusercontent.com/26868155/99410171-754b5500-28f2-11eb-84a3-fb1ab2c7df59.png)
 
 3. Choose Swift package version
-
-**NOTE: There is a [known issue](https://bugs.swift.org/browse/SR-13343) in Xcode 12 that could cause crash running on real iOS device. Please follow instructions below for the workaround:**
-
-1. Add a new copy files phase in your application’s Build Phase
-2. Change the copy files phase’s destination to Frameworks
-3. Add a new run script phase script to your app’s target
-4. Add the following script to force deep sign the frameworks with your own signing identity:
-
-```shell
-find "${CODESIGNING_FOLDER_PATH}" -name '*.framework' -print0 | while read -d $'\0' framework 
-do 
-    codesign --force --deep --sign "${EXPANDED_CODE_SIGN_IDENTITY}" --preserve-metadata=identifier,entitlements --timestamp=none "${framework}" 
-done
-```
-
-
 
 #### Manual integration
 
