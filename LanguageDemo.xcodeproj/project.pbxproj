@@ -728,7 +728,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = V5ALQR4SC7;
+				DEVELOPMENT_TEAM = 78UD3HWVN8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking\"",
@@ -771,7 +771,7 @@
 					"$(PROJECT_DIR)/LanguageDemo/lib/ssl/framework",
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.btcc.hy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.language.demost;
 				PRODUCT_MODULE_NAME = LanguageDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -793,7 +793,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = V5ALQR4SC7;
+				DEVELOPMENT_TEAM = 78UD3HWVN8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking\"",
@@ -836,7 +836,7 @@
 					"$(PROJECT_DIR)/LanguageDemo/lib/ssl/framework",
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.btcc.hy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.language.demost;
 				PRODUCT_MODULE_NAME = LanguageDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
