@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		084E3D91576833490F01698B /* Pods_LanguageDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC0AEC53FC2833FB78E2FA76 /* Pods_LanguageDemo.framework */; };
+		C40374B72A9304D400FE2308 /* YSJJListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C40374B62A9304D400FE2308 /* YSJJListModel.m */; };
+		C40374BA2A9304E400FE2308 /* YSListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C40374B92A9304E400FE2308 /* YSListModel.m */; };
 		C4046214296433D60022A927 /* YSWebSocketRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C4046213296433D60022A927 /* YSWebSocketRequest.m */; };
 		C425F59726A94BBF0091918D /* RacRedSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = C425F59626A94BBF0091918D /* RacRedSubView.m */; };
 		C43009F72A4EDE320001DE85 /* YSKlineViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C43009F62A4EDE320001DE85 /* YSKlineViewModel.m */; };
@@ -30,6 +32,18 @@
 		C473DFA0277EC1B500CF669A /* LDHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C473DF9F277EC1B500CF669A /* LDHomeVC.m */; };
 		C473DFA3277EC1D200CF669A /* LDHomeTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C473DFA2277EC1D200CF669A /* LDHomeTableView.m */; };
 		C473DFA6277EC1E100CF669A /* LDHomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C473DFA5277EC1E100CF669A /* LDHomeViewModel.m */; };
+		C47EA0472AA70297003BD5D5 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47EA03B2AA70296003BD5D5 /* ToastView.swift */; };
+		C47EA0482AA70297003BD5D5 /* ToastOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47EA03C2AA70296003BD5D5 /* ToastOverlay.swift */; };
+		C47EA0492AA70297003BD5D5 /* TransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47EA03D2AA70296003BD5D5 /* TransactionView.swift */; };
+		C47EA04A2AA70297003BD5D5 /* ConnectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47EA03E2AA70296003BD5D5 /* ConnectView.swift */; };
+		C47EA04B2AA70297003BD5D5 /* NetworkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47EA03F2AA70296003BD5D5 /* NetworkView.swift */; };
+		C47EA04C2AA70297003BD5D5 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47EA0402AA70296003BD5D5 /* ButtonStyle.swift */; };
+		C47EA04D2AA70297003BD5D5 /* SwitchChainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47EA0412AA70296003BD5D5 /* SwitchChainView.swift */; };
+		C47EA04E2AA70297003BD5D5 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47EA0422AA70296003BD5D5 /* TextStyle.swift */; };
+		C47EA04F2AA70297003BD5D5 /* SignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47EA0432AA70296003BD5D5 /* SignView.swift */; };
+		C47EA0502AA70297003BD5D5 /* MetaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47EA0442AA70296003BD5D5 /* MetaViewController.swift */; };
+		C47EA0512AA70297003BD5D5 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47EA0452AA70297003BD5D5 /* ViewExtension.swift */; };
+		C47EA0522AA70297003BD5D5 /* Curvature.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47EA0462AA70297003BD5D5 /* Curvature.swift */; };
 		C48489B92775C66C0033194C /* LDLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C48489B82775C66C0033194C /* LDLoginVC.m */; };
 		C48489BC2775C67D0033194C /* LDLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = C48489BB2775C67D0033194C /* LDLoginView.m */; };
 		C48489BF2775C68C0033194C /* LDLoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C48489BE2775C68C0033194C /* LDLoginViewModel.m */; };
@@ -56,6 +70,10 @@
 /* Begin PBXFileReference section */
 		003C593BB5769782A908F4E4 /* Pods-LanguageDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LanguageDemo.release.xcconfig"; path = "Target Support Files/Pods-LanguageDemo/Pods-LanguageDemo.release.xcconfig"; sourceTree = "<group>"; };
 		54B6CB46849CC54625B2204D /* Pods-LanguageDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LanguageDemo.debug.xcconfig"; path = "Target Support Files/Pods-LanguageDemo/Pods-LanguageDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		C40374B52A9304D400FE2308 /* YSJJListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSJJListModel.h; sourceTree = "<group>"; };
+		C40374B62A9304D400FE2308 /* YSJJListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSJJListModel.m; sourceTree = "<group>"; };
+		C40374B82A9304E400FE2308 /* YSListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSListModel.h; sourceTree = "<group>"; };
+		C40374B92A9304E400FE2308 /* YSListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSListModel.m; sourceTree = "<group>"; };
 		C4046212296433D60022A927 /* YSWebSocketRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSWebSocketRequest.h; sourceTree = "<group>"; };
 		C4046213296433D60022A927 /* YSWebSocketRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSWebSocketRequest.m; sourceTree = "<group>"; };
 		C41BF1A02671E5E700AB3AA3 /* YSCommonInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSCommonInfo.h; sourceTree = "<group>"; };
@@ -94,6 +112,18 @@
 		C473DFA2277EC1D200CF669A /* LDHomeTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDHomeTableView.m; sourceTree = "<group>"; };
 		C473DFA4277EC1E100CF669A /* LDHomeViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDHomeViewModel.h; sourceTree = "<group>"; };
 		C473DFA5277EC1E100CF669A /* LDHomeViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDHomeViewModel.m; sourceTree = "<group>"; };
+		C47EA03B2AA70296003BD5D5 /* ToastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		C47EA03C2AA70296003BD5D5 /* ToastOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToastOverlay.swift; sourceTree = "<group>"; };
+		C47EA03D2AA70296003BD5D5 /* TransactionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionView.swift; sourceTree = "<group>"; };
+		C47EA03E2AA70296003BD5D5 /* ConnectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectView.swift; sourceTree = "<group>"; };
+		C47EA03F2AA70296003BD5D5 /* NetworkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkView.swift; sourceTree = "<group>"; };
+		C47EA0402AA70296003BD5D5 /* ButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
+		C47EA0412AA70296003BD5D5 /* SwitchChainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchChainView.swift; sourceTree = "<group>"; };
+		C47EA0422AA70296003BD5D5 /* TextStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
+		C47EA0432AA70296003BD5D5 /* SignView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignView.swift; sourceTree = "<group>"; };
+		C47EA0442AA70296003BD5D5 /* MetaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaViewController.swift; sourceTree = "<group>"; };
+		C47EA0452AA70297003BD5D5 /* ViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		C47EA0462AA70297003BD5D5 /* Curvature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Curvature.swift; sourceTree = "<group>"; };
 		C48489B72775C66C0033194C /* LDLoginVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDLoginVC.h; sourceTree = "<group>"; };
 		C48489B82775C66C0033194C /* LDLoginVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDLoginVC.m; sourceTree = "<group>"; };
 		C48489BA2775C67D0033194C /* LDLoginView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDLoginView.h; sourceTree = "<group>"; };
@@ -161,6 +191,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C40374B42A93043800FE2308 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				C40374B52A9304D400FE2308 /* YSJJListModel.h */,
+				C40374B62A9304D400FE2308 /* YSJJListModel.m */,
+				C40374B82A9304E400FE2308 /* YSListModel.h */,
+				C40374B92A9304E400FE2308 /* YSListModel.m */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
 		C44E7CC9299A075A007B1B1E /* swiftDemo */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +243,7 @@
 		C44EEAB5295E8BA70083CD03 /* present */ = {
 			isa = PBXGroup;
 			children = (
+				C40374B42A93043800FE2308 /* data */,
 				C473DF9D277EC18B00CF669A /* Home */,
 				C473DF9C277EC0DF00CF669A /* Login */,
 			);
@@ -330,6 +372,7 @@
 		C4629D4726244CBC00029564 /* LanguageDemo */ = {
 			isa = PBXGroup;
 			children = (
+				C47EA03A2AA70260003BD5D5 /* metaMask */,
 				C44E7CC9299A075A007B1B1E /* swiftDemo */,
 				C44EEAB8295E8BDC0083CD03 /* coreService */,
 				C44EEAB7295E8BD10083CD03 /* basicService */,
@@ -380,6 +423,25 @@
 				C473DFA5277EC1E100CF669A /* LDHomeViewModel.m */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		C47EA03A2AA70260003BD5D5 /* metaMask */ = {
+			isa = PBXGroup;
+			children = (
+				C47EA0402AA70296003BD5D5 /* ButtonStyle.swift */,
+				C47EA03E2AA70296003BD5D5 /* ConnectView.swift */,
+				C47EA0462AA70297003BD5D5 /* Curvature.swift */,
+				C47EA03F2AA70296003BD5D5 /* NetworkView.swift */,
+				C47EA0432AA70296003BD5D5 /* SignView.swift */,
+				C47EA0412AA70296003BD5D5 /* SwitchChainView.swift */,
+				C47EA0422AA70296003BD5D5 /* TextStyle.swift */,
+				C47EA03C2AA70296003BD5D5 /* ToastOverlay.swift */,
+				C47EA03B2AA70296003BD5D5 /* ToastView.swift */,
+				C47EA03D2AA70296003BD5D5 /* TransactionView.swift */,
+				C47EA0442AA70296003BD5D5 /* MetaViewController.swift */,
+				C47EA0452AA70297003BD5D5 /* ViewExtension.swift */,
+			);
+			path = metaMask;
 			sourceTree = "<group>";
 		};
 		C4D865F92A4D291800AA7A2D /* kline */ = {
@@ -542,6 +604,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C47EA04F2AA70297003BD5D5 /* SignView.swift in Sources */,
 				C48DEDD227511FF200A86E08 /* UIImage+ChangeColor.m in Sources */,
 				C4D865FC2A4D295600AA7A2D /* YSRSICalculator.m in Sources */,
 				C4D866022A4D2CD400AA7A2D /* YSMACDCalculator.m in Sources */,
@@ -549,6 +612,10 @@
 				C44E7CD8299A080E007B1B1E /* SwiftRootViewController.swift in Sources */,
 				C44EEAC7295ED97D0083CD03 /* YSHttpManager.m in Sources */,
 				C44E7CD3299A07D4007B1B1E /* SettingViewModel.swift in Sources */,
+				C40374BA2A9304E400FE2308 /* YSListModel.m in Sources */,
+				C47EA04B2AA70297003BD5D5 /* NetworkView.swift in Sources */,
+				C47EA04C2AA70297003BD5D5 /* ButtonStyle.swift in Sources */,
+				C47EA04E2AA70297003BD5D5 /* TextStyle.swift in Sources */,
 				C4CACCE92669E53C00712ED2 /* RacRedVM.m in Sources */,
 				C49EC46C26C10E7100F130F8 /* ThreadModel.m in Sources */,
 				C4C8948626AAB05B005E39F5 /* UIImage+Filter.m in Sources */,
@@ -556,9 +623,13 @@
 				C4C8948926AAB750005E39F5 /* UIImageView+Filter.m in Sources */,
 				C456A3DD299B2B1500477149 /* Programming.swift in Sources */,
 				C473DFA3277EC1D200CF669A /* LDHomeTableView.m in Sources */,
+				C47EA04D2AA70297003BD5D5 /* SwitchChainView.swift in Sources */,
 				C4D8660B2A4D4A9900AA7A2D /* YSMACalculator.m in Sources */,
+				C47EA0522AA70297003BD5D5 /* Curvature.swift in Sources */,
 				C4FDD6D62667236900E444F2 /* YSRACLearnM.m in Sources */,
+				C47EA0492AA70297003BD5D5 /* TransactionView.swift in Sources */,
 				C44E7CD5299A07D4007B1B1E /* SettingModel.swift in Sources */,
+				C47EA0482AA70297003BD5D5 /* ToastOverlay.swift in Sources */,
 				C4FDD6F12667237400E444F2 /* YSKlineDetailVC.m in Sources */,
 				C4D865FF2A4D2B0900AA7A2D /* YSKLineDataModel.m in Sources */,
 				C4D866052A4D42EF00AA7A2D /* YSKDJCalculator.m in Sources */,
@@ -568,11 +639,15 @@
 				C4D866082A4D496700AA7A2D /* YSWRCalculator.m in Sources */,
 				C4C6A9692A72147A00EBCA8E /* YSRootViewController.m in Sources */,
 				C4629D4A26244CBC00029564 /* AppDelegate.m in Sources */,
+				C47EA0502AA70297003BD5D5 /* MetaViewController.swift in Sources */,
 				C48489BC2775C67D0033194C /* LDLoginView.m in Sources */,
+				C47EA0472AA70297003BD5D5 /* ToastView.swift in Sources */,
 				C473DFA6277EC1E100CF669A /* LDHomeViewModel.m in Sources */,
 				C494044529697A38000A1CF9 /* YSActionSheet.m in Sources */,
 				C4FDD6D52667236900E444F2 /* RacRedView.m in Sources */,
 				C46817A6266B33C30026F60C /* YSTextField.m in Sources */,
+				C47EA04A2AA70297003BD5D5 /* ConnectView.swift in Sources */,
+				C47EA0512AA70297003BD5D5 /* ViewExtension.swift in Sources */,
 				C4ECDDCD2966D67F00C1FA36 /* YSTcpSocketRequest.m in Sources */,
 				C4629D5B26244CBF00029564 /* main.m in Sources */,
 				C44E7CD2299A07D4007B1B1E /* MyService.swift in Sources */,
@@ -582,6 +657,7 @@
 				C44E7CD6299A07D4007B1B1E /* SettingView.swift in Sources */,
 				C44E7CD4299A07D4007B1B1E /* ViewModelType.swift in Sources */,
 				C4D866172A4EAC1000AA7A2D /* YSKlineDetailModel.m in Sources */,
+				C40374B72A9304D400FE2308 /* YSJJListModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -771,7 +847,7 @@
 					"$(PROJECT_DIR)/LanguageDemo/lib/ssl/framework",
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.language.demost;
+				PRODUCT_BUNDLE_IDENTIFIER = com.language.demo132;
 				PRODUCT_MODULE_NAME = LanguageDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -836,7 +912,7 @@
 					"$(PROJECT_DIR)/LanguageDemo/lib/ssl/framework",
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.language.demost;
+				PRODUCT_BUNDLE_IDENTIFIER = com.language.demo132;
 				PRODUCT_MODULE_NAME = LanguageDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

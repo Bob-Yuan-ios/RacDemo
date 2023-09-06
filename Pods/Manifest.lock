@@ -20,6 +20,8 @@ PODS:
   - IQKeyboardManager (6.5.11)
   - Masonry (1.1.0)
   - MBBlinkCard (2.8.1)
+  - metamask-ios-sdk (0.2.0):
+    - Socket.IO-Client-Swift (~> 16.0.1)
   - MJExtension (3.4.1)
   - MJRefresh (3.7.5)
   - ObjectMapper (4.2.0)
@@ -36,10 +38,12 @@ PODS:
     - RxSwift (= 6.5.0)
   - RxSwift (6.5.0)
   - SnapKit (5.6.0)
+  - Socket.IO-Client-Swift (16.0.1):
+    - Starscream (~> 4.0)
   - SocketRocket (0.6.0)
+  - Starscream (4.0.6)
   - SwiftyJSON (5.0.1)
   - TruliooDocV (2.3.0)
-  - YYModel (1.0.4)
 
 DEPENDENCIES:
   - AFNetworking
@@ -48,6 +52,7 @@ DEPENDENCIES:
   - IQKeyboardManager
   - Masonry
   - MBBlinkCard
+  - metamask-ios-sdk
   - MJExtension
   - MJRefresh
   - ObjectMapper
@@ -59,7 +64,6 @@ DEPENDENCIES:
   - SocketRocket
   - SwiftyJSON
   - TruliooDocV
-  - YYModel
 
 SPEC REPOS:
   trunk:
@@ -70,6 +74,7 @@ SPEC REPOS:
     - IQKeyboardManager
     - Masonry
     - MBBlinkCard
+    - metamask-ios-sdk
     - MJExtension
     - MJRefresh
     - ObjectMapper
@@ -80,10 +85,11 @@ SPEC REPOS:
     - RxRelay
     - RxSwift
     - SnapKit
+    - Socket.IO-Client-Swift
     - SocketRocket
+    - Starscream
     - SwiftyJSON
     - TruliooDocV
-    - YYModel
 
 SPEC CHECKSUMS:
   AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
@@ -93,6 +99,7 @@ SPEC CHECKSUMS:
   IQKeyboardManager: ef43ce1ba1e5aaf4adf222c0a46f39761f246879
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBBlinkCard: 353f2ed9480005c6099e5d2363e6e9255b03b775
+  metamask-ios-sdk: 3c7b575d49b947cdf03ca1c766a9dec9f2c50b90
   MJExtension: 21c5f6f8c4d5d8844b7ae8fbae08fed0b501f961
   MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
   ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
@@ -103,11 +110,12 @@ SPEC CHECKSUMS:
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  Socket.IO-Client-Swift: c116d6dc9fd6be9c259bacfe143f8725bce7d79e
   SocketRocket: fccef3f9c5cedea1353a9ef6ada904fde10d6608
+  Starscream: fb2c4510bebf908c62bd383bcf05e673720e91fd
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   TruliooDocV: c27907b001d5fe2dd3443a13ff2888d9f0cccc4f
-  YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 2023d0dae468d5d1e1de5344a6434f926534b80a
+PODFILE CHECKSUM: 846f30469055b3ca5b8c8e1c575c94366bd31584
 
 COCOAPODS: 1.11.3

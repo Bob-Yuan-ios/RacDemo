@@ -8,7 +8,6 @@
 #import <Foundation/Foundation.h>
 #import <ReactiveObjC/ReactiveObjC.h>
 
-#import "NSObject+YYModel.h"
 
 @class LDUserM;
 @class LDContentModel;

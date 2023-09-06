@@ -8,17 +8,14 @@
 import Foundation
 
 import UIKit
-import TruliooSDK
+import metamask_ios_sdk
 
-@objc class SwiftRootViewController : UIViewController, SettingViewDelegate, TruliooDelegate{
+
+@objc class SwiftRootViewController : UIViewController, SettingViewDelegate{
     
     func didSelectedRow(indexPath: IndexPath) {
         self.tableV.tableH.deselectRow(at: indexPath, animated: false)
         print("indexPath~~~ ~~~:\(indexPath.row)")
-        
-        let workflow = TruliooWorkflow("shortCode")
-        Trulioo().initialize(delegate: self, workflow: workflow)
-        
     }
 
     private lazy var tableV = SettingView.init(frame: CGRect.zero)
@@ -33,24 +30,6 @@ import TruliooSDK
 
         self.tableV.tableDelegate = self
         self.tableV.bindView(viewModel: SettingViewModel.init())
-    }
-    
-    //#pragma trulioo delegate method
-    func onInitialized() {
-        print("Trulioo SDK Initialized")
-        Trulioo().launch(delegate: self)
-    }
-    
-    func onComplete(result: TruliooSuccess) {
-        print("Verification success")
-    }
-    
-    func onError(error: TruliooError) {
-        print("Verification error")
-    }
-    
-    func onException(exception: TruliooException) {
-        print("Verification exception")
     }
     
 }

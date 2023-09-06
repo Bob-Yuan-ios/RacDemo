@@ -13,6 +13,10 @@ target 'LanguageDemo' do
     # blinkCard
     pod 'MBBlinkCard'
 
+    # metamask
+    pod 'metamask-ios-sdk'
+
+    
     ######### Objective-C
     # 布局
     pod 'Masonry'
@@ -22,9 +26,6 @@ target 'LanguageDemo' do
     
     # MVVM框架
     pod 'ReactiveObjC'
-    
-    # 字典/模型
-    pod 'YYModel'
     
     # 上拉/下拉 刷新
     pod 'MJRefresh'

@@ -6,7 +6,7 @@
 //
 
 #import "LDLoginViewModel.h"
-#import "NSObject+YYModel.h"
+
 
 @implementation LDLoginViewModel
 
@@ -41,7 +41,7 @@
 
                     NSDictionary *data = [dic objectForKey:@"data"];
                     if (data && [data isKindOfClass:[NSDictionary class]]) {
-                        self.userModel = [LDUserM yy_modelWithDictionary:data];
+//                        self.userModel = [LDUserM yy_modelWithDictionary:data];
                         NSLog(@"返回数据:%@", self.userModel.description);
                         
                         [subscriber sendNext:@{@"code": @(0)}];

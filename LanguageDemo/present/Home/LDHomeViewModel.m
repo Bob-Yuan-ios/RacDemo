@@ -22,7 +22,7 @@
             
             NSInteger startIdx = arr.count;
             for (int i = 1; i <= self.pageSize; i++) {
-                [arr addObject:[LDHomeModel yy_modelWithDictionary:@{@"currencyName": @(i + startIdx)}]];
+//                [arr addObject:[LDHomeModel yy_modelWithDictionary:@{@"currencyName": @(i + startIdx)}]];
             }
             
             self.dataSourceArr = [arr mutableCopy];
