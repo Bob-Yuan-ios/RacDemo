@@ -28,7 +28,7 @@
     return (close - low)/(high - low) * 100;
 }
 
-+ (NSMutableArray *)getKDJ:(YSMACDConfig *)config klineData:(NSArray <YSKLineDataModel *> *)dataList{
++ (NSMutableArray *)getKDJ:(YSKDJConfig *)config klineData:(NSArray <YSKLineDataModel *> *)dataList{
 
     NSMutableArray *resultArr = [@[[@[] mutableCopy],[@[] mutableCopy],[@[] mutableCopy]] mutableCopy];
     

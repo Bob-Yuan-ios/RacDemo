@@ -27,7 +27,7 @@
 
 #endif
 
-#define GTWeakObj(o)   __weak typeof(o) Weak##o = o;
-#define GTStrongObj(o) autoreleasepool{ __strong typeof(o) o = Weak##o};
+#define YSWeakSelf(type) __weak typeof(type) weak##type = type;
+#define YSStronSelf(type) __strong typeof(type) type = weak##type;
 
 #endif /* YSCommonInfo_h */

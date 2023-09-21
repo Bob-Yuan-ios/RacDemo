@@ -39,6 +39,12 @@ NS_ASSUME_NONNULL_BEGIN
 /// 二维数组保存macd索引
 @property (nonatomic, assign) NSUInteger macdIndex;
 
+@property (nonatomic, strong) NSMutableArray *maPeriodArr;
+
+
+@end
+
+@interface YSKDJConfig : NSObject
 
 @property (nonatomic, copy) NSString *kPeriod;
 @property (nonatomic, copy) NSString *dPeriod;
@@ -48,11 +54,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSUInteger dIndex;
 @property (nonatomic, assign) NSUInteger jIndex;
 
-
-@property (nonatomic, strong) NSMutableArray *maPeriodArr;
-
-
 @end
-
 
 NS_ASSUME_NONNULL_END

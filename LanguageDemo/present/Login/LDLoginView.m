@@ -83,12 +83,12 @@ UITextFieldDelegate
     }];
     
 
-    GTWeakObj(self);
+    YSWeakSelf(self);
     [[self.submitBtn rac_signalForControlEvents:UIControlEventTouchUpInside]
                               subscribeNext:^(__kindof UIControl * _Nullable x) {
         //释放才能把输入的值带给模型
-        [Weakself endEditing:YES];
-        if (Weakself.loginBlock)  Weakself.loginBlock();
+        [weakself endEditing:YES];
+        if (weakself.loginBlock)  weakself.loginBlock();
     }];
 }
 

@@ -6,10 +6,7 @@
 //
 
 import Foundation
-
 import UIKit
-import metamask_ios_sdk
-
 
 @objc class SwiftRootViewController : UIViewController, SettingViewDelegate{
     

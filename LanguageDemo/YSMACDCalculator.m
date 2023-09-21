@@ -21,7 +21,10 @@
     return (double)2.f/(period + 1) * dif + (double)(period - 1)/(double)(period + 1) * preDea;
 }
 
-+ (void)getMACD:(YSMACDConfig *)config klineData:(NSArray <YSKLineDataModel *> *)dataList   startIndex:(NSInteger)startIndex result:(void(^)(NSMutableArray *resultArr, CGFloat minValue, CGFloat maxValue))a{
++ (void)getMACD:(YSMACDConfig *)config
+      klineData:(NSArray<YSKLineDataModel *> *)dataList
+     startIndex:(NSInteger)startIndex
+         result:(void(^)(NSMutableArray *resultArr, CGFloat minValue, CGFloat maxValue))a{
     
     NSMutableArray *resultArr = [@[[@[] mutableCopy], [@[] mutableCopy], [@[] mutableCopy]] mutableCopy];
     
@@ -73,10 +76,13 @@
 + (void)getKlineRangeData:(NSArray *)dataList
                startIndex:(NSInteger)startIndex
              elementCount:(NSInteger)elementCount
-                   result:(void(^)( CGFloat minValue, CGFloat maxValue))a{
+                   result:(void(^)(CGFloat minValue, CGFloat maxValue))a
+                  failure:(void(^)(void))b{
     
-    if(![dataList isKindOfClass:[NSArray class]] || 3 != dataList.count){
+    if(![dataList isKindOfClass:[NSArray class]] ||
+       3 != dataList.count){
         NSLog(@"### 子数组个数不满足要求...");
+        if(b) b();
         return;
     }
     
@@ -88,6 +94,7 @@
        deaArr.count < (startIndex + elementCount) ||
        macdArr.count < (startIndex + elementCount)) {
         NSLog(@"### 数组元素个数长度不够...");
+        if(b) b();
         return;
     }
     
@@ -103,7 +110,6 @@
         max = MAX( dif, MAX(dea, MAX(max, macd)));
     }
     
-    NSLog(@"min === (%@) --- max === (%@)", @(min), @(max));
     a(min, max);
 }
 

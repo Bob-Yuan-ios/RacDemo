@@ -29,7 +29,8 @@
 }
 
 - (NSInteger)getCurrentTotalCount{
-    return self.elementCount * self.currentPage;
+    NSInteger totalCount = self.elementCount * self.currentPage;
+    return totalCount;
 }
 
 @end

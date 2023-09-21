@@ -24,19 +24,25 @@
 #import "YSKlineDetailModel.h"
 #import "YSKlineViewModel.h"
 
-@interface YSKlineDetailVC ()
-<
-UIScrollViewDelegate
->
+#import "AppDelegate.h"
+
+@interface YSKlineDetailVC ()<UIScrollViewDelegate>
 
 @property (nonatomic, strong) UIView *macdInfoView;
 @property (nonatomic, strong) UIView *rightPriceView;
 
 // 滑动只绘制时间
-@property (nonatomic, strong) UIScrollView *cadicatorScrollView;
+@property (nonatomic, strong) UIScrollView  *mainScrollView;
+@property (nonatomic, strong) UIView        *mainPainterView;
+
+@property (nonatomic, weak)   MASConstraint *painterViewXConstraint;
+@property (nonatomic, assign) CGFloat       oldContentOffsetX; // 旧的contentoffset值
 
 // 绘制k线
-@property (nonatomic, strong) UIView       *painterView;
+@property (nonatomic, strong) UIView        *macdPainterView;
+
+
+@property (nonatomic, assign) BOOL          firstLoadData;
 
 @property (nonatomic, strong) YSMACDConfig *config;
 @property (nonatomic, strong) YSKlineViewModel *viewModel;
@@ -50,55 +56,86 @@ UIScrollViewDelegate
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.title = @"根视图-2";
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self addChildView];
     [self addChildConstraints];
-    [self addChildSignal];
     
+    _firstLoadData = NO;
     [self loadContent];
 }
 
+- (void)dealloc{
+    NSLog(@"########:%s", __func__);
+}
+
+
 - (void)addChildView{
     [self.view addSubview:self.macdInfoView];
-    [self.view addSubview:self.cadicatorScrollView];
-    [self.cadicatorScrollView addSubview:self.painterView];
+    [self.view addSubview:self.mainScrollView];
+    [self.mainScrollView addSubview:self.mainPainterView];
+//    [self.mainScrollView addSubview:self.macdPainterView];
+    
     [self.view addSubview:self.rightPriceView];
+    
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
+    [self.view addSubview:btn];
+    
+    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_offset(20);
+        make.right.bottom.mas_offset(-20);
+        make.height.mas_equalTo(44);
+    }];
+    
+    btn.backgroundColor = [UIColor yellowColor];
+    [btn addTarget:self action:@selector(changeRootViewController) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)changeRootViewController{
+    AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    [delegate launchObjCRootViewController];
 }
 
 - (void)addChildConstraints{
+ 
     [self.macdInfoView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_offset(100);
         make.left.mas_equalTo(self.view);
         make.height.mas_equalTo(44);
     }];
     
-    [self.cadicatorScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.macdInfoView.mas_bottom);
+    [self.mainScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.macdInfoView.mas_bottom).mas_offset(100);
         make.left.right.mas_equalTo(self.view);
         make.height.mas_equalTo(200);
     }];
     
-    [self.painterView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.right.mas_equalTo(self.cadicatorScrollView);
+    [self.mainPainterView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.width.mas_equalTo(self.mainScrollView);
         make.height.mas_equalTo(100);
+        self.painterViewXConstraint = make.left.equalTo(self.mainScrollView);
     }];
     
-    [self.rightPriceView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.right.bottom.mas_equalTo(self.cadicatorScrollView);
-    }];
-}
-
-- (void)addChildSignal{
-    [[RACObserve(self.detailModel, currentPage) skip:1].distinctUntilChanged subscribeNext:^(id  _Nullable x) {
-        [self loadContent];
-    }];
+//    [self.macdPainterView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.mas_equalTo(self.mainPainterView.mas_bottom);
+//        make.width.mas_equalTo(self.mainPainterView);
+//        make.height.mas_equalTo(100);
+//        self.painterViewXConstraint = make.left.equalTo(self.mainScrollView);
+//    }];
+//
+//    [self.rightPriceView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.right.bottom.mas_equalTo(self.mainScrollView);
+//    }];
 }
 
 - (void)loadContent{
     
-    if(self.detailModel.loadKlineData || self.detailModel.endLoading){
-        NSLog(@"数据请求中/或者数据已加载完成");
+    if(self.detailModel.loadKlineData){
+        NSLog(@"数据请求中...");
+        return;
+    }else if(self.detailModel.endLoading){
+        NSLog(@"数据已加载完成...");
         return;
     }
     
@@ -107,167 +144,55 @@ UIScrollViewDelegate
     [self.viewModel.lineDataCommond execute:nil];
 }
 
-- (void)handMacd:(NSArray *)klineValue{
-    if(klineValue.count < [self.detailModel getCurrentTotalCount]){
-        NSLog(@"no more data...(%@)", @(klineValue.count));
+- (void)handMacd{
+       
+    if(self.detailModel.sourceLineArr.count < self.viewModel.count){
+        NSLog(@"no more data...(%@)", @(self.detailModel.sourceLineArr.count));
         self.detailModel.endLoading = YES;
     }else{
         self.detailModel.endLoading = NO;
-        NSLog(@"load data...(%@)", @(klineValue.count));
+        NSLog(@"load data...(%@)", @(self.detailModel.sourceLineArr.count));
     }
-
-    self.detailModel.startIndex = self.cadicatorScrollView.contentOffset.x/self.detailModel.lineWidth;
-    self.detailModel.endIndex = self.detailModel.startIndex + self.detailModel.elementCount;
-    if(self.detailModel.startIndex < 0) {
-        self.detailModel.loadKlineData = NO;
-        NSLog(@"startIndex error...");
-        return;
-    }
-    
-    NSLog(@"startIndex with handMacd: (%@)=== (%@)", @(self.detailModel.startIndex), @(self.detailModel.endIndex));
-    [YSMACDCalculator getMACD:self.config klineData:klineValue startIndex:self.detailModel.startIndex result:^(NSMutableArray * _Nonnull resultArr, CGFloat minValue, CGFloat maxValue) {
+ 
+    if(self.oldContentOffsetX <= 0){
+        CGFloat contentSizeW = self.detailModel.sourceLineArr.count * self.detailModel.lineWidth;
+        self.mainScrollView.contentSize = CGSizeMake(contentSizeW, 200);
+        CGFloat offset = self.mainScrollView.frame.size.width * 2;
         
-        self.detailModel.macdLineArr = [resultArr mutableCopy];
-        [self setupKlineView:resultArr min:minValue max:maxValue];
         self.detailModel.currentPage = self.detailModel.currentPage + 2;
-        
         self.detailModel.loadKlineData = NO;
-    }];
+        
+        [self.mainScrollView setContentOffset:CGPointMake(MAX(offset, 0), 0) animated:NO];
+    }
 }
 
 - (void)setupLineRange{
-         
-    self.detailModel.startIndex = (self.cadicatorScrollView.contentOffset.x)/self.detailModel.lineWidth;
-    self.detailModel.endIndex = self.detailModel.startIndex + self.detailModel.elementCount;
-
-    if(self.detailModel.startIndex < 0) {
-        NSLog(@"startIndex error...");
-        self.detailModel.loadKlineData = NO;
+     
+    if(self.detailModel.loadKlineData) {
+        NSLog(@"return with isLoading...");
         return;
     }
-    NSLog(@"startIndex with line range (%@)=== (%@)", @(self.detailModel.startIndex), @(self.detailModel.endIndex));
     
-    [YSMACDCalculator getKlineRangeData:self.detailModel.macdLineArr startIndex:self.detailModel.startIndex elementCount:self.detailModel.elementCount result:^(CGFloat minValue, CGFloat maxValue) {
-        
-        [self reloadKlineView:self.detailModel.macdLineArr min:minValue max:maxValue];
+    CGFloat scrollViewOffsetX = self.mainScrollView.contentOffset.x < 0 ? 0 : self.mainScrollView.contentOffset.x;
+    NSUInteger leftArrCount = floor(scrollViewOffsetX / self.detailModel.lineWidth);
+    
+    self.detailModel.startIndex = leftArrCount;
+    self.detailModel.endIndex = self.detailModel.startIndex + self.detailModel.elementCount;
+    
+//    [YSMACDCalculator getKlineRangeData:self.detailModel.macdLineArr startIndex:self.detailModel.startIndex elementCount:self.detailModel.elementCount result:^(CGFloat minValue, CGFloat maxValue) {
+//        [self setupMACDView:self.detailModel.macdLineArr min:minValue max:maxValue];
+//    } failure:^{
+//        NSLog(@"failure");
+//    }];
+    
+    [YSKLineCalculator getKLineRange:self.detailModel.sourceLineArr startIndex:self.detailModel.startIndex elementCount:self.detailModel.elementCount result:^(CGFloat minValue, CGFloat maxValue) {
+        [self setupMainMapViewMin:minValue max:maxValue];
     }];
 }
 
-- (void)reloadKlineView:(NSArray *)resultArr min:(CGFloat)minValue max:(CGFloat)maxValue{
-    NSLog(@"###### reloadKlineView before (%@)", NSStringFromCGPoint(self.cadicatorScrollView.contentOffset));
-    NSArray<CALayer *> *subLayers = self.painterView.layer.sublayers;
-    NSArray<CALayer *> *removedLayers = [subLayers filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id  _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
-        return [evaluatedObject isKindOfClass:[CAShapeLayer class]];
-    }]];
-    [removedLayers enumerateObjectsUsingBlock:^(CALayer * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [obj removeFromSuperlayer];
-    }];
-
-    CGPoint offsetPoint = self.cadicatorScrollView.contentOffset;
-    [self.painterView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_lessThanOrEqualTo(offsetPoint.x);
-        make.width.mas_equalTo(self.detailModel.screenWidth);
-        make.height.mas_equalTo(100);
-    }];
-    NSLog(@"###### reloadKlineView after(%@) === (%@)", NSStringFromCGPoint(self.cadicatorScrollView.contentOffset), NSStringFromCGSize(self.cadicatorScrollView.contentSize));
+- (void)setupMainMapViewMin:(CGFloat)minValue max:(CGFloat)maxValue{
     
-    [self setPriceRange:minValue maxValue:maxValue];
-    [self selectedMacd:resultArr idx:resultArr.count];
-       
-    NSArray *colorArr = @[[UIColor greenColor], [UIColor purpleColor], [UIColor brownColor]];
-    for (NSInteger i = (resultArr.count - 1); i >= 0; i--) {
-
-        if(2 == i){
-            for (NSInteger j = self.detailModel.startIndex; j < MIN(self.detailModel.elementCount + self.detailModel.startIndex, [resultArr[i] count]); j++) {
-                CGFloat pointY = 0;
-                CGFloat element = [resultArr[i][j] doubleValue];
-                
-                UIColor *rectColor = [UIColor redColor];
-                if(0 == element){
-                    pointY = 50;
-                }else if(element < 0){
-                    rectColor = [UIColor greenColor];
-                    pointY = 50 + fabs(element/minValue) * 50;
-                }else if(element > 0){
-                    pointY = 50 - fabs(element/maxValue) * 50;
-                }
-                
-                CGFloat pointX = self.detailModel.lineWidth * (j - self.detailModel.startIndex);
-                
-                UIBezierPath *linePath = [UIBezierPath bezierPath];
-                [linePath moveToPoint:CGPointMake(pointX, pointY)];
-                [linePath addLineToPoint:CGPointMake(pointX, 50)];
-                [linePath addLineToPoint:CGPointMake(pointX - self.detailModel.lineWidth + 1, 50)];
-                [linePath addLineToPoint:CGPointMake(pointX - self.detailModel.lineWidth + 1, pointY)];
-                [linePath closePath];
-
-                CAShapeLayer *shapeLayer = [CAShapeLayer layer];
-                shapeLayer.lineWidth = 1.f;
-                shapeLayer.fillColor = [rectColor CGColor];
-                shapeLayer.strokeColor = [[UIColor clearColor] CGColor];
-                shapeLayer.path = linePath.CGPath;
-                [self.painterView.layer addSublayer:shapeLayer];
-            }
-            
-        }else{
-            UIBezierPath *linePath = [UIBezierPath bezierPath];
-            for (NSInteger j = self.detailModel.startIndex; j < MIN(self.detailModel.elementCount + self.detailModel.startIndex, [resultArr[i] count]); j++) {
-                CGFloat pointY = 0;
-                CGFloat element = [resultArr[i][j] doubleValue];
-                
-                if(0 == element){
-                    pointY = 50;
-                }else if(element < 0){
-                    pointY = 50 + fabs(element/minValue) * 50;
-                }else if(element > 0){
-                    pointY = 50 - fabs(element/maxValue) * 50;
-                }
-                
-                CGFloat pointX = self.detailModel.lineWidth * (j - self.detailModel.startIndex);
-                CGPoint point = CGPointMake(pointX, pointY);
-                
-                if(j == self.detailModel.startIndex){
-                    [linePath moveToPoint:point];
-                }else{
-                    [linePath addLineToPoint:point];
-                }
-            }
-            
-            CAShapeLayer *shapeLayer = [CAShapeLayer layer];
-            shapeLayer.lineWidth = 1.f;
-            shapeLayer.strokeColor = [(UIColor *)[colorArr objectAtIndex:i] CGColor];
-            shapeLayer.fillColor = [[UIColor clearColor] CGColor];
-            shapeLayer.path = linePath.CGPath;
-            
-            [self.painterView.layer addSublayer:shapeLayer];
-        }
-    }
-}
-
-
-- (void)setupKlineView:(NSArray *)resultArr min:(CGFloat)minValue max:(CGFloat)maxValue{
-       
-    NSLog(@"###### refreshKLineView before (%@)", NSStringFromCGPoint(self.cadicatorScrollView.contentOffset));
-
-    __block NSUInteger maxCount = 0;
-    [resultArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        maxCount = MAX([(NSArray *)obj count], maxCount);
-    }];
-    
-    CGFloat width = self.detailModel.lineWidth * maxCount;
-    self.cadicatorScrollView.contentSize = CGSizeMake(width, 100);
-    
-    CGPoint offsetPoint = CGPointMake(self.detailModel.elementCount * 2 * self.detailModel.lineWidth + self.cadicatorScrollView.contentOffset.x, 0);
-    [self.cadicatorScrollView setContentOffset:offsetPoint animated:NO];
-    [self.painterView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_greaterThanOrEqualTo(offsetPoint.x);
-        make.width.mas_equalTo(self.detailModel.screenWidth);
-        make.height.mas_equalTo(100);
-    }];
-    
-    return;
-    
-    NSArray<CALayer *> *subLayers = self.painterView.layer.sublayers;
+    NSArray<CALayer *> *subLayers = self.mainPainterView.layer.sublayers;
     NSArray<CALayer *> *removedLayers = [subLayers filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id  _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
         return [evaluatedObject isKindOfClass:[CAShapeLayer class]];
     }]];
@@ -276,12 +201,63 @@ UIScrollViewDelegate
     }];
     
  
+    CGFloat element = 95/(maxValue - minValue);
     
-    NSLog(@"###### refreshKLineView  %@ ==== %@", @(width), @(offsetPoint.x));
-    NSLog(@"###### refreshKLineView  after(%@) === (%@)", NSStringFromCGPoint(self.cadicatorScrollView.contentOffset), NSStringFromCGSize(self.cadicatorScrollView.contentSize));
+    NSLog(@"startIndex===(%@)", @(self.detailModel.startIndex));
+    for (NSInteger j = self.detailModel.startIndex; j < self.detailModel.elementCount + self.detailModel.startIndex; j++) {
+       
+        YSKLineDataModel *dataModel = self.detailModel.sourceLineArr[j];
+        UIColor *rectColor = [UIColor redColor];
+        
+        CGFloat closePrice = dataModel.close.doubleValue;
+        CGFloat openPrice = dataModel.open.doubleValue;
+        CGFloat hightPrice = dataModel.high.doubleValue;
+        CGFloat lowPrice = dataModel.low.doubleValue;
+
+        CGFloat pointX = self.detailModel.lineWidth * (j - self.detailModel.startIndex);
+
+        UIBezierPath *rectPath;
+        rectPath.lineWidth = 1.f;
+        
+        if(closePrice - openPrice < 0) {
+            rectColor = [UIColor greenColor];
+            CGRect rectFrame = CGRectMake(pointX,
+                                          100 - element * (maxValue - openPrice),
+                                          self.detailModel.lineWidth + 1,
+                                          100 - element * (maxValue - closePrice));
+            rectPath = [UIBezierPath bezierPathWithRect:rectFrame];
+        }else{
+            CGRect rectFrame = CGRectMake(pointX,
+                                          100 - element * (maxValue - closePrice),
+                                          self.detailModel.lineWidth + 1,
+                                                           100 - element * (maxValue - openPrice));
+            rectPath = [UIBezierPath bezierPathWithRect:rectFrame];        }
+
+        CAShapeLayer *shapeLayer = [CAShapeLayer layer];
+        shapeLayer.lineWidth = 1.f;
+        shapeLayer.fillColor = [rectColor CGColor];
+        shapeLayer.strokeColor = [[UIColor clearColor] CGColor];
+        
+        shapeLayer.path = rectPath.CGPath;
+        [self.mainPainterView.layer addSublayer:shapeLayer];
+        
+    }
+}
+
+- (void)setupMACDView:(NSArray *)resultArr min:(CGFloat)minValue max:(CGFloat)maxValue{
+
+    return;
+    NSArray<CALayer *> *subLayers = self.macdPainterView.layer.sublayers;
+    NSArray<CALayer *> *removedLayers = [subLayers filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id  _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
+        return [evaluatedObject isKindOfClass:[CAShapeLayer class]];
+    }]];
+    [removedLayers enumerateObjectsUsingBlock:^(CALayer * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj removeFromSuperlayer];
+    }];
+    
     [self setPriceRange:minValue maxValue:maxValue];
     [self selectedMacd:resultArr idx:resultArr.count];
-       
+           
     NSArray *colorArr = @[[UIColor greenColor], [UIColor purpleColor], [UIColor brownColor]];
     for (NSInteger i = (resultArr.count - 1); i >= 0; i--) {
 
@@ -314,12 +290,12 @@ UIScrollViewDelegate
                 shapeLayer.fillColor = [rectColor CGColor];
                 shapeLayer.strokeColor = [[UIColor clearColor] CGColor];
                 shapeLayer.path = linePath.CGPath;
-                [self.painterView.layer addSublayer:shapeLayer];
+                [self.macdPainterView.layer addSublayer:shapeLayer];
             }
             
         }else{
             UIBezierPath *linePath = [UIBezierPath bezierPath];
-            for (NSInteger j = self.detailModel.startIndex; j < MIN(self.detailModel.elementCount + self.detailModel.startIndex, [resultArr[i] count]); j++) {
+            for (NSInteger j = self.detailModel.startIndex; j < MAX(self.detailModel.elementCount + self.detailModel.startIndex, [resultArr[i] count]); j++) {
                 CGFloat pointY = 0;
                 CGFloat element = [resultArr[i][j] doubleValue];
                 
@@ -347,7 +323,7 @@ UIScrollViewDelegate
             shapeLayer.fillColor = [[UIColor clearColor] CGColor];
             shapeLayer.path = linePath.CGPath;
             
-            [self.painterView.layer addSublayer:shapeLayer];
+            [self.macdPainterView.layer addSublayer:shapeLayer];
         }
     }
 }
@@ -375,56 +351,70 @@ UIScrollViewDelegate
     macdLabel.text = [NSString stringWithFormat:@"MACD:%@", [(NSArray *)resultArr[2] objectAtIndex:idx]];
 }
 
+#pragma mark scrollview delegate method
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+
+    self.oldContentOffsetX = self.mainScrollView.contentOffset.x;
+    
+    if (self.mainScrollView.contentOffset.x < 0) {
+        self.painterViewXConstraint.offset = 0;
+        [self loadContent];
+    } else {
+        self.painterViewXConstraint.offset = scrollView.contentOffset.x;
+        [self setupLineRange];
+    }
+
+}
+
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
     
 }
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    NSLog(@"scrollViewDidScroll === (%@) === (%@) (%@)", NSStringFromCGPoint(scrollView.contentOffset), @(self.detailModel.endLoading), @(self.detailModel.loadKlineData));
-    if(!self.detailModel.endLoading &&
-       !self.detailModel.loadKlineData &&
-       scrollView.contentOffset.x < self.detailModel.screenWidth * 1.2){
-        [self loadContent];
-    }else{
-        [self setupLineRange];
-    }
-}
-
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
     
 }
 
-// 高度是不变的。 只变宽度
-
-#pragma mark lazy load
-- (UIScrollView *)cadicatorScrollView{
-    if(!_cadicatorScrollView){
-        _cadicatorScrollView = [[UIScrollView alloc] init];
-        _cadicatorScrollView.delegate = self;
-        _cadicatorScrollView.backgroundColor = [UIColor grayColor];
-        _cadicatorScrollView.showsHorizontalScrollIndicator = NO;
-    }
-    return _cadicatorScrollView;
-}
 
 - (void)tapKlinePoint:(UITapGestureRecognizer *)ges{
-    CGPoint point = [ges locationInView:self.painterView];
-    NSInteger pointIndex = (point.x + self.cadicatorScrollView.contentOffset.x)/self.detailModel.lineWidth;
-    NSLog(@"===== startIndex is:(%@)", @(self.detailModel.startIndex));
-    NSLog(@"point...(%@)====(%@)", NSStringFromCGPoint(point), @(pointIndex));
+    CGPoint point = [ges locationInView:self.mainPainterView];
+    NSInteger pointIndex = (point.x + self.mainScrollView.contentOffset.x)/self.detailModel.lineWidth;
+    if(self.detailModel.sourceLineArr.count > pointIndex){
+        NSLog(@"###### pointIndex:%@ value:(%@)", @(pointIndex), self.detailModel.sourceLineArr[pointIndex]);
+    }else{
+        NSLog(@"###### pointIndex:(%@) count:(%@)", @(pointIndex), @(self.detailModel.sourceLineArr.count));
+    }
 }
     
-- (UIView *)painterView{
-    if(!_painterView){
-        _painterView = [[UIView alloc] init];
-        _painterView.backgroundColor = [UIColor lightGrayColor];
+#pragma mark lazy load
+- (UIScrollView *)mainScrollView{
+    if(!_mainScrollView){
+        _mainScrollView = [[UIScrollView alloc] init];
+        _mainScrollView.delegate = self;
+        _mainScrollView.showsHorizontalScrollIndicator = NO;
+        _mainScrollView.backgroundColor = [UIColor yellowColor];
+
+    }
+    return _mainScrollView;
+}
+
+- (UIView *)mainPainterView{
+    if(!_mainPainterView){
+        _mainPainterView = [[UIView alloc] init];
+        _mainPainterView.backgroundColor = [UIColor purpleColor];
         
         UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                  action:@selector(tapKlinePoint:)];
-        [_painterView addGestureRecognizer:tapGes];
+        [_mainPainterView addGestureRecognizer:tapGes];
     }
-    return _painterView;
+    return _mainPainterView;
+}
+
+- (UIView *)macdPainterView{
+    if(!_macdPainterView){
+        _macdPainterView = [[UIView alloc] init];
+        _macdPainterView.backgroundColor = [UIColor lightGrayColor];
+    }
+    return _macdPainterView;
 }
 
 - (UIView *)macdInfoView{
@@ -523,18 +513,20 @@ UIScrollViewDelegate
     if(!_viewModel){
         _viewModel = [[YSKlineViewModel alloc] init];
         
-        GTWeakObj(self);
+        YSWeakSelf(self);
         [_viewModel.lineDataCommond.executionSignals.switchToLatest.deliverOnMainThread
             subscribeNext:^(id  _Nullable x) {
             RACTupleUnpack(NSArray *klineValue) = x;
-            
+
+            YSStronSelf(self);
             self.detailModel.sourceLineArr = [klineValue mutableCopy];
-            [Weakself handMacd:klineValue];
+            [self handMacd];
         }];
-        
+
         [_viewModel.lineDataCommond.errors.deliverOnMainThread
             subscribeNext:^(NSError * _Nullable x) {
             NSLog(@"error information is:(%@)", x.userInfo);
+            YSStronSelf(self);
             self.detailModel.loadKlineData = NO;
         }];
     }

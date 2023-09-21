@@ -10,8 +10,6 @@
 #import "YSMACDCalculator.h"
 #import "NSObject+MJKeyValue.h"
 
-#define YSWeakSelf(type) __weak typeof(type) weak##type = type;
-#define YSStronSelf(type) __strong typeof(type) type = weak##type;
 
 @interface YSKlineViewModel ()
 
@@ -23,7 +21,10 @@
 
 - (RACSignal *)lineDataSignal{
     if(!_lineDataSignal){
+        
+        YSWeakSelf(self);
         _lineDataSignal = [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+            YSStronSelf(self);
 
             NSString *urlStr = [NSString stringWithFormat:@"http://money.finance.sina.com.cn/quotes_service/api/json_v2.php/CN_MarketData.getKLineData?symbol=sz002096&scale=60&ma=no&datalen=%lu", self.count];
             NSLog(@"urlStr is..(%@)", urlStr);

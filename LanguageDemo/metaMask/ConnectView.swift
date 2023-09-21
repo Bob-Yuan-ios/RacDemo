@@ -16,7 +16,7 @@ struct ConnectView: View {
     @ObservedObject var ethereum = MetaMaskSDK.shared.ethereum
     @State private var cancellables: Set<AnyCancellable> = []
 
-    private let dapp = Dapp(name: "Dub Dapp", url: "https://dubdapp.com")
+    private let dapp = Dapp(name: "BTCC", url: "https://www.btcc.com")
 
     @State private var connected: Bool = false
     @State private var status: String = "Offline"

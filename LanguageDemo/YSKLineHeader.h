@@ -11,3 +11,5 @@
 #import "YSMACDCalculator.h"
 #import "YSRSICalculator.h"
 
+#import "YSKLineCalculator.h"
+

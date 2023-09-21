@@ -39,7 +39,7 @@ typedef NS_ENUM(NSUInteger, AUTH_TYPE) {
     _window.backgroundColor = [UIColor whiteColor];
     [_window makeKeyAndVisible];
     
-    [self launchMetaMask];
+    [self launchKLine];
     return YES;
 }
  
@@ -51,6 +51,12 @@ typedef NS_ENUM(NSUInteger, AUTH_TYPE) {
 
 - (void)launchSwiftRootViewController{
     SwiftRootViewController *vc = [[SwiftRootViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    [_window setRootViewController:nav];
+}
+
+- (void)launchKLine{
+    YSKlineDetailVC *vc = [[YSKlineDetailVC alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
     [_window setRootViewController:nav];
 }

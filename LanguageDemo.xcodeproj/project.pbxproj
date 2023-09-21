@@ -54,6 +54,8 @@
 		C4C8948626AAB05B005E39F5 /* UIImage+Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C8948526AAB05B005E39F5 /* UIImage+Filter.m */; };
 		C4C8948926AAB750005E39F5 /* UIImageView+Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C8948826AAB750005E39F5 /* UIImageView+Filter.m */; };
 		C4CACCE92669E53C00712ED2 /* RacRedVM.m in Sources */ = {isa = PBXBuildFile; fileRef = C4CACCE82669E53C00712ED2 /* RacRedVM.m */; };
+		C4D4DE7D2AB3EFE500A95244 /* YSMacdView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D4DE7C2AB3EFE500A95244 /* YSMacdView.m */; };
+		C4D4DE802AB45F4000A95244 /* YSKLineCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D4DE7F2AB45F4000A95244 /* YSKLineCalculator.m */; };
 		C4D865FC2A4D295600AA7A2D /* YSRSICalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D865FB2A4D295600AA7A2D /* YSRSICalculator.m */; };
 		C4D865FF2A4D2B0900AA7A2D /* YSKLineDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D865FE2A4D2B0900AA7A2D /* YSKLineDataModel.m */; };
 		C4D866022A4D2CD400AA7A2D /* YSMACDCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D866012A4D2CD400AA7A2D /* YSMACDCalculator.m */; };
@@ -145,6 +147,10 @@
 		C4C8948826AAB750005E39F5 /* UIImageView+Filter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Filter.m"; sourceTree = "<group>"; };
 		C4CACCE72669E53C00712ED2 /* RacRedVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RacRedVM.h; sourceTree = "<group>"; };
 		C4CACCE82669E53C00712ED2 /* RacRedVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RacRedVM.m; sourceTree = "<group>"; };
+		C4D4DE7B2AB3EFE500A95244 /* YSMacdView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSMacdView.h; sourceTree = "<group>"; };
+		C4D4DE7C2AB3EFE500A95244 /* YSMacdView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSMacdView.m; sourceTree = "<group>"; };
+		C4D4DE7E2AB45F4000A95244 /* YSKLineCalculator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSKLineCalculator.h; sourceTree = "<group>"; };
+		C4D4DE7F2AB45F4000A95244 /* YSKLineCalculator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSKLineCalculator.m; sourceTree = "<group>"; };
 		C4D865FA2A4D295600AA7A2D /* YSRSICalculator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSRSICalculator.h; sourceTree = "<group>"; };
 		C4D865FB2A4D295600AA7A2D /* YSRSICalculator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSRSICalculator.m; sourceTree = "<group>"; };
 		C4D865FD2A4D2B0900AA7A2D /* YSKLineDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSKLineDataModel.h; sourceTree = "<group>"; };
@@ -385,6 +391,8 @@
 				C4C6A9682A72147A00EBCA8E /* YSRootViewController.m */,
 				C4FDD6DE2667237400E444F2 /* YSKlineDetailVC.h */,
 				C4FDD6DB2667237400E444F2 /* YSKlineDetailVC.m */,
+				C4D4DE7B2AB3EFE500A95244 /* YSMacdView.h */,
+				C4D4DE7C2AB3EFE500A95244 /* YSMacdView.m */,
 				C43009F52A4EDE320001DE85 /* YSKlineViewModel.h */,
 				C43009F62A4EDE320001DE85 /* YSKlineViewModel.m */,
 				C4D866152A4EAC1000AA7A2D /* YSKlineDetailModel.h */,
@@ -460,6 +468,8 @@
 				C4D866072A4D496700AA7A2D /* YSWRCalculator.m */,
 				C4D866092A4D4A9900AA7A2D /* YSMACalculator.h */,
 				C4D8660A2A4D4A9900AA7A2D /* YSMACalculator.m */,
+				C4D4DE7E2AB45F4000A95244 /* YSKLineCalculator.h */,
+				C4D4DE7F2AB45F4000A95244 /* YSKLineCalculator.m */,
 			);
 			name = kline;
 			sourceTree = "<group>";
@@ -611,6 +621,7 @@
 				C425F59726A94BBF0091918D /* RacRedSubView.m in Sources */,
 				C44E7CD8299A080E007B1B1E /* SwiftRootViewController.swift in Sources */,
 				C44EEAC7295ED97D0083CD03 /* YSHttpManager.m in Sources */,
+				C4D4DE802AB45F4000A95244 /* YSKLineCalculator.m in Sources */,
 				C44E7CD3299A07D4007B1B1E /* SettingViewModel.swift in Sources */,
 				C40374BA2A9304E400FE2308 /* YSListModel.m in Sources */,
 				C47EA04B2AA70297003BD5D5 /* NetworkView.swift in Sources */,
@@ -643,6 +654,7 @@
 				C48489BC2775C67D0033194C /* LDLoginView.m in Sources */,
 				C47EA0472AA70297003BD5D5 /* ToastView.swift in Sources */,
 				C473DFA6277EC1E100CF669A /* LDHomeViewModel.m in Sources */,
+				C4D4DE7D2AB3EFE500A95244 /* YSMacdView.m in Sources */,
 				C494044529697A38000A1CF9 /* YSActionSheet.m in Sources */,
 				C4FDD6D52667236900E444F2 /* RacRedView.m in Sources */,
 				C46817A6266B33C30026F60C /* YSTextField.m in Sources */,
