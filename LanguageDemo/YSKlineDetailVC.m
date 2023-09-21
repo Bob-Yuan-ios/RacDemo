@@ -355,7 +355,7 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
 
     self.oldContentOffsetX = self.mainScrollView.contentOffset.x;
-    
+
     if (self.mainScrollView.contentOffset.x < 0) {
         self.painterViewXConstraint.offset = 0;
         [self loadContent];
