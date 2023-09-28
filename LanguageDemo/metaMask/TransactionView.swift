@@ -75,6 +75,31 @@ struct TransactionView: View {
         .background(Color.blue.grayscale(0.5))
     }
 
+    func getBalanceRequest() {
+        let paramters: [String] = [
+            ethereum.selectedAddress,
+            "lastest"
+        ]
+        
+        let balanceRequest = EthereumRequest(
+            method: .ethGetBalance,
+            params: paramters
+        )
+        
+        ethereum.request(balanceRequest)?.sink(receiveCompletion: { completion in
+            switch completion {
+                case .failure(let error):
+                    print("error information:\(error.localizedDescription)")
+                    break
+                default:
+                    break
+            }
+        }, receiveValue: { result in
+            print("balance: \(result)")
+        })
+        .store(in: &cancellables)
+    }
+    
     func sendTransaction() {
         let transaction = Transaction(
             to: to,
