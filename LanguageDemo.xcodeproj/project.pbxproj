@@ -63,6 +63,7 @@
 		C4D866082A4D496700AA7A2D /* YSWRCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D866072A4D496700AA7A2D /* YSWRCalculator.m */; };
 		C4D8660B2A4D4A9900AA7A2D /* YSMACalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D8660A2A4D4A9900AA7A2D /* YSMACalculator.m */; };
 		C4D866172A4EAC1000AA7A2D /* YSKlineDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D866162A4EAC1000AA7A2D /* YSKlineDetailModel.m */; };
+		C4E3EF0E2AC521DF00B12D2F /* NSString+UTFCode.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3EF0D2AC521DF00B12D2F /* NSString+UTFCode.m */; };
 		C4ECDDCD2966D67F00C1FA36 /* YSTcpSocketRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C4ECDDCC2966D67F00C1FA36 /* YSTcpSocketRequest.m */; };
 		C4FDD6D52667236900E444F2 /* RacRedView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FDD6D22667236900E444F2 /* RacRedView.m */; };
 		C4FDD6D62667236900E444F2 /* YSRACLearnM.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FDD6D32667236900E444F2 /* YSRACLearnM.m */; };
@@ -166,6 +167,8 @@
 		C4D8660D2A4D51A800AA7A2D /* YSKLineHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSKLineHeader.h; sourceTree = "<group>"; };
 		C4D866152A4EAC1000AA7A2D /* YSKlineDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSKlineDetailModel.h; sourceTree = "<group>"; };
 		C4D866162A4EAC1000AA7A2D /* YSKlineDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSKlineDetailModel.m; sourceTree = "<group>"; };
+		C4E3EF0C2AC521DF00B12D2F /* NSString+UTFCode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+UTFCode.h"; sourceTree = "<group>"; };
+		C4E3EF0D2AC521DF00B12D2F /* NSString+UTFCode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+UTFCode.m"; sourceTree = "<group>"; };
 		C4ECDDCB2966D67F00C1FA36 /* YSTcpSocketRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSTcpSocketRequest.h; sourceTree = "<group>"; };
 		C4ECDDCC2966D67F00C1FA36 /* YSTcpSocketRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSTcpSocketRequest.m; sourceTree = "<group>"; };
 		C4FDD6D12667236900E444F2 /* YSRACLearnM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSRACLearnM.h; sourceTree = "<group>"; };
@@ -384,6 +387,7 @@
 				C44EEAB7295E8BD10083CD03 /* basicService */,
 				C44EEAB6295E8BB90083CD03 /* business */,
 				C44EEAB5295E8BA70083CD03 /* present */,
+				C4E3EF0B2AC521B600B12D2F /* category */,
 				C4FDD6D02667236900E444F2 /* Learning */,
 				C4629D4826244CBC00029564 /* AppDelegate.h */,
 				C4629D4926244CBC00029564 /* AppDelegate.m */,
@@ -472,6 +476,15 @@
 				C4D4DE7F2AB45F4000A95244 /* YSKLineCalculator.m */,
 			);
 			name = kline;
+			sourceTree = "<group>";
+		};
+		C4E3EF0B2AC521B600B12D2F /* category */ = {
+			isa = PBXGroup;
+			children = (
+				C4E3EF0C2AC521DF00B12D2F /* NSString+UTFCode.h */,
+				C4E3EF0D2AC521DF00B12D2F /* NSString+UTFCode.m */,
+			);
+			path = category;
 			sourceTree = "<group>";
 		};
 		C4FDD6D02667236900E444F2 /* Learning */ = {
@@ -628,6 +641,7 @@
 				C47EA04C2AA70297003BD5D5 /* ButtonStyle.swift in Sources */,
 				C47EA04E2AA70297003BD5D5 /* TextStyle.swift in Sources */,
 				C4CACCE92669E53C00712ED2 /* RacRedVM.m in Sources */,
+				C4E3EF0E2AC521DF00B12D2F /* NSString+UTFCode.m in Sources */,
 				C49EC46C26C10E7100F130F8 /* ThreadModel.m in Sources */,
 				C4C8948626AAB05B005E39F5 /* UIImage+Filter.m in Sources */,
 				C48489BF2775C68C0033194C /* LDLoginViewModel.m in Sources */,

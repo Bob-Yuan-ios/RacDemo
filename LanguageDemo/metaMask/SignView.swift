@@ -67,7 +67,8 @@ struct SignView: View {
 
     
     func updateMessage() {
-        message = "0x313233"
+        message = "0x".appending(LDEncypt.hexString(from: "123")) 
+        print("### 780 message: \(message)")
     }
 
     func signInput() {

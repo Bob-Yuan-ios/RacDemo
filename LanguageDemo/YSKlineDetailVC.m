@@ -363,7 +363,6 @@
         self.painterViewXConstraint.offset = scrollView.contentOffset.x;
         [self setupLineRange];
     }
-
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{

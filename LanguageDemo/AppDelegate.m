@@ -16,7 +16,7 @@
 
 // 导入后可以调用Swift
 #import "LanguageDemo-Swift.h"
-
+#import "NSString+UTFCode.h"
 
 typedef NS_ENUM(NSUInteger, AUTH_TYPE) {
     AUTH_TYPE_LINE,
@@ -38,11 +38,13 @@ typedef NS_ENUM(NSUInteger, AUTH_TYPE) {
     _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     _window.backgroundColor = [UIColor whiteColor];
     [_window makeKeyAndVisible];
-    
-    [self launchKLine];
+        
+    [self launchMetaMask];
     return YES;
 }
  
+
+
 - (void)launchObjCRootViewController{
     YSRootViewController *vc = [[YSRootViewController alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];

@@ -5,3 +5,5 @@
 
 
 #import "LDEncypt.h"
+
+#import "NSString+UTFCode.h"

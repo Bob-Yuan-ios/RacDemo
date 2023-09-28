@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSDictionary *)jwtDecodeWithJwtString:(NSString *)jwtStr;
 
++ (NSString *)hexStringFromString:(NSString *)str;
 @end
 
 NS_ASSUME_NONNULL_END
