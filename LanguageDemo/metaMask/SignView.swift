@@ -70,6 +70,31 @@ struct SignView: View {
         message = "0x".appending(LDEncypt.hexString(from: "123")) 
         print("### 780 message: \(message)")
     }
+    
+    func getBalance() {
+        let from = ethereum.selectedAddress
+        let params: [String] = [from, "latest"]
+        let balanceRequest = EthereumRequest(
+            method: .ethGetBalance,
+            params: params
+        )
+        
+        ethereum.request(balanceRequest)?.sink(receiveCompletion: { completion in
+            switch completion {
+            case let .failure(error):
+                errorMessage = error.localizedDescription
+                showError = true
+                print("Error: \(errorMessage)")
+            default: break
+                
+            }
+        }, receiveValue: { value in
+            
+            let result1 = value as? String ?? ""
+            print("result: balance ... \(result1)")
+            
+        }).store(in: &cancellables)
+    }
 
     func signInput() {
         let from = ethereum.selectedAddress
@@ -86,9 +111,15 @@ struct SignView: View {
                 showError = true
                 print("Error: \(errorMessage)")
             default: break
+                
             }
         }, receiveValue: { value in
+            
             self.result = value as? String ?? ""
+            print("result: \(self.result)")
+            
+            getBalance()
+            
         }).store(in: &cancellables)
     }
 }

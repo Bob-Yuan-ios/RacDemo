@@ -39,7 +39,7 @@ typedef NS_ENUM(NSUInteger, AUTH_TYPE) {
     _window.backgroundColor = [UIColor whiteColor];
     [_window makeKeyAndVisible];
         
-    [self launchMetaMask];
+    [self launchObjCRootViewController];
     return YES;
 }
  

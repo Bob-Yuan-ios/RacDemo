@@ -4,12 +4,14 @@
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import AVFoundation
 import CoreML
+import Darwin
 import Foundation
 import Lottie
 import QuartzCore
 import Swift
 import SwiftUI
 import UIKit
+import Vision
 import _Concurrency
 import _StringProcessing
 public protocol PTruliooResult : Swift.Encodable {
@@ -51,7 +53,7 @@ public protocol TruliooDelegate {
   func onComplete(result: TruliooSDK.TruliooSuccess)
 }
 public protocol TruliooScannerDelegate {
-  func withShortCodeOrNull(shortCode: Swift.String?)
+  func withParametersOrNull(locale: Swift.String?, shortCode: Swift.String?)
 }
 public struct TruliooUtils {
   public class Scanner {
@@ -60,9 +62,19 @@ public struct TruliooUtils {
     @objc deinit
   }
 }
+public struct TruliooWorkflowTheme {
+  public let logoAssetName: Swift.String?
+  public let primaryButtonColorName: Swift.String?
+  public let primaryButtonTextColorName: Swift.String?
+  public init(logoAssetName: Swift.String?, primaryButtonColorName: Swift.String?, primaryButtonTextColorName: Swift.String?)
+}
 public struct TruliooWorkflow {
-  public init(_ shortCode: Swift.String)
   public let shortCode: Swift.String
+  public let locale: Swift.String?
+  public let theme: TruliooSDK.TruliooWorkflowTheme?
+  public let isDemoMode: Swift.Bool
+  public let enableDocumentAutoCapture: Swift.Bool
+  public init(shortCode: Swift.String, locale: Swift.String? = nil, theme: TruliooSDK.TruliooWorkflowTheme? = nil, isDemoMode: Swift.Bool = false, enableDocumentAutoCapture: Swift.Bool = true)
 }
 public class Trulioo {
   public init()

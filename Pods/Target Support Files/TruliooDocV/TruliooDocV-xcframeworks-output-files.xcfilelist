@@ -1,3 +1,2 @@
 ${PODS_XCFRAMEWORKS_BUILD_DIR}/TruliooDocV/TruliooSDK.framework
 ${PODS_XCFRAMEWORKS_BUILD_DIR}/TruliooDocV/TruliooCore.framework
-${PODS_XCFRAMEWORKS_BUILD_DIR}/TruliooDocV/Lottie.framework

@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface YSJJListModel : NSObject
 
 @property (nonatomic, strong) RACCommand *jjCommand;
+@property (nonatomic, strong) RACCommand *blockTopCommand;
 
 @end
 

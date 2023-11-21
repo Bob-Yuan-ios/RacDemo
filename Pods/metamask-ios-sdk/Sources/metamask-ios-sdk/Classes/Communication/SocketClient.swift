@@ -14,6 +14,7 @@ protocol CommunicationClient: AnyObject {
     var clientName: String { get }
     var dapp: Dapp? { get set }
     var deeplinkUrl: String { get }
+    var useDeeplinks: Bool { get set }
     var isConnected: Bool { get set }
     var serverUrl: String { get set }
     var hasValidSession: Bool { get }
@@ -27,6 +28,7 @@ protocol CommunicationClient: AnyObject {
     func connect()
     func disconnect()
     func clearSession()
+    func trackEvent(_ event: Event)
     func enableTracking(_ enable: Bool)
     func addRequest(_ job: @escaping RequestJob)
     func sendMessage<T: CodableData>(_ message: T, encrypt: Bool)
@@ -69,6 +71,7 @@ class SocketClient: CommunicationClient {
     }
 
     var isConnected: Bool = false
+    private var isReconnection = false
     var tearDownConnection: (() -> Void)?
     var onClientsTerminated: (() -> Void)?
 
@@ -76,9 +79,15 @@ class SocketClient: CommunicationClient {
     var receiveResponse: ((String, [String: Any]) -> Void)?
     
     var requestJobs: [RequestJob] = []
+    
+    var useDeeplinks: Bool = false
+    
+    private var _deeplinkUrl: String {
+        useDeeplinks ? "metamask:/" : "https://metamask.app.link"
+    }
 
     var deeplinkUrl: String {
-        "https://metamask.app.link/connect?channelId="
+        "\(_deeplinkUrl)/connect?channelId="
             + channelId
             + "&comm=socket"
             + "&pubkey="
@@ -99,17 +108,15 @@ class SocketClient: CommunicationClient {
         handleDisconnection()
     }
 
-    func resetClient() {
-        isConnected = false
-        self.keyExchange.reset()
-        tearDownConnection?()
-    }
-
     func connect() {
         guard !channel.isConnected else { return }
         
         setupClient()
-        trackEvent(.connectionRequest)
+        if isReconnection {
+            trackEvent(.reconnectionRequest)
+        } else {
+            trackEvent(.connectionRequest)
+        }
         channel.connect()
     }
 
@@ -127,6 +134,7 @@ class SocketClient: CommunicationClient {
     private func configureSession() {
         if let config = fetchSessionConfig(), config.isValid {
             channelId = config.sessionId
+            isReconnection = true
         } else {
             // purge any existing session info
             store.deleteData(for: SESSION_KEY)
@@ -137,7 +145,6 @@ class SocketClient: CommunicationClient {
     
     func clearSession() {
         store.deleteData(for: SESSION_KEY)
-        resetClient()
         setupClient()
     }
     
@@ -184,11 +191,8 @@ private extension SocketClient {
 
         // MARK: Clients connected event
 
-        channel.on(ClientEvent.clientsConnected(on: channelId)) { [weak self] data in
-            guard let self = self else { return }
+        channel.on(ClientEvent.clientsConnected(on: channelId)) { data in
             Logging.log("Clients connected: \(data)")
-
-            self.trackEvent(.connected)
 
             // for debug purposes only
             NotificationCenter.default.post(
@@ -229,10 +233,8 @@ private extension SocketClient {
                 let message = data.first as? [String: Any]
             else { return }
 
-            if
-                let message = message["message"] as? [String: Any],
-                message["type"] as? String == KeyExchangeType.start.rawValue {
-                self.keyExchange.reset()
+            if !self.isValidMessage(message: message) {
+                return
             }
             
             if !self.keyExchange.keysExchanged {
@@ -243,6 +245,35 @@ private extension SocketClient {
                 self.handleMessage(message)
             }
         }
+    }
+    
+    func isValidMessage(message: [String: Any]) -> Bool {
+        if
+            let message = message["message"] as? [String: Any],
+            let type = message["type"] as? String {
+            if type == "ping" {
+                return false
+            }
+            
+            if type.contains("key_handshake") {
+                return true
+            } else if !keyExchange.keysExchanged {
+                return false
+            }
+        }
+        
+        return true
+    }
+    
+    func isKeyExchangeMessage(_ message: [String: Any]) -> Bool {
+        if
+            let msg = message["message"] as? [String: Any],
+            let type = msg["type"] as? String,
+            type.contains("key_handshake") {
+            return true
+        }
+        
+        return false
     }
 
     // MARK: Socket disconnected event
@@ -262,7 +293,6 @@ private extension SocketClient {
             )
 
             if !self.connectionPaused {
-                self.resetClient()
                 self.connectionPaused = true
             }
         }
@@ -276,7 +306,10 @@ private extension SocketClient {
         guard
             let keyExchangeMessage = Message<KeyExchangeMessage>.message(from: message),
             let nextKeyExchangeMessage = keyExchange.nextMessage(keyExchangeMessage.message)
-        else { return }
+        else {
+            trackEvent(.connected)
+            return
+        }
 
         sendMessage(nextKeyExchangeMessage, encrypt: false)
 
@@ -286,6 +319,11 @@ private extension SocketClient {
     }
 
     func handleMessage(_ msg: [String: Any]) {
+        if isKeyExchangeMessage(msg) {
+            handleReceiveKeyExchange(msg)
+            return
+        }
+        
         guard let message = Message<String>.message(from: msg) else {
             Logging.error("Could not parse message \(msg)")
             return
@@ -376,8 +414,6 @@ extension SocketClient {
                 
                 do {
                     let encryptedMessage: String = try self.keyExchange.encryptMessage(message)
-                    // debug code
-                    let data = try! JSONEncoder().encode(message)
                     let message: Message = .init(
                         id: self.channelId,
                         message: encryptedMessage
@@ -396,8 +432,6 @@ extension SocketClient {
                     
                     do {
                         let encryptedMessage: String = try self.keyExchange.encryptMessage(message)
-                        // debug code
-                        let data = try! JSONEncoder().encode(message)
                         let message: Message = .init(
                             id: self.channelId,
                             message: encryptedMessage
@@ -411,7 +445,6 @@ extension SocketClient {
             } else {
                 do {
                     let encryptedMessage: String = try self.keyExchange.encryptMessage(message)
-                    let data = try! JSONEncoder().encode(message)
                     let message: Message = .init(
                         id: channelId,
                         message: encryptedMessage
@@ -423,7 +456,6 @@ extension SocketClient {
                 }
             }
         } else {
-            let data = try! JSONEncoder().encode(message)
             let message = Message(
                 id: channelId,
                 message: message
@@ -442,7 +474,11 @@ extension SocketClient {
         var parameters: [String: Any] = ["id": id]
 
         switch event {
-        case .connected, .disconnected:
+        case .connected,
+                .disconnected,
+                .reconnectionRequest,
+                .connectionAuthorised,
+                .connectionRejected:
             break
         case .connectionRequest:
             let additionalParams: [String: Any] = [

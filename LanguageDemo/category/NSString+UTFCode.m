@@ -9,7 +9,6 @@
 
 @implementation NSString (UTFCode)
 
-
 - (NSString *)hexStringFromString{
     NSData *myD = [self dataUsingEncoding:NSUTF8StringEncoding];
     Byte *bytes = (Byte *)[myD bytes];

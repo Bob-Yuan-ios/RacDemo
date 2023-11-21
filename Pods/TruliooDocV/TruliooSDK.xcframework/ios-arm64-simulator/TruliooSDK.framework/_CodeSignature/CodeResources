@@ -6,27 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		rdEoL/vsILC/t1wS1z7wVZgk18c=
-		</data>
-		<key>DocumentDetector.mlmodelc/analytics/coremldata.bin</key>
-		<data>
-		JhAVMAc5UbvR6yrst2tJarRJW54=
-		</data>
-		<key>DocumentDetector.mlmodelc/coremldata.bin</key>
-		<data>
-		+M4sYTEV8n5UeRlC0ljIQc9CD38=
-		</data>
-		<key>DocumentDetector.mlmodelc/metadata.json</key>
-		<data>
-		NT7WkrqrmSaki5uS97FiXmgTg7M=
-		</data>
-		<key>DocumentDetector.mlmodelc/model.mil</key>
-		<data>
-		NDlaoo3rtJ1FGDb3DwHiB5A7XZw=
-		</data>
-		<key>DocumentDetector.mlmodelc/weights/weight.bin</key>
-		<data>
-		H3nvp/pwiQJJmZPDGw/iR88I26w=
+		k26EBmXxgdTZmOMk0o93l7kp+5Q=
 		</data>
 		<key>Headers/Trulioo.h</key>
 		<data>
@@ -34,19 +14,19 @@
 		</data>
 		<key>Headers/TruliooSDK-Swift.h</key>
 		<data>
-		ao14Y7Cdfmoh8/zivOY6YAPiIJ8=
+		HAu6k/s/67el0PQaNor4J8kMsxI=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		gzGJ3MsHYRY/TNd7uD7NEDCPwCY=
+		rpnvHGpEQNVlr7+jobbL5svqpOA=
 		</data>
 		<key>Modules/TruliooSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		dpmjtLm3SDnfANns88EyzkIVljA=
+		AiLEfDmZeDWzOAZ4cj70EfHw6Rc=
 		</data>
 		<key>Modules/TruliooSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		LjJjsproz8qcwXWhsSstGMwA/Y4=
+		lw/O3xtnVEZQQba+uQcp6uS+Jkg=
 		</data>
 		<key>Modules/TruliooSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -54,24 +34,290 @@
 		</data>
 		<key>Modules/TruliooSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		LjJjsproz8qcwXWhsSstGMwA/Y4=
+		lw/O3xtnVEZQQba+uQcp6uS+Jkg=
 		</data>
 		<key>Modules/TruliooSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		qb3JCC0Hc/Lf/AB3sB8UiTl6mP4=
+		WPMa8oy5A7Z7CbXxP5ZxNVfBhto=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
 		Se2xLyhqNSVTHiASHAKkp8FRfXI=
 		</data>
-		<key>config.json</key>
-		<data>
-		RJhZ1tRXO9KRgy/arBo5pRFGC8g=
-		</data>
+		<key>ar.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			8rNGTZqtHf806my76+qP1OhjvUs=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>bn.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			YeY6m2lGJDevC3VgHGqaNnxySR0=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>de-DE.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			DDkRfWQCUTC9bWEGu8smMV/a17w=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>en-GB.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ZSQAvGkKpMJQsBXx0+uTRAOkZMo=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>en-US.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ZSQAvGkKpMJQsBXx0+uTRAOkZMo=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
 		<key>environment.plist</key>
 		<data>
-		CtJJCSXQ8bl2P1I9akbPG56Ync0=
+		zIF5AQAmHPcz51iqSEdYquB200c=
 		</data>
+		<key>es-MX.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			beTVCa3Jl/kPUVvBM9seaVkleJw=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>fr-CA.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Ro2/L9NOZ7k37bfiudGoM10l3QA=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>fr-FR.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			W4DRcpT/+m7R4Ac9f3SBEWnFrNY=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>gu.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			DAVxvll7J4ANVCnebCEyKp70H9c=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>hi.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			XJKVKQGF7w+KR6ivNGs2HsK+BvI=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>it-IT.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			R3IlejFW586CH2Hs1SRrdv8tSj0=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>ja.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			+784y6AC0KNV8eiQaAVrw0go6Dg=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>kn.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			VJhGr/phWNolMnz75v1dfI0IRjs=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>ko.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			p/EQLC6tMZ3nQ9kJBl43KbNGv+4=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>ml.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			7A6P046tLvdyUtBBgxBk/xtVSi8=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>mr.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			VaC9aoRuzZBWmEMOxOtb66PFiYo=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>nl-NL.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ALNlL5A6rm7UY4Hr2MQNCdGYNmQ=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>pl.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			9YyzksGXFaEvbECSDWUW9Wr9EAE=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>pt-BR.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			emlihbMo3xAKbyb+BmctaYPVY8k=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>ru.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			x4AykKHxkaSA+QPk6+NkSgUtF08=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>sv.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			wZksM82blDf30ndDKFI+rjDbBbg=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>ta.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			GkxqdnWUQHqYZswxKo8CqFsOQcM=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>te.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			+aa78ENyltFd3YA5DHgtKYsg40I=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>th.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			MIEXshwaH/Gi67IpWYh9+IcCnRk=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>tr.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			pNcQnbVroRlFHqmsyjAJGPA05BY=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>uk.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			qo9W3BND1D/zAMA21PGHGJGEUeI=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>vi.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			kyc2jqR5DQYliap0bKOcsgHToiE=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>zh-HK.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			DqgsHNe1dCL2h3oqWIRPf9hKUuM=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>zh-Hans-CN.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			PUdzs9GOs6K6JNrLnzdjFT5tGFQ=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>zh-Hant-TW.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			lj/rETwVc7UVtiIc27C/YXtlQiI=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
 	</dict>
 	<key>files2</key>
 	<dict>
@@ -79,42 +325,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			V5GTCefVYSjcQ8/UzCEnmUW1rf14ulgYUb2CYHfwtM0=
-			</data>
-		</dict>
-		<key>DocumentDetector.mlmodelc/analytics/coremldata.bin</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			P7FTQpl6zMw2JRFRuyr4w1cK5rybjZWlQnSXhWT12Qs=
-			</data>
-		</dict>
-		<key>DocumentDetector.mlmodelc/coremldata.bin</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			sNkrQEBFFGXWgpoezpG819KV4mu+4HHA58U5rm+qau8=
-			</data>
-		</dict>
-		<key>DocumentDetector.mlmodelc/metadata.json</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			iAJrYNGyJoXmu1qYm0NJpF2rx9iNx7QSlUegdq9clcM=
-			</data>
-		</dict>
-		<key>DocumentDetector.mlmodelc/model.mil</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			Vat5pSRytTW0CJWeH2maAJvDT4DcHQdiv8HOkMURHN4=
-			</data>
-		</dict>
-		<key>DocumentDetector.mlmodelc/weights/weight.bin</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			A3zHcMMtxGrsdOzN5PGwrJs4u8mFrVjoJ1gpy/M23hw=
+			2m+YHMGWAgduth99HPKikkNY3rw7DCp8MVAEkdYtYE0=
 			</data>
 		</dict>
 		<key>Headers/Trulioo.h</key>
@@ -128,21 +339,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			0HqPyBUX+tHfsq9RFb+oCQy6OcZ9HGCsuCeXv5xM/m8=
+			BPQm719F2w1eLR/hGq684nMVzBhgzLhzpAzlsI4BV78=
 			</data>
 		</dict>
 		<key>Modules/TruliooSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			6xF0zgStttg9PR0o5TMr7T7civ3fsZtty1kQBfWN0rU=
+			u5jSUhsMzN7Luw2SeFHpi2SzfYVueemSe83wuTQ+Qw8=
 			</data>
 		</dict>
 		<key>Modules/TruliooSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			5X/e9X/SfW3WAK8JYuGlIsaGPm0rtycXbpyLAuAXVEM=
+			tBT2fYtlmSvYkv997G8Zhj5GdNjBiIge8VWiKYf2syU=
 			</data>
 		</dict>
 		<key>Modules/TruliooSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
@@ -156,14 +367,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			5X/e9X/SfW3WAK8JYuGlIsaGPm0rtycXbpyLAuAXVEM=
+			tBT2fYtlmSvYkv997G8Zhj5GdNjBiIge8VWiKYf2syU=
 			</data>
 		</dict>
 		<key>Modules/TruliooSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			kYc0nmaI26dtH0U++WZdpBE1OAMz9tYvBCrB0L9r3/Y=
+			g2NgHSTEBi3lTkHBdbpyh4gQM/FQ3i19ZIgAK8YZ+F4=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -173,19 +384,282 @@
 			0HUVtKdkpfVBZGfGPVkX6hoOm85cwyJ4rlOUITktwF4=
 			</data>
 		</dict>
-		<key>config.json</key>
+		<key>ar.lproj/Localizable.strings</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			kxEL8bp6074FSPTW3gMLxYbNXF1Agcbt1hsarulVrt0=
+			cErwtMBqnz9xvN4NwFNRhvwHgILjy0lDAI0xbzqzjsk=
 			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>bn.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			P6t0qtp6HlUBQF07MZ/wZW84QGGtrreKg/DEO7xypnM=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>de-DE.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			cle9NX+oTyenwimn1Nwe5BX5CYb9asCkR9MgK40L76Y=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>en-GB.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			RJ5k8RAbWRh7rUHQ8f7qbNCtSqUsz4aFYu+FvuvW5xk=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>en-US.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			RJ5k8RAbWRh7rUHQ8f7qbNCtSqUsz4aFYu+FvuvW5xk=
+			</data>
+			<key>optional</key>
+			<true/>
 		</dict>
 		<key>environment.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			3dYBVbH9RsCNADSBXDu1vCyaObx8g4Qd4UkjwYv7pKs=
+			DlcIg/Fu21T5t3aDFVUe9aY4XCJiv7ZSloLN6a232RI=
 			</data>
+		</dict>
+		<key>es-MX.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			OGChLjYvlsWXRWj1PLwPFDTcptLR5yKeLZf6mtiUeXI=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>fr-CA.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			GuuBugZcQUqrycAoG4FNt6UgonnFMhwcjdZJr6p7cA8=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>fr-FR.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			VZ/6KR9Y8F9RuiVaH05YSJOjTPS76LV8ZEUHc9S0hYk=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>gu.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			AL8T9ww9dD5S8nt/wL1oAaFsY7n7o6nuGcokT1D9AoA=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>hi.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			j8kxSclJ9JCYEAdnCjDBgQPFg+YTSp/xoWVrHjaXHhs=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>it-IT.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			sijfWNMzAlXxI/RrAhxHGu332c0Tt2WsKOe3eh89kkM=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>ja.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			KPkdu8SVQrt0+z3ekZIZerJ09JLRKPpVjUP0r4VOhmY=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>kn.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			PpKdFIs9Hy1je5qe6HMplLpVZyN6aKt9gdv4BgjsKX4=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>ko.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			U8aBJVb99xjNjMSY2YzOw9UsM+uTl+WTZBSqaZwQTzM=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>ml.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			JgwMbUF1L9vtB2ZGBnuOscsZFqjTYY7SNxRI7Zs9v3w=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>mr.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			X0Kt4MTHFPyuSqNZndbSEnOPYXGI1iH02sa7inhoHUY=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>nl-NL.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			oV/Kv9bmTLV6jTb5pH8GghYgCfYq+e+PzB3pVUh1i5k=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>pl.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			IwCLOZ7eMT0ye3Z0+0Fok9YFJTVPE8RHrHdkQxHKxic=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>pt-BR.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			UnJl2V/ImWsYFIP+HzyJioJL01Wlkvr5It4QH3UShUU=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>ru.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			3SliwOkVjPNiChOXHiT4xnT4AugKYjUDJ2/uu9DZxBk=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>sv.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			2SI/ONyaHe2HanGvPUg2UG2NUzfqu2Ds3qwZdxtRIwE=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>ta.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			UUWyG0ldZcs11ozQNhduTNpxYoUNE/6Trjl87RTJ6Ww=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>te.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			iJvZNQLOhp6cnsLrF5xyx77eYyf9rQ0Mjn6guIkQcKA=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>th.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			rT2CHgBSUKK8K/fj2LBbtmaVBONRM7mu7fR33dPuIhs=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>tr.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			plq0DsbJUg3PUKQuf9sE2ArLcK0n8eOQTs+FE6EgXpE=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>uk.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Qv0Es8Qp10NVE1WHISU8cDTBoExAyDFveWqvbDaEzEw=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>vi.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			qKW5aeL6/JLZaAxNkNtM1BROMo/RMFTfHTedocNQ5Lg=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>zh-HK.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			RUwvuXfwYNgBybyd2UqcaEYfQ8EL1df8gc9A+jjv8cY=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>zh-Hans-CN.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			gHuA78OWxqskoCHyKcefVYlCH953+JTuPQa66Rfwe1U=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>zh-Hant-TW.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			QARzv8DoEl6bdXayYOXKtwobUxJnlWeN5XaeNxZhhPU=
+			</data>
+			<key>optional</key>
+			<true/>
 		</dict>
 	</dict>
 	<key>rules</key>

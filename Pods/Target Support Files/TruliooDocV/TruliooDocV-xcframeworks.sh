@@ -17,32 +17,17 @@ RSYNC_PROTECT_TMP_FILES=(--filter "P .*.??????")
 variant_for_slice()
 {
   case "$1" in
-  "TruliooSDK.xcframework/ios-arm64")
-    echo ""
-    ;;
   "TruliooSDK.xcframework/ios-arm64-simulator")
     echo "simulator"
+    ;;
+  "TruliooSDK.xcframework/ios-arm64")
+    echo ""
     ;;
   "TruliooCore.xcframework/ios-arm64-simulator")
     echo "simulator"
     ;;
   "TruliooCore.xcframework/ios-arm64")
     echo ""
-    ;;
-  "Lottie.xcframework/macos-arm64_x86_64")
-    echo ""
-    ;;
-  "Lottie.xcframework/ios-arm64")
-    echo ""
-    ;;
-  "Lottie.xcframework/tvos-arm64")
-    echo ""
-    ;;
-  "Lottie.xcframework/tvos-arm64_x86_64-simulator")
-    echo "simulator"
-    ;;
-  "Lottie.xcframework/ios-arm64_x86_64-simulator")
-    echo "simulator"
     ;;
   esac
 }
@@ -50,10 +35,10 @@ variant_for_slice()
 archs_for_slice()
 {
   case "$1" in
-  "TruliooSDK.xcframework/ios-arm64")
+  "TruliooSDK.xcframework/ios-arm64-simulator")
     echo "arm64"
     ;;
-  "TruliooSDK.xcframework/ios-arm64-simulator")
+  "TruliooSDK.xcframework/ios-arm64")
     echo "arm64"
     ;;
   "TruliooCore.xcframework/ios-arm64-simulator")
@@ -61,21 +46,6 @@ archs_for_slice()
     ;;
   "TruliooCore.xcframework/ios-arm64")
     echo "arm64"
-    ;;
-  "Lottie.xcframework/macos-arm64_x86_64")
-    echo "arm64 x86_64"
-    ;;
-  "Lottie.xcframework/ios-arm64")
-    echo "arm64"
-    ;;
-  "Lottie.xcframework/tvos-arm64")
-    echo "arm64"
-    ;;
-  "Lottie.xcframework/tvos-arm64_x86_64-simulator")
-    echo "arm64 x86_64"
-    ;;
-  "Lottie.xcframework/ios-arm64_x86_64-simulator")
-    echo "arm64 x86_64"
     ;;
   esac
 }
@@ -159,7 +129,6 @@ install_xcframework() {
   echo "Copied $source to $destination"
 }
 
-install_xcframework "${PODS_ROOT}/TruliooDocV/TruliooSDK.xcframework" "TruliooDocV" "framework" "ios-arm64" "ios-arm64-simulator"
+install_xcframework "${PODS_ROOT}/TruliooDocV/TruliooSDK.xcframework" "TruliooDocV" "framework" "ios-arm64-simulator" "ios-arm64"
 install_xcframework "${PODS_ROOT}/TruliooDocV/TruliooCore.xcframework" "TruliooDocV" "framework" "ios-arm64-simulator" "ios-arm64"
-install_xcframework "${PODS_ROOT}/TruliooDocV/Lottie.xcframework" "TruliooDocV" "framework" "ios-arm64" "ios-arm64_x86_64-simulator"
 

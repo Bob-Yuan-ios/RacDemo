@@ -74,10 +74,11 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-//    // 释放主线程压力
-//    dispatch_async(dispatch_queue_create(0, 0), ^{
+    // 释放主线程压力
+    dispatch_async(dispatch_queue_create(0, 0), ^{
 //        [self.jjListModel.jjCommand execute:nil];
-//    });
+        [self.jjListModel.blockTopCommand execute:nil];
+    });
 }
 
 - (void)dealloc{
@@ -99,6 +100,18 @@
             NSLog(@"jj error is:(%@)", x.userInfo);
         }];
         
+        [_jjListModel.blockTopCommand.executionSignals.switchToLatest.deliverOnMainThread subscribeNext:^(id  _Nullable x) {
+            NSArray *elementArr = x;
+            NSLog(@"blockTop count is:(%@)", @(elementArr.count));
+            [elementArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                YSBlockTopModel *blockTopModel = obj;
+                NSLog(@"stock_list count is:(%@)", @(blockTopModel.stock_list.count));
+            }];
+        }];
+        
+        [_jjListModel.blockTopCommand.errors.deliverOnMainThread subscribeNext:^(NSError * _Nullable x) {
+            NSLog(@"blockTop error is:(%@)", x.userInfo);
+        }];
     }
     return _jjListModel;
 }
