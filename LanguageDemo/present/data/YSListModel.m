@@ -18,6 +18,16 @@
 
 @implementation YSStockModel
 
+- (NSString *)description{
+//    NSDate *date = [NSDate dateWithTimeIntervalSince1970:_first_limit_up_time.doubleValue];
+//    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//    [formatter setDateFormat:@"HH:MM:SS"];
+//    return [NSString stringWithFormat:@"\t%@\t%@\t%@\t", _name, _reason_type, [formatter stringFromDate:date]];
+    
+    
+    return _reason_type;
+}
+
 @end
 
 @implementation YSBlockTopModel

@@ -37,13 +37,8 @@
                                          @"order_field":@"330324",
                                          @"order_type":@(0),
                                          @"_":@(1699044639733)};
-                NSDictionary *header = @{@"Cookie": @"userid=225906646; u_name=mx_225906646; escapename=mx_225906646; user_status=0; user=MDpteF8yMjU5MDY2NDY6Ok5vbmU6NTAwOjIzNTkwNjY0Njo3LDExMTExMTExMTExLDQwOzQ0LDExLDQwOzYsMSw0MDs1LDEsNDA7MSwxMDEsNDA7MiwxLDQwOzMsMSw0MDs1LDEsNDA7OCwwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMSw0MDsxMDIsMSw0MDoyNDo6OjIyNTkwNjY0NjoxNzAwMDEwNTY3Ojo6MTQyNzU4OTg0MDo2MDQ4MDA6MDoxM2YxZDg5MmRjOThiMzUxM2Q0M2MyMGE3Zjc5YmUyNzQ6OjA%3D; ticket=092653e0baf249daa2037536e09749d9; isEdit=%7B%22type%22%3A%22limit_up_pool%22%2C%22change%22%3A%22no%22%2C%22data%22%3A%5B%229001%22%2C%22330325%22%2C%223475914%22%2C%22133971%22%2C%22330329%22%2C%22330323%22%2C%229002%22%2C%22199112%22%2C%2210%22%2C%22330324%22%2C%22133970%22%2C%221968584%22%2C%229003%22%5D%7D; hxmPid=free_ztjj; v=A_g2GUnq6QcDPAWDlhXMcIM_yK2KYVzsvsQwbzJpRI7mAJeX2nEsew7VAPOB"};
-                            /*
-                             IFUserCookieKey={"escapename":"mx_225906646","userid":"225906646"}; userid=225906646; u_name=mx_225906646; escapename=mx_225906646; user_status=0; user=MDpteF8yMjU5MDY2NDY6Ok5vbmU6NTAwOjIzNTkwNjY0Njo3LDExMTExMTExMTExLDQwOzQ0LDExLDQwOzYsMSw0MDs1LDEsNDA7MSwxMDEsNDA7MiwxLDQwOzMsMSw0MDs1LDEsNDA7OCwwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMSw0MDsxMDIsMSw0MDoyNDo6OjIyNTkwNjY0NjoxNzAwMDEwNTY3Ojo6MTQyNzU4OTg0MDo2MDQ4MDA6MDoxM2YxZDg5MmRjOThiMzUxM2Q0M2MyMGE3Zjc5YmUyNzQ6OjA%3D; ticket=092653e0baf249daa2037536e09749d9; isEdit=%7B%22type%22%3A%22limit_up_pool%22%2C%22change%22%3A%22no%22%2C%22data%22%3A%5B%229001%22%2C%22330325%22%2C%223475914%22%2C%22133971%22%2C%22330329%22%2C%22330323%22%2C%229002%22%2C%22199112%22%2C%2210%22%2C%22330324%22%2C%22133970%22%2C%221968584%22%2C%229003%22%5D%7D; hxmPid=free_ztjj; v=A0qEL28QG9mdppd1cLke3k31mjvsO86WwL9COdSD9h0oh-XhvMsepZBPkkKn
-                             */
-                /*
-                 IFUserCookieKey={"escapename":"mx_225906646","userid":"225906646"}; userid=225906646; u_name=mx_225906646; escapename=mx_225906646; user_status=0; user=MDpteF8yMjU5MDY2NDY6Ok5vbmU6NTAwOjIzNTkwNjY0Njo3LDExMTExMTExMTExLDQwOzQ0LDExLDQwOzYsMSw0MDs1LDEsNDA7MSwxMDEsNDA7MiwxLDQwOzMsMSw0MDs1LDEsNDA7OCwwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMSw0MDsxMDIsMSw0MDoyNDo6OjIyNTkwNjY0NjoxNzAwMDEwNTY3Ojo6MTQyNzU4OTg0MDo2MDQ4MDA6MDoxM2YxZDg5MmRjOThiMzUxM2Q0M2MyMGE3Zjc5YmUyNzQ6OjA%3D; ticket=092653e0baf249daa2037536e09749d9; isEdit=%7B%22type%22%3A%22limit_up_pool%22%2C%22change%22%3A%22no%22%2C%22data%22%3A%5B%229001%22%2C%22330325%22%2C%223475914%22%2C%22133971%22%2C%22330329%22%2C%22330323%22%2C%229002%22%2C%22199112%22%2C%2210%22%2C%22330324%22%2C%22133970%22%2C%221968584%22%2C%229003%22%5D%7D; hxmPid=free_ztjj; v=A_g2GUnq6QcDPAWDlhXMcIM_yK2KYVzsvsQwbzJpRI7mAJeX2nEsew7VAPOB
-                 */
+                NSDictionary *header = @{@"Cookie": @"userid=225906646; u_name=mx_225906646; escapename=mx_225906646; user_status=0; user=MDpteF8yMjU5MDY2NDY6Ok5vbmU6NTAwOjIzNTkwNjY0Njo3LDExMTExMTExMTExLDQwOzQ0LDExLDQwOzYsMSw0MDs1LDEsNDA7MSwxMDEsNDA7MiwxLDQwOzMsMSw0MDs1LDEsNDA7OCwwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMSw0MDsxMDIsMSw0MDoyNDo6OjIyNTkwNjY0NjoxNzAwMDEwNTY3Ojo6MTQyNzU4OTg0MDo2MDQ4MDA6MDoxM2YxZDg5MmRjOThiMzUxM2Q0M2MyMGE3Zjc5YmUyNzQ6OjA%3D; ticket=092653e0baf249daa2037536e09749d9; isEdit=%7B%22type%22%3A%22limit_up_pool%22%2C%22change%22%3A%22no%22%2C%22data%22%3A%5B%229001%22%2C%22330325%22%2C%223475914%22%2C%22133971%22%2C%22330329%22%2C%22330323%22%2C%229002%22%2C%22199112%22%2C%2210%22%2C%22330324%22%2C%22133970%22%2C%221968584%22%2C%229003%22%5D%7D; hxmPid=free_ztjj; v=A9EfAqhVUL18RbypD8IFmzII4dZrPkUi77bpxLNmzdi3Hv4M-45VgH8C-YVA"};
+                         
                 [self.sessionManager GET:urlStr parameters:params headers:header progress:^(NSProgress * _Nonnull downloadProgress) {
                     ;
                 } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -62,6 +57,8 @@
                     }
                     
                     [subscriber sendError:nil];
+                    return;
+                    
                 } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                     
                     NSLog(@"#######error...(%@)", error.userInfo);

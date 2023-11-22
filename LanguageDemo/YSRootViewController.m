@@ -102,10 +102,13 @@
         
         [_jjListModel.blockTopCommand.executionSignals.switchToLatest.deliverOnMainThread subscribeNext:^(id  _Nullable x) {
             NSArray *elementArr = x;
-            NSLog(@"blockTop count is:(%@)", @(elementArr.count));
+
             [elementArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 YSBlockTopModel *blockTopModel = obj;
-                NSLog(@"stock_list count is:(%@)", @(blockTopModel.stock_list.count));
+                
+                [blockTopModel.stock_list enumerateObjectsUsingBlock:^(YSStockModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                    NSLog(@"%@\n", obj.description);
+                }];
             }];
         }];
         

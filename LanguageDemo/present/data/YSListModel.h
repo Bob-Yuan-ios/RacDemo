@@ -28,15 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *first_limit_up_time;
 @property (nonatomic, copy) NSString *code;
 
-@property (nonatomic, copy) NSString *last_limit_up_time;
-
-@property (nonatomic, copy) NSString *reason_info;
-
-@property (nonatomic, copy) NSString *high;
-
 @property (nonatomic, copy) NSString *reason_type;
-
-@property (nonatomic, copy) NSString *continue_num;
 
 @property (nonatomic, copy) NSString *name;
 
