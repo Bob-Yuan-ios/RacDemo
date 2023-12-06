@@ -4,6 +4,7 @@ ${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework
 ${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework
 ${BUILT_PRODUCTS_DIR}/ESPullToRefresh/ESPullToRefresh.framework
 ${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework
+${BUILT_PRODUCTS_DIR}/LightweightCharts/LightweightCharts.framework
 ${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework
 ${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework
 ${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework
@@ -19,8 +20,5 @@ ${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework
 ${BUILT_PRODUCTS_DIR}/SocketRocket/SocketRocket.framework
 ${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework
 ${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework
-${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework
 ${BUILT_PRODUCTS_DIR}/metamask-ios-sdk/metamask_ios_sdk.framework
 ${PODS_XCFRAMEWORKS_BUILD_DIR}/MBBlinkCard/BlinkCard.framework/BlinkCard
-${PODS_XCFRAMEWORKS_BUILD_DIR}/TruliooDocV/TruliooSDK.framework/TruliooSDK
-${PODS_XCFRAMEWORKS_BUILD_DIR}/TruliooDocV/TruliooCore.framework/TruliooCore

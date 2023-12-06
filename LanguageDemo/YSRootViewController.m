@@ -27,8 +27,8 @@
     self.title = @"根视图-1";
     self.view.backgroundColor = [UIColor whiteColor];
     
-    NSString *hexString = [self convertStringToHex:@"123"];
-    NSLog(@"##### hexString...(%@)", hexString);
+//    NSString *hexString = [self convertStringToHex:@"123"];
+//    NSLog(@"##### hexString...(%@)", hexString);
     
     _btn = [UIButton buttonWithType:UIButtonTypeSystem];
     [self.view addSubview:_btn];

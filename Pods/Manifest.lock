@@ -18,7 +18,7 @@ PODS:
   - Differentiator (5.0.0)
   - ESPullToRefresh (2.9.3)
   - IQKeyboardManager (6.5.16)
-  - lottie-ios (4.0.1)
+  - LightweightCharts (4.0.0)
   - Masonry (1.1.0)
   - MBBlinkCard (2.8.2)
   - metamask-ios-sdk (0.2.2):
@@ -44,14 +44,13 @@ PODS:
   - SocketRocket (0.7.0)
   - Starscream (4.0.6)
   - SwiftyJSON (5.0.1)
-  - TruliooDocV (2.7.1):
-    - lottie-ios (~> 4.0.1)
 
 DEPENDENCIES:
   - AFNetworking
   - CocoaAsyncSocket
   - ESPullToRefresh
   - IQKeyboardManager
+  - LightweightCharts (~> 4.0.0)
   - Masonry
   - MBBlinkCard
   - metamask-ios-sdk
@@ -65,7 +64,6 @@ DEPENDENCIES:
   - SnapKit
   - SocketRocket
   - SwiftyJSON
-  - TruliooDocV
 
 SPEC REPOS:
   trunk:
@@ -74,7 +72,7 @@ SPEC REPOS:
     - Differentiator
     - ESPullToRefresh
     - IQKeyboardManager
-    - lottie-ios
+    - LightweightCharts
     - Masonry
     - MBBlinkCard
     - metamask-ios-sdk
@@ -92,7 +90,6 @@ SPEC REPOS:
     - SocketRocket
     - Starscream
     - SwiftyJSON
-    - TruliooDocV
 
 SPEC CHECKSUMS:
   AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
@@ -100,7 +97,7 @@ SPEC CHECKSUMS:
   Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
   ESPullToRefresh: 0d68daa602b343c81753a1b95e09fd0bfcddfd40
   IQKeyboardManager: 024b54d7dcb765c5bc99882cb4d5ea24a8cb7c3c
-  lottie-ios: 54d22edf55b839f0929cabbfe609c9aa548b1145
+  LightweightCharts: 1a14ed148f3272f7493d152cfe8244f12d5f9224
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBBlinkCard: 7d140b592085a3e9c84b935d632024bf9c525cc0
   metamask-ios-sdk: 1cfa34d10f49a056faf7c05d72cb16e69f6dff63
@@ -118,8 +115,7 @@ SPEC CHECKSUMS:
   SocketRocket: abac6f5de4d4d62d24e11868d7a2f427e0ef940d
   Starscream: fb2c4510bebf908c62bd383bcf05e673720e91fd
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
-  TruliooDocV: 1dd90cb5f69b195bf32aa4b6092724aa2fe510d0
 
-PODFILE CHECKSUM: a936b34112e9a22969a0a8eaec2db7e5fb28491e
+PODFILE CHECKSUM: c1067cdf8cdb6c937795d76bf688af502a5aa38a
 
 COCOAPODS: 1.11.3

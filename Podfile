@@ -7,8 +7,10 @@ platform :ios, "14.0"
 # 主工程
 target 'LanguageDemo' do
 
-    # kyc
-    pod 'TruliooDocV'
+#    # kyc
+#    pod 'TruliooDocV'
+
+    pod 'LightweightCharts', '~> 4.0.0'
 
     # blinkCard
     pod 'MBBlinkCard'
