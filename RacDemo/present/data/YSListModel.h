@@ -26,6 +26,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface YSStockModel : NSObject
 
 @property (nonatomic, copy) NSString *first_limit_up_time;
+@property (nonatomic, copy) NSString *last_limit_up_time;
+@property (nonatomic, copy) NSString *reason_info;
+
 @property (nonatomic, copy) NSString *code;
 
 @property (nonatomic, copy) NSString *reason_type;
@@ -35,6 +38,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *high_days;
 
 @property (nonatomic, copy) NSString *change_tag;
+
++ (NSString *)getHMSStr:(long)timeStamp;
 
 @end
 

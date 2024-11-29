@@ -6,16 +6,14 @@
 //
 
 #import "YSRootViewController.h"
-#import <Masonry/Masonry.h>
 
-
+#import "YSBaseTableView.h"
 #import "YSJJListViewModel.h"
-#import "AppDelegate.h"
 
 @interface YSRootViewController ()
 
-@property (nonatomic, strong) YSJJListViewModel *jjListModel;
-@property (nonatomic, strong) UIButton *btn;
+@property (nonatomic, strong) YSJJListViewModel *jjListViewModel;
+@property (nonatomic, strong) YSBaseTableView *baseTableView;
 
 @end
 
@@ -27,59 +25,49 @@
     self.title = @"根视图-1";
     self.view.backgroundColor = [UIColor whiteColor];
 
-    _btn = [UIButton buttonWithType:UIButtonTypeSystem];
-    [self.view addSubview:_btn];
-    
-    [_btn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_offset(20);
-        make.right.bottom.mas_offset(-20);
-        make.height.mas_equalTo(44);
-    }];
-    
-}
-
-
-- (NSString *)convertStringToHex:(NSString *)str{
-    if (!str || [str length] == 0) {
-        return @"";
-    }
-    NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
-
-    NSMutableString *string = [[NSMutableString alloc] initWithCapacity:[data length]];
-
-    [data enumerateByteRangesUsingBlock:^(const void *bytes, NSRange byteRange, BOOL *stop) {
-        unsigned char *dataBytes = (unsigned char*)bytes;
-        for (NSInteger i = 0; i < byteRange.length; i++) {
-            NSString *hexStr = [NSString stringWithFormat:@"%x", (dataBytes[i]) & 0xff];
-            if ([hexStr length] == 2) {
-                [string appendString:hexStr];
-            } else {
-                [string appendFormat:@"0%@", hexStr];
-            }
-        }
-    }];
-
-    return string;
+    [self setupView];
+    [self setupConstraints];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    // 释放主线程压力
-    dispatch_async(dispatch_queue_create(0, 0), ^{
-//        [self.jjListModel.jjCommand execute:nil];
-        [self.jjListModel.blockTopCommand execute:nil];
-    });
+    [self setupSignal];
 }
 
 - (void)dealloc{
     NSLog(@"########:%s", __func__);
 }
 
-- (YSJJListViewModel *)jjListModel{
-    if(!_jjListModel){
-        _jjListModel = [[YSJJListViewModel alloc] init];
-        [_jjListModel.jjCommand.executionSignals.switchToLatest.deliverOnMainThread subscribeNext:^(id  _Nullable x) {
+- (void)setupView{
+    [self.view addSubview:self.baseTableView];
+}
+
+- (void)setupConstraints{
+    [self.baseTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(self.view);
+    }];
+}
+
+- (void)setupSignal{
+    // 释放主线程压力
+    dispatch_async(dispatch_queue_create(0, 0), ^{
+        [self.jjListViewModel.blockTopCommand execute:nil];
+    });
+}
+
+#pragma mark lazy load
+- (YSBaseTableView *)baseTableView{
+    if(!_baseTableView){
+        _baseTableView = [YSBaseTableView new];
+    }
+    return _baseTableView;
+}
+
+- (YSJJListViewModel *)jjListViewModel{
+    if(!_jjListViewModel){
+        _jjListViewModel = [[YSJJListViewModel alloc] init];
+        [_jjListViewModel.jjCommand.executionSignals.switchToLatest.deliverOnMainThread subscribeNext:^(id  _Nullable x) {
             [(NSArray *)x enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
               YSJJModel *model = (YSJJModel *)obj;
               NSLog(@"%@", model.description);
@@ -87,27 +75,38 @@
             
         }];
         
-        [_jjListModel.jjCommand.errors.deliverOnMainThread subscribeNext:^(NSError * _Nullable x) {
+        [_jjListViewModel.jjCommand.errors.deliverOnMainThread subscribeNext:^(NSError * _Nullable x) {
             NSLog(@"jj error is:(%@)", x.userInfo);
         }];
         
-        [_jjListModel.blockTopCommand.executionSignals.switchToLatest.deliverOnMainThread subscribeNext:^(id  _Nullable x) {
-            NSArray *elementArr = x;
+        [_jjListViewModel.blockTopCommand.executionSignals.switchToLatest.deliverOnMainThread subscribeNext:^(NSArray *  _Nullable elementArr) {
 
-            [elementArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                YSBlockTopModel *blockTopModel = obj;
+            __block NSMutableArray *dataSource = [[NSMutableArray alloc] initWithCapacity:10];
+            [elementArr enumerateObjectsUsingBlock:^(YSBlockTopModel *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 
-                [blockTopModel.stock_list enumerateObjectsUsingBlock:^(YSStockModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                // 排序
+                NSArray *sortArr = [obj.stock_list sortedArrayUsingComparator:^NSComparisonResult(YSStockModel * _Nonnull obj1, YSStockModel *  _Nonnull obj2) {
+                   
+                    NSComparisonResult result = [obj1.first_limit_up_time compare:obj2.first_limit_up_time];
+                    return result;
+                }];
+                
+                [sortArr enumerateObjectsUsingBlock:^(YSStockModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                     NSLog(@"%@\n", obj.description);
                 }];
+                
+                [dataSource addObject:sortArr];
             }];
+            
+            NSLog(@"开始刷新UI。。。");
+            [self.baseTableView reloadDataSource:dataSource];
         }];
         
-        [_jjListModel.blockTopCommand.errors.deliverOnMainThread subscribeNext:^(NSError * _Nullable x) {
+        [_jjListViewModel.blockTopCommand.errors.deliverOnMainThread subscribeNext:^(NSError * _Nullable x) {
             NSLog(@"blockTop error is:(%@)", x.userInfo);
         }];
     }
-    return _jjListModel;
+    return _jjListViewModel;
 }
 
  

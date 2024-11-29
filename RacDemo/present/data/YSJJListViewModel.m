@@ -25,6 +25,32 @@ NSString *baseApi = @"https://data.10jqka.com.cn/dataapi";
     return self;
 }
 
+
+
+- (NSString *)convertStringToHex:(NSString *)str{
+    if (!str || [str length] == 0) {
+        return @"";
+    }
+    NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+
+    NSMutableString *string = [[NSMutableString alloc] initWithCapacity:[data length]];
+
+    [data enumerateByteRangesUsingBlock:^(const void *bytes, NSRange byteRange, BOOL *stop) {
+        unsigned char *dataBytes = (unsigned char*)bytes;
+        for (NSInteger i = 0; i < byteRange.length; i++) {
+            NSString *hexStr = [NSString stringWithFormat:@"%x", (dataBytes[i]) & 0xff];
+            if ([hexStr length] == 2) {
+                [string appendString:hexStr];
+            } else {
+                [string appendFormat:@"0%@", hexStr];
+            }
+        }
+    }];
+
+    return string;
+}
+
+
 - (NSString *)getDateStr{
 
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];

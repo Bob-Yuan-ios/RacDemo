@@ -18,11 +18,29 @@
 
 @implementation YSStockModel
 
-- (NSString *)description{
-    NSDate *date = [NSDate dateWithTimeIntervalSince1970:_first_limit_up_time.doubleValue];
+
++ (NSString *)getHMSStr:(long)timeStamp{
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"HH:MM:SS"];
-    return [NSString stringWithFormat:@"\t%@\t%@\t%@\t", _name, _reason_type, [formatter stringFromDate:date]];
+    return [formatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:timeStamp]];
+}
+
+- (NSString *)description{
+    
+    NSDate *firstDate = [NSDate dateWithTimeIntervalSince1970:_first_limit_up_time.doubleValue];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"HH:MM:SS"];
+    NSString *first = [formatter stringFromDate:firstDate];
+    
+    NSDate *lastDate = [NSDate dateWithTimeIntervalSince1970:_last_limit_up_time.doubleValue];
+    NSString *last = [formatter stringFromDate:lastDate];
+
+    return [NSString stringWithFormat:@"%@\t%@\t%@\t%@\n%@\n",
+            _name,
+            _reason_type,
+            first,
+            last,
+            _reason_info];
 }
 
 @end
