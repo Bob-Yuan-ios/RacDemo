@@ -46,6 +46,7 @@
 - (void)setupConstraints{
     [self.baseTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(self.view);
+        make.top.mas_equalTo(self.view).mas_offset(64);
     }];
 }
 
@@ -81,8 +82,11 @@
         
         [_jjListViewModel.blockTopCommand.executionSignals.switchToLatest.deliverOnMainThread subscribeNext:^(NSArray *  _Nullable elementArr) {
 
-            __block NSMutableArray *dataSource = [[NSMutableArray alloc] initWithCapacity:10];
+            __block NSMutableArray *rowArr = [[NSMutableArray alloc] initWithCapacity:10];
+            __block NSMutableArray *sectionArr = [[NSMutableArray alloc] initWithCapacity:10];
             [elementArr enumerateObjectsUsingBlock:^(YSBlockTopModel *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                
+                [sectionArr addObject:obj.name];
                 
                 // 排序
                 NSArray *sortArr = [obj.stock_list sortedArrayUsingComparator:^NSComparisonResult(YSStockModel * _Nonnull obj1, YSStockModel *  _Nonnull obj2) {
@@ -90,16 +94,13 @@
                     NSComparisonResult result = [obj1.first_limit_up_time compare:obj2.first_limit_up_time];
                     return result;
                 }];
-                
                 [sortArr enumerateObjectsUsingBlock:^(YSStockModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                     NSLog(@"%@\n", obj.description);
                 }];
-                
-                [dataSource addObject:sortArr];
+                [rowArr addObject:sortArr];
             }];
             
-            NSLog(@"开始刷新UI。。。");
-            [self.baseTableView reloadDataSource:dataSource];
+            [self.baseTableView reloadDataSection:sectionArr row:rowArr];
         }];
         
         [_jjListViewModel.blockTopCommand.errors.deliverOnMainThread subscribeNext:^(NSError * _Nullable x) {

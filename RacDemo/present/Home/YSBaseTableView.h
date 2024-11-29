@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface YSBaseTableView : UIView
 
-- (void)reloadDataSource:(NSArray *)arr;
+- (void)reloadDataSection:(NSArray *)section row:(NSArray *)row;
 
 @end
 
