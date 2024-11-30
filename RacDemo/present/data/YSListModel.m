@@ -21,7 +21,7 @@
 
 + (NSString *)getHMSStr:(long)timeStamp{
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"HH:MM:SS"];
+    [formatter setDateFormat:@"HH:mm:ss"];
     return [formatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:timeStamp]];
 }
 
