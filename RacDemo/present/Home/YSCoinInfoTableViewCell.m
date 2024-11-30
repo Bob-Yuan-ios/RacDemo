@@ -72,6 +72,7 @@
 
 
 - (void)setStockModel:(YSStockModel *)stockModel{
+    
     self.nameLabel.text = stockModel.name;
     self.reasonTypeLabel.text = stockModel.reason_type;
     self.firstTimeLabel.text = [YSStockModel getHMSStr:stockModel.first_limit_up_time.doubleValue];

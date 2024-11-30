@@ -29,7 +29,7 @@
     
     NSDate *firstDate = [NSDate dateWithTimeIntervalSince1970:_first_limit_up_time.doubleValue];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"HH:MM:SS"];
+    [formatter setDateFormat:@"HH:mm:ss"];
     NSString *first = [formatter stringFromDate:firstDate];
     
     NSDate *lastDate = [NSDate dateWithTimeIntervalSince1970:_last_limit_up_time.doubleValue];

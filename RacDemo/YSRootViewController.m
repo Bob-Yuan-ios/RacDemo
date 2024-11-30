@@ -81,30 +81,31 @@
         
         [_jjListViewModel.blockTopCommand.executionSignals.switchToLatest.deliverOnMainThread subscribeNext:^(NSArray *  _Nullable elementArr) {
 
-            // 组装数据
-            __block NSMutableDictionary *filterDic = [[NSMutableDictionary alloc] initWithCapacity:10];
-            [elementArr enumerateObjectsUsingBlock:^(YSBlockTopModel *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                
-                NSLog(@"####name:(%@)", obj.name);
-                
-                [obj.stock_list enumerateObjectsUsingBlock:^(YSStockModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                    [filterDic setValue:obj forKey:obj.code];
+            @autoreleasepool {
+                // 组装数据
+                __block NSMutableDictionary *filterDic = [[NSMutableDictionary alloc] initWithCapacity:10];
+                [elementArr enumerateObjectsUsingBlock:^(YSBlockTopModel *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                                    
+                    [obj.stock_list enumerateObjectsUsingBlock:^(YSStockModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                        [filterDic setValue:obj forKey:obj.code];
+                    }];
                 }];
-            }];
-            
-            // 排序
-            // 最先涨停的排前面
-            // 如果时间相等，按股票代码排序
-            NSArray *sortArr = [filterDic.allValues sortedArrayUsingComparator:^NSComparisonResult(YSStockModel * _Nonnull obj1, YSStockModel *  _Nonnull obj2) {
-               
-                NSComparisonResult result = [obj1.first_limit_up_time compare:obj2.first_limit_up_time];
-                if(NSOrderedSame == result){
-                    return [obj1.code compare:obj2.code];
-                }
-                return result;
-            }];
-            
-            [self.baseTableView reloadData:sortArr];
+                
+                // 排序
+                // 最先涨停的排前面
+                // 如果时间相等，按股票代码排序
+                NSArray *sortArr = [filterDic.allValues sortedArrayUsingComparator:^NSComparisonResult(YSStockModel * _Nonnull obj1, YSStockModel *  _Nonnull obj2) {
+                   
+                    NSComparisonResult result = [obj1.first_limit_up_time compare:obj2.first_limit_up_time];
+                    if(NSOrderedSame == result){
+                        return [obj1.code compare:obj2.code];
+                    }
+                    return result;
+                }];
+                
+                [self.baseTableView reloadData:sortArr];
+            }
+           
         }];
         
         [_jjListViewModel.blockTopCommand.errors.deliverOnMainThread subscribeNext:^(NSError * _Nullable x) {

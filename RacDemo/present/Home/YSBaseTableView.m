@@ -41,6 +41,7 @@ UITableViewDataSource
 }
 
 - (void)reloadData:(NSArray *)row{
+    
     self.dataArr = [row mutableCopy];
     [self.baseTableView reloadData];
 }
