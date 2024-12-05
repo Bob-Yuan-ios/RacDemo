@@ -42,13 +42,14 @@
 
 - (void)setupConstraints{
     
-    [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.mas_equalTo(10).priorityLow();
-    }];
-    
     [self.firstTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(10);
         make.right.mas_equalTo(self.lastTimeLabel.mas_left).mas_offset(-10);
+    }];
+    
+    [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.mas_equalTo(10);
+        make.right.mas_greaterThanOrEqualTo(self.firstTimeLabel.mas_left).mas_offset(-10).priorityHigh();
     }];
     
     [self.lastTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -76,7 +77,8 @@
     self.nameLabel.text = stockModel.name;
     self.reasonTypeLabel.text = stockModel.reason_type;
     self.firstTimeLabel.text = [YSStockModel getHMSStr:stockModel.first_limit_up_time.doubleValue];
-    self.lastTimeLabel.text = [YSStockModel getHMSStr:stockModel.last_limit_up_time.doubleValue];
+    //self.lastTimeLabel.text =  [YSStockModel getHMSStr:stockModel.last_limit_up_time.doubleValue];
+    self.lastTimeLabel.text = @"ffffffadffagdasffgdasf.doubleValue]";
     self.reasonInfoLabel.text = stockModel.reason_info;
 }
 

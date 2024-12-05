@@ -53,7 +53,6 @@ NSString *baseApi = @"https://data.10jqka.com.cn/dataapi";
 
 - (NSString *)getDateStr{
 
-    return @"20241129";
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd"];
     NSString  *dateStr = [[formatter stringFromDate:[NSDate new]]

@@ -33,6 +33,8 @@
 		C4CACCE92669E53C00712ED2 /* RacRedVM.m in Sources */ = {isa = PBXBuildFile; fileRef = C4CACCE82669E53C00712ED2 /* RacRedVM.m */; };
 		C4E3EF0E2AC521DF00B12D2F /* NSString+UTFCode.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3EF0D2AC521DF00B12D2F /* NSString+UTFCode.m */; };
 		C4ECDDCD2966D67F00C1FA36 /* YSTcpSocketRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C4ECDDCC2966D67F00C1FA36 /* YSTcpSocketRequest.m */; };
+		C4FBF7322D01950B003497E0 /* DepthChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FBF7312D01950B003497E0 /* DepthChartView.m */; };
+		C4FBF7812D019823003497E0 /* DepthData.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FBF7802D019823003497E0 /* DepthData.m */; };
 		C4FDD6D52667236900E444F2 /* RacRedView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FDD6D22667236900E444F2 /* RacRedView.m */; };
 		C4FDD6D62667236900E444F2 /* YSRACLearnM.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FDD6D32667236900E444F2 /* YSRACLearnM.m */; };
 /* End PBXBuildFile section */
@@ -92,6 +94,10 @@
 		C4E3EF0D2AC521DF00B12D2F /* NSString+UTFCode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+UTFCode.m"; sourceTree = "<group>"; };
 		C4ECDDCB2966D67F00C1FA36 /* YSTcpSocketRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSTcpSocketRequest.h; sourceTree = "<group>"; };
 		C4ECDDCC2966D67F00C1FA36 /* YSTcpSocketRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSTcpSocketRequest.m; sourceTree = "<group>"; };
+		C4FBF7302D01950B003497E0 /* DepthChartView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DepthChartView.h; sourceTree = "<group>"; };
+		C4FBF7312D01950B003497E0 /* DepthChartView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DepthChartView.m; sourceTree = "<group>"; };
+		C4FBF77F2D019823003497E0 /* DepthData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DepthData.h; sourceTree = "<group>"; };
+		C4FBF7802D019823003497E0 /* DepthData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DepthData.m; sourceTree = "<group>"; };
 		C4FDD6D12667236900E444F2 /* YSRACLearnM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSRACLearnM.h; sourceTree = "<group>"; };
 		C4FDD6D22667236900E444F2 /* RacRedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RacRedView.m; sourceTree = "<group>"; };
 		C4FDD6D32667236900E444F2 /* YSRACLearnM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSRACLearnM.m; sourceTree = "<group>"; };
@@ -260,6 +266,10 @@
 				C4629D4926244CBC00029564 /* AppDelegate.m */,
 				C4C6A9672A72147A00EBCA8E /* YSRootViewController.h */,
 				C4C6A9682A72147A00EBCA8E /* YSRootViewController.m */,
+				C4FBF7302D01950B003497E0 /* DepthChartView.h */,
+				C4FBF7312D01950B003497E0 /* DepthChartView.m */,
+				C4FBF77F2D019823003497E0 /* DepthData.h */,
+				C4FBF7802D019823003497E0 /* DepthData.m */,
 				C4629D5426244CBF00029564 /* Assets.xcassets */,
 				C4629D5626244CBF00029564 /* LaunchScreen.storyboard */,
 				C4629D5926244CBF00029564 /* Info.plist */,
@@ -444,9 +454,11 @@
 				C4C8948626AAB05B005E39F5 /* UIImage+Filter.m in Sources */,
 				C4C8948926AAB750005E39F5 /* UIImageView+Filter.m in Sources */,
 				C4FDD6D62667236900E444F2 /* YSRACLearnM.m in Sources */,
+				C4FBF7322D01950B003497E0 /* DepthChartView.m in Sources */,
 				C4C6A9692A72147A00EBCA8E /* YSRootViewController.m in Sources */,
 				C4629D4A26244CBC00029564 /* AppDelegate.m in Sources */,
 				C4FDD6D52667236900E444F2 /* RacRedView.m in Sources */,
+				C4FBF7812D019823003497E0 /* DepthData.m in Sources */,
 				C41FC8602CF9B2970013FFCC /* YSBaseTableView.m in Sources */,
 				C46817A6266B33C30026F60C /* YSTextField.m in Sources */,
 				C41FC8632CF9B36D0013FFCC /* YSCoinInfoTableViewCell.m in Sources */,

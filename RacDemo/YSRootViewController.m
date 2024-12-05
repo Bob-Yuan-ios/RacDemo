@@ -10,6 +10,8 @@
 #import "YSBaseTableView.h"
 #import "YSJJListViewModel.h"
 
+#import "DepthChartView.h"
+
 @interface YSRootViewController ()
 
 @property (nonatomic, strong) YSJJListViewModel *jjListViewModel;
@@ -25,14 +27,54 @@
     self.title = @"根视图-1";
     self.view.backgroundColor = [UIColor whiteColor];
 
-    [self setupView];
-    [self setupConstraints];
+//    [self setupView];
+//    [self setupConstraints];
+    
+    [self loadDepthView];
 }
+
+- (void)loadDepthView{
+        
+    DepthChartView *chartView = [[DepthChartView alloc] initWithFrame:self.view.bounds];
+    chartView.bids = [self generateBids]; // 自定义生成买单数据
+    chartView.asks = [self generateAsks]; // 自定义生成卖单数据
+    [self.view addSubview:chartView];
+}
+
+- (NSArray<DepthData *> *)generateBids {
+    NSMutableArray<DepthData *> *bids = [NSMutableArray array];
+    CGFloat cumulativeAmount = 0;
+    for (int i = 0; i < 10; i++) {
+        DepthData *data = [[DepthData alloc] init];
+        data.price = 100 - i; // 示例价格
+        data.amount = arc4random_uniform(10) + 1; // 随机数量
+        cumulativeAmount += data.amount;
+        data.cumulativeAmount = cumulativeAmount;
+        [bids addObject:data];
+    }
+    return bids;
+}
+
+- (NSArray<DepthData *> *)generateAsks {
+    NSMutableArray<DepthData *> *asks = [NSMutableArray array];
+    CGFloat cumulativeAmount = 0;
+    for (int i = 0; i < 10; i++) {
+        DepthData *data = [[DepthData alloc] init];
+        data.price = 100 + i; // 示例价格
+        data.amount = arc4random_uniform(10) + 1; // 随机数量
+        cumulativeAmount += data.amount;
+        data.cumulativeAmount = cumulativeAmount;
+        [asks addObject:data];
+    }
+    return asks;
+}
+
+
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    [self setupSignal];
+//    [self setupSignal];
 }
 
 - (void)dealloc{
