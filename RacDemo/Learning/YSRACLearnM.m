@@ -94,12 +94,14 @@
     RACSignal *first = [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
         NSLog(@"第一个网络请求");
         [subscriber sendNext:@{@"returnCode": @(200), @"returnMsg":@"Hello First"}];
+        [subscriber sendCompleted];
         return nil;
     }];
     
     RACSignal *second = [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
         NSLog(@"第二个网络请求");
         [subscriber sendNext:@{@"returnCode": @(200), @"returnMsg":@"World Second"}];
+        [subscriber sendCompleted];
         return nil;
     }];
     

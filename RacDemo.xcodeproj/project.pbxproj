@@ -16,7 +16,6 @@
 		C41FC85D2CF99D290013FFCC /* YSLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = C41FC85C2CF99D290013FFCC /* YSLoginView.m */; };
 		C41FC8602CF9B2970013FFCC /* YSBaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C41FC85F2CF9B2970013FFCC /* YSBaseTableView.m */; };
 		C41FC8632CF9B36D0013FFCC /* YSCoinInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C41FC8622CF9B36D0013FFCC /* YSCoinInfoTableViewCell.m */; };
-		C425F59726A94BBF0091918D /* RacRedSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = C425F59626A94BBF0091918D /* RacRedSubView.m */; };
 		C44DFE782D0B058300100697 /* DepthViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C44DFE772D0B058300100697 /* DepthViewModel.m */; };
 		C44EEABF295E95270083CD03 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C44EEABE295E95270083CD03 /* README.md */; };
 		C44EEAC3295EB4A70083CD03 /* YSHttpsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C44EEAC2295EB4A70083CD03 /* YSHttpsRequest.m */; };
@@ -25,18 +24,15 @@
 		C4629D5526244CBF00029564 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4629D5426244CBF00029564 /* Assets.xcassets */; };
 		C4629D5826244CBF00029564 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4629D5626244CBF00029564 /* LaunchScreen.storyboard */; };
 		C4629D5B26244CBF00029564 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4629D5A26244CBF00029564 /* main.m */; };
-		C46817A6266B33C30026F60C /* YSTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C46817A5266B33C30026F60C /* YSTextField.m */; };
 		C48DEDD227511FF200A86E08 /* UIImage+ChangeColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C48DEDD127511FF200A86E08 /* UIImage+ChangeColor.m */; };
 		C49EC46C26C10E7100F130F8 /* ThreadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C49EC46B26C10E7100F130F8 /* ThreadModel.m */; };
 		C4C6A9692A72147A00EBCA8E /* YSRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C6A9682A72147A00EBCA8E /* YSRootViewController.m */; };
 		C4C8948626AAB05B005E39F5 /* UIImage+Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C8948526AAB05B005E39F5 /* UIImage+Filter.m */; };
 		C4C8948926AAB750005E39F5 /* UIImageView+Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C8948826AAB750005E39F5 /* UIImageView+Filter.m */; };
-		C4CACCE92669E53C00712ED2 /* RacRedVM.m in Sources */ = {isa = PBXBuildFile; fileRef = C4CACCE82669E53C00712ED2 /* RacRedVM.m */; };
 		C4E3EF0E2AC521DF00B12D2F /* NSString+UTFCode.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3EF0D2AC521DF00B12D2F /* NSString+UTFCode.m */; };
 		C4ECDDCD2966D67F00C1FA36 /* YSTcpSocketRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C4ECDDCC2966D67F00C1FA36 /* YSTcpSocketRequest.m */; };
 		C4FBF7322D01950B003497E0 /* DepthChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FBF7312D01950B003497E0 /* DepthChartView.m */; };
 		C4FBF7812D019823003497E0 /* DepthData.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FBF7802D019823003497E0 /* DepthData.m */; };
-		C4FDD6D52667236900E444F2 /* RacRedView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FDD6D22667236900E444F2 /* RacRedView.m */; };
 		C4FDD6D62667236900E444F2 /* YSRACLearnM.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FDD6D32667236900E444F2 /* YSRACLearnM.m */; };
 /* End PBXBuildFile section */
 
@@ -61,8 +57,6 @@
 		C41FC85F2CF9B2970013FFCC /* YSBaseTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSBaseTableView.m; sourceTree = "<group>"; };
 		C41FC8612CF9B36D0013FFCC /* YSCoinInfoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSCoinInfoTableViewCell.h; sourceTree = "<group>"; };
 		C41FC8622CF9B36D0013FFCC /* YSCoinInfoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSCoinInfoTableViewCell.m; sourceTree = "<group>"; };
-		C425F59526A94BBF0091918D /* RacRedSubView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RacRedSubView.h; sourceTree = "<group>"; };
-		C425F59626A94BBF0091918D /* RacRedSubView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RacRedSubView.m; sourceTree = "<group>"; };
 		C44DFE762D0B058300100697 /* DepthViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DepthViewModel.h; sourceTree = "<group>"; };
 		C44DFE772D0B058300100697 /* DepthViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DepthViewModel.m; sourceTree = "<group>"; };
 		C44EEABD295E92DF0083CD03 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -78,8 +72,6 @@
 		C4629D5726244CBF00029564 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C4629D5926244CBF00029564 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4629D5A26244CBF00029564 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C46817A4266B33C30026F60C /* YSTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSTextField.h; sourceTree = "<group>"; };
-		C46817A5266B33C30026F60C /* YSTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSTextField.m; sourceTree = "<group>"; };
 		C48DEDD027511FF200A86E08 /* UIImage+ChangeColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+ChangeColor.h"; sourceTree = "<group>"; };
 		C48DEDD127511FF200A86E08 /* UIImage+ChangeColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ChangeColor.m"; sourceTree = "<group>"; };
 		C49EC46A26C10E7100F130F8 /* ThreadModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThreadModel.h; sourceTree = "<group>"; };
@@ -91,8 +83,6 @@
 		C4C8948526AAB05B005E39F5 /* UIImage+Filter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Filter.m"; sourceTree = "<group>"; };
 		C4C8948726AAB750005E39F5 /* UIImageView+Filter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Filter.h"; sourceTree = "<group>"; };
 		C4C8948826AAB750005E39F5 /* UIImageView+Filter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Filter.m"; sourceTree = "<group>"; };
-		C4CACCE72669E53C00712ED2 /* RacRedVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RacRedVM.h; sourceTree = "<group>"; };
-		C4CACCE82669E53C00712ED2 /* RacRedVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RacRedVM.m; sourceTree = "<group>"; };
 		C4E3EF0C2AC521DF00B12D2F /* NSString+UTFCode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+UTFCode.h"; sourceTree = "<group>"; };
 		C4E3EF0D2AC521DF00B12D2F /* NSString+UTFCode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+UTFCode.m"; sourceTree = "<group>"; };
 		C4ECDDCB2966D67F00C1FA36 /* YSTcpSocketRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSTcpSocketRequest.h; sourceTree = "<group>"; };
@@ -102,9 +92,7 @@
 		C4FBF77F2D019823003497E0 /* DepthData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DepthData.h; sourceTree = "<group>"; };
 		C4FBF7802D019823003497E0 /* DepthData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DepthData.m; sourceTree = "<group>"; };
 		C4FDD6D12667236900E444F2 /* YSRACLearnM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSRACLearnM.h; sourceTree = "<group>"; };
-		C4FDD6D22667236900E444F2 /* RacRedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RacRedView.m; sourceTree = "<group>"; };
 		C4FDD6D32667236900E444F2 /* YSRACLearnM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSRACLearnM.m; sourceTree = "<group>"; };
-		C4FDD6D42667236900E444F2 /* RacRedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RacRedView.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -319,16 +307,8 @@
 		C4FDD6D02667236900E444F2 /* Learning */ = {
 			isa = PBXGroup;
 			children = (
-				C46817A4266B33C30026F60C /* YSTextField.h */,
-				C46817A5266B33C30026F60C /* YSTextField.m */,
-				C4FDD6D42667236900E444F2 /* RacRedView.h */,
-				C4FDD6D22667236900E444F2 /* RacRedView.m */,
-				C425F59526A94BBF0091918D /* RacRedSubView.h */,
-				C425F59626A94BBF0091918D /* RacRedSubView.m */,
 				C4FDD6D12667236900E444F2 /* YSRACLearnM.h */,
 				C4FDD6D32667236900E444F2 /* YSRACLearnM.m */,
-				C4CACCE72669E53C00712ED2 /* RacRedVM.h */,
-				C4CACCE82669E53C00712ED2 /* RacRedVM.m */,
 			);
 			path = Learning;
 			sourceTree = "<group>";
@@ -450,10 +430,8 @@
 			files = (
 				C48DEDD227511FF200A86E08 /* UIImage+ChangeColor.m in Sources */,
 				C41FC8572CF99CD20013FFCC /* YSLoginVC.m in Sources */,
-				C425F59726A94BBF0091918D /* RacRedSubView.m in Sources */,
 				C44EEAC7295ED97D0083CD03 /* YSHttpManager.m in Sources */,
 				C40374BA2A9304E400FE2308 /* YSListModel.m in Sources */,
-				C4CACCE92669E53C00712ED2 /* RacRedVM.m in Sources */,
 				C4E3EF0E2AC521DF00B12D2F /* NSString+UTFCode.m in Sources */,
 				C49EC46C26C10E7100F130F8 /* ThreadModel.m in Sources */,
 				C44DFE782D0B058300100697 /* DepthViewModel.m in Sources */,
@@ -463,10 +441,8 @@
 				C4FBF7322D01950B003497E0 /* DepthChartView.m in Sources */,
 				C4C6A9692A72147A00EBCA8E /* YSRootViewController.m in Sources */,
 				C4629D4A26244CBC00029564 /* AppDelegate.m in Sources */,
-				C4FDD6D52667236900E444F2 /* RacRedView.m in Sources */,
 				C4FBF7812D019823003497E0 /* DepthData.m in Sources */,
 				C41FC8602CF9B2970013FFCC /* YSBaseTableView.m in Sources */,
-				C46817A6266B33C30026F60C /* YSTextField.m in Sources */,
 				C41FC8632CF9B36D0013FFCC /* YSCoinInfoTableViewCell.m in Sources */,
 				C41FC85A2CF99CE70013FFCC /* YSLoginViewModel.m in Sources */,
 				C4ECDDCD2966D67F00C1FA36 /* YSTcpSocketRequest.m in Sources */,
