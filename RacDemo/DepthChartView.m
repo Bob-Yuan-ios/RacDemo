@@ -33,8 +33,8 @@
         _askPointArr = [[NSMutableArray alloc] initWithCapacity:10];
         _bidPointArr = [[NSMutableArray alloc] initWithCapacity:10];
 
-        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
-        [self addGestureRecognizer:tapGesture];
+//        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
+//        [self addGestureRecognizer:tapGesture];
     }
     return self;
 }
@@ -50,8 +50,19 @@
     }
 }
 
+- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    
+    UITouch *touch = [touches anyObject];
+    CGPoint currentPoint = [touch locationInView:self];
+
+    BOOL update = [self updateSelectedDataAtPoint:currentPoint];
+    if (update) {
+        [self setNeedsDisplay];
+    }
+}
+
 // 查找点击点对应的数据
-- (void)updateSelectedDataAtPoint:(CGPoint)point {
+- (BOOL)updateSelectedDataAtPoint:(CGPoint)point {
             
     CGRect rect = self.bounds;
     CGFloat minPrice = 0;
@@ -97,7 +108,7 @@
             _askSelectedDepth = self.asks[index];
             _bidSelectedDepth = self.bids[index];
         
-            return;
+            return YES;
         }
     }
  
@@ -120,10 +131,12 @@
             _askSelectedDepth = self.asks[index];
             _bidSelectedDepth = self.bids[index];
             
-            return;
+            return YES;
         }
         
     }
+    
+    return NO;
 }
 
 - (void)drawRect:(CGRect)rect {
