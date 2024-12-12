@@ -17,6 +17,7 @@
 		C41FC8602CF9B2970013FFCC /* YSBaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C41FC85F2CF9B2970013FFCC /* YSBaseTableView.m */; };
 		C41FC8632CF9B36D0013FFCC /* YSCoinInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C41FC8622CF9B36D0013FFCC /* YSCoinInfoTableViewCell.m */; };
 		C425F59726A94BBF0091918D /* RacRedSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = C425F59626A94BBF0091918D /* RacRedSubView.m */; };
+		C44DFE782D0B058300100697 /* DepthViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C44DFE772D0B058300100697 /* DepthViewModel.m */; };
 		C44EEABF295E95270083CD03 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C44EEABE295E95270083CD03 /* README.md */; };
 		C44EEAC3295EB4A70083CD03 /* YSHttpsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C44EEAC2295EB4A70083CD03 /* YSHttpsRequest.m */; };
 		C44EEAC7295ED97D0083CD03 /* YSHttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C44EEAC6295ED97D0083CD03 /* YSHttpManager.m */; };
@@ -62,6 +63,8 @@
 		C41FC8622CF9B36D0013FFCC /* YSCoinInfoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSCoinInfoTableViewCell.m; sourceTree = "<group>"; };
 		C425F59526A94BBF0091918D /* RacRedSubView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RacRedSubView.h; sourceTree = "<group>"; };
 		C425F59626A94BBF0091918D /* RacRedSubView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RacRedSubView.m; sourceTree = "<group>"; };
+		C44DFE762D0B058300100697 /* DepthViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DepthViewModel.h; sourceTree = "<group>"; };
+		C44DFE772D0B058300100697 /* DepthViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DepthViewModel.m; sourceTree = "<group>"; };
 		C44EEABD295E92DF0083CD03 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		C44EEABE295E95270083CD03 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C44EEAC1295EB4A70083CD03 /* YSHttpsRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSHttpsRequest.h; sourceTree = "<group>"; };
@@ -268,6 +271,8 @@
 				C4C6A9682A72147A00EBCA8E /* YSRootViewController.m */,
 				C4FBF7302D01950B003497E0 /* DepthChartView.h */,
 				C4FBF7312D01950B003497E0 /* DepthChartView.m */,
+				C44DFE762D0B058300100697 /* DepthViewModel.h */,
+				C44DFE772D0B058300100697 /* DepthViewModel.m */,
 				C4FBF77F2D019823003497E0 /* DepthData.h */,
 				C4FBF7802D019823003497E0 /* DepthData.m */,
 				C4629D5426244CBF00029564 /* Assets.xcassets */,
@@ -451,6 +456,7 @@
 				C4CACCE92669E53C00712ED2 /* RacRedVM.m in Sources */,
 				C4E3EF0E2AC521DF00B12D2F /* NSString+UTFCode.m in Sources */,
 				C49EC46C26C10E7100F130F8 /* ThreadModel.m in Sources */,
+				C44DFE782D0B058300100697 /* DepthViewModel.m in Sources */,
 				C4C8948626AAB05B005E39F5 /* UIImage+Filter.m in Sources */,
 				C4C8948926AAB750005E39F5 /* UIImageView+Filter.m in Sources */,
 				C4FDD6D62667236900E444F2 /* YSRACLearnM.m in Sources */,

@@ -11,11 +11,15 @@
 #import "YSJJListViewModel.h"
 
 #import "DepthChartView.h"
+#import "DepthViewModel.h"
 
 @interface YSRootViewController ()
 
 @property (nonatomic, strong) YSJJListViewModel *jjListViewModel;
 @property (nonatomic, strong) YSBaseTableView *baseTableView;
+
+@property (nonatomic, strong) DepthViewModel *depthViewModel;
+@property (nonatomic, strong) DepthChartView *chartView;
 
 @end
 
@@ -24,57 +28,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"根视图-1";
     self.view.backgroundColor = [UIColor whiteColor];
 
-//    [self setupView];
-//    [self setupConstraints];
-    
-    [self loadDepthView];
+    [self setupView];
+    [self setupConstraints];
 }
-
-- (void)loadDepthView{
-        
-    DepthChartView *chartView = [[DepthChartView alloc] initWithFrame:self.view.bounds];
-    chartView.bids = [self generateBids]; // 自定义生成买单数据
-    chartView.asks = [self generateAsks]; // 自定义生成卖单数据
-    [self.view addSubview:chartView];
-}
-
-- (NSArray<DepthData *> *)generateBids {
-    NSMutableArray<DepthData *> *bids = [NSMutableArray array];
-    CGFloat cumulativeAmount = 0;
-    for (int i = 0; i < 10; i++) {
-        DepthData *data = [[DepthData alloc] init];
-        data.price = 100 - i; // 示例价格
-        data.amount = arc4random_uniform(10) + 1; // 随机数量
-        cumulativeAmount += data.amount;
-        data.cumulativeAmount = cumulativeAmount;
-        [bids addObject:data];
-    }
-    return bids;
-}
-
-- (NSArray<DepthData *> *)generateAsks {
-    NSMutableArray<DepthData *> *asks = [NSMutableArray array];
-    CGFloat cumulativeAmount = 0;
-    for (int i = 0; i < 10; i++) {
-        DepthData *data = [[DepthData alloc] init];
-        data.price = 100 + i; // 示例价格
-        data.amount = arc4random_uniform(10) + 1; // 随机数量
-        cumulativeAmount += data.amount;
-        data.cumulativeAmount = cumulativeAmount;
-        [asks addObject:data];
-    }
-    return asks;
-}
-
-
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-//    [self setupSignal];
+    [self setupSignal];
 }
 
 - (void)dealloc{
@@ -82,23 +45,52 @@
 }
 
 - (void)setupView{
-    [self.view addSubview:self.baseTableView];
+    [self.view addSubview:self.chartView];
+//    [self.view addSubview:self.baseTableView];
 }
 
 - (void)setupConstraints{
-    [self.baseTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.chartView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(self.view);
     }];
+    
+//    [self.baseTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.mas_equalTo(self.view);
+//    }];
 }
 
 - (void)setupSignal{
     // 释放主线程压力
     dispatch_async(dispatch_queue_create(0, 0), ^{
-        [self.jjListViewModel.blockTopCommand execute:nil];
+//        [self.jjListViewModel.blockTopCommand execute:nil];
+        
+        [self.depthViewModel.depthDataCommand execute:nil];
     });
 }
 
 #pragma mark lazy load
+- (DepthChartView *)chartView{
+    if (!_chartView) {
+        _chartView = [[DepthChartView alloc] init];
+    }
+    return _chartView;
+}
+
+- (DepthViewModel *)depthViewModel{
+    if(!_depthViewModel){
+        _depthViewModel = [[DepthViewModel alloc] init];
+        [_depthViewModel.depthDataCommand.executionSignals.switchToLatest.deliverOnMainThread subscribeNext:^(id  _Nullable x) {
+        
+            RACTupleUnpack(NSArray *asks, NSArray *bids) = x;
+            self->_chartView.asks = asks;
+            self->_chartView.bids = bids;
+            
+            [self->_chartView reloadData];
+        }];
+    }
+    return _depthViewModel;
+}
+
 - (YSBaseTableView *)baseTableView{
     if(!_baseTableView){
         _baseTableView = [YSBaseTableView new];
