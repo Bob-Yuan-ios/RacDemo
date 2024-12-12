@@ -7,6 +7,19 @@
 
 #import "DepthChartView.h"
 
+@interface DepthChartView ()
+
+@property (nonatomic, copy) NSMutableArray *askPointArr;
+@property (nonatomic, copy) NSMutableArray *bidPointArr;
+
+@property (nonatomic, assign) CGPoint askSelectedPoint;
+@property (nonatomic, assign) CGPoint bidSelectedPoint;
+
+@property (nonatomic, strong) DepthData *askSelectedDepth;
+@property (nonatomic, strong) DepthData *bidSelectedDepth;
+
+@end
+
 @implementation DepthChartView
 
 - (void)reloadData{
@@ -17,8 +30,9 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        _pointArr = [[NSMutableArray alloc] initWithCapacity:10];
-        
+        _askPointArr = [[NSMutableArray alloc] initWithCapacity:10];
+        _bidPointArr = [[NSMutableArray alloc] initWithCapacity:10];
+
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
         [self addGestureRecognizer:tapGesture];
     }
@@ -29,16 +43,15 @@
     CGPoint location = [gesture locationInView:self];
     
     // 根据点击位置找到对应的价格和累积数量
-    DepthData *selectedData = [self findDataAtPoint:location];
-    if (selectedData) {
-        self.selectedPoint = location;
-        self.isPointSelected = YES;
+    [self updateSelectedDataAtPoint:location];
+    
+    if (_askSelectedDepth || _bidSelectedDepth) {
         [self setNeedsDisplay]; // 重新绘制深度图
     }
 }
 
 // 查找点击点对应的数据
-- (DepthData *)findDataAtPoint:(CGPoint)point {
+- (void)updateSelectedDataAtPoint:(CGPoint)point {
             
     CGRect rect = self.bounds;
     CGFloat minPrice = 0;
@@ -66,24 +79,51 @@
     CGFloat priceAtPoint = minPrice + xRatio * (maxPrice - minPrice);
     
     if(isAsk){
-        for (DepthData *data in self.asks) {
-            if (fabs(data.price - priceAtPoint) < 0.1) {
-                return data;
-            }
+        
+        __block NSUInteger index = -1;
+        [self.asks enumerateObjectsUsingBlock:^(DepthData * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if (fabs(obj.price - priceAtPoint) < 0.1) {
+                index = idx;
+                *stop = YES;
+                NSLog(@"#### asks index(%@)", @(idx));
+                return;
+            };
+        }];
+        
+        if(-1 != index){
+            _askSelectedPoint = CGPointFromString(_askPointArr[index]);
+            _bidSelectedPoint = CGPointFromString(_bidPointArr[index]);
+
+            _askSelectedDepth = self.asks[index];
+            _bidSelectedDepth = self.bids[index];
+        
+            return;
         }
     }
  
     if(isBid){
-        // 在买单和卖单中查找最接近的价格
-        for (DepthData *data in self.bids) {
-            if (fabs(data.price - priceAtPoint) < 0.1) {
-                return data;
-            }
+        
+        __block NSUInteger index = -1;
+        [self.bids enumerateObjectsUsingBlock:^(DepthData * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if (fabs(obj.price - priceAtPoint) < 0.1) {
+                index = idx;
+                *stop = YES;
+                NSLog(@"#### bids index(%@)", @(idx));
+                return;
+            };
+        }];
+        
+        if(-1 != index){
+            _askSelectedPoint = CGPointFromString(_askPointArr[index]);
+            _bidSelectedPoint = CGPointFromString(_bidPointArr[index]);
+
+            _askSelectedDepth = self.asks[index];
+            _bidSelectedDepth = self.bids[index];
+            
+            return;
         }
         
     }
-
-    return nil;
 }
 
 - (void)drawRect:(CGRect)rect {
@@ -106,29 +146,59 @@
     [self drawDepthWithData:self.asks inRect:frame fillColor:[UIColor redColor] context:context];
     
     // 如果选中点存在，绘制标记和信息
-      if (self.isPointSelected) {
-          [self drawSelectedPointInContext:context];
-      }
+    if (self.askSelectedDepth) {
+        [self drawAskSelectedPointInContext:context];
+    }
+    
+    if (self.bidSelectedDepth) {
+        [self drawBidSelectedPointInContext:context];
+    }
 }
 
-- (void)drawSelectedPointInContext:(CGContextRef)context {
+- (void)drawAskSelectedPointInContext:(CGContextRef)context {
     // 绘制选中点
     CGFloat radius = 5.0;
-    CGRect circleRect = CGRectMake(self.selectedPoint.x - radius, self.selectedPoint.y - radius, radius * 2, radius * 2);
+    CGRect circleRect = CGRectMake(self.askSelectedPoint.x - radius,
+                                   self.askSelectedPoint.y - radius,
+                                   radius * 2,
+                                   radius * 2);
     [[UIColor yellowColor] setFill];
     CGContextFillEllipseInRect(context, circleRect);
     
     // 显示选中点信息
     NSString *info = [NSString stringWithFormat:@"Price: %.2f\nAmount: %.2f",
-                      [self findDataAtPoint:self.selectedPoint].price,
-                      [self findDataAtPoint:self.selectedPoint].cumulativeAmount];
+                      _askSelectedDepth.price,
+                      _askSelectedDepth.cumulativeAmount];
     
     // 绘制信息框
     NSDictionary *attributes = @{
         NSFontAttributeName: [UIFont systemFontOfSize:12],
         NSForegroundColorAttributeName: [UIColor whiteColor]
     };
-    [info drawAtPoint:CGPointMake(self.selectedPoint.x + 10, self.selectedPoint.y - 30) withAttributes:attributes];
+    [info drawAtPoint:CGPointMake(_askSelectedPoint.x + 10, _askSelectedPoint.y - 30) withAttributes:attributes];
+}
+
+- (void)drawBidSelectedPointInContext:(CGContextRef)context {
+    // 绘制选中点
+    CGFloat radius = 5.0;
+    CGRect circleRect = CGRectMake(_bidSelectedPoint.x - radius,
+                                   _bidSelectedPoint.y - radius,
+                                   radius * 2,
+                                   radius * 2);
+    [[UIColor yellowColor] setFill];
+    CGContextFillEllipseInRect(context, circleRect);
+    
+    // 显示选中点信息
+    NSString *info = [NSString stringWithFormat:@"Price: %.2f\nAmount: %.2f",
+                      _bidSelectedDepth.price,
+                      _bidSelectedDepth.cumulativeAmount];
+    
+    // 绘制信息框
+    NSDictionary *attributes = @{
+        NSFontAttributeName: [UIFont systemFontOfSize:12],
+        NSForegroundColorAttributeName: [UIColor whiteColor]
+    };
+    [info drawAtPoint:CGPointMake(_bidSelectedPoint.x + 10, _bidSelectedPoint.y - 30) withAttributes:attributes];
 }
 
 - (void)drawDepthWithData:(NSArray<DepthData *> *)data
@@ -145,11 +215,21 @@
     // 绘制路径
     UIBezierPath *path = [UIBezierPath bezierPath];
     [path moveToPoint:CGPointMake(rect.origin.x, rect.origin.y + rect.size.height)];
+        
+    NSMutableArray *pointArr = [[NSMutableArray alloc] initWithCapacity:10];
     
     for (DepthData *item in data) {
         CGFloat x = rect.origin.x + (item.price - minPrice) / (maxPrice - minPrice) * rect.size.width;
         CGFloat y = rect.origin.y + rect.size.height - (item.amount / maxCumulativeAmount) * rect.size.height;
-        [path addLineToPoint:CGPointMake(x, y)];
+        CGPoint point = CGPointMake(x, y);
+        [path addLineToPoint:point];
+        
+        [pointArr addObject:NSStringFromCGPoint(point)];
+    }
+    if (0 == rect.origin.x) {
+        _bidPointArr = [pointArr mutableCopy];
+    }else{
+        _askPointArr = [pointArr mutableCopy];
     }
     
     // 闭合路径
